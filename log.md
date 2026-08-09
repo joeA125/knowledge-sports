@@ -2871,3 +2871,95 @@ STATUS: Fujii et al. ingest fully complete. 11 pages created, 16 updated, plus t
 ACQUISITION TARGET unchanged: Scott, Fujii & Onishi (2022), "How does AI play football?", ICAART.
 
 
+## [2026-08-08 13:43] ingest | Scott, Fujii & Onishi ingested — standing acquisition target resolved; vault's "no evidence of transfer" claim was wrong and is now on its fourth revision
+Source: raw/papers/ai_football_reinforcement_learning.md — Atom Scott, Keisuke Fujii & Masaki Onishi, "How does AI play football? An analysis of RL and real-world football strategies", ICAART 2022. AIST Tsukuba + Nagoya University.
+
+This was the vault's STANDING ACQUISITION TARGET, flagged across four ingests (reinforcement-learning, google-research-football, multi-agent-reinforcement-learning, atom-scott) as the one cited work bearing on the simulator transfer question. Unlike the previous target (arXiv:2305.13030), it delivered.
+
+=== A VAULT CLAIM WAS WRONG ===
+reinforcement-learning has carried, since 2026-08-07, the claim that "the forward approach is available; what is unavailable is EVIDENCE THAT A POLICY LEARNED IN A SIMULATOR TRANSFERS TO REAL PLAYERS." That had propagated to imitation-learning, google-research-football, domain-adaptation and multi-agent-reinforcement-learning.
+It is WRONG AS STATED. Transfer evidence existed, in a paper the vault knew about and had flagged, since before any RL source was ingested. Scott et al. compare 15 PPO agents against 3 J-League teams on pass-network metrics and find 3 of 6 converge as agents improve (betweenness mean, betweenness std, closeness std).
+The claim is now on its FOURTH revision. Full sequence recorded on domain-adaptation:
+ v1 no simulator faithful enough (inference, no held source)
+ v2 available but no evidence of transfer (inference from Nakahara's borrowing pattern)
+ v3 bottleneck is fidelity not algorithm (Fujii et al. 2023, held)
+ v4 transfer evidence EXISTS, on pass-network topology, and the dimension was chosen for its insensitivity to the gap (Scott et al., held)
+
+=== THE SYNTHESIS PRODUCT ===
+Scott et al. justify choosing SNA explicitly: "an analysis framework that is not influenced by physical differences between simulations and the real-world is necessary." So transfer was measured on the dimension SELECTED for insensitivity to the domain gap.
+Read against Fujii et al. 2023 (which fails to reproduce MOVEMENT and attributes it to simulator fidelity), the two are consistent rather than contradictory:
+ WHERE PHYSICAL DYNAMICS ARE FACTORED OUT, PARTIAL TRANSFER APPEARS. WHERE THEY ARE CENTRAL, TRANSFER FAILS.
+Both papers share an author (Scott) and neither draws the comparison. New claim transfer-evidence-is-conditional-on-the-dimension-chosen declared on domain-adaptation.
+
+PAGES CREATED (6)
+- wiki/summaries/ai-football-reinforcement-learning.md
+- wiki/concepts/social-network-analysis.md — closeness/betweenness/PageRank on pass graphs; an established tradition (Pena & Hugo, Clemente, Buldu, Goncalves) the vault had no page for
+- wiki/concepts/proximal-policy-optimization.md — the vault's FIRST policy-gradient method; it had DP, TD and DQN and nothing that optimises pi directly
+- wiki/concepts/agent-based-simulation.md — why simulate at all; the experimental-control argument
+- wiki/entities/masaki-onishi.md
+- wiki/entities/aist.md
+
+PAGES UPDATED (5)
+- atom-scott — from middle author to LEAD AUTHOR of a held source. AFFILIATION CORRECTED: page said "Graduate School of Informatics, Nagoya University"; the 2022 paper places him at AIST with per-author markers. The Nagoya attribution came from the 2023 paper's COLLECTIVE affiliation list and was an over-confident inference. Recorded as ambiguous, not resolved.
+- google-research-football — no longer purely second-hand; 19-action count CONFIRMED first-hand; two new details (sticky actions, which explains Nakahara's otherwise-arbitrary sprint start/stop/release triple; and central control with ten SCRIPTED teammates, a material confound on the pass-network result)
+- domain-adaptation — the four-revision history table; the transfer measurement; transfer-evidence-is-conditional-on-the-dimension-chosen
+- reinforcement-learning — claim v4; THREE RL frameworks now held, split forward/inverse/forward; new section on the shooting contradiction
+- agent-based-simulation, social-network-analysis — rewritten to fix dead links (see below)
+
+NEW CLAIMS DECLARED
+- transfer-evidence-is-conditional-on-the-dimension-chosen (domain-adaptation) — rests-on: source:scott-sna-justification, source:fujii-football-reproducibility-failure
+- policy-gradient-forecloses-action-valuation (proximal-policy-optimization; also on reinforcement-learning) — rests-on: source:scott-ppo-setup, source:nakahara-q-per-action
+- network-metrics-are-relational-not-additive (social-network-analysis) — rests-on: source:scott-sna-metric-definitions
+- observational-abundance-does-not-substitute-for-control (agent-based-simulation) — rests-on: source:scott-abs-motivation
+
+A GENUINE TENSION RECORDED
+Scott et al.: more competitive agents SHOOT MORE (r=0.77) and pass less (r=-0.50). Yeung & Fujii: real shooters shoot TOO MUCH and should pass. Two Fujii-co-authored papers pointing opposite ways. Three readings recorded on reinforcement-learning; reading 1 (GFootball's shot model is too generous) is checkable by comparing simulated and real shot conversion by location, and is the sharpest cheap test the vault has identified for GFootball fidelity.
+
+CAVEATS RECORDED ON THE PAPER
+- TrueSkill anomaly: agents trained against EASY bots rank 1,2,3, above agents trained 4x longer against hard bots. Authors flag as counter-intuitive and defer. EVERY correlation in the paper is against this axis.
+- PageRank(min) r=-0.91 is the headline and rests on an UNVERIFIED identification that the min-PageRank node is the goalkeeper.
+- Only ONE player per team is agent-controlled; the other ten run GFootball's rule-based AI. The converging pass network is partly scripted.
+- Text says "three matches", Table 5 lists FIVE. Three teams, five matches.
+- 16 metric-aggregation combinations tested at p<0.05 with no multiple-comparisons correction.
+
+OTHER
+- Fifth held source on the Data Stadium J1 2019 data; Yokohama F Marinos again.
+- Scott et al. close by asking the community to standardise on SPADL-like representations because "it was difficult to use state of the art football analysis methods due to different representations of the underlying data" — a PRACTITIONER naming the benchmarking barrier as REPRESENTATIONAL rather than social.
+- bespoke-environments-foreclose-comparison STRENGTHENED: Scott et al. demonstrate what the shared environment made possible, which is the counterfactual that claim needed.
+- Third instance of the Fujii-group proxy-substitution signature, here arriving from the GFootball authors: a "checkpoint reward" added because goal reward is too sparse.
+
+SELF-CORRECTION — DEAD LINKS, SECOND OCCURRENCE
+Ran find_mentioned_but_missing. Caught THREE more tag-as-page links I introduced this session: [[evaluation]], [[pass-modelling]], [[player-evaluation]]. This is the SAME mistake logged as a lesson in the previous writeback entry, repeated one run later. Fixed by rewriting social-network-analysis and agent-based-simulation; re-ran the scan, clear.
+The lesson evidently did not transfer from being written down. A stronger habit is needed: when a page's `tags:` list and its body are written in the same pass, every wikilink in the body should be checked against the page list rather than against the tag list. Nine pre-existing dead links remain, unfixed and predating this session.
+
+TAXONOMY: 3 tags added — network-analysis, policy-gradient, agent-based-simulation.
+
+ACQUISITION TARGET: none outstanding in this area. The RL/simulation line is now fully held: Scott et al. (2022), Nakahara et al. (2023), Fujii et al. (2023). Next-best candidates are Kurach et al. (2020) GFootball environment paper, and Liu et al. (2021) Humanoid Football — both would bear on the scale/fidelity trade-off recorded on agent-based-simulation.
+
+OUTSTANDING: keisuke-fujii (NINTH source, not yet updated), nagoya-university (ninth), data-stadium (fifth), action-space-design (19 actions confirmed, sticky actions, SMM representation), observed-versus-optimal-decisions (the shooting contradiction), multi-agent-reinforcement-learning (Scott et al. is the single-agent predecessor both MARL papers define themselves against), trueskill (novel application to RL checkpoints), spadl (the representation plea), nfootball (Scott validated GFootball then helped replace it), and the synthesis.
+
+
+## [2026-08-09 11:06] writeback | Scott et al. ingest completed — ten trailing pages current; action-space genealogy resolved; no new dead links
+Completes the Scott, Fujii & Onishi (ICAART 2022) ingest by bringing all ten trailing pages current.
+
+PAGES UPDATED (10)
+- keisuke-fujii — EIGHT -> NINE held sources. Key reframing: the Scott paper is the EARLIEST of the nine, so the methodological register (football as test case) is not a late departure from an applied programme but original to it, predating every applied metric paper except VDEP and GVDEP. Also records the internal shooting contradiction between two papers he co-authored.
+- nagoya-university — EIGHT -> NINE. Same reframing. Three internal inconsistencies now tabled: action spaces of 19/14/12 on overlapping data, L1 vs L2 with the same justification, and the shooting contradiction. None acknowledged by the group.
+- data-stadium — FOUR -> FIVE sources. New claim shared-data-not-shared-method-enables-comparison. Five papers share this dataset; only TWO comparisons have been drawn (Nakahara-vs-C-OBSO metrics, and Scott's simulated-vs-real pass networks). The remaining pairings are equally computable and unrun.
+- action-space-design — the 19-action figure CONFIRMED first-hand. New "genealogy is a series of deletions" section: all three RL papers descend from GFootball's 19 actions and each removes things. Resolves an oddity flagged earlier — Nakahara's sprint start/stop/release triple is a vestige of GFootball's STICKY actions, applied to tracking data where nothing latches. New section on state representation (Super Mini Map vs 92-dim vector); the SMM discards velocity and player identity, a second reason Scott produces no player metric. Observation added: the LARGEST action space belongs to the framework that values nothing.
+- observed-versus-optimal-decisions — the shooting contradiction added as a direct challenge. Scott: better agents shoot MORE (r=0.77) and pass less. Yeung & Fujii: real shooters shoot TOO MUCH. Three readings recorded; reading 1 (GFootball's shot model too generous) is checkable by comparing simulated and real shot conversion by location and is now proposed test 4.
+- multi-agent-reinforcement-learning — THREE positions not two. Scott et al. is the "single agent, central control" middle position that was missing, and it states its own limitation ("we consider multi-agent RL to be out of scope"), making it the explicit predecessor both MARL papers are follow-ups to.
+- nfootball — new section on the group validating GFootball then replacing it. Scott is an author on both; neither acknowledges the tension. Sharpens the cost: the environment that produced the vault's ONLY positive transfer result is the one abandoned, and the replacement runs at a quarter the scale with no external reference point.
+- trueskill — first application in the vault to non-human competitors. New claim latent-skill-models-suit-frozen-agents-better-than-people: checkpoints satisfy the stationarity assumption humans violate, but the uncertainty apparatus (the reason to prefer TrueSkill over win rates) becomes redundant once matches are cheap. Records the easy-bot ranking anomaly and notes a 15-agent closed pool has nothing anchoring it to external football quality.
+- spadl — new claim interchange-formats-unify-within-a-modality-not-across-one. Scott et al. had to reduce SPADL to passes and shots to span simulator and real data. Table comparing SPADL (21 types, describe, no movement) against GFootball (19 actions, control, no result field) shows NEITHER IS A SUPERSET and the overlap is exactly two types. Explains why Nakahara et al. adopted GFootball's vocabulary over SPADL despite working on real tracking data.
+- SYNTHESIS — tactical row newly populated with social-network-analysis; the proxy-substitution migration now recorded THREE times including once from outside the group (GFootball's checkpoint reward); limitation 13 added (simulated agents shoot more); practical guidance gains entries for describing team style and for simulating football; handcrafted-features-rule now checked THREE times with all three uninformative, recorded as possibly unfalsifiable within this literature.
+
+DEAD-LINK CHECK: ran find_mentioned_but_missing after the batch. NO new dead links — the tag-as-page error logged twice previously did not recur. The nine pre-existing ones remain unfixed and predate this session.
+
+STATUS: Scott et al. ingest fully complete. 6 pages created, 15 updated, plus taxonomy, index and two log entries.
+
+NO ACQUISITION TARGET OUTSTANDING in the RL/simulation area — the line is fully held (Scott 2022, Nakahara 2023, Fujii 2023). Next-best candidates remain Kurach et al. (2020) GFootball environment paper and Liu et al. (2021) Humanoid Football, both bearing on the scale/fidelity trade-off tabled on agent-based-simulation.
+
+PROCESS NOTE: this ingest required 21 page writes across three turns. At current page depth a single ingest into well-developed territory reliably exceeds one turn's context. The binding constraint is that the MCP server offers only write_note (full replacement) — for several trailing pages the actual change was one section plus a frontmatter line. A str_replace equivalent would cut this work substantially.
+
+

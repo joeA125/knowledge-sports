@@ -35,7 +35,7 @@ A catalog of all wiki pages, organised by type.
 - [[daniel-cervone]] · [[alex-damour]] · [[kirk-goldsberry]] — the NBA martingale EPV paper
 - [[luke-bornn]] — NBA EPV, Wide Open Spaces, and the soccer EPV framework
 - [[javier-fernandez]] — Wide Open Spaces, SoccerMap, and the soccer EPV framework
-- [[keisuke-fujii]] — **Author on eight held sources**; senior author of VDEP, GVDEP, DRSO, C-OBSO, NMSTPP, SPC and Nakahara et al., and **first author** of the adaptive action supervision paper
+- [[keisuke-fujii]] — **Author on nine held sources**; the largest single-author cluster in this vault
 - [[calvin-yeung]] — Lead author of NMSTPP and the game-theoretic SPC framework
 - [[kosuke-toda]] — Lead author of VDEP
 - [[rikuhei-umemoto]] — Lead author of GVDEP and DRSO; the defensive-positioning line
@@ -43,7 +43,8 @@ A catalog of all wiki pages, organised by type.
 - [[hiroshi-nakahara]] — Lead author of the multi-agent deep RL valuation framework; the inverse half of a forward/inverse pair
 - [[kazushi-tsutsui]] — Three held sources; the only author on both sides of every division in the Fujii group
 - [[kazuya-takeda]] — Co-author of C-OBSO, Nakahara et al., and the 2020 trajectory work
-- [[atom-scott]] — Co-author of the adaptive action supervision paper; lead author of the cited-not-held GFootball/real-football comparison
+- [[atom-scott]] — **Lead author** of the GFootball/real-football comparison; co-author of the adaptive action supervision paper
+- [[masaki-onishi]] — AIST senior author on the agent-based simulation paper
 - [[naoya-takeishi]] · [[yoshinobu-kawahara]] — the Fujii group's methodological line: multi-agent modelling, counterfactual inference, animal behaviour
 - [[keisuke-kushiro]] — Co-author of VDEP (supervision)
 - [[tony-sit]] — Statistician, co-author of NMSTPP
@@ -57,15 +58,16 @@ A catalog of all wiki pages, organised by type.
 - [[andrei-shelopugin]] — Independent researcher; EPV of control and duel actions, PCR
 - [[alexander-sirotkin]] — Glicko-2 duel-rating and league-rating papers
 - [[openai]] · [[google-brain]] · [[google-deepmind]] · [[google-research]] · [[microsoft-research]] — research organisations
-- [[google-research-football]] — GFootball; the shared simulator whose action vocabulary was borrowed and whose environment was ultimately rejected
+- [[google-research-football]] — GFootball; the shared 11v11 simulator, used directly by one held source and rejected by another
 - [[nfootball]] — the Fujii group's bespoke replacement, and what building your own environment costs in comparability
 - [[university-of-toronto]] · [[jacobs-university-bremen]] · [[universite-de-montreal]] — universities
 - [[universidade-do-porto]] · [[inesc-tec]] — the Porto football-analytics group
 - [[nagoya-university]] · [[kyoto-university]] — the Fujii group and the VDEP lead author
 - [[university-of-tokyo]] · [[osaka-university]] — affiliations on the Fujii group's methodological line
+- [[aist]] — Japanese national institute; the simulation-feasibility half of the programme
 - [[fc-porto]] · [[fc-barcelona]] — clubs with co-author affiliations
 - [[stats-perform]] — Sports data provider (STATS LLC / Opta)
-- [[data-stadium]] — Japanese sports data provider; the J-League data behind four held sources, each subsetting it differently
+- [[data-stadium]] — Japanese sports data provider; the J-League data behind five held sources, each subsetting it differently
 
 ## Concepts
 
@@ -96,13 +98,15 @@ A catalog of all wiki pages, organised by type.
 - [[scaling-laws]] · [[retrieval-augmented-generation]] · [[ai-agent]] · [[tool-use]] · [[agent-memory]]
 
 ### Reinforcement Learning and Decision Modelling
-- [[reinforcement-learning]] — What sports valuation borrows from RL, what it does not, and the two frameworks here that genuinely do it
+- [[reinforcement-learning]] — What sports valuation borrows from RL, what it does not, and the three frameworks here that genuinely do it
 - [[multi-agent-reinforcement-learning]] — Per-player agents against team-as-one-agent; independence, and the centralised alternative that changed nothing
 - [[temporal-difference-learning]] — Bootstrapped value learning; SARSA, on-policy targets, and why differencing a supervised model is not TD
 - [[deep-q-network]] — Target networks, replay buffers, double Q; why one held RL paper uses all of it and the other none
+- [[proximal-policy-optimization]] — The vault's only policy-gradient method, and why that family cannot yield an action-valuation metric
 - [[action-supervision]] — An imitation loss added to a value objective, and the weight neither paper reports
 - [[action-space-design]] — What counts as an action; the choice that fixes which counterfactuals a framework can pose
-- [[domain-adaptation]] — Sim-to-Real and its harder inversion; why the football simulator gap is a fidelity problem
+- [[domain-adaptation]] — Sim-to-Real and its harder inversion; the transfer claim, four revisions on
+- [[agent-based-simulation]] — Why simulate at all: observational abundance does not substitute for experimental control
 - [[imitation-reward-tradeoff]] — Reproducing the demonstrator against obtaining reward, and where on that frontier a model stops
 - [[policy-modelling]] · [[counterfactual-baseline]] · [[counterfactual-simulation]] · [[temporal-discounting]]
 - [[markov-game]] · [[value-iteration]] · [[game-theory]]
@@ -137,6 +141,7 @@ A catalog of all wiki pages, organised by type.
 - [[xsot]] — Expected shot on target, and its off-ball counterpart; game-theoretic payoffs
 - [[defensive-valuation]] · [[vdep]] · [[gvdep]] · [[drso]] · [[duel-skill-rating]] · [[symmetrical-duel-valuation]]
 - [[off-ball-value]] · [[space-creation]] · [[obso]] · [[c-obso]] · [[pitch-control]]
+- [[social-network-analysis]] — Pass networks as graphs; the structural tradition alongside the valuation one
 - [[space-occupation-gain]] — SOG and SGG; space for oneself and for a teammate
 - [[pitch-value-model]] — Learning what a location is worth from where defenders stand
 - [[voronoi-tessellation]] — The discrete-dominance baseline both pitch-control traditions replaced
@@ -159,7 +164,7 @@ A catalog of all wiki pages, organised by type.
 
 ## Syntheses
 
-- [[action-valuation-frameworks-compared]] — **Football Modelling Tasks Compared**: the **seven** distinct tasks (valuation, forecasting, clustering, counterfactual/transfer, tactical, prescription, and now simulation), how each is validated, why possession metrics outpredict goals, the axes of valuation design, the finding that where two off-ball metrics have been compared they disagree, and the finding that where the forward approach has been attempted it failed
+- [[action-valuation-frameworks-compared]] — **Football Modelling Tasks Compared**: the **seven** distinct tasks (valuation, forecasting, clustering, counterfactual/transfer, tactical, prescription, simulation), how each is validated, why possession metrics outpredict goals, the axes of valuation design, the finding that where two off-ball metrics have been compared they disagree, and the boundary on simulator transfer
 
 ## Questions
 
@@ -176,7 +181,7 @@ Open investigations — a question, what can be settled from held sources, and w
 
 ### Claims this vault generated
 - [[within-season-variation-noise-or-signal]] — **Is within-season variation noise or signal?** Shown here to be the *same quantity* under two names.
-- [[observed-versus-optimal-decisions]] — **Do players decide suboptimally, or do the models only think so?** The gap is **tunable** by a loss weight and, newly, by a training budget.
+- [[observed-versus-optimal-decisions]] — **Do players decide suboptimally, or do the models only think so?** The gap is **tunable** by a loss weight and by a training budget — and simulated agents shoot *more* as they improve, against the real-world finding.
 - [[handcrafted-features-rule]] — **Is the handcrafted-features rule right?** Two candidate test cases arrived and both were uninformative — the rule may be unfalsifiable within this literature.
 
 ## Conversations
@@ -242,5 +247,6 @@ Pages kept for history, superseded by a canonical page. **Intentionally without 
 - [[team-defense-positioning-counterfactuals]] — "Evaluation of Team Defense Positioning by Computing Counterfactuals using StatsBomb 360 data" (Umemoto & Fujii, StatsBomb 2023) — EF-OBSO and DRSO
 - [[creating-scoring-opportunities-trajectory-prediction]] — "Evaluation of Creating Scoring Opportunities for Teammates in Soccer via Trajectory Prediction" (Teranishi et al., MLSA 2022/23)
 - [[optimal-decisions-shot-taking-situations]] — "A Strategic Framework for Optimal Decisions in Football 1-vs-1 Shot-Taking Situations" (Yeung & Fujii, Complex & Intelligent Systems 2024) — game theory, xSOT
+- [[ai-football-reinforcement-learning]] — "How does AI play football?" (Scott, Fujii & Onishi, ICAART 2022) — PPO in GFootball, TrueSkill ranking, and the vault's only positive simulator-transfer result
 - [[action-valuation-multi-agent-reinforcement-learning]] — "Action Valuation of On- and Off-Ball Soccer Players Based on Multi-Agent Deep Reinforcement Learning" (Nakahara et al., 2023) — per-player SARSA agents, action supervision, and the first off-ball metric comparison
 - [[adaptive-action-supervision-multi-agent-rl]] — "Adaptive Action Supervision in RL from Real-World Multi-Agent Demonstrations" (Fujii et al., 2023) — Real-to-Sim domain adaptation, DTW-adaptive supervision, NFootball, and the vault's clearest negative result on simulator fidelity

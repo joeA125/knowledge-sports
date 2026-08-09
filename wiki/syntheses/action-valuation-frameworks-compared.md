@@ -1,210 +1,192 @@
 ---
 title: "Football Modelling Tasks Compared"
 type: synthesis
-tags: [sports-analytics, action-valuation, defensive-valuation, off-ball, space-creation, player-evaluation, evaluation, counterfactual, game-theory, clustering, event-prediction, reliability, predictive-validity, construct-validity, time-series, recruitment, transfer-prediction, duel-analysis, discounting, selection-bias, probability-surface, tactical-analysis, model-decomposition, proxy-target, class-imbalance, trajectory-prediction, pitch-control, theory-based-modelling, reinforcement-learning, multi-agent, action-space, simulator, domain-adaptation]
-sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/evaluating-football-player-actions.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-event-sequences-spatiotemporal-point-process-mixture-model.md, raw/papers/scoutgpt-generative-transformer-football-player-valuation.md, raw/papers/football-performance-time-series.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md]
+tags: [sports-analytics, action-valuation, defensive-valuation, off-ball, space-creation, player-evaluation, evaluation, counterfactual, game-theory, clustering, event-prediction, reliability, predictive-validity, construct-validity, time-series, recruitment, transfer-prediction, duel-analysis, discounting, selection-bias, probability-surface, tactical-analysis, model-decomposition, proxy-target, class-imbalance, trajectory-prediction, pitch-control, theory-based-modelling, reinforcement-learning, multi-agent, action-space, simulator, domain-adaptation, agent-based-simulation, network-analysis, policy-gradient]
+sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/evaluating-football-player-actions.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-event-sequences-spatiotemporal-point-process-mixture-model.md, raw/papers/scoutgpt-generative-transformer-football-player-valuation.md, raw/papers/football-performance-time-series.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md]
 confidence: 0.9
 provenance:
-  extracted: 45%
+  extracted: 46%
   inferred: 34%
-  generated: 16%
+  generated: 15%
   imported: 2%
   ambiguous: 3%
 lifecycle: reviewed
 created: 2026-07-23
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # Football Modelling Tasks Compared
 
-The vault's football-analytics sources are easily mistaken for variations on one problem. They are not. They divide into **seven distinct tasks**, each answering a different question, with different data requirements and validation strategies.
+The vault's football sources are easily mistaken for variations on one problem. They divide into **seven distinct tasks**, each with different data requirements and validation strategies.
 
-> **On provenance.** A synthesis generates claims that no single source states. The load-bearing ones are marked `^[generated]` at their point of use, with the fuller argument — and what would falsify it — on the linked concept page. Claims marked `absence:` have a built-in expiry date. Eight open questions have their own pages, listed at the foot.
+> **On provenance.** A synthesis generates claims no single source states. Load-bearing ones are marked `^[generated]` at their point of use, with the fuller argument on the linked page. Claims marked `absence:` have a built-in expiry date.
 
 ## The Seven Tasks
 
-| Task | Question | Unit | Examples |
-|---|---|---|---|
-| **Valuation** | How good was that action or position? | Action → player or team | [[expected-goals\|xG]], [[expected-threat\|xT]], [[vaep]], [[vdep]], [[gvdep]], [[obso]], [[c-obso]], [[space-occupation-gain\|SOG]], [[martingale-epv]], [[expected-value-possession-framework\|Fernández et al.]], [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] |
-| **Forecasting** | What happens next? | Event or trajectory | [[seq2event]], [[nmstpp]], [[sig-model]], [[trajectory-prediction\|GVRNN]] |
-| **Clustering** | What kind of sequence is this? | Possession | [[football-event-sequences-point-process-mixture\|Mixture model]] |
-| **Counterfactual / transfer** | What if this player joined? | Episode or season | [[scoutgpt]], [[transfer-performance-prediction\|Shelopugin regression]] |
-| **Tactical** | How does this team play, and how do we counter it? | Team configuration | [[tactical-analysis\|Pressing analysis]], possession clustering |
-| **Prescription** | What *should* the player have done? | Decision or position | [[physics-based-pass-probabilities\|Spearman et al. (2017)]], [[xsot\|Yeung & Fujii]], [[drso\|DRSO]] |
-| **Simulation** | Can we reproduce real football in a synthetic environment? | A whole episode | **[[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]]** |
+| Task | Question | Examples |
+|---|---|---|
+| **Valuation** | How good was that action or position? | [[expected-goals\|xG]], [[expected-threat\|xT]], [[vaep]], [[vdep]], [[obso]], [[c-obso]], [[space-occupation-gain\|SOG]], [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] |
+| **Forecasting** | What happens next? | [[seq2event]], [[nmstpp]], [[sig-model]], [[trajectory-prediction\|GVRNN]] |
+| **Clustering** | What kind of sequence is this? | [[football-event-sequences-point-process-mixture\|Mixture model]] |
+| **Counterfactual / transfer** | What if this player joined? | [[scoutgpt]], [[transfer-performance-prediction\|Shelopugin regression]] |
+| **Tactical** | How does this team play? | [[tactical-analysis\|Pressing analysis]], **[[social-network-analysis\|pass networks]]** |
+| **Prescription** | What *should* the player have done? | [[physics-based-pass-probabilities\|Spearman (2017)]], [[xsot\|Yeung & Fujii]], [[drso\|DRSO]] |
+| **Simulation** | Can we reproduce real football synthetically? | [[ai-football-reinforcement-learning\|Scott et al.]], [[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]] |
 
-**The seventh is new as of 2026-08-07**^[generated: the task division is this vault's organising scheme; no source proposes it, and no source describes simulation as a distinct task from counterfactual valuation. rests-on: absence:no-source-proposes-a-task-taxonomy] and is genuinely distinct from counterfactual/transfer, though both generate. The difference is the **deliverable**: counterfactual work generates in order to produce a number about a player; simulation work generates in order to produce a faithful environment. [[scoutgpt|ScoutGPT]] would be a success if its player valuations were right even with implausible rollouts; Fujii et al. would not.
+Simulation is distinct from counterfactual/transfer though both generate: **counterfactual work generates to produce a number about a player; simulation work generates to produce a faithful environment.** [[scoutgpt|ScoutGPT]] would succeed with implausible rollouts; the simulation papers would not.
 
-That distinction turns out to matter, because the two tasks succeed and fail differently — see "Where Generation Breaks" below.
+**The tactical row is newly populated.** [[social-network-analysis]] describes team *structure* rather than valuing actions, and is an established tradition (Peña & Hugo, Clemente, Buldú, Gonçalves) the vault had entirely missed.
 
-**Prescription remains the oldest task, not the newest.**
+### Prescription is the oldest task
 
-| Instance | Year | Optimises over | Choice set |
-|---|---|---|---|
-| **[[physics-based-pass-probabilities\|Hypothetical passing]]** | **2017** | Ball velocity vector | Continuous, searched by annealing |
-| [[drso\|DRSO]] | 2023 | Defender position | Four grid vertices |
-| [[xsot\|SPC framework]] | 2024 | Action | Two: shoot or pass |
-| *([[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] — **could**, and does not)* | 2023 | Action | **14, per player, per timestep** |
+| Instance | Year | Choice set |
+|---|---|---|
+| **[[physics-based-pass-probabilities\|Hypothetical passing]]** | **2017** | Continuous, searched by annealing |
+| [[drso\|DRSO]] | 2023 | Four grid vertices |
+| [[xsot\|SPC framework]] | 2024 | Two: shoot or pass |
+| *([[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] — **could**, and does not)* | 2023 | 14, per player, per timestep |
 
-The 2017 instance is the only one that **did not scale**. Both successors solved that by **coarsening the choice set** rather than by cheaper search. **You can only prescribe over a choice set you can enumerate** — but Nakahara et al. show enumerability is not sufficient: they hold the largest tractable prescriptive choice set in the vault, have the observed-versus-maximum gap one subtraction from their output tensor, and report correlations with season goals instead. **A group also has to want to make the prescriptive claim.** See [[observed-versus-optimal-decisions]].
+The 2017 instance is the only one that **did not scale**; both successors coarsened the choice set rather than finding cheaper search. **You can only prescribe over a choice set you can enumerate — and a group also has to want to make the prescriptive claim.**
 
 ## Task 1: Valuation
 
 $$V(a_i) = Q(S_i) - Q(S_{i-1})$$
 
-| | [[expected-threat\|xT]] | [[vaep]] | [[expected-value-possession-framework\|Fernández]] | [[vdep]] | [[gvdep]] | [[obso]] | [[space-occupation-gain\|SOG]] | [[c-obso]] | [[drso]] | [[xsot\|xSOT]] | **[[action-valuation-multi-agent-reinforcement-learning\|Nakahara $Q$]]** |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Perspective** | Attack | Attack | Attack | **Def** | **Def** | Attack | Attack | Attack | **Def** | **Both** | Attack (+conceding in reward) |
-| **Whose value** | Actor | Actor | Actor | Team | Team | Receiver | **Occupier** | **Teammate's** | **Defender** | Actor | **All ten at once** |
-| **Measures** | Level | Level | Level | Level | Level | Level | **Rate** | Rate | Level | Level | **Rate** |
-| **Mechanism** | DP | Boosting | Neural ×9 | XGB ×2 | XGB ×4 | **Physical** | **Control × value** | **Counterfactual** | **Counterfactual** | **Hybrid + game** | **[[temporal-difference-learning\|TD/RL]]** |
-| **[[interpretability]]** | **High** | Low | Moderate | Moderate | Moderate | **High** | **High** | Moderate | **High** | Moderate | **Low** |
-| **Reported unit** | Player | Player | Situation | **Team** | **Team** | Player | Player | Player | **Team** | Situation | Player |
-| **Cost** | Trivial | Modest | Modest | Modest | **Low** | **Low** | Modest | High | **Low** | Low | High |
+| | [[expected-threat\|xT]] | [[vaep]] | [[expected-value-possession-framework\|Fernández]] | [[vdep]] | [[obso]] | [[space-occupation-gain\|SOG]] | [[c-obso]] | [[drso]] | [[xsot\|xSOT]] | [[action-valuation-multi-agent-reinforcement-learning\|Nakahara $Q$]] |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **Perspective** | Attack | Attack | Attack | **Def** | Attack | Attack | Attack | **Def** | **Both** | Attack |
+| **Whose value** | Actor | Actor | Actor | Team | Receiver | **Occupier** | **Teammate's** | **Defender** | Actor | **All ten** |
+| **Measures** | Level | Level | Level | Level | Level | **Rate** | Rate | Level | Level | **Rate** |
+| **Mechanism** | DP | Boosting | Neural ×9 | XGB | **Physical** | **Control × value** | **Counterfactual** | **Counterfactual** | **Hybrid + game** | **[[temporal-difference-learning\|TD/RL]]** |
+| **[[interpretability]]** | **High** | Low | Moderate | Moderate | **High** | **High** | Moderate | **High** | Moderate | **Low** |
+| **Cost** | Trivial | Modest | Modest | Modest | **Low** | Modest | High | **Low** | Low | High |
 
-**The central trade-off** — richer state buys sensitivity and pays in stability, interpretability and cost — holds across most of the table. [[obso|OBSO]], [[space-occupation-gain|SOG]] and [[drso|DRSO]] are the exceptions: tracking-based, interpretable and cheap, because all three are **physical or geometric rather than learned**.
+**The central trade-off** — richer state buys sensitivity and pays in stability, interpretability and cost — holds except for [[obso|OBSO]], [[space-occupation-gain|SOG]] and [[drso|DRSO]], which are **physical or geometric rather than learned**.
 
-### A fifth estimation style
+### Five estimation styles
 
-Van Roy et al.'s taxonomy has three styles; this vault added *counterfactual* as a fourth and **reinforcement-learning-based** as a fifth: learn $Q(s,a)$ over an explicit [[action-space-design|action space]] by bootstrapping against reward.^[generated: added on [[action-valuation]]; distinct from *action-based* because value is learned against reward by [[temporal-difference-learning|bootstrapping]] rather than regressed against an outcome label, and from *counterfactual* because no reference baseline is differenced. rests-on: source:vanroy-three-style-taxonomy, source:nakahara-sarsa-td]
+Van Roy et al. name three; this vault added *counterfactual* as a fourth and **reinforcement-learning-based** as a fifth.^[generated: added on [[action-valuation]]. rests-on: source:vanroy-three-style-taxonomy, source:nakahara-sarsa-td]
 
 ⚠️ Reliability evidence is thinner than it looks. [[split-half-reliability]] and [[performance-volatility]] measure **the same variance component** with opposite interpretations. See [[within-season-variation-noise-or-signal]].
 
-> **`no-reliability-for-off-ball-metrics`** — no off-ball or defensive metric here has a reported split-half reliability.^[generated: rests-on: absence:no-held-source-reports-off-ball-reliability — ⚠️ re-checked on the GVDEP, DRSO, Spearman-2017, Wide Open Spaces, Nakahara and **Fujii** ingests: still holds. **Six mechanisms, zero reliability estimates.**]
+> **`no-reliability-for-off-ball-metrics`**^[generated: rests-on: absence:no-held-source-reports-off-ball-reliability — ⚠️ re-checked across seven ingests including **Scott et al.**: still holds. Six mechanisms, zero reliability estimates.]
 
-### Axis 1: Perspective
+### Axis 1: Perspective, and the proxy migration
 
-VAEP's conceding classifier at **F1 = 0.000**. ⚠️ Near-guaranteed for any calibrated model at a 0.23% base rate, and VAEP never thresholds; [[gvdep|GVDEP]] reports 0.08–0.15, and [[physics-based-pass-probabilities|Spearman et al.]] demonstrate the mechanism directly. See [[vaep-conceding-classifier]].
+VAEP's conceding classifier at **F1 = 0.000**. ⚠️ Near-guaranteed for any calibrated model at a 0.23% base rate, and VAEP never thresholds. See [[vaep-conceding-classifier]].
 
-Two structural alternatives to a rarity-stricken classifier now exist, both from the Fujii group and both undiscussed by it. Nakahara et al. put conceding in the **reward** at possession level, diluting the base rate. Fujii et al. add a **shot reward of +1** explicitly "because the goal reward was sparse and limited" — [[rare-event-proxy-targets|proxy substitution]] executed inside a reward function rather than a classifier target. **The group's signature move has migrated into RL without anyone noting the migration.**
+**The proxy-substitution response has now migrated into reward functions three times**, and nobody in the group notes the migration: Nakahara et al. put conceding in the reward at possession level; Fujii et al. add a shot reward "because the goal reward was sparse and limited"; and Scott et al. inherit GFootball's **checkpoint reward**, added for the same reason **by the environment's authors, outside the group entirely.** See [[rare-event-proxy-targets]].
 
 > ### `offensive-bias-four-causes`
 > **Four distinct causes with four different remedies:** definitional, data, modelling choice, statistical.
-> ^[generated: rests-on: source:vandijk-rankings, source:mendes-neves-event-data-limits, source:shelopugin-duel-tables, source:vaep-f1-zero — the fourth premise is under question. Declared on [[action-valuation]].]
-
-### Axes 2–5
-
-**Target rarity** — the proxy reorganises the model around itself, now including reward functions. **Whose value** — six answers. **Observed or optimal policy** — see prescription. **[[action-space-design|Action space]]** — arguably the most consequential, because it fixes which counterfactuals a framework can pose.
+> ^[generated: rests-on: source:vandijk-rankings, source:mendes-neves-event-data-limits, source:shelopugin-duel-tables, source:vaep-f1-zero. Declared on [[action-valuation]].]
 
 ### Free parameters
 
-**Sixteen asserted parameters carry no sensitivity analysis**, up from four across five ingests, and of **six kinds**.^[generated: rests-on: absence:no-sensitivity-analysis-on-horizon-parameters — ⚠️ re-checked at the Fujii ingest, which adds two. Still holds. Declared on [[model-selection]].]
+**Sixteen asserted parameters carry no sensitivity analysis**, of **six kinds** — horizons, shapes, geometric gates, detection thresholds, prior strengths, and stopping points.^[generated: rests-on: absence:no-sensitivity-analysis-on-horizon-parameters — re-checked at every ingest. Declared on [[model-selection]].]
 
-Horizons are likely self-limiting; $\gamma$ is a shape parameter spanning two orders of magnitude; SOG/SGG's $\delta$, $\alpha$ and Nakahara's velocity thresholds are **gates**; $\lambda_1$ is a **prior strength**; and — new — the **training-step count** is a stopping parameter.
-
-> ### `where-you-stop-is-a-modelling-choice`
-> **When imitation and reward objectives trade off during training rather than only across hyperparameter settings, the training-step count is a free parameter with the same status as a loss weight — and it is almost never reported as one.**
-> ^[generated: declared on [[imitation-reward-tradeoff]]. rests-on: source:fujii-training-step-ordering]
-
-⚠️ **The vault predicted where the $\lambda_1$ answer would be found and was wrong.** arXiv:2305.13030 was acquired and reports **no value for $\lambda_1$ at all** — the methods paper is less specific about its own mechanism than the applied paper citing it. The recorded lesson: **methods papers optimise for ablation questions ("is this component needed?"), not calibration questions ("how much of it?")**. See [[free-parameters-load-bearing]].
+⚠️ **The vault predicted where the $\lambda_1$ answer would be and was wrong.** The recorded lesson: **methods papers optimise for ablation questions ("is this component needed?"), not calibration questions ("how much of it?")**. See [[free-parameters-load-bearing]].
 
 ## Off-Ball Valuation: Six Mechanisms
-
-A player has the ball for roughly **3 of 90 minutes**.
 
 | | Surface at position | Control × value | Positions in state | Predicted reference | Optimal position | **Learned $Q$** |
 |---|---|---|---|---|---|---|
 | Values | The **receiver** | The **occupier** | The **defence** | The **creator** | The **defender** | **The mover** |
-| Measures | A level | **A rate** | A level | A rate | A level | **A rate** |
 | Needs a baseline | Yes | Yes | No | **Yes** | **Yes** | **No** |
 | Reported unit | Player | Player | **Team only** | Player | **Team** | **Player** |
-| Example | EPV surface, [[obso]] | [[space-occupation-gain\|SOG]] | [[vdep]], [[gvdep]] | [[c-obso]] | [[drso]] | [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] |
 
-**`counterfactual-individuates`** — the individuating ingredient is the counterfactual, not the data.^[generated: declared on [[counterfactual-baseline]]. **Weakened**: route 6 individuates by *agent decomposition*, a second non-counterfactual individuator alongside SGG's spatial predicate. rests-on: claim:counterfactual-individuates]
+**`counterfactual-individuates`** — **weakened**: route 6 individuates by *agent decomposition*, a second non-counterfactual individuator alongside SGG.^[generated: declared on [[counterfactual-baseline]]. rests-on: claim:counterfactual-individuates]
 
-**Space creation is covered twice, by unrelated mechanisms**, never compared.^[generated: rests-on: absence:no-held-source-compares-sgg-and-cobso — ⚠️ re-checked 2026-08-07: still holds.] See [[space-creation]].
+## The Metrics Disagree — and Now So Do the Datasets
 
-## The Off-Ball Metrics Have Been Compared, and They Disagree
+| Nakahara $Q$ against | $\rho$ |
+|---|---|
+| [[c-obso\|C-OBSO]] | **0.182** *(no relationship)* |
+| [[obso\|OBSO]] | −0.305 |
+| Season goals | −0.761 |
 
-| Nakahara $Q$ against | $\rho$ | $N$ |
-|---|---|---|
-| [[c-obso\|C-OBSO]] | **0.182** *(no relationship)* | 14 |
-| [[obso\|OBSO]] | −0.305 | 14 |
-| Season goals | −0.761 | 14 |
-| Expert match ratings | −0.218 | 14 |
+C-OBSO and the Q-values share group, club, season, [[data-stadium|provider]] and 14 players. Both claim off-ball contribution. They are unrelated.
 
-C-OBSO and the Q-values come from the same group, club, season, [[data-stadium|provider]] and 14 players. Both are presented as off-ball contribution. They are unrelated.
+**A mundane explanation has strengthened with each ingest.** The **five** held sources on this dataset each subset it differently: all events (VDEP), shot-ending sequences (C-OBSO), attacking-third possessions (Nakahara), last-pass sequences (Fujii), **passes and shots only (Scott)**. Metrics over different populations of moments need not agree, and the shared name conceals it. See [[data-stadium]].
 
-The paper's benign reading — different aspects — **concedes that neither measures "off-ball contribution" as such.**
+> ### `shared-data-not-shared-method-enables-comparison`
+> **Cross-framework comparison requires two methods on one dataset, which licensing usually prevents. Where one provider serves one group repeatedly, comparison becomes available almost by accident — and is still mostly not done.**
+> ^[generated: declared on [[data-stadium]]. Five papers share this dataset; two comparisons have been drawn. rests-on: absence:no-held-source-benchmarks-across-frameworks, source:nakahara-obso-cobso-correlations, source:scott-jleague-comparison]
 
-**A further explanation surfaced with the Fujii ingest.** The four sources on this dataset each **subset it differently**: C-OBSO takes shot-ending sequences only (412), Nakahara et al. attacking-third possessions regardless of outcome, Fujii et al. last-pass sequences, VDEP everything. **Three overlapping but non-identical populations of football moments, from one dataset, in one group.** Metrics computed over different moments need not agree, and the shared name conceals it. See [[data-stadium]] and [[construct-validity]].
-
-**First, the reliability gap and the disagreement gap are the same gap.** Without a reliability figure, "different constructs" and "one is unstable" cannot be separated. A split-half estimate is the cheapest informative measurement in this area, ahead of any seventh mechanism.
-
-**Second, `no-cross-framework-benchmarking` is weakened but survives — and has been undermined from a new direction.** Nakahara et al. compare against [[obso|OBSO]], a Spearman metric from an unrelated lineage. But Fujii et al. **replace the shared simulator with a bespoke one**:
+**`no-cross-framework-benchmarking` survives, weakened twice and undermined from a third direction.** Nakahara et al. compare against a Spearman metric; Scott et al. compare simulated agents against real teams; but Fujii et al. **replace the shared simulator with a bespoke one**.
 
 > ### `bespoke-environments-foreclose-comparison`
-> **A research group that builds its own simulator to fix a shared one's shortcomings trades external comparability for internal control, and the trade is rarely acknowledged as a cost.**
-> ^[generated: declared on [[nfootball]]. rests-on: source:fujii-nfootball-motivation, absence:no-held-source-benchmarks-across-frameworks]
+> ^[generated: declared on [[nfootball]]. **Strengthened** — Scott et al. demonstrate what the shared environment made possible, the counterfactual the claim lacked. rests-on: source:fujii-nfootball-motivation, source:scott-gfootball-comparison-study]
 
-[[google-research-football|GFootball's]] value was never its physics — it was that everyone used it. **Four papers now share the Data Stadium dataset and only one pair has been compared; the other five pairings are equally computable and unrun.** Availability is not sufficient.
+**And the barrier has now been named from inside.** Scott et al. report that *"it was difficult to use state of the art football analysis methods due to different representations of the underlying data"*, convert everything to a simplified [[spadl|SPADL]], and ask the community to standardise. **A practitioner locating the obstacle as representational rather than social** — and per `interchange-formats-unify-within-a-modality-not-across-one`, SPADL reduces to a two-type subset once a simulator is on the other side.
 
 ## Task 7: Simulation, and Where Generation Breaks
 
-> **New section, 2026-08-07.**
+The vault holds two forward-approach papers with opposite outcomes, and they resolve into a boundary rather than a contradiction:
 
-[[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] attempt the forward approach: build an environment, learn inside it, reproduce real football. **It does not work.** DQAAS learned to pass and shoot without moving toward goal; plain DQN moved toward goal without passing or shooting. The demonstration did both.
+| | [[ai-football-reinforcement-learning\|Scott et al. (2022)]] | [[adaptive-action-supervision-multi-agent-rl\|Fujii et al. (2023)]] |
+|---|---|---|
+| Environment | [[google-research-football\|GFootball]], 11v11 | [[nfootball\|NFootball]], 2v2–4v8 |
+| Algorithm | **[[proximal-policy-optimization\|PPO]]** | **[[deep-q-network\|DDQN]]** |
+| Compared on | **Pass-network topology** | **Movement trajectories** |
+| Result | **Partial transfer** — 3 of 6 metrics converge | **Failure to reproduce** |
 
-They then test whether the cause is algorithmic — decentralised against centralised MARL (CDS), classic against recent deep RL — and conclude it is not, attributing the failure to **"the domain-specific modeling and reality of the simulator"**.
+> **Where physical dynamics are factored out, partial transfer appears. Where they are central, transfer fails.**
 
-That confirms, from a held source, a correction the vault made on inference: **the football-RL bottleneck is simulator fidelity, not algorithm choice.** See [[domain-adaptation]] and [[reinforcement-learning]].
+Scott et al. chose SNA because it is *"not influenced by physical differences between simulations and the real-world"* — so transfer was measured on the dimension **selected for insensitivity to the gap**.
 
-It also raises an uncomfortable question about task 4. [[scoutgpt|ScoutGPT]] and [[eventgpt|EventGPT]] re-generate **event tokens**; Fujii et al. re-generate **continuous multi-agent movement**.
+> ### `transfer-evidence-is-conditional-on-the-dimension-chosen`
+> ^[generated: declared on [[domain-adaptation]]. rests-on: source:scott-sna-justification, source:fujii-football-reproducibility-failure]
+
+⚠️ **The vault's "no evidence of transfer" claim was wrong** and had propagated to four pages before Scott et al. was acquired. The four-revision history is on [[domain-adaptation]].
+
+**A parallel question for task 4.** ScoutGPT re-generates *event tokens*; Fujii et al. re-generate *continuous movement*.
 
 > ### `regeneration-fidelity-scales-with-representation-coarseness`
-> **Re-generation counterfactuals succeed where the representation is coarse enough that the generative model's errors stay inside the discretisation, and fail where it is fine enough that they compound into physically wrong behaviour.**
-> ^[generated: declared on [[counterfactual-simulation]]. rests-on: source:scoutgpt-transfer-mae, source:fujii-football-reproducibility-failure]
-
-**ScoutGPT's counterfactuals may work partly because event tokens hide the physics** — a generated {pass, carry, shot} sequence cannot be physically impossible in the way a generated trajectory can. Whether that makes the counterfactual more trustworthy or merely less falsifiable is untested.
+> ^[generated: declared on [[counterfactual-simulation]]. ScoutGPT's counterfactuals may work partly because event tokens hide the physics. rests-on: source:scoutgpt-transfer-mae, source:fujii-football-reproducibility-failure]
 
 ## Task 2: Forecasting
 
-| | [[seq2event]] | [[nmstpp]] | [[sig-model]] | [[scoutgpt]] | [[trajectory-prediction\|GVRNN]] |
-|---|---|---|---|---|---|
-| Handcrafted features | **Required** | Used | **Harmful** | Minimal | None |
-| Derived metric | poss-util | [[hpus]] | [[lpv]] | Simulated VAEP | **[[c-obso]]** |
-
-**`handcrafted-features-rule`** — encode structure the representation cannot recover *and* the data cannot support learning.^[generated: declared on [[representation-learning]]. **Checked twice, 2026-08-07:** Nakahara et al. (raw positions into a GRU, 1,669 sequences) and Fujii et al. (raw state into a DQN, 1,121 sequences) are both candidate fourth cases. Neither reports an accuracy metric against which the rule's prediction of failure could be observed — Fujii et al. report reward and DTW distance instead. Both cases **uninformative** rather than confirming or falsifying. rests-on: claim:handcrafted-features-rule]
-
-Two candidate tests arriving and both being uninformative is itself worth noting: **the rule may be unfalsifiable within this literature**, because the papers that would test it do not report the quantity it predicts.
+**`handcrafted-features-rule`** — encode structure the representation cannot recover *and* the data cannot support learning.^[generated: declared on [[representation-learning]]. **Checked three times**: Nakahara et al., Fujii et al. and Scott et al. are all candidate cases and none reports an accuracy metric against which the rule's prediction could be observed. Three uninformative tests suggests **the rule may be unfalsifiable within this literature.** rests-on: claim:handcrafted-features-rule]
 
 ## Metrics Beat Outcomes at Predicting Outcomes
 
-**Player level** ([[beyond-expected-goals|Spearman, 2018]]): OBSO 0.26 against next-match goals, shots 0.17, goals 0.12. **Team level**: LPV 0.28, HPUS 0.26, xG 0.17, goals 0.11. **Goals are the worst predictor of future goals in both.**
+**Player level:** OBSO 0.26 against next-match goals, shots 0.17, goals 0.12. **Team level:** LPV 0.28, HPUS 0.26, xG 0.17, goals 0.11. **Goals are the worst predictor of future goals in both.**
 
-Six validation modes, ascending: self-prediction → cross-horizon consistency → **[[construct-validity|agreement or divergence against other metrics]]** → external outcome → external criterion outside the pipeline ([[c-obso]] vs salary) → **validation of a component against a directly observable quantity** ([[pass-probability-model|PPCF]] against 5,471 held-out pass receivers).
+Six validation modes, ascending: self-prediction → cross-horizon consistency → [[construct-validity|agreement or divergence against other metrics]] → external outcome → external criterion outside the pipeline → **validation of a component against a directly observable quantity** ([[pass-probability-model|PPCF]] against 5,471 held-out receivers).
 
 > ### `discriminant-claims-need-a-convergent-anchor`
-> **A metric validated only by divergence from existing measures cannot be distinguished from a metric measuring nothing. Noise also diverges from goals.**
+> **Noise also diverges from goals.**
 > ^[generated: declared on [[construct-validity]]. rests-on: source:nakahara-negative-goal-correlation, source:nakahara-no-ground-truth]
 
-**Fujii et al. contribute the honest version of mode 1.** Their [[dynamic-time-warping|DTW]] distance to a held-out demonstration is self-to-self reconstruction, reported as a headline metric alongside reward — and it does not improve. Compare [[eventgpt|EventGPT]], whose simulated value for Saka *exceeds* ground truth and which then uses the simulated value as the baseline. **The same test, reported honestly in one place and worked around in the other.**
+Fujii et al. supply the honest version of mode 1 — [[dynamic-time-warping|DTW]] distance to a held-out demonstration, reported as a headline metric that **does not improve**. Compare [[eventgpt|EventGPT]], whose simulated value for Saka *exceeds* ground truth and which then uses the simulated value as the baseline.
 
 ## Limitations Shared Across Tasks
 
 1. **Offensive bias** — four causes, four remedies.
-2. **On-ball bias, substantially narrowed** by six off-ball mechanisms. **Errors of omission** addressed in principle by route 6; unreported.
-3. **Individual defensive credit is computed but not reported.** Same story for prescription in Nakahara et al.
+2. **On-ball bias narrowed** by six off-ball mechanisms; **errors of omission** addressed in principle, unreported.
+3. **Individual defensive credit computed but not reported.** Same for prescription in Nakahara et al.
 4. **No ground truth** for most quantities.
 5. **[[selection-bias]] throughout.**
-6. **Scale limits.** [[c-obso]] predicts 3 of 22; [[space-occupation-gain|SOG/SGG]] analyse one match; Nakahara et al. use 14 players from one club; **Fujii et al. use 16 training and 5 test episodes and cannot reach 11v11.**
-7. **Component-level divergence, invisible in framework-level comparison.** Two [[pitch-control-traditions-compared|pitch-control traditions]], four [[shot-value-formulations-compared|shot-value formulations]], [[tracking-error-propagation|tracking error]] nobody propagates, two uncompared space-creation methods, PPCF parameters attributed to the wrong paper — and now **two action spaces (14 vs 12) and two regularisers ($L_1$ vs $L_2$) chosen differently by overlapping authors on one dataset, neither citing the other's choice.**
-8. **Strategy-space coarsening** is the price of prescription — and per [[action-space-design]], the coarsening fixes what "suboptimal" can mean.
+6. **Scale limits.** C-OBSO predicts 3 of 22; Nakahara et al. use 14 players; Fujii et al. **16 training and 5 test episodes**; Scott et al. **15 agents and 5 real matches**.
+7. **Component-level divergence** — two [[pitch-control-traditions-compared|pitch-control traditions]], four [[shot-value-formulations-compared|shot-value formulations]], PPCF parameters attributed to the wrong paper, and **three action spaces (19, 14, 12) descending from one ancestor by successive deletion, none citing another.** See [[action-space-design]].
+8. **Strategy-space coarsening** is the price of prescription.
 9. **Price is absent everywhere.**
-10. **Cross-framework benchmarking is almost entirely absent** — weakened twice, and newly undermined by bespoke environments.
+10. **Cross-framework benchmarking almost entirely absent** — weakened twice, undermined by bespoke environments, and now named from inside as a representation problem.
 11. ⚠️ **Where metrics have been compared, they disagree.**
-12. ⚠️ **Where the forward approach has been attempted, it failed** — and the cause is the environment, not the algorithm.
+12. ⚠️ **Where the forward approach has been attempted on physical behaviour, it failed** — and the cause is the environment, not the algorithm.
+13. ⚠️ **Simulated agents shoot *more* as they improve**, against the vault's only prescriptive finding. Three readings on [[observed-versus-optimal-decisions]]; the cheapest test is comparing simulated and real shot conversion by location.
 
 ## Practical Guidance
 
-- **Season-long recruitment** → xT for stability; [[transfer-performance-prediction|regression]] to shortlist; [[scoutgpt|simulation]] for fit, noting the coarseness caveat above.
-- **Identifying an attacker whose output understates him** → [[obso|OBSO]] and [[c-obso]], the two with external validation. ⚠️ They disagree with the RL Q-values; treat any one as a *view*.
-- **Identifying a defender or deep midfielder whose output understates him** → the RL Q-values, on 14 players and with no reliability figure.
-- **Valuing movement rather than position** → [[space-occupation-gain|SOG]] or the RL Q-values.
+- **Season-long recruitment** → xT for stability; [[transfer-performance-prediction|regression]] to shortlist; [[scoutgpt|simulation]] for fit, noting the coarseness caveat.
+- **An attacker whose output understates him** → [[obso|OBSO]] and [[c-obso]], the two with external validation. ⚠️ They disagree with the RL Q-values.
+- **A defender or deep midfielder** → the RL Q-values, on 14 players and no reliability figure.
+- **Describing team *style* rather than valuing players** → [[social-network-analysis|pass networks]]. Note these metrics **cannot be summed or transferred between clubs.**
 - **Coaching a decision** → [[xsot|SPC]]. **A position** → [[drso|DRSO]]. **A pass** → [[physics-based-pass-probabilities|hypothetical passing]].
-- **Simulating football** → nothing here works yet. [[nfootball|NFootball]] is the most recent attempt and its authors report the failure plainly.
+- **Simulating football** → agents can be trained and their *passing structure* partly resembles reality; movement does not. Nothing here supports a tactical conclusion drawn from a simulator.
 - **Assessing a defence** → [[gvdep|GVDEP]] over [[vdep|VDEP]]. Team level.
-- **Working from broadcast video** → [[gvdep|GVDEP]], [[drso|DRSO]], [[obso|OBSO]].
+- **Broadcast video only** → [[gvdep|GVDEP]], [[drso|DRSO]], [[obso|OBSO]].
 - **Small-data modelling** → [[theory-based-modelling|theory-based features]]; avoid tree ensembles.
 - **Any thresholded classifier** → tune the cutoff. See [[class-imbalance-evaluation]].
 
@@ -216,13 +198,13 @@ Six validation modes, ascending: self-prediction → cross-horizon consistency �
 
 ## See Also
 
-- [[action-valuation]] · [[defensive-valuation]] · [[off-ball-value]] · [[space-creation]] · [[expected-possession-value]] · [[tactical-analysis]]
-- [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[temporal-difference-learning]] · [[deep-q-network]] · [[action-supervision]] · [[action-space-design]] · [[construct-validity]]
-- [[domain-adaptation]] · [[dynamic-time-warping]] · [[imitation-reward-tradeoff]] · [[nfootball]] · [[google-research-football]] · [[counterfactual-simulation]]
-- [[game-theory]] · [[xsot]] · [[drso]] · [[theory-based-modelling]] · [[policy-modelling]] · [[imitation-learning]]
+- [[action-valuation]] · [[defensive-valuation]] · [[off-ball-value]] · [[space-creation]] · [[expected-possession-value]] · [[tactical-analysis]] · [[social-network-analysis]]
+- [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[temporal-difference-learning]] · [[deep-q-network]] · [[proximal-policy-optimization]] · [[action-supervision]] · [[action-space-design]] · [[construct-validity]]
+- [[domain-adaptation]] · [[agent-based-simulation]] · [[dynamic-time-warping]] · [[imitation-reward-tradeoff]] · [[nfootball]] · [[google-research-football]] · [[counterfactual-simulation]] · [[trueskill]]
+- [[game-theory]] · [[xsot]] · [[drso]] · [[theory-based-modelling]] · [[policy-modelling]] · [[imitation-learning]] · [[spadl]] · [[data-stadium]]
 - [[obso]] · [[c-obso]] · [[space-occupation-gain]] · [[counterfactual-baseline]] · [[trajectory-prediction]] · [[pitch-control]] · [[voronoi-tessellation]]
 - [[expected-threat]] · [[vaep]] · [[vdep]] · [[gvdep]] · [[martingale-epv]] · [[expected-goals]] · [[pass-carry-reward]] · [[pass-probability-model]]
-- [[rare-event-proxy-targets]] · [[class-imbalance-evaluation]] · [[probability-calibration]] · [[model-selection]] · [[gradient-boosting]]
-- [[hpus]] · [[lpv]] · [[sig-model]] · [[nmstpp]] · [[seq2event]] · [[scoutgpt]] · [[eventgpt]] · [[event-prediction]] · [[representation-learning]]
-- [[split-half-reliability]] · [[predictive-validity]] · [[selection-bias]] · [[performance-volatility]] · [[recruitment]] · [[data-stadium]]
-- [[william-spearman]] · [[javier-fernandez]] · [[luke-bornn]] · [[keisuke-fujii]] · [[rikuhei-umemoto]] · [[calvin-yeung]] · [[hiroshi-nakahara]] · [[atom-scott]]
+- [[rare-event-proxy-targets]] · [[class-imbalance-evaluation]] · [[probability-calibration]] · [[model-selection]] · [[gradient-boosting]] · [[representation-learning]]
+- [[hpus]] · [[lpv]] · [[sig-model]] · [[nmstpp]] · [[seq2event]] · [[scoutgpt]] · [[eventgpt]] · [[event-prediction]]
+- [[split-half-reliability]] · [[predictive-validity]] · [[selection-bias]] · [[performance-volatility]] · [[recruitment]]
+- [[william-spearman]] · [[javier-fernandez]] · [[luke-bornn]] · [[keisuke-fujii]] · [[atom-scott]] · [[hiroshi-nakahara]] · [[calvin-yeung]] · [[rikuhei-umemoto]]

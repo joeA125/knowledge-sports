@@ -43,6 +43,7 @@ here first with a brief description.
 - `transformer` — Transformer architecture and variants
 - `attention` — attention mechanisms in neural networks
 - `graph-neural-network` — neural networks operating on graph-structured data via message passing
+- `network-analysis` — graph-theoretic description of an interaction structure via centrality and path metrics (closeness, betweenness, PageRank)
 - `machine-translation` — translating text between languages with ML
 - `sequence-modelling` — modelling sequential data (text, time series, etc.)
 - `sequence-alignment` — matching two sequences that may differ in timing or length (DTW, edit distance, warping paths)
@@ -71,6 +72,7 @@ here first with a brief description.
 - `probabilistic-graphical-model` — graphical models (factor graphs, Bayesian networks, MRFs)
 - `markov-model` — stochastic processes with the Markov property (Markov chains, MDPs, Markov games)
 - `policy-modelling` — modelling the behavioural policy actually observed, rather than solving for an optimal one
+- `policy-gradient` — RL methods that optimise policy parameters directly against expected return (REINFORCE, TRPO, PPO, actor-critic)
 - `stochastic-process` — random processes indexed by time (martingales, point processes, diffusions)
 - `point-process` — models of discrete event occurrences in time/space via intensity or conditional density (Poisson, Hawkes, NTPP)
 - `path-signature` — iterated-integral feature maps for paths, from rough path theory
@@ -114,6 +116,7 @@ here first with a brief description.
 - `radial-distortion` — lens distortion modelling (barrel/pincushion) in camera calibration
 - `transfer-learning` — reusing representations learned on one task/dataset for another
 - `domain-adaptation` — transferring a model across a shift between source and target environments, including Sim-to-Real and Real-to-Sim
+- `agent-based-simulation` — simulating a system by giving individual agents rules or policies and observing emergent collective behaviour
 - `pre-training` — unsupervised or self-supervised training on large corpora before task-specific fine-tuning
 - `masked-language-model` — predicting randomly masked tokens from bidirectional context (BERT-style)
 - `prompt-engineering` — designing or retrieving prompts to guide LLM behaviour
