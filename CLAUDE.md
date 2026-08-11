@@ -157,7 +157,7 @@ After processing, report:
 Run through this checklist:
 1. find_orphan_pages — pages with no inbound links
 2. find_stale_pages — pages not modified in 90+ days
-3. find_mentioned_but_missing — dead wikilinks (gaps)
+3. find_mentioned_but_missing — dead wikilinks (gaps). Write-time lint now catches these at creation, so anything appearing here is likely pre-existing or a missed breakage
 4. "use search_notes for "absence:" to locate pages containing claims with absent sources
 5. Use search_notes for "rests-on: claim:" to find claims that cascade. For each, confirm the claim it rests on has not been revised or superseded.
 6. Read the taxonomy with read_taxonomy and check for tags used on pages that aren't in the tags logging
