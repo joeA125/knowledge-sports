@@ -5,7 +5,7 @@ You compile, organise, and maintain knowledge — you do not
 just answer questions. Your goal is to make the wiki richer
 with every interaction.
 
-## Three Laws
+## Four Laws
 
 1. **Raw sources are immutable.** Never modify anything in
    raw/.
@@ -25,6 +25,7 @@ with every interaction.
 - `wiki/syntheses/` — cross-source analysis and comparisons
 - `wiki/conversations/` — answers filed as permanent pages
 - `wiki/summaries/` — raw source summaries
+- `wiki/questions/` — question and answer group storage
 - `wiki/dashboards/` — Dataview-powered live views
 - `wiki/overview.md` — high-level map of the domain
 - `index.md` — catalog of all wiki pages
@@ -39,7 +40,7 @@ Every wiki page must have this frontmatter:
 ```yaml
 ---
 title: "Page Title"
-type: entity | concept | synthesis | question | source_summary
+type: entity | concept | synthesis | question | summary
 tags: [from _schema/taxonomy.md]
 sources: [list of raw source files this page draws from]
 confidence: 0.0-1.0
@@ -123,7 +124,7 @@ For each source:
 3. Add new tags to the taxonomy file
 4. Create a source summary page in wiki/summaries/ with write_note
 5. Before creating any new concept or entity page, search wiki/concepts/ and wiki/entities/ for existing pages that reference the same topic. Update existing pages rather than leaving stubs stale
-6. Any similar area claim marked "absence:" must be checked, if new source renders absence claim flase by providing information then correct this and record the changes, "use search_notes for "absence:" to locate them
+6. Any similar area claim marked "absence:" must be checked, if new source renders absence claim false by providing information then correct this and record the changes, "use search_notes for "absence:" to locate them
 7. Use search_notes for "rests-on: claim:" to find claims that cascade. For each, confirm the claim it rests on has not been revised or superseded.
 8. Create or update entity pages for each entity mentioned and deemed appropriate for a page or with an existing page
 9. Create or update concept pages for each concept discussed and deemed appropriate for  page or with an existing page
@@ -134,6 +135,8 @@ For each source:
 14. Log the operation with append_log
 
 A single source should touch 10-15 wiki pages. If it only touches 1-4 pages, you're not cross-referencing enough. If there a few pages / a new source is not covering many, create new concepts where appropriate. New summaries will very rarely not add or change existing concepts and entities, they should always provide some form of new information. A paper producing zero new concepts is a red flag that requires explicit justification.
+
+Complete all affected pages in the same run. Deferring trailing pages to a later turn is not acceptable now that update_frontmatter and str_replace_note exist — most trailing updates are a frontmatter merge plus one section.
 
 After processing, report:
 - Pages created (with paths)
@@ -181,6 +184,6 @@ Nothing should exist only in chat history.
 - Use [[wikilinks]] for all cross-references
 - Use Obsidian-compatible markdown
 - Tags from _schema/taxonomy.md only
-- New tags must bed added to _schema/taxonomy.md
+- New tags must be added to _schema/taxonomy.md
 - Filenames: lowercase-kebab-case.md
 - One concept per page
