@@ -69,6 +69,43 @@ on four factors:
 Confidence decays over time. When updating pages,
 recalculate confidence. Flag any page below 0.5 for review.
 
+## Write Tools
+
+Use the narrowest tool that does the job.
+
+| Change | Tool |
+|---|---|
+| Frontmatter only — add a source, bump `updated`, add tags | `update_frontmatter` |
+| One to three sections of a page | `str_replace_note`, once per section |
+| Four or more sections, or the page's argument is being restructured | `write_note` |
+| New page | `write_note` |
+
+`update_frontmatter` refuses nested block keys. `provenance` must be
+edited with `str_replace_note` on the block, or the page rewritten.
+
+`str_replace_note` requires `old_str` to appear exactly once. Section
+headings and `rests-on:` recur many times per page, so include enough
+surrounding context to be unique. A successful replace invalidates any
+earlier read of that file — re-read before editing the same page again
+in a turn.
+
+**Patching is cheap; coherence is not.** If accumulated small edits
+would leave a page's structure no longer matching its argument, rewrite
+it with `write_note` rather than patching further.
+
+## Lint Warnings
+
+Every write returns lint warnings inline. **Do not move to the next page
+while a warning stands.** Resolve it in the same turn by one of:
+
+- Fixing the link or tag. The usual cause is linking a taxonomy tag as
+  if it were a page — adding a tag to `_schema/taxonomy.md` does not
+  create a page. The warning says which namespace the name belongs to.
+- Creating the missing page, if it genuinely warrants one.
+- Leaving it deliberately and **saying so in the response**, with the reason.
+
+Never let a warning pass silently.
+
 ## Operations
 
 ### INGEST (new source → wiki updates)
