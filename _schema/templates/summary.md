@@ -7,6 +7,8 @@ confidence: 0.7
 provenance:
   extracted: 90
   inferred: 10
+  generated: 0
+  imported: 0
   ambiguous: 0
 lifecycle: draft
 created: <% tp.date.now("YYYY-MM-DD") %>
