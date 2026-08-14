@@ -2,7 +2,8 @@
 title: "Reinforcement Dashboard"
 type: dashboard
 created: 2026-04-22
-updated: 2026-04-22
+updated: 2026-08-12
+lifecycle: evergreen
 ---
 
 # Reinforcement Dashboard
