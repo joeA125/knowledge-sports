@@ -139,8 +139,9 @@ For each source:
 10. Re-check for contradictions with existing pages
 11. Add [[wikilinks]] cross-references on all affected pages
 12. Update the index with update_index once all pages are created, before logging
-13. Run find_mentioned_but_missing once as a backstop. Write-time lint catches links you create; this catches links elsewhere that your renames or deletions broke
-14. Log the operation with append_log
+13. If the source opened a new area, or the vault's shape has materially changed, refresh wiki/overview.md with update_overview. Run vault_stats first — the overview must describe the vault that exists, not the one you remember.
+14. Run find_mentioned_but_missing once as a backstop. Write-time lint catches links you create; this catches links elsewhere that your renames or deletions broke
+15. Log the operation with append_log
 
 A single source should touch 10-15 wiki pages. If it only touches 1-4 pages, you're not cross-referencing enough. If there a few pages / a new source is not covering many, create new concepts where appropriate. New summaries will very rarely not add or change existing concepts and entities, they should always provide some form of new information. A paper producing zero new concepts is a red flag that requires explicit justification.
 
@@ -174,6 +175,7 @@ Run through this checklist:
 6. Read the taxonomy with read_taxonomy and check for tags used on pages that aren't in the tags logging
 7. Read recently updated pages and check for contradictions with other pages on the same topic
 8. list_unprocessed_sources — sources not yet ingested
+9. read_overview and compare its `updated:` date against the log. An overview more than ~10 ingests behind is stale by default. Run vault_stats and check its claims still hold.
 
 Report findings. Fix what you can. Flag the rest.
 
