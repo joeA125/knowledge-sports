@@ -2963,3 +2963,41 @@ NO ACQUISITION TARGET OUTSTANDING in the RL/simulation area — the line is full
 PROCESS NOTE: this ingest required 21 page writes across three turns. At current page depth a single ingest into well-developed territory reliably exceeds one turn's context. The binding constraint is that the MCP server offers only write_note (full replacement) — for several trailing pages the actual change was one section plus a frontmatter line. A str_replace equivalent would cut this work substantially.
 
 
+## [2026-08-14 21:15] writeback | Overview rewritten from vault_stats — was 5 weeks stale and described a general-ML vault that no longer exists
+Rewrote wiki/overview.md against vault_stats output rather than from memory. The previous version dated 2026-07-07 and was the lowest-confidence page in the vault (0.4).
+
+WHY IT WAS STALE
+The old overview described a GENERAL-ML vault with football computer vision as one cluster among seven: transformers and attention, recurrent networks, deep-network training, generative models, Bayesian rating, CV for sport, LLM reasoning. That was accurate when written and the vault has since inverted — sports-analytics is now the top tag at 163 uses, and the valuation corpus is the dominant structure.
+
+It also carried three factual errors, all detectable only against real counts:
+- "Source summaries filed: ~29" — actual 56
+- "Concept + entity pages: ~90" — actual 298
+- Open question stated bert and gpt "lack ingested primary sources (currently stubs)" — both primary sources are held (bert-bidirectional-transformers, language-understanding-gpt)
+
+WHAT VAULT_STATS CORRECTED AGAINST MEMORY
+Writing this from memory would have produced a plausible and wrong page. Specific corrections the tool forced:
+- I would have named action-valuation as the top hub. It is second (61). VAEP is first at 71.
+- transformer is the THIRD-largest hub at 60 inbound — a general-ML page more central to this vault than off-ball-value (46) or vdep (43). Directly relevant to the pending migration and I would not have predicted it.
+- split-half-reliability at 42 inbound is far higher than its subject matter suggests, because the reliability absence is load-bearing across the off-ball argument.
+- keisuke-fujii at 60 — equal third with transformer.
+- All 56 raw sources are ingested; I would not have asserted 100% coverage without checking.
+
+NEW OVERVIEW STRUCTURE
+Composition table (real counts) / What This Vault Is About (the shared equation) / seven tasks / eight main lines / hub table with inbound counts / recurring findings / open questions grouped by who could answer them / method (claim-dependency system) / pending migration / dashboards / maintenance notes.
+
+FRONTMATTER FIXED
+Was: tags [], confidence 0.4, lifecycle draft, provenance missing 'generated' key entirely (extracted 0 / inferred 100 / ambiguous 0).
+Now: seven real tags, confidence 0.75, lifecycle reviewed, full five-key provenance block. The page was previously exempt from every staleness mechanism the vault has, which is a large part of why it drifted 5 weeks.
+
+ISSUES SURFACED BY VAULT_STATS, NOT YET FIXED
+1. FOUR TAGS USED BUT NOT DECLARED. tags_used 180, tags_declared 182, tags_unused 6 — so 176 are both declared and used, leaving 4 in use that are absent from taxonomy.md. These will fire lint warnings on every write to their pages until reconciled. Needs a diff of used-vs-declared to identify them.
+2. PAGE-TYPE TAGS APPLIED INCONSISTENTLY. 'entity' and 'summary' are in use; 'concept', 'synthesis' and 'question' are declared but never applied, despite being valid types with 193, 2 and 8 pages respectively. Either apply them consistently or drop them from the taxonomy — the current state means find-by-tag works for entities and summaries only.
+3. 'MCP' and 'contradicted' and 'stale-risk' also unused. 'contradicted' and 'stale-risk' are meta tags that may simply never have been needed; 'MCP' is a leftover from before the domain narrowed.
+4. Three pages carry no lifecycle key at all (the dashboards).
+
+PENDING MIGRATION SECTION ADDED
+Records that the general-ML tier is scheduled to move, and states plainly that the cut is not clean: transformer at 60 inbound, plus representation-learning, graph-neural-network and residual-connections load-bearing for football pages; and reinforcement-learning, imitation-learning and trueskill citing football and non-football sources together. Flagged as needing a bridge policy rather than a filter.
+
+Zero lint warnings on write — all wikilinks resolved.
+
+
