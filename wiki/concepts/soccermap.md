@@ -1,7 +1,7 @@
 ---
 title: "SoccerMap"
 type: concept
-tags: [architecture, deep-learning, probability-surface, computer-vision, sports-analytics, optical-tracking-data, convolution]
+tags: [architecture, deep-learning, probability-surface, computer-vision, sports-analytics, optical-tracking-data]
 sources: [raw/papers/expected_value_possession_framework.md]
 confidence: 0.8
 provenance:

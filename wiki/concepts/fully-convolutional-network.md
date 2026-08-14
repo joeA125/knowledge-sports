@@ -1,7 +1,7 @@
 ---
 title: "Fully Convolutional Network"
 type: concept
-tags: [architecture, deep-learning, computer-vision, semantic-segmentation, probability-surface, convolution]
+tags: [architecture, deep-learning, computer-vision, semantic-segmentation, probability-surface]
 sources: [raw/papers/expected_value_possession_framework.md, raw/papers/context-aggregation-dilated-convolutions.md]
 confidence: 0.8
 provenance:

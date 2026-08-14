@@ -1,7 +1,7 @@
 ---
 title: "Is VAEP's conceding classifier broken, or just unthresholdable?"
 type: question
-tags: [vaep, class-imbalance, probabilistic-classification, defensive-valuation, evaluation, probability-calibration, model-selection, needs-review]
+tags: [class-imbalance, probabilistic-classification, defensive-valuation, evaluation, calibration, model-selection, needs-review]
 sources: [raw/papers/football_defence_evaluation.md, raw/papers/evaluating-football-player-actions.md, raw/papers/defensive_player_location_analysis.md, raw/papers/physics_based_pass_probabilities.md]
 confidence: 0.8
 provenance:

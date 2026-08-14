@@ -1,7 +1,7 @@
 ---
 title: "Are the four shot-value formulations interchangeable?"
 type: question
-tags: [expected-goals, sports-analytics, model-selection, evaluation, theory-based-modelling, probability-surface, off-ball, needs-review]
+tags: [sports-analytics, model-selection, evaluation, theory-based-modelling, probability-surface, off-ball, needs-review]
 sources: [raw/papers/beyond_expected_goals.md, raw/papers/expected_value_possession_framework.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/evaluating-football-player-actions.md]
 confidence: 0.7
 provenance:
