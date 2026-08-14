@@ -46,7 +46,7 @@ Every wiki page must have this frontmatter:
 ```yaml
 ---
 title: "Page Title"
-type: entity | concept | synthesis | question | summary
+type: entity | concept | synthesis | question | summary | dashboard
 tags: [from _schema/taxonomy.md]
 sources: [list of raw source files this page draws from]
 confidence: 0.0-1.0
@@ -56,7 +56,7 @@ provenance:
   generated: 10%
   imported: 5%
   ambiguous: 5%
-lifecycle: draft | reviewed | verified | stale | archived
+lifecycle: draft | reviewed | verified | stale | archived | evergreen
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
