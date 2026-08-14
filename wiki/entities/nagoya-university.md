@@ -1,7 +1,7 @@
 ---
 title: "Nagoya University"
 type: entity
-tags: [entity, organisation, university, ai-research, sports-analytics, off-ball, defensive-valuation, event-prediction, reinforcement-learning, counterfactual, domain-adaptation, agent-based-simulation, animal-behaviour]
+tags: [organisation, university, ai-research, sports-analytics, off-ball, defensive-valuation, event-prediction, reinforcement-learning, counterfactual, domain-adaptation, agent-based-simulation, animal-behaviour]
 sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md]
 confidence: 0.85
 provenance:

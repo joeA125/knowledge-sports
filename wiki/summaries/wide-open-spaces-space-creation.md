@@ -1,7 +1,7 @@
 ---
 title: "Wide Open Spaces: A Statistical Technique for Measuring Space Creation in Professional Soccer (Fernández & Bornn, 2018)"
 type: summary
-tags: [summary, sports-analytics, off-ball, space-creation, pitch-control, probability-surface, optical-tracking-data, player-evaluation, tactical-analysis, deep-learning]
+tags: [sports-analytics, off-ball, space-creation, pitch-control, probability-surface, optical-tracking-data, player-evaluation, tactical-analysis, deep-learning]
 sources: [raw/papers/wide_open_spaces_creation_football.md]
 confidence: 0.9
 provenance:

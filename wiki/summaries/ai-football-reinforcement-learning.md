@@ -1,7 +1,7 @@
 ---
 title: "How does AI play football? An analysis of RL and real-world football strategies"
 type: summary
-tags: [summary, reinforcement-learning, policy-gradient, simulator, agent-based-simulation, domain-adaptation, network-analysis, ranking-system, action-space, sports-analytics, event-stream-data, evaluation, gaming]
+tags: [reinforcement-learning, policy-gradient, simulator, agent-based-simulation, domain-adaptation, network-analysis, ranking-system, action-space, sports-analytics, event-stream-data, evaluation, gaming]
 sources: [raw/papers/ai_football_reinforcement_learning.md]
 confidence: 0.85
 provenance:

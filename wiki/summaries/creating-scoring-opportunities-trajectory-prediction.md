@@ -1,7 +1,7 @@
 ---
 title: "Evaluation of Creating Scoring Opportunities for Teammates in Soccer via Trajectory Prediction (C-OBSO)"
 type: summary
-tags: [summary, sports-analytics, off-ball, space-creation, player-evaluation, trajectory-prediction, counterfactual, optical-tracking-data, pitch-control, graph-neural-network, vae, deep-learning, evaluation]
+tags: [sports-analytics, off-ball, space-creation, player-evaluation, trajectory-prediction, counterfactual, optical-tracking-data, pitch-control, graph-neural-network, vae, deep-learning, evaluation]
 sources: [raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md]
 confidence: 0.85
 provenance:

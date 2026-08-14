@@ -1,7 +1,7 @@
 ---
 title: "FC Barcelona"
 type: entity
-tags: [entity, organisation, sports-club, sports-analytics]
+tags: [organisation, sports-club, sports-analytics]
 sources: [raw/papers/expected_value_possession_framework.md]
 confidence: 0.7
 provenance:

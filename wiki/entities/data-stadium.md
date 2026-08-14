@@ -1,7 +1,7 @@
 ---
 title: "Data Stadium Inc."
 type: entity
-tags: [entity, organisation, data-provider, sports-analytics, event-stream-data, optical-tracking-data, off-ball, construct-validity, selection-bias, action-space, reinforcement-learning, network-analysis]
+tags: [organisation, data-provider, sports-analytics, event-stream-data, optical-tracking-data, off-ball, construct-validity, selection-bias, action-space, reinforcement-learning, network-analysis]
 sources: [raw/papers/football_defence_evaluation.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md]
 confidence: 0.85
 provenance:

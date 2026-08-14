@@ -1,7 +1,7 @@
 ---
 title: "The University of Tokyo"
 type: entity
-tags: [entity, organisation, university, ai-research, machine-learning, multi-agent, single-source, stub]
+tags: [organisation, university, ai-research, machine-learning, multi-agent, single-source, stub]
 sources: [raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md]
 confidence: 0.5
 provenance:

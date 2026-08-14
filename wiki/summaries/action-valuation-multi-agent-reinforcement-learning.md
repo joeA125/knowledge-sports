@@ -1,7 +1,7 @@
 ---
 title: "Action Valuation of On- and Off-Ball Soccer Players Based on Multi-Agent Deep Reinforcement Learning"
 type: summary
-tags: [summary, reinforcement-learning, multi-agent, action-space, auxiliary-loss, temporal-difference, action-valuation, off-ball, player-evaluation, optical-tracking-data, counterfactual, rnn, sports-analytics, construct-validity, discounting]
+tags: [reinforcement-learning, multi-agent, action-space, auxiliary-loss, temporal-difference, action-valuation, off-ball, player-evaluation, optical-tracking-data, counterfactual, rnn, sports-analytics, construct-validity, discounting]
 sources: [raw/papers/action_valuation_football_agentic_reinforcement_learning.md]
 confidence: 0.85
 provenance:

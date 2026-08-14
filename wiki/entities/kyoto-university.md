@@ -1,7 +1,7 @@
 ---
 title: "Kyoto University"
 type: entity
-tags: [entity, organisation, university, sports-analytics, single-source, stub]
+tags: [organisation, university, sports-analytics, single-source, stub]
 sources: [raw/papers/football_defence_evaluation.md]
 confidence: 0.65
 provenance:

@@ -1,7 +1,7 @@
 ---
 title: "Expected Possession Value of Control and Duel Actions (Shelopugin)"
 type: summary
-tags: [summary, sports-analytics, action-valuation, duel-analysis, player-evaluation, event-stream-data, discounting, ranking-system, transfer-prediction, recruitment, selection-bias, positive-unlabeled-learning, gradient-boosting, predictive-validity]
+tags: [sports-analytics, action-valuation, duel-analysis, player-evaluation, event-stream-data, discounting, ranking-system, transfer-prediction, recruitment, selection-bias, positive-unlabeled-learning, gradient-boosting, predictive-validity]
 sources: [raw/papers/epv_control_and_duel_skills_football.md]
 confidence: 0.8
 provenance:

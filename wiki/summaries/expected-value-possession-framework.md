@@ -1,7 +1,7 @@
 ---
 title: "A Framework for the Fine-Grained Evaluation of the Instantaneous Expected Value of Soccer Possessions"
 type: summary
-tags: [summary, sports-analytics, action-valuation, optical-tracking-data, deep-learning, probability-surface, pitch-control, off-ball, model-decomposition, weak-supervision, calibration, policy-modelling, tactical-analysis, markov-model]
+tags: [sports-analytics, action-valuation, optical-tracking-data, deep-learning, probability-surface, pitch-control, off-ball, model-decomposition, weak-supervision, calibration, policy-modelling, tactical-analysis, markov-model]
 sources: [raw/papers/expected_value_possession_framework.md]
 confidence: 0.9
 provenance:

@@ -1,7 +1,7 @@
 ---
 title: "Location Analysis of Players in UEFA EURO 2020 and 2022 using Generalized VDEP (Umemoto, Tsutsui & Fujii, 2022)"
 type: summary
-tags: [summary, sports-analytics, defensive-valuation, off-ball, optical-tracking-data, event-stream-data, gradient-boosting, class-imbalance, proxy-target, evaluation, model-selection]
+tags: [sports-analytics, defensive-valuation, off-ball, optical-tracking-data, event-stream-data, gradient-boosting, class-imbalance, proxy-target, evaluation, model-selection]
 sources: [raw/papers/defensive_player_location_analysis.md]
 confidence: 0.9
 provenance:

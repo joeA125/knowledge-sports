@@ -1,7 +1,7 @@
 ---
 title: "AIST (National Institute of Advanced Industrial Science and Technology)"
 type: entity
-tags: [entity, organisation, research-institute, ai-research, sports-analytics, reinforcement-learning, agent-based-simulation, single-source]
+tags: [organisation, research-institute, ai-research, sports-analytics, reinforcement-learning, agent-based-simulation, single-source]
 sources: [raw/papers/ai_football_reinforcement_learning.md]
 confidence: 0.6
 provenance:

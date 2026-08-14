@@ -1,7 +1,7 @@
 ---
 title: "Adaptive Action Supervision in Reinforcement Learning from Real-World Multi-Agent Demonstrations"
 type: summary
-tags: [summary, reinforcement-learning, multi-agent, domain-adaptation, simulator, imitation-learning, auxiliary-loss, sequence-alignment, temporal-difference, experience-replay, action-space, animal-behaviour, sports-analytics, optical-tracking-data, evaluation]
+tags: [reinforcement-learning, multi-agent, domain-adaptation, simulator, imitation-learning, auxiliary-loss, sequence-alignment, temporal-difference, experience-replay, action-space, animal-behaviour, sports-analytics, optical-tracking-data, evaluation]
 sources: [raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md]
 confidence: 0.85
 provenance:

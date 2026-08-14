@@ -1,7 +1,7 @@
 ---
 title: "Stats Perform (STATS LLC / Opta)"
 type: entity
-tags: [entity, organisation, data-provider, sports-analytics, event-stream-data, optical-tracking-data]
+tags: [organisation, data-provider, sports-analytics, event-stream-data, optical-tracking-data]
 sources: [raw/papers/expected_value_possession_framework.md, raw/papers/epv_control_and_duel_skills_football.md]
 confidence: 0.65
 provenance:
