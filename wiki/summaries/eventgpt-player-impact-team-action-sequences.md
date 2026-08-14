@@ -1,6 +1,6 @@
 ---
 title: "EventGPT: Capturing Player Impact from Team Action Sequences Using GPT-Based Framework — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, counterfactual, transformer, event-prediction, player-evaluation, action-valuation, entity-embedding, teacher-forcing, event-stream-data]
 sources: [raw/papers/eventgpt-player-impact-from-team-action-sequences.md]
 confidence: 0.95

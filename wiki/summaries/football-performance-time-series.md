@@ -1,6 +1,6 @@
 ---
 title: "Valuing Players Over Time (Mendes-Neves, Meireles & Mendes-Moreira)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, action-valuation, player-evaluation, time-series, smoothing, volatility, player-development, selection-bias, regression, random-forest, event-stream-data, recruitment, reliability, needs-review]
 sources: [raw/papers/football-performance-time-series.md]
 confidence: 0.8

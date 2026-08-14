@@ -1,6 +1,6 @@
 ---
 title: "Neural Turing Machines — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, architecture, attention, external-memory, neural-computation, lstm]
 sources: [raw/papers/neural-turing-machines.md]
 confidence: 0.95

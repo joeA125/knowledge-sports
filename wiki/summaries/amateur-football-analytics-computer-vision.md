@@ -1,6 +1,6 @@
 ---
 title: "Amateur Football Analytics Using Computer Vision — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, camera-calibration, object-detection, multi-object-tracking]
 sources: [raw/papers/amateur_footbal_analytics_computer_vision.md]
 confidence: 0.9

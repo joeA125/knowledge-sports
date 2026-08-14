@@ -1,6 +1,6 @@
 ---
 title: "Training Language Models to Follow Instructions with Human Feedback — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, language-modelling, instruction-tuning, reinforcement-learning, alignment]
 sources: [raw/papers/training-lm-follow-instructions-with-human-feedback.md]
 confidence: 0.9

@@ -1,6 +1,6 @@
 ---
 title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, language-modelling, chain-of-thought, prompt-engineering, reasoning, scaling-laws]
 sources: [raw/papers/chain-of-thought-reasoning-llms.md]
 confidence: 0.95

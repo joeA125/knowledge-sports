@@ -1,6 +1,6 @@
 ---
 title: "Scaling Laws for Neural Language Models — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, transformer, language-modelling, scaling-laws, training-technique]
 sources: [raw/papers/scaling-neural-language-models.md]
 confidence: 0.95

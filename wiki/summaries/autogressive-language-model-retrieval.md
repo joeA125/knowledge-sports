@@ -1,6 +1,6 @@
 ---
 title: "Shall We Pretrain Autoregressive Language Models with Retrieval? — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, RAG, language-modelling, transformer, knowledge-intensive]
 sources: [raw/papers/autogressive-language-model-retrieval.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "TVCalib: Camera Calibration for Sports Field Registration in Soccer — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, camera-calibration, semantic-segmentation]
 sources: [raw/papers/tvcalib_camera_calibration_football.md]
 confidence: 0.95

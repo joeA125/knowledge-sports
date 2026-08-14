@@ -1,6 +1,6 @@
 ---
 title: "A Multiresolution Stochastic Process Model for Predicting Basketball Possession Outcomes — Source Summary"
-type: source_summary
+type: summary
 tags: [statistics, sports-analytics, optical-tracking-data, player-evaluation, stochastic-process, spatiotemporal, gaussian-process, hierarchical-model, survival-analysis, bayesian]
 sources: [raw/papers/multiresolution-stochastic-process-model-nba-possessions.md]
 confidence: 0.95

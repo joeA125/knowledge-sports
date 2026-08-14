@@ -1,6 +1,6 @@
 ---
 title: "PCC: Fact-Checking with LLMs via Probabilistic Certainty and Consistency — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, language-modelling, RAG, knowledge-intensive, uncertainty-quantification, fact-checking]
 sources: [raw/papers/llm_factcheck_consistency_certainty.md]
 confidence: 0.95

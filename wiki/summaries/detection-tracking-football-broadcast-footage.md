@@ -1,6 +1,6 @@
 ---
 title: "Multi-Class Detection and Tracking in Soccer Broadcast Footage — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, multi-object-tracking, object-detection]
 sources: [raw/papers/detection-tracking-football-broadcast-footage.md]
 confidence: 0.9

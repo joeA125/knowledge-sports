@@ -1,6 +1,6 @@
 ---
 title: "Multi-Scale Context Aggregation by Dilated Convolutions — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, computer-vision, semantic-segmentation, dilated-convolution, architecture]
 sources: [raw/papers/context-aggregation-dilated-convolutions.md]
 confidence: 0.95

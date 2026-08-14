@@ -1,6 +1,6 @@
 ---
 title: "A Review of Computer Vision Technology for Football Videos — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, multi-object-tracking, object-detection, action-spotting]
 sources: [raw/papers/computer-vision-football-review.md]
 confidence: 0.95

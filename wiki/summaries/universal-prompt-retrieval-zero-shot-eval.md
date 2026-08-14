@@ -1,6 +1,6 @@
 ---
 title: "UPRISE: Universal Prompt Retrieval for Improving Zero-Shot Evaluation — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, RAG, prompt-engineering, language-modelling, zero-shot-learning]
 sources: [raw/papers/universal-prompt-retrieval-zero-shot-eval.md]
 confidence: 0.95

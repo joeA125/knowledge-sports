@@ -1,6 +1,6 @@
 ---
 title: "ITER-RETGEN: Iterative Retrieval-Generation Synergy — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, RAG, language-modelling, multi-hop-reasoning, chain-of-thought]
 sources: [raw/papers/autogressive-language-model-retrieval-iterative.md]
 confidence: 0.95

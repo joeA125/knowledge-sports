@@ -1,6 +1,6 @@
 ---
 title: "AI Agent Architecture Breakdown — Source Summary"
-type: source_summary
+type: summary
 tags: [AI, deep-learning, ai-agent, tool-use, architecture, language-modelling, chain-of-thought, reasoning]
 sources: [raw/articles/ai-agent-architecture-breakdown.md]
 confidence: 0.85

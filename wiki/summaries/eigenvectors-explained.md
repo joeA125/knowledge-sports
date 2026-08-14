@@ -1,6 +1,6 @@
 ---
 title: "Eigenvectors Explained — Source Summary"
-type: source_summary
+type: summary
 tags: [statistics, linear-algebra, machine-learning, representation-learning]
 sources: [raw/articles/eigenvectors-explained.md]
 confidence: 0.9

@@ -1,6 +1,6 @@
 ---
 title: "A Definition of AGI — Source Summary"
-type: source_summary
+type: summary
 tags: [AI, deep-learning, language-modelling, reasoning, cognitive-science, evaluation]
 sources: [raw/papers/agi_definition.md]
 confidence: 0.95

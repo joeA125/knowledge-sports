@@ -1,6 +1,6 @@
 ---
 title: "The Path to a Goal: Understanding Soccer Possessions via Path Signatures — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, path-signature, event-prediction, action-valuation, event-stream-data, feature-engineering, predictive-validity, evaluation, deep-learning]
 sources: [raw/papers/understanding_football_posessions_using_path_signatures.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "From Broadcast to Minimap: SOTA SoccerNet Game State Reconstruction — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, multi-object-tracking, camera-calibration, object-detection]
 sources: [raw/papers/soccernet-game-state-reconstruction-improvement.md]
 confidence: 0.95

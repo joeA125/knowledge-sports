@@ -1,6 +1,6 @@
 ---
 title: "Recurrent Neural Network Regularization — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, rnn, lstm, dropout, regularization, language-modelling, speech-recognition, machine-translation]
 sources: [raw/papers/rnn-regularisation.md]
 confidence: 0.95

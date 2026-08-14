@@ -1,6 +1,6 @@
 ---
 title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, transformer, language-modelling, transfer-learning, pre-training, masked-language-model, representation-learning, weak-supervision]
 sources: [raw/papers/bert-bidirectional-transformers.md]
 confidence: 0.95

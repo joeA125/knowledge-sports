@@ -1,6 +1,6 @@
 ---
 title: "ProCC: A Universal Protocol to Benchmark Camera Calibration for Sports — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, sports-analytics, camera-calibration, evaluation, projective-geometry, radial-distortion]
 sources: [raw/papers/camera-calibration-benchmarking.md]
 confidence: 0.95

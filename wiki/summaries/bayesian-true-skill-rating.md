@@ -1,6 +1,6 @@
 ---
 title: "TrueSkill: A Bayesian Skill Rating System — Source Summary"
-type: source_summary
+type: summary
 tags: [bayesian, statistics, ranking-system, factor-graph, message-passing, matchmaking, gaming]
 sources: [raw/papers/bayesian-true-skill-rating.md]
 confidence: 0.95

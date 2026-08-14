@@ -1,6 +1,6 @@
 ---
 title: "Sports Camera Calibration via Synthetic Data — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, camera-calibration, generative-model, metric-learning, gan]
 sources: [raw/papers/sports-camera_calibration-synthetic_data.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "Neural Machine Translation by Jointly Learning to Align and Translate — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, machine-translation, attention, sequence-modelling, rnn, encoder-decoder-bottleneck, alignment]
 sources: [raw/papers/neural-machine-translation.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "Modeling Matches as Language: A Generative Transformer Approach for Counterfactual Player Valuation in Football — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, counterfactual, transformer, event-prediction, player-evaluation, tokenization, constrained-decoding, multi-task-learning, event-stream-data, generative-model]
 sources: [raw/papers/scoutgpt-generative-transformer-football-player-valuation.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "Identity Mappings in Deep Residual Networks — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, architecture, residual-learning, batch-normalization, computer-vision]
 sources: [raw/papers/identity-mapping-residual-networks.md]
 confidence: 0.95

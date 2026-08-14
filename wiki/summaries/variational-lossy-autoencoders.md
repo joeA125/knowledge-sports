@@ -1,6 +1,6 @@
 ---
 title: "Variational Lossy Autoencoder — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, generative-model, vae, autoregressive-model, representation-learning, density-estimation]
 sources: [raw/papers/variational-lossy-autoencoders.md]
 confidence: 0.95

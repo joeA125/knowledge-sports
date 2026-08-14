@@ -1,6 +1,6 @@
 ---
 title: "Attention Is All You Need — Source Summary"
-type: source_summary
+type: summary
 tags: [transformer, attention, machine-translation, deep-learning, architecture]
 sources: [raw/papers/attention-is-all-you-need.md]
 confidence: 0.95

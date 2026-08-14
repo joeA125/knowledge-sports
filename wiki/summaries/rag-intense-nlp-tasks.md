@@ -1,6 +1,6 @@
 ---
 title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, language-modelling, RAG, knowledge-intensive, transformer]
 sources: [raw/papers/rag-intense-nlp-tasks.md]
 confidence: 0.9

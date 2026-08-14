@@ -1,6 +1,6 @@
 ---
 title: "Camera Calibration and Player Localization in SoccerNet-v2 for Action Spotting — Source Summary"
-type: source_summary
+type: summary
 tags: [computer-vision, deep-learning, sports-analytics, camera-calibration, action-spotting, metric-learning]
 sources: [raw/papers/soccernet-v2-action-spotting.md]
 confidence: 0.95

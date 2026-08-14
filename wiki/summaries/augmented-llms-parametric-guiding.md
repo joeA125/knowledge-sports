@@ -1,6 +1,6 @@
 ---
 title: "PKG: Augmented LLMs with Parametric Knowledge Guiding — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, RAG, language-modelling, knowledge-intensive, instruction-tuning]
 sources: [raw/papers/augmented-llms-parametric-guiding.md]
 confidence: 0.95

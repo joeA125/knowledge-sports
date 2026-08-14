@@ -1,6 +1,6 @@
 ---
 title: "<% tp.file.title %>"
-type: source_summary
+type: summary
 tags: []
 sources: ["<% tp.file.title %>"]
 confidence: 0.7

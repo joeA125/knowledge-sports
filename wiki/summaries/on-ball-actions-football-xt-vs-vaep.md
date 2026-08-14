@@ -1,6 +1,6 @@
 ---
 title: "Valuing On-the-Ball Actions in Soccer: A Critical Comparison of xT and VAEP — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, action-valuation, player-evaluation, event-stream-data, evaluation, reliability, interpretability, markov-model, machine-learning]
 sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md]
 confidence: 0.95

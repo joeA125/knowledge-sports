@@ -1,6 +1,6 @@
 ---
 title: "A Strategic Framework for Optimal Decisions in Football 1-vs-1 Shot-Taking Situations (Yeung & Fujii, 2024)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, game-theory, action-valuation, theory-based-modelling, proxy-target, off-ball, pitch-control, deep-learning, evaluation, event-stream-data]
 sources: [raw/papers/optimal_football_decisions_shot_taking_situations.md]
 confidence: 0.9

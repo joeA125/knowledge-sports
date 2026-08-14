@@ -1,6 +1,6 @@
 ---
 title: "Beyond Expected Goals (Spearman, 2018)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, off-ball, pitch-control, optical-tracking-data, probability-surface, predictive-validity, model-decomposition, bayesian, player-evaluation, recruitment]
 sources: [raw/papers/beyond_expected_goals.md]
 confidence: 0.9

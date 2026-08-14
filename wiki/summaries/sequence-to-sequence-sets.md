@@ -1,6 +1,6 @@
 ---
 title: "Order Matters: Sequence to Sequence for Sets — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, sequence-modelling, attention, pointer-mechanism, set-modelling, ordering, lstm, language-modelling]
 sources: [raw/papers/sequence-to-sequence-sets.md]
 confidence: 0.95

@@ -1,6 +1,6 @@
 ---
 title: "Transformer-Based Neural Marked Spatio Temporal Point Process Model for Football Match Events Analysis — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, point-process, event-prediction, transformer, deep-learning, event-stream-data, player-evaluation, spatiotemporal, stochastic-process]
 sources: [raw/papers/transformer-point-process-football-event-modelling.md]
 confidence: 0.95

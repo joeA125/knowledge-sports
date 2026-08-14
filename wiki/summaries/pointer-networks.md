@@ -1,6 +1,6 @@
 ---
 title: "Pointer Networks — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, attention, sequence-modelling, rnn, combinatorial-optimisation, pointer-mechanism]
 sources: [raw/papers/pointer-networks.md]
 confidence: 0.95

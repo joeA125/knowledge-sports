@@ -1,6 +1,6 @@
 ---
 title: "Physics-Based Modeling of Pass Probabilities in Soccer (Spearman et al., 2017)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, pitch-control, optical-tracking-data, theory-based-modelling, probability-surface, player-evaluation, off-ball, action-valuation, evaluation]
 sources: [raw/papers/physics_based_pass_probabilities.md]
 confidence: 0.95

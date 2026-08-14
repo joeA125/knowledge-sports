@@ -1,6 +1,6 @@
 ---
 title: "Improving Language Understanding by Generative Pre-Training (GPT) — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, transformer, language-modelling, transfer-learning, pre-training, autoregressive-model, representation-learning, zero-shot-learning]
 sources: [raw/papers/language_understanding_gpt.md]
 confidence: 0.95

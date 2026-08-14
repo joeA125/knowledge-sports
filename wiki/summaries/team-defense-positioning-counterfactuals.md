@@ -1,6 +1,6 @@
 ---
 title: "Evaluation of Team Defense Positioning by Computing Counterfactuals using StatsBomb 360 data (Umemoto & Fujii, 2023)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, defensive-valuation, off-ball, counterfactual, pitch-control, probability-surface, optical-tracking-data, event-stream-data, interpretability, evaluation]
 sources: [raw/papers/team_defense_positioning_statsbomb.md]
 confidence: 0.9

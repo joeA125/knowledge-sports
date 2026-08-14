@@ -1,6 +1,6 @@
 ---
 title: "ReAct: Synergizing Reasoning and Acting in Language Models — Source Summary"
-type: source_summary
+type: summary
 tags: [deep-learning, language-modelling, chain-of-thought, reasoning, RAG, prompt-engineering]
 sources: [raw/papers/synergising-reasoning-acting-llms.md]
 confidence: 0.95

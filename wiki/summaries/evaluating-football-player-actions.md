@@ -1,6 +1,6 @@
 ---
 title: "Actions Speak Louder than Goals: Valuing Player Actions in Soccer — Source Summary"
-type: source_summary
+type: summary
 tags: [machine-learning, sports-analytics, statistics, evaluation, player-evaluation, event-stream-data, gradient-boosting]
 sources: [raw/papers/evaluating-football-player-actions.md]
 confidence: 0.95

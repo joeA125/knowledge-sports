@@ -1,6 +1,6 @@
 ---
 title: "Model-Based Clustering of Football Event Sequences: A Marked Spatio-Temporal Point Process Mixture Approach — Source Summary"
-type: source_summary
+type: summary
 tags: [sports-analytics, clustering, mixture-model, point-process, expectation-maximization, markov-model, event-stream-data, spatiotemporal, statistics, identifiability]
 sources: [raw/papers/football-event-sequences-spatiotemporal-point-process-mixture-model.md]
 confidence: 0.95

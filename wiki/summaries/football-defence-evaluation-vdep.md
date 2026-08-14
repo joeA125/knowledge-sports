@@ -1,6 +1,6 @@
 ---
 title: "Evaluation of Soccer Team Defense Based on Prediction Models of Ball Recovery and Being Attacked (VDEP)"
-type: source_summary
+type: summary
 tags: [summary, sports-analytics, defensive-valuation, action-valuation, off-ball, optical-tracking-data, event-stream-data, proxy-target, class-imbalance, gradient-boosting, feature-attribution, evaluation, predictive-validity]
 sources: [raw/papers/football_defence_evaluation.md]
 confidence: 0.85
