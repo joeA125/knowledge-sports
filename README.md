@@ -1,6 +1,8 @@
 # Knowledge Base
 
-This repository is an Obsidian knowledge vault for AI, ML, data science, and adjacent topics. It is designed to preserve raw source material, maintain structured wiki pages, and compound useful work over time instead of leaving it in chat history.
+This repository is an Obsidian knowledge vault for AI, ML, data science, and adjacent topics. It is designed to preserve raw source material, maintain structured wiki pages, and compound useful work over time.
+
+This repository is *focused on sports modelling/analytics*, specifically **football**, the more general AI/ML knowledge base can be found at *knowledge-general*. Please see the `wiki/overview.md` file for the repsository's current state, this file is updated upon each wiki change so maintaines an accurate and up-to-date breakdown.
 
 The operating model for the vault is defined in `CLAUDE.md`: raw inputs stay immutable, wiki pages are maintained and cross-linked, tags are governed centrally, and substantive work is logged.
 
