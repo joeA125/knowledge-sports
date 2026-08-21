@@ -24,7 +24,7 @@ Following several objects across video frames while maintaining **consistent ide
 1. **Detect** objects independently in each frame — see [[object-detection]].
 2. **Associate** detections across frames into tracks.
 
-Association combines motion prediction (a Kalman filter, giving where each track should appear next) with appearance matching (see [[siamese-network]] and [[metric-learning]]). Assignment is usually solved per frame by the Hungarian algorithm.
+Association combines motion prediction (a Kalman filter, giving where each track should appear next) with appearance matching via learned embeddings — see [[siamese-network]]. Assignment is usually solved per frame by the Hungarian algorithm.
 
 The two cues are complementary: motion is reliable over short gaps and useless after an occlusion; appearance survives occlusion and fails when objects look alike.
 
@@ -75,6 +75,6 @@ Note that a **sensitivity curve does not require knowing the true error rate** �
 - [[tracking-error-propagation]] — the open question on both absence claims
 - [[gvdep]] — the partial answer on incomplete observation
 - [[object-detection]] · [[game-state-reconstruction]] · [[camera-calibration]] · [[image-alignment]]
-- [[optical-tracking-data]] · [[siamese-network]] · [[metric-learning]] · [[optical-flow]] · [[uncertainty-quantification]]
+- [[optical-tracking-data]] · [[siamese-network]] · [[optical-flow]] · [[uncertainty-quantification]] · [[enhanced-correlation-coefficient]]
 - [[jaccard-index]] · [[stats-perform]] · [[data-stadium]] · [[pitch-control]]
 - [[soccernet-game-state-reconstruction|SoccerNet GSR Summary]] · [[detection-tracking-football-broadcast-footage|Detection and Tracking Summary]] · [[computer-vision-football-review|CV Review]]

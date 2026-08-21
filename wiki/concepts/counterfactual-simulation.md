@@ -36,7 +36,7 @@ A transfer is not a like-for-like substitution: moving a player changes the tact
 | Example | [[eventgpt]] | [[scoutgpt]], [[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]] | [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] |
 | Intervenes on | The **entity** | The **entity** or **the environment** | **The action** |
 | Generates anything | No | Yes | **No** |
-| Exposure to [[teacher-forcing\|compounding error]] | None | Substantial over long rollouts | **None** |
+| Exposure to compounding error | None | Substantial over long rollouts | **None** |
 
 Re-scoring is the weaker counterfactual but the safer estimate. Re-generation asks the question you actually care about and pays in accumulated generation error.
 
@@ -134,9 +134,9 @@ In football, observed performance is confounded with team quality, tactics, and 
 
 The readout route has a sharper version. $Q(s,a')$ estimates the value of $a'$ **under the observed policy of everyone else** — including, via [[action-supervision]], a prior that the observed policy is good. So the counterfactual is "what if he had run left in a world otherwise behaving as it did, evaluated by a function biased toward what people actually do." Considerably narrower than the notation suggests.
 
-## Beyond Sport
+## The Three Routes, Restated
 
-The three-route distinction transfers cleanly: **re-score when the world is fixed and cheap, re-generate when the world responds, read out a value function when the action set is small and enumerable.**
+**Re-score when the world is fixed and cheap, re-generate when the world responds, read out a value function when the action set is small and enumerable.**
 
 The failure mode in the third case is universal — off-policy action values look like estimates and are often assumptions. The failure mode in the second is the one Fujii et al. demonstrate: **a rollout is only as good as the transition model underneath it, and in most real-world multi-agent domains nobody has one.**
 
@@ -146,5 +146,5 @@ The failure mode in the third case is universal — off-policy action values loo
 - [[multi-agent-reinforcement-learning]] · [[action-supervision]] · [[action-space-design]] · [[temporal-difference-learning]] · [[reinforcement-learning]] · [[dynamic-time-warping]]
 - [[transfer-performance-prediction]] · [[league-strength-rating]] · [[recruitment]] · [[c-obso]] · [[drso]]
 - [[selection-bias]] · [[positive-unlabeled-learning]] · [[uncertainty-quantification]] · [[construct-validity]] · [[imitation-reward-tradeoff]]
-- [[player-embedding]] · [[teacher-forcing]] · [[action-valuation]] · [[trajectory-prediction]] · [[observed-versus-optimal-decisions]]
+- [[player-embedding]] · [[generative-model]] · [[action-valuation]] · [[trajectory-prediction]] · [[observed-versus-optimal-decisions]]
 - [[scoutgpt-counterfactual-player-valuation|ScoutGPT]] · [[eventgpt-player-impact-team-action-sequences|EventGPT]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al.]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]]

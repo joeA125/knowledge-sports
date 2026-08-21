@@ -110,7 +110,7 @@ The fourth row is where [[action-supervision]] and **DQfD** (Hester et al., 2018
 
 The structural difference is also worth keeping: DQfD uses demonstrations to bootstrap an agent that will later act. In the inverse setting the agent never acts and the demonstrations are all there will ever be — **the supervision is not a warm start, it is permanent.**
 
-Behavioural cloning is formally supervised learning; what distinguishes imitation learning as a field is the **sequential** setting, where the learner's own actions determine the states it later sees. That gives it the same compounding-error problem as autoregressive generation — [[teacher-forcing|exposure bias]] under a different name. The sports models sidestep it by keeping horizons short: [[trajectory-prediction|GVRNN]] predicts 4 seconds. Role 3 in the inverse setting sidesteps it entirely, since nothing is rolled out. See [[counterfactual-simulation]].
+Behavioural cloning is formally supervised learning; what distinguishes imitation learning as a field is the **sequential** setting, where the learner's own actions determine the states it later sees. That gives it the same compounding-error problem as autoregressive generation — exposure bias under a different name. The sports models sidestep it by keeping horizons short: [[trajectory-prediction|GVRNN]] predicts 4 seconds. Role 3 in the inverse setting sidesteps it entirely, since nothing is rolled out. See [[counterfactual-simulation]].
 
 [[rlhf|RLHF]] sits between the columns — a reward model learned from human preference data, then optimised against, with a KL penalty anchoring to the base model. **The best-behaved instance of the imitation/reward trade-off in the vault**, because the coefficient is routinely reported and swept, which neither football paper does.
 
@@ -127,6 +127,6 @@ Behavioural cloning is formally supervised learning; what distinguishes imitatio
 - [[policy-modelling]] · [[counterfactual-baseline]] · [[trajectory-prediction]] · [[c-obso]] · [[counterfactual-simulation]]
 - [[action-supervision]] · [[domain-adaptation]] · [[dynamic-time-warping]] · [[deep-q-network]] · [[imitation-reward-tradeoff]]
 - [[multi-agent-reinforcement-learning]] · [[temporal-difference-learning]] · [[reinforcement-learning]] · [[action-space-design]]
-- [[teacher-forcing]] · [[generative-model]] · [[markov-game]] · [[rlhf]] · [[google-research-football]] · [[nfootball]]
+- [[generative-model]] · [[markov-game]] · [[rlhf]] · [[google-research-football]] · [[nfootball]]
 - [[martingale-epv]] · [[defensive-valuation]] · [[space-creation]] · [[observed-versus-optimal-decisions]] · [[free-parameters-load-bearing]]
 - [[creating-scoring-opportunities-trajectory-prediction|C-OBSO Summary]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]]

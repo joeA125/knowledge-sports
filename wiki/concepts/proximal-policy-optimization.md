@@ -10,9 +10,9 @@ provenance:
   generated: 7%
   imported: 25%
   ambiguous: 0%
-lifecycle: draft
+lifecycle: reviewed
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-08-14
 ---
 
 # Proximal Policy Optimization
@@ -69,14 +69,10 @@ InstructGPT's KL penalty is the better-behaved arrangement for the [[imitation-r
 - **Advantage estimation is a separate design choice** (GAE and its own $\lambda$), also unreported.
 - **Reward shaping does the heavy lifting** in sparse-reward settings, and the shaped component is rarely ablated.
 
-## Beyond Sport
-
-PPO became the default deep-RL algorithm for roughly the period 2017–2023 on the strength of being simpler than TRPO and more robust than vanilla policy gradient, which is why it appears in both a football simulator and a language-model alignment pipeline in this vault with no connection between them. Its role in [[rlhf|RLHF]] made it, for a while, the most economically consequential RL algorithm in use.
-
 ## See Also
 
 - [[reinforcement-learning]] · [[temporal-difference-learning]] · [[deep-q-network]] · [[value-iteration]] · [[markov-game]] · [[policy-modelling]]
 - [[rlhf]] · [[kl-divergence]] · [[imitation-reward-tradeoff]] · [[rare-event-proxy-targets]] · [[action-space-design]]
-- [[residual-connections]] · [[adam-optimizer]] · [[agent-based-simulation]] · [[google-research-football]] · [[free-parameters-load-bearing]]
-- [[atom-scott]] · [[keisuke-fujii]] · [[openai]]
+- [[agent-based-simulation]] · [[google-research-football]] · [[social-network-analysis]] · [[free-parameters-load-bearing]] · [[trueskill]]
+- [[atom-scott]] · [[keisuke-fujii]] · [[masaki-onishi]] · [[openai]]
 - [[ai-football-reinforcement-learning|Scott et al. Summary]] · [[training-lm-follow-instructions-with-human-feedback|InstructGPT Summary]]

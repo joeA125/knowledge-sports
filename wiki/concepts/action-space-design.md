@@ -69,7 +69,7 @@ Nakahara et al. and Fujii et al. share authors, use **the same 54 Meiji J1 2019 
 | Nakahara et al. | **92-dim vector** — 23 entities × position and velocity |
 | Fujii et al. | Positions and velocities, vector form |
 
-Scott et al.'s is an **image**, consumed by a CNN with [[residual-connections|residual blocks]]. The other two are vectors consumed by a [[gated-recurrent-unit|GRU]] or MLP.
+Scott et al.'s is an **image**, consumed by a CNN with residual blocks. The other two are vectors consumed by a [[gated-recurrent-unit|GRU]] or MLP.
 
 The consequences are real and unremarked. A binary occupancy grid **discards velocity** (recovered only by stacking four frames) and **discards player identity entirely** — the map knows a home player is at a cell, not which one. That is fine for controlling one active player and fatal for per-player valuation, which may be a second reason Scott et al. produce no player metric alongside `policy-gradient-forecloses-action-valuation` on [[proximal-policy-optimization]].
 
@@ -109,14 +109,14 @@ A forward-approach action space is bounded below by **what the environment can e
 
 C-OBSO's implicit action space is *the continuous trajectory a player ran*, valued against a predicted trajectory; Nakahara's is 14 discrete labels. Two metrics of "off-ball contribution" over different action spaces need not agree, and at $\rho = 0.182$ do not. See [[construct-validity]].
 
-## Beyond Sport
+## The Portable Point
 
-Any system valuing decisions from logs faces the same choice, usually silently: which clinical interventions count as distinct, which trades are one action, which UI events are decisions. **The discretisation determines what "a better decision" could have meant**, and it is almost never reported as a modelling assumption. The genealogy point generalises too — borrowed action vocabularies carry their origin environment's assumptions.
+**The discretisation determines what "a better decision" could have meant**, and it is almost never reported as a modelling assumption. The genealogy point generalises too — borrowed action vocabularies carry their origin environment's assumptions, whether or not those assumptions travel.
 
 ## See Also
 
 - [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[action-supervision]] · [[temporal-difference-learning]] · [[deep-q-network]] · [[proximal-policy-optimization]]
 - [[game-theory]] · [[probability-surface]] · [[counterfactual-baseline]] · [[counterfactual-simulation]] · [[policy-modelling]] · [[domain-adaptation]] · [[agent-based-simulation]]
 - [[action-valuation]] · [[off-ball-value]] · [[c-obso]] · [[spadl]] · [[intent-vs-outcome-valuation]] · [[construct-validity]] · [[representation-learning]]
-- [[google-research-football]] · [[nfootball]] · [[data-stadium]] · [[gated-recurrent-unit]] · [[residual-connections]] · [[free-parameters-load-bearing]] · [[observed-versus-optimal-decisions]]
+- [[google-research-football]] · [[nfootball]] · [[data-stadium]] · [[gated-recurrent-unit]] · [[lstm]] · [[free-parameters-load-bearing]] · [[observed-versus-optimal-decisions]]
 - [[ai-football-reinforcement-learning|Scott et al.]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al.]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] · [[optimal-decisions-shot-taking-situations|Yeung & Fujii]] · [[expected-value-possession-framework|EPV]]

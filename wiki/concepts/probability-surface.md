@@ -53,12 +53,12 @@ The unobserved regions of the surface are therefore validated by *nothing direct
 
 ## Lineage
 
-The idea is borrowed wholesale from dense prediction in computer vision — [[semantic-segmentation]], where the output is a per-pixel label rather than an image-level one. The architectural machinery ([[fully-convolutional-network|FCNs]], upsampling, multi-scale fusion, [[dilated-convolution|dilated convolutions]]) transfers directly; what does not transfer is the supervision, since segmentation datasets label every pixel and football does not.
+The idea is borrowed wholesale from dense prediction in computer vision — [[semantic-segmentation]], where the output is a per-pixel label rather than an image-level one. The architectural machinery ([[fully-convolutional-network|FCNs]], upsampling, multi-scale fusion, dilated convolutions) transfers directly; what does not transfer is the supervision, since segmentation datasets label every pixel and football does not.
 
 ## See Also
 
 - [[soccermap]] · [[single-pixel-supervision]] · [[fully-convolutional-network]]
-- [[expected-possession-value]] · [[off-ball-value]] · [[pitch-control]]
-- [[semantic-segmentation]] · [[dilated-convolution]] · [[probability-calibration]]
+- [[expected-possession-value]] · [[off-ball-value]] · [[pitch-control]] · [[pitch-value-model]]
+- [[semantic-segmentation]] · [[feature-pyramid-network]] · [[probability-calibration]]
 - [[counterfactual-simulation]] · [[tactical-analysis]]
 - [[expected-value-possession-framework|Source Summary]]

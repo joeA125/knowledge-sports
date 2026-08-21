@@ -23,7 +23,7 @@ A signing is a forecast under [[counterfactual-simulation|transfer of context]].
 
 | Sub-question | What it needs | Vault coverage |
 |---|---|---|
-| How good are they *now*? | A [[reliability\|reliable]] point estimate | Well covered — [[expected-threat\|xT]], [[vaep]] |
+| How good are they *now*? | A [[split-half-reliability\|reliable]] point estimate | Well covered — [[expected-threat\|xT]], [[vaep]] |
 | Will that **transfer** to our team and league? | Context-invariance, or explicit re-simulation | Two approaches now — see below |
 | Are they **improving or declining**? | A longitudinal view | [[player-development-curve\|PDC]], [[player-rating-time-series\|rating series]] |
 | How **risky** are they? | A dispersion measure, not a mean | [[performance-volatility\|Volatility]] |

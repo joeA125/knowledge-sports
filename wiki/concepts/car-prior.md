@@ -35,7 +35,7 @@ The paper's neighbourhood construction is the interesting part. Rather than trus
 
 1. Divide the offensive half-court into 575 bins of 4 square feet.
 2. Count each player's occupancy per bin, forming a $461 \times 575$ matrix $\mathbf{G}$ (square-rooted for variance stabilisation).
-3. Apply [[non-negative-matrix-factorization|NMF]] to get $\mathbf{G} \approx \mathbf{U}\mathbf{V}$ with rank $r = 5$. Rows of $\mathbf{U}$ are 5-dimensional "positions" learned from data.
+3. Apply NMF to get $\mathbf{G} \approx \mathbf{U}\mathbf{V}$ with rank $r = 5$. Rows of $\mathbf{U}$ are 5-dimensional "positions" learned from data.
 4. Set $H_{\ell k} = 1$ if player $k$ is among player $\ell$'s eight nearest neighbours in $\mathbf{U}$-space, then symmetrise.
 
 LeBron James's learned neighbours: Iguodala, Barnes, Paul George, Kobe Bryant, Evan Turner, Carmelo Anthony, Stuckey, Will Barton, Rudy Gay — a more defensible peer group than "all small forwards".
@@ -56,10 +56,10 @@ The same CAR structure is applied to the [[gaussian-process]] basis weights $\ma
 
 ## See Also
 
-- [[non-negative-matrix-factorization]]
 - [[gaussian-process]]
 - [[inla]]
 - [[martingale-epv]]
 - [[bayesian-inference]]
 - [[regularization]]
+- [[clustering]]
 - [[multiresolution-stochastic-process-nba-possessions|Source Summary]]

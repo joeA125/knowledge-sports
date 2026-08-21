@@ -10,7 +10,7 @@ provenance:
   ambiguous: 10%
 lifecycle: reviewed
 created: 2026-05-10
-updated: 2026-07-27
+updated: 2026-08-14
 ---
 
 # Variational Autoencoder
@@ -35,7 +35,7 @@ The latent space is what most applications actually want — see [[generative-mo
 
 ## When Does a VAE Autoencode?
 
-The [[variational-lossy-autoencoder|VLAE paper]] showed that VAEs do not always autoencode: when the decoder is powerful enough (e.g. autoregressive), it can model data without using $\mathbf{z}$, causing the latent code to be ignored.
+The [[variational-lossy-autoencoders|VLAE paper]] showed that VAEs do not always autoencode: when the decoder is powerful enough (e.g. autoregressive), it can model data without using $\mathbf{z}$, causing the latent code to be ignored.
 
 This is usually described as a failure — *posterior collapse* — but VLAE's contribution was to turn it into a design lever. If the decoder will absorb whatever it can model locally, then **restricting the decoder's receptive field controls what the latent must encode.** Local texture goes to the decoder; global structure is forced into $\mathbf{z}$. Lossiness becomes a specification rather than a defect.
 
@@ -59,9 +59,11 @@ In [[c-obso]], a GVRNN trained on opponent data supplies not a forecast but a **
 
 This inverts the usual objective. A generative model is normally wanted for sample quality or likelihood; here it is wanted for a well-calibrated notion of *normal*. The metric is identically zero under a perfect model, so accuracy and usefulness pull against each other. See [[imitation-learning]].
 
+> **Scope note.** General VAE theory, the ELBO's derivation, and the wider generative-model landscape live in the general vault. This page keeps the sequential variants and the counterfactual use, which is what [[c-obso|C-OBSO]] rests on.
+
 ## See Also
 
-- [[generative-model]] · [[variational-lossy-autoencoder]] · [[autoregressive-model]]
-- [[trajectory-prediction]] · [[graph-neural-network]] · [[c-obso]] · [[counterfactual-baseline]]
-- [[kl-divergence]] · [[bayesian-inference]] · [[recurrence]] · [[lstm]]
+- [[generative-model]] · [[autoregressive-model]] · [[trajectory-prediction]] · [[graph-neural-network]] · [[message-passing]]
+- [[c-obso]] · [[counterfactual-baseline]] · [[counterfactual-simulation]] · [[imitation-learning]] · [[space-creation]]
+- [[kl-divergence]] · [[bayesian-inference]] · [[lstm]] · [[gated-recurrent-unit]] · [[representation-learning]]
 - [[variational-lossy-autoencoders|VLAE Summary]] · [[creating-scoring-opportunities-trajectory-prediction|C-OBSO Summary]]

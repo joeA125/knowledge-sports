@@ -56,13 +56,13 @@ That is worth noting because it changes what counts as a good clustering: not th
 
 ## Related Machinery
 
-- [[non-negative-matrix-factorization|NMF]] — used in [[martingale-epv]] for player similarity and spatial bases. A soft, additive alternative to hard partitioning.
+- **NMF** — used in [[martingale-epv]] for player similarity and spatial bases. A soft, additive alternative to hard partitioning.
 - [[identifiability]] — whether a mixture's components are uniquely determined at all; a precondition for interpreting them.
 - [[player-embedding]] — [[scoutgpt]]'s learned embeddings separate by position *without* clustering being asked for, which is a stronger result than a successful clustering.
 
 ## See Also
 
 - [[mixture-model]] · [[expectation-maximization]] · [[adjusted-rand-index]] · [[model-selection]] · [[identifiability]]
-- [[dynamic-pressure-lines]] · [[tactical-analysis]] · [[point-process]] · [[non-negative-matrix-factorization]]
+- [[dynamic-pressure-lines]] · [[tactical-analysis]] · [[point-process]] · [[martingale-epv]]
 - [[player-embedding]] · [[predictive-validity]]
 - [[football-event-sequences-point-process-mixture|Possession Clustering Summary]]

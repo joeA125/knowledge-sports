@@ -61,7 +61,7 @@ Smoothing presupposes a notion of "nearby". For irregularly-spaced observations 
 ## Related Uses in This Vault
 
 - [[player-development-curve]] — the age curve is smoothed after bias correction and before normalisation.
-- [[label-smoothing]] — unrelated despite the name; that softens target *distributions* for regularisation rather than denoising a series.
+- **Label smoothing** — unrelated despite the name; that softens target *distributions* for regularisation rather than denoising a series. See [[regularization]].
 - [[gaussian-process]] — a principled probabilistic alternative that yields uncertainty bands rather than a point estimate, at considerably higher cost.
 
 ## Limitations

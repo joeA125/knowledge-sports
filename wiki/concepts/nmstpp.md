@@ -38,7 +38,7 @@ Ordering also matters: $(t, z, m)$ beats $(z, t, m)$ by 0.18 total loss.
 | Stage | Content |
 |---|---|
 | **Input** | 40 previous events: inter-event time, zone (1–20), action (1–5), engineered geometry |
-| **History encoding** | Dense layer on continuous features + embeddings for zone/action → [[positional-encoding]] → [[transformer]] encoder → 31-dim history vector → dense layer |
+| **History encoding** | Dense layer on continuous features + embeddings for zone/action → positional encoding → [[transformer]] encoder → 31-dim history vector → dense layer |
 | **Forecasting** | Three chained NNs per the factorisation above |
 | **Output** | 1 value (time), 20 logits (zone), 5 logits (action) |
 | **Cost** | $L = \sum 10 \times \text{RMSE}_t + \text{CEL}_z + \text{CEL}_m$ |

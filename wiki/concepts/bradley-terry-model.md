@@ -41,7 +41,7 @@ The elaborations address its limitations, each of which is a real gap:
 |---|---|
 | No uncertainty — a strength is a point estimate | [[glicko-rating-system\|Glicko]], [[trueskill]] |
 | Static — assumes strength does not drift | Glicko's rating deviation; Glicko-2 volatility |
-| Two competitors only | [[trueskill]] via [[factor-graph]] inference |
+| Two competitors only | [[trueskill]] via graphical-model inference |
 | No draws | Draw-margin extensions; TrueSkill's draw parameter |
 | **Symmetry — no positional or contextual advantage** | Advantage terms; see [[duel-skill-rating]] |
 
@@ -59,7 +59,7 @@ Bradley-Terry is the **logistic** paired-comparison model. Its Gaussian counterp
 
 The two are close in practice and differ mainly in tail behaviour: the logistic has heavier tails, so upsets between distant competitors are somewhat more likely under Bradley-Terry. Elo's designer originally specified the Gaussian form; the logistic was argued to fit chess data better, and most modern implementations use it.
 
-[[trueskill]] returns to the Gaussian branch, since Gaussian performance distributions are what make its [[factor-graph]] message passing tractable.
+[[trueskill]] returns to the Gaussian branch, since Gaussian performance distributions are what make its [[message-passing|message passing]] tractable.
 
 ## Use in Football
 

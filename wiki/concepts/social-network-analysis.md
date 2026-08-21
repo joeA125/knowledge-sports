@@ -56,7 +56,7 @@ The reason is unusually explicit and it is what makes the method load-bearing ra
 
 Passes do not depend on individual physical ability, so pass-network topology is comparable between a simulator and a real match where movement, speed and body mechanics are not.
 
-**SNA is the instrument you reach for when the two things you want to compare share a logical structure but not a physical one.** That generalises well past sport — comparing organisational communication across companies of different sizes, or trade networks across economies of different scales.
+**SNA is the instrument you reach for when the two things you want to compare share a logical structure but not a physical one.**
 
 It also bounds what the paper's transfer result can mean. See [[domain-adaptation]].
 
@@ -79,9 +79,9 @@ Each metric appears four ways — mean, std, min, max — and the paper's two he
 
 It also raises a multiple-comparisons question the paper does not address: sixteen metric–aggregation combinations tested at $p < 0.05$, with no correction.
 
-## Beyond Sport
+## Origin
 
-Centrality metrics originate in sociology and are used wherever interaction structure matters more than interaction volume: organisational communication, citation networks, supply chains, protein interaction, and infrastructure resilience. The football application is one of the more literal — passes are unambiguous directed edges in a way that "influence" or "collaboration" rarely is.
+Centrality metrics come from sociology, where they measure interaction structure rather than interaction volume. The football application is one of the more literal — passes are unambiguous directed edges in a way that "influence" or "collaboration" rarely is.
 
 The vault's nearest neighbour is [[message-passing]], which shares the graph substrate and nothing else: message passing computes *inference* on a graph, SNA computes *description* of one.
 

@@ -10,7 +10,7 @@ provenance:
   ambiguous: 5%
 lifecycle: draft
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-14
 ---
 
 # Fully Convolutional Network
@@ -32,7 +32,7 @@ Pooling and strided convolution build large receptive fields but destroy resolut
 | Approach | Mechanism | In this vault |
 |---|---|---|
 | Encoder–decoder with skips | Downsample, upsample, fuse across scales | [[soccermap]], original FCN |
-| [[dilated-convolution\|Dilated convolution]] | Expand receptive field without downsampling | [[context-aggregation-dilated-convolutions\|Yu & Koltun]] |
+| Dilated convolution | Expand receptive field without downsampling | [[context-aggregation-dilated-convolutions\|Yu & Koltun]] |
 | Multi-scale pyramids | Predict at several scales, fuse | [[feature-pyramid-network]] |
 
 These are complementary rather than exclusive. [[soccermap]] takes the first route — predictions at 1×, ½× and ¼×, upsampled and merged through linear 1×1 fusion layers — and Yu & Koltun's dilated-convolution work, already held in the vault, is the direct alternative to it.
@@ -47,8 +47,6 @@ The analogy is imperfect in one respect worth noting. Images are genuinely trans
 
 ## See Also
 
-- [[soccermap]] · [[probability-surface]] · [[single-pixel-supervision]]
-- [[semantic-segmentation]] · [[dilated-convolution]] · [[feature-pyramid-network]]
-- [[convolution]] · [[residual-connections]]
-- [[context-aggregation-dilated-convolutions|Dilated Convolutions Summary]]
-- [[expected-value-possession-framework|Source Summary]]
+- [[soccermap]] · [[probability-surface]] · [[single-pixel-supervision]] · [[pitch-value-model]]
+- [[semantic-segmentation]] · [[feature-pyramid-network]] · [[game-state-reconstruction]]
+- [[expected-value-possession-framework|Source Summary]] · [[context-aggregation-dilated-convolutions|Dilated Convolutions Summary]]

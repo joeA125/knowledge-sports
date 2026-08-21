@@ -59,10 +59,10 @@ EM is the ancestor of most of the vault's approximate-inference machinery:
 | **GEM** | Exact E-step, improving M-step |
 | [[variational-autoencoder\|Variational inference]] | *Approximate* E-step when the posterior is intractable; same lower bound |
 | [[expectation-propagation]] | Approximates by moment matching per site rather than a global bound |
-| [[gaussian-density-filtering]] | A single forward pass of moment matching, no iteration |
+| **Density filtering** | A single forward pass of moment matching, no iteration |
 | [[inla]] | Laplace approximation plus numerical integration, avoiding iteration entirely |
 
-The vault acquired EP, ADF, and INLA before EM, which inverts the historical and conceptual order — EM is the foundation the others depart from.
+The vault acquired EP and INLA before EM, which inverts the historical and conceptual order — EM is the foundation the others depart from.
 
 ## Common Applications
 

@@ -51,7 +51,7 @@ What LEMs add is the **scale and generality** of the LLM playbook: train one [[a
 - **Events are structured tuples, not atomic symbols.** A word is one token; a football event has actor, action, location, time, and outcome. Hence the multi-token-per-event schemes in [[tokenization]].
 - **Hard validity constraints.** Ungrammatical text is merely odd; a physically impossible event sequence is wrong. This motivates [[constrained-decoding]], which has no real equivalent in open-ended text generation.
 - **Value is not likelihood.** A plain next-token objective favours frequent actions — mostly passes — regardless of tactical consequence. [[scoutgpt]] adds explicit value supervision precisely because likelihood is the wrong target. See [[multi-task-learning]], and the evaluation discussion on [[generative-model]] for the general version of this problem.
-- **Data is scarce.** Text corpora run to trillions of tokens; the K League dataset behind ScoutGPT has 222,940 episodes across five seasons. [[scaling-laws]] suggest this constrains what the paradigm can reach.
+- **Data is scarce.** Text corpora run to trillions of tokens; the K League dataset behind ScoutGPT has 222,940 episodes across five seasons. Neural scaling laws suggest this constrains what the paradigm can reach.
 
 ## The Lineage in This Vault
 
@@ -77,7 +77,7 @@ The same group's earlier Random-Forest-based work is a further data point for th
 
 - [[generative-model]] · [[event-prediction]] · [[autoregressive-model]]
 - [[scoutgpt]] · [[seq2event]] · [[nmstpp]] · [[sig-model]] · [[eventgpt]]
-- [[tokenization]] · [[constrained-decoding]] · [[transformer]] · [[scaling-laws]]
+- [[tokenization]] · [[constrained-decoding]] · [[transformer]] · [[handcrafted-features-rule]]
 - [[player-rating-time-series]] · [[counterfactual-simulation]]
 - [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]]
 - [[scoutgpt-counterfactual-player-valuation|Source Summary]]

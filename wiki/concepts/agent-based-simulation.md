@@ -72,9 +72,9 @@ The interpretive difficulty is symmetrical. When emergent behaviour resembles re
 
 The last row is the honest summary. Both held ABS papers are about **whether the method works**, not about football. Scott et al. explicitly frame their contribution as verifying simulations as a practical approach for football analysis — a methodological claim. The controlled experiments that motivated the whole enterprise (what does this formation do? what happens under this press?) remain unrun.
 
-## Beyond Sport
+## The Validation Trap
 
-ABS is standard in epidemiology, traffic engineering, ecology, and economics, and the football case illustrates the general failure mode well. **The technique is adopted where experiments are impossible, which is exactly where the simulator cannot be validated against experiment.** The validation problem is not incidental to ABS; it is the same condition that made ABS necessary.
+**The technique is adopted where experiments are impossible, which is exactly where the simulator cannot be validated against experiment.** The validation problem is not incidental to ABS; it is the same condition that made ABS necessary.
 
 The partial answer both held papers reach for is the same: compare simulated behaviour against real observational data on some dimension, and argue about whether the dimension is the right one. See [[domain-adaptation]] and [[construct-validity]].
 

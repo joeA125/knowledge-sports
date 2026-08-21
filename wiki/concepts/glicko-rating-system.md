@@ -60,12 +60,12 @@ Both applications discard the uncertainty they compute — downstream models con
 
 ## Relation to TrueSkill
 
-[[trueskill]] builds on Glicko's Gaussian skill beliefs and extends them to teams and multi-player competitions via [[factor-graph]] inference, using [[expectation-propagation|approximate message passing]] rather than Glicko's closed-form update. Glicko remains simpler and adequate wherever contests are genuinely pairwise.
+[[trueskill]] builds on Glicko's Gaussian skill beliefs and extends them to teams and multi-player competitions via graphical-model inference, using [[expectation-propagation|approximate message passing]] rather than Glicko's closed-form update. Glicko remains simpler and adequate wherever contests are genuinely pairwise.
 
 ## See Also
 
 - [[elo-rating-system]] · [[trueskill]] · [[bradley-terry-model]]
 - [[duel-skill-rating]] · [[league-strength-rating]]
 - [[mark-glickman]] · [[andrei-shelopugin]] · [[alexander-sirotkin]]
-- [[bayesian-inference]] · [[gaussian-density-filtering]]
+- [[bayesian-inference]] · [[uncertainty-quantification]] · [[expectation-propagation]]
 - [[epv-control-duel-skills-football|Source Summary]]

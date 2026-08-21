@@ -58,10 +58,10 @@ INLA joins a family of deterministic alternatives to sampling:
 |---|---|
 | INLA | Nested Laplace + numerical integration over hyperparameters |
 | [[expectation-propagation]] | Iterative moment matching of site approximations |
-| [[approximate-message-passing]] | Message passing on a [[factor-graph]] |
-| [[gaussian-density-filtering]] | Single forward pass of Gaussian moment matching |
+| Approximate message passing | Message passing on a factor graph |
+| Density filtering | Single forward pass of Gaussian moment matching |
 
-All four replace exact posteriors with tractable Gaussian-family surrogates; they differ in how the approximation is constructed and whether it is refined iteratively. See [[message-passing]] for what the last two have in common.
+All four replace exact posteriors with tractable Gaussian-family surrogates; they differ in how the approximation is constructed and whether it is refined iteratively. See [[message-passing]] for what the last two have in common, and the general vault for their details.
 
 ## Partial Likelihood Caveat
 

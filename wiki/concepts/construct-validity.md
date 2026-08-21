@@ -93,9 +93,9 @@ Neither is ground truth; both are *other raters*. Agreement is convergent eviden
 
 The third is the closest thing to a decisive, cheap test the vault has identified for off-ball valuation, and no source has run it.
 
-## Beyond Sport
+## The Same Problem Elsewhere
 
-Wherever a construct is unobservable — job performance, model capability, patient wellbeing, code quality — validation reduces to a correlation matrix among instruments. The failure mode is universal: **a new instrument that agrees with nothing is reported as measuring something new, when it may be measuring nothing.** See [[capability-profiling]] for the same problem in AI evaluation, where reporting a vector rather than a composite is one response to it.
+Wherever a construct is unobservable, validation reduces to a correlation matrix among instruments. See [[capability-profiling]] for the version of this inside the vault — reporting a decomposition rather than a composite is one response to it.
 
 ## See Also
 

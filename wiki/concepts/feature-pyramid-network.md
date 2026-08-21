@@ -37,12 +37,13 @@ The YOLO family (v3+) that dominates the [[computer-vision-football-review|CV fo
 
 ## Relation to Other Architectures
 
-- FPN is complementary to [[residual-connections]] — ResNet provides the backbone; FPN adds the multi-scale fusion.
-- U-Net (used in Pix2Pix / [[conditional-gan]]) uses a similar encoder-decoder structure with skip connections, but for dense pixel-wise prediction rather than detection.
+- FPN builds on residual backbones — ResNet provides the feature hierarchy; FPN adds the multi-scale fusion.
+- U-Net uses a similar encoder-decoder structure with skip connections, but for dense pixel-wise prediction rather than detection. The same tension between resolution and context appears in [[fully-convolutional-network]] and [[soccermap]], where the football surface models resolve it by multi-scale fusion.
 
 ## See Also
 
 - [[object-detection]]
-- [[residual-connections]]
-- [[conditional-gan]]
 - [[game-state-reconstruction]]
+- [[fully-convolutional-network]]
+- [[semantic-segmentation]]
+- [[multi-object-tracking]]

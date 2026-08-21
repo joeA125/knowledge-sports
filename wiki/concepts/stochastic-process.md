@@ -54,7 +54,7 @@ The same authors later abandoned the process model for nine supervised component
 
 ## Inference
 
-Process models rarely admit closed-form posteriors, so the vault's instances lean on approximation: [[inla]] for latent Gaussian models, [[car-prior|CAR priors]] for spatial pooling, [[expectation-maximization|EM]] for [[mixture-model|mixtures]] of point processes, and [[expectation-propagation]] for [[factor-graph|factor-graph]] formulations. See [[approximation]] and [[message-passing]].
+Process models rarely admit closed-form posteriors, so the vault's instances lean on approximation: [[inla]] for latent Gaussian models, [[car-prior|CAR priors]] for spatial pooling, [[expectation-maximization|EM]] for [[mixture-model|mixtures]] of point processes, and [[expectation-propagation]] for graphical-model formulations. See [[message-passing]].
 
 ## See Also
 

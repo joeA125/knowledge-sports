@@ -63,7 +63,7 @@ This is a spatial instance of the structure on [[selection-bias]]: what gets obs
 
 ## See Also
 
-- [[probability-surface]] · [[soccermap]] · [[fully-convolutional-network]]
-- [[semantic-segmentation]] · [[convolution]]
-- [[selection-bias]] · [[probability-calibration]]
+- [[probability-surface]] · [[soccermap]] · [[fully-convolutional-network]] · [[pitch-value-model]]
+- [[semantic-segmentation]] · [[feature-pyramid-network]] · [[game-state-reconstruction]]
+- [[selection-bias]] · [[probability-calibration]] · [[uncertainty-quantification]] · [[expected-possession-value]]
 - [[expected-value-possession-framework|Source Summary]]

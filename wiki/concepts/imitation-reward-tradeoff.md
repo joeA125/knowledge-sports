@@ -100,9 +100,9 @@ The C-OBSO row is the odd one and worth keeping in view: there, better imitation
 
 The third remains unrun. It was the expected contribution of this paper and is not in it — see [[free-parameters-load-bearing]].
 
-## Beyond Sport
+## The Question That Generalises
 
-Any system learning from logged human behaviour under a reward signal inherits this: clinical decision support anchored to physician practice, recommender systems balancing engagement against historical behaviour, autonomous driving trading comfort-matching against route efficiency. In each case the same question applies and is rarely answered — **how much of the model's apparent disagreement with humans is a finding, and how much is the weight someone chose?**
+Any system learning from logged human behaviour under a reward signal inherits this trade-off, and the same question applies wherever it appears — **how much of the model's apparent disagreement with humans is a finding, and how much is the weight someone chose?**
 
 ## See Also
 

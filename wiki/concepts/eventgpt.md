@@ -35,7 +35,7 @@ Value is therefore generated rather than predicted by a separate head, which mea
 
 nanoGPT decoder-only transformer, with all attributes — categorical, spatial, temporal and value — sharing **one vocabulary and one embedding matrix**, and output projection weights **tied** to the input embedding.
 
-The authors argue this against multi-branch designs that separately embed spatial, temporal and categorical features: a unified vocabulary lets the transformer learn attribute interactions through [[attention-mechanism|attention]] rather than through hand-designed fusion. Trained with [[teacher-forcing]].
+The authors argue this against multi-branch designs that separately embed spatial, temporal and categorical features: a unified vocabulary lets the transformer learn attribute interactions through [[attention-mechanism|attention]] rather than through hand-designed fusion. Trained with teacher forcing.
 
 Uses [[spadl]] event representation — the only model in this vault's football cluster to do so, where [[nmstpp]] uses WyScout and [[scoutgpt]] uses VERSA. Episodes are defined by *unchanged personnel*, breaking on substitutions and dismissals as well as stoppages, which guarantees a stable context for player conditioning.
 
@@ -80,5 +80,5 @@ The substantive advance is the third row. EventGPT holds the event sequence fixe
 - [[player-embedding]]
 - [[counterfactual-simulation]]
 - [[large-event-model]]
-- [[teacher-forcing]]
+- [[generative-model]]
 - [[eventgpt-player-impact-team-action-sequences|Source Summary]]

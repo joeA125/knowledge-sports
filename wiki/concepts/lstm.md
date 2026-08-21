@@ -1,75 +1,67 @@
 ---
 title: "Long Short-Term Memory"
 type: concept
-tags: [deep-learning, rnn, lstm, architecture, sequence-modelling]
+tags: [deep-learning, rnn, lstm, architecture, sequence-modelling, event-prediction, sports-analytics, model-selection]
 sources: [raw/papers/rnn-regularisation.md, raw/papers/neural-machine-translation.md, raw/papers/transformer-point-process-football-event-modelling.md]
-confidence: 0.9
+confidence: 0.85
 provenance:
-  extracted: 60%
-  inferred: 30%
-  ambiguous: 10%
-lifecycle: draft
+  extracted: 58%
+  inferred: 32%
+  generated: 6%
+  imported: 0%
+  ambiguous: 4%
+lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-07-23
+updated: 2026-08-14
 ---
 
 # Long Short-Term Memory (LSTM)
 
-The LSTM (Hochreiter & Schmidhuber, 1997) is a recurrent neural network architecture designed to learn long-term dependencies by maintaining explicit memory cells and using gating mechanisms to control information flow.
+A recurrent architecture (Hochreiter & Schmidhuber, 1997) that learns long-range dependencies by maintaining an explicit **cell state** and gating what enters, leaves, and is read from it.
 
-## Architecture
+$$c_t = f \odot c_{t-1} + i \odot g, \qquad h_t = o \odot \tanh(c_t)$$
 
-The LSTM cell uses four gates computed from the current input $h_t^{l-1}$ and previous hidden state $h_{t-1}^l$:
+with input, forget, output and modulation gates computed from the current input and previous hidden state. The cell state gives gradients a path across many timesteps with minimal decay, which is what addresses the vanishing-gradient problem.
 
-- **Input gate** $i$: controls what new information to store.
-- **Forget gate** $f$: controls what information to discard from the cell.
-- **Output gate** $o$: controls what information to output.
-- **Input modulation gate** $g$: candidate values to add to the cell.
+> **Scope note.** Gate-level detail, variants, and the recurrent-dropout literature live in the general vault. This page keeps the encoder-choice question, which is live in football event modelling.
 
-$$\begin{pmatrix} i \\ f \\ o \\ g \end{pmatrix} = \begin{pmatrix} \text{sigm} \\ \text{sigm} \\ \text{sigm} \\ \text{tanh} \end{pmatrix} T_{2n,4n} \begin{pmatrix} h_t^{l-1} \\ h_{t-1}^l \end{pmatrix}$$
+## Why This Page Is Football-Side
 
-$$c_t^l = f \odot c_{t-1}^l + i \odot g$$
-$$h_t^l = o \odot \tanh(c_t^l)$$
+Every sequence model in this vault has to choose a history encoder, and the choice is not settled. The [[transformer]] displaced recurrent encoders for most long-sequence tasks, **but the trade-off is narrower than the displacement suggests.**
 
-## Why LSTMs Work
+[[transformer-point-process-football-event-modelling|Yeung et al. (2023)]] give the cleanest measurement available, on football event sequences with everything else held fixed:
 
-The cell state $c_t$ provides a highway for gradients to flow across many time steps with minimal decay, addressing the vanishing gradient problem. The gates learn when to read, write, and reset the memory.
+| Encoder | Total loss | Training time | Parameters |
+|---|---|---|---|
+| **Uni-LSTM** | **4.51** | 129 min | **4K** |
+| Transformer | 4.57 | **47 min** | 13K |
 
-## LSTM vs Transformer for Sequence Encoding
+**The LSTM wins on loss and loses on speed** — 2.7× slower to train, with a third of the parameters. [[seq2event|Simpson et al. (2022)]] report the same pattern, and it recurs across the [[neural-temporal-point-process|NTPP]] literature.
 
-The [[transformer]] displaced recurrent encoders for most long-sequence tasks, but the tradeoff is narrower than the displacement suggests. The recurring empirical finding is that **LSTMs remain competitive or marginally better on accuracy, while being substantially slower to train**, because their gradient computation is inherently sequential where self-attention parallelises.
+> ### `recurrence-persists-where-sequences-are-short`
+> **The Transformer's advantage is parallelisation across long sequences. Where sequences are short, training budget is tight relative to inference budget, or parameter count is constrained by data scale, recurrent encoders remain competitive or better — which describes most football event modelling.**
+> ^[generated: the sources report the measurements; the generalisation is drawn here. rests-on: source:yeung-encoder-comparison, source:simpson-seq2event-encoder]
 
-[[transformer-point-process-football-event-modelling|Yeung et al. (2023)]] give a clean measurement on football event sequences, holding everything else fixed:
+That claim connects to [[regularization]] and [[handcrafted-features-rule]]: at football data scale, **capacity is rarely the binding constraint**, so an architecture that parallelises better buys less than it does at language scale. A 40-event window is not a 4,000-token document.
 
-| Encoder | Total loss | Training time |
+## Where Recurrence Actually Runs Here
+
+| Framework | Encoder | Note |
 |---|---|---|
-| Uni-LSTM | **4.51** | 129 min |
-| Transformer | 4.57 | **47 min** |
+| [[nmstpp]] | Transformer, LSTM tested | Transformer chosen for speed despite worse loss |
+| [[seq2event]] | LSTM | Same finding independently |
+| [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] | [[gated-recurrent-unit\|GRU]], 64 units | Carries state across the TD bootstrap |
+| [[trajectory-prediction\|GVRNN]] | Recurrent, per-agent | Underpins [[c-obso]] |
 
-The LSTM wins on loss by 0.06; the transformer trains **2.7× faster**. The same pattern was reported by [[seq2event|Simpson et al. (2022)]] and is noted across the [[neural-temporal-point-process|NTPP]] literature.
-
-This is why LSTMs persist in settings where sequences are short, training budget is tight relative to inference budget, or parameter count matters — the LSTM variant above used 4K parameters against the transformer's 13K.
+The Nakahara case is the interesting one: there the recurrence is not only encoding a sequence but **substituting for [[deep-q-network|DQN's]] stabiliser stack**, carrying information across the bootstrap where a target network would otherwise hold it steady. See [[gated-recurrent-unit]].
 
 ## Relation to GRU
 
-The [[gated-recurrent-unit]] (Cho et al., 2014) simplifies the LSTM by merging the forget and input gates into a single update gate and combining the cell and hidden states, yielding fewer parameters.
-
-## Regularisation
-
-Standard [[dropout]] applied to recurrent connections harms LSTMs. [[dropout-for-rnns|Zaremba et al. (2014)]] showed dropout should only be applied to non-recurrent (inter-layer) connections.
-
-## Uses in This Vault
-
-- Sequence transduction and machine translation ([[encoder-decoder]], [[neural-machine-translation]])
-- Controller for the [[neural-turing-machine]], where internal LSTM memory complements external addressable memory
-- History encoding in [[neural-temporal-point-process|NTPP]] models, as one of the standard choices alongside GRU and transformer encoders
-- Microtransition and sequence models across sports analytics
+The [[gated-recurrent-unit]] merges the forget and input gates into one update gate and combines the cell and hidden states — fewer parameters for broadly comparable performance. At football data scale that difference is not incidental; it is why Nakahara et al. use a GRU rather than an LSTM.
 
 ## See Also
 
-- [[transformer]]
-- [[gated-recurrent-unit]]
-- [[dropout-for-rnns]]
-- [[bidirectional-rnn]]
-- [[encoder-decoder]]
-- [[neural-temporal-point-process]]
+- [[gated-recurrent-unit]] · [[transformer]] · [[attention-mechanism]] · [[encoder-decoder-bottleneck]] · [[neural-temporal-point-process]]
+- [[nmstpp]] · [[seq2event]] · [[sig-model]] · [[event-prediction]] · [[trajectory-prediction]]
+- [[regularization]] · [[handcrafted-features-rule]] · [[deep-q-network]] · [[model-selection]]
+- [[transformer-point-process-football-event-modelling|NMSTPP Summary]] · [[neural-machine-translation|Bahdanau Summary]]

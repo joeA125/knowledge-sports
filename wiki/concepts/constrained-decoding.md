@@ -50,7 +50,7 @@ An **ownership lock** further preserves the acting player across consecutive eve
 Constrained decoding is now standard wherever generated text must be machine-readable:
 
 - **Structured output** — grammar- or schema-constrained generation for JSON, forcing conformance to a schema rather than hoping for it.
-- **[[tool-use|Function calling]]** — restricting generation to valid tool names and argument types.
+- **Function calling** — restricting generation to valid tool names and argument types.
 - **Code generation** — masking against a language grammar so output parses.
 
 The football case and the JSON case are the same technique: a validity automaton runs alongside decoding, and its state determines the mask.
@@ -72,5 +72,6 @@ Nor is it free: if the constraints disagree with the training distribution, mask
 - [[scoutgpt]]
 - [[tokenization]]
 - [[large-event-model]]
-- [[tool-use]]
+- [[eventgpt]]
+- [[autoregressive-model]]
 - [[scoutgpt-counterfactual-player-valuation|Source Summary]]

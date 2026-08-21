@@ -127,16 +127,16 @@ DTW helps on chase-and-escape and **not at all** on football. One reading: DTW c
 
 The distinction from imitation learning is the one that matters. **RoboCup imitation work has source and target environments that are basically the same**, which Fujii et al. note explicitly — why robot-soccer imitation results do not transfer to this problem.
 
-## Beyond Sport
+## Why This Generalises
 
-Real-to-Sim is the general shape of any attempt to build a simulator *from* observational data rather than from first principles: epidemic models fitted to case data, traffic microsimulation from loop detectors, market simulators from order books, animal collective-behaviour models from tracking. In all of them the source dynamics are unknown, the target dynamics are assumed, and **the discrepancy cannot be measured because measuring it would require the thing you lack.**
+Real-to-Sim is the shape of any attempt to build a simulator *from* observational data rather than from first principles. In all such cases the source dynamics are unknown, the target dynamics are assumed, and **the discrepancy cannot be measured because measuring it would require the thing you lack.**
 
-`transfer-evidence-is-conditional-on-the-dimension-chosen` is the portable warning. Every such field validates its simulator on *some* dimension, and the dimension is usually chosen because it is measurable across both — which is close to choosing it because the gap does not affect it.
+`transfer-evidence-is-conditional-on-the-dimension-chosen` is the portable warning: every such field validates its simulator on *some* dimension, and the dimension is usually chosen because it is measurable across both — which is close to choosing it because the gap does not affect it.
 
 ## See Also
 
 - [[dynamic-time-warping]] · [[action-supervision]] · [[imitation-reward-tradeoff]] · [[deep-q-network]] · [[proximal-policy-optimization]]
 - [[agent-based-simulation]] · [[social-network-analysis]] · [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[imitation-learning]] · [[action-space-design]]
-- [[nfootball]] · [[google-research-football]] · [[counterfactual-simulation]] · [[trajectory-prediction]] · [[construct-validity]] · [[pre-train-then-fine-tune]]
+- [[nfootball]] · [[google-research-football]] · [[counterfactual-simulation]] · [[trajectory-prediction]] · [[construct-validity]] · [[representation-learning]]
 - [[atom-scott]] · [[keisuke-fujii]] · [[masaki-onishi]] · [[naoya-takeishi]] · [[yoshinobu-kawahara]] · [[aist]]
 - [[ai-football-reinforcement-learning|Scott et al. Summary]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]]

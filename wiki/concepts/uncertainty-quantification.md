@@ -2,7 +2,7 @@
 title: "Uncertainty Quantification"
 type: concept
 tags: [uncertainty-quantification, statistics, bayesian, calibration, probabilistic-classification, ranking-system, evaluation, inference]
-sources: [raw/papers/bayesian-true-skill-rating.md, raw/papers/expected_value_possession_framework.md, raw/papers/llm_factcheck_consistency_certainty.md]
+sources: [raw/papers/bayesian-true-skill-rating.md, raw/papers/expected_value_possession_framework.md]
 confidence: 0.8
 provenance:
   extracted: 35%
@@ -10,7 +10,7 @@ provenance:
   ambiguous: 5%
 lifecycle: draft
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-14
 ---
 
 # Uncertainty Quantification
@@ -34,7 +34,7 @@ The rating systems are the clear case, and it is what distinguishes them from th
 - **Update size adapts.** A result against an uncertain opponent moves your rating less; your own uncertain rating moves further.
 - **Inactivity widens uncertainty.** A returning competitor's rating adjusts quickly rather than being anchored to stale evidence.
 
-Glicko-2 adds volatility; [[trueskill]] carries Gaussian beliefs through [[factor-graph|factor-graph]] [[message-passing]]. The Bayesian machinery elsewhere — [[gaussian-process|GPs]], [[car-prior|CAR priors]], [[inla]] in [[martingale-epv]] — produces posteriors rather than point estimates for the same reason.
+Glicko-2 adds volatility; [[trueskill]] carries Gaussian beliefs through graphical-model [[message-passing]]. The Bayesian machinery elsewhere — [[gaussian-process|GPs]], [[car-prior|CAR priors]], [[inla]] in [[martingale-epv]] — produces posteriors rather than point estimates for the same reason.
 
 ## Where It Is Discarded
 
@@ -58,14 +58,14 @@ Guo et al. (2017): modern networks are systematically overconfident, counter to 
 
 [[expected-value-possession-framework|Fernández et al.]] apply it and obtain $T < 1$ for two components, which *sharpens* rather than softens — the opposite of the usual correction, implying those models were **under**-confident.
 
-## In Language Models
+## Beyond This Vault
 
-[[llm-factcheck-consistency-certainty|The PCC work]] separates a model's stated certainty from its consistency across samples — a direct analogue of the aleatoric/epistemic split, where sampling variance stands in for parameter uncertainty. Ensembles and dropout-at-inference do the same job in the general case.
+The aleatoric/epistemic split recurs wherever a model's confidence matters as much as its prediction. In language models, separating a model's *stated* certainty from its *consistency across samples* is the same distinction under other names, with sampling variance standing in for parameter uncertainty. Ensembles and dropout-at-inference do the same job in the general case. Covered in the general vault.
 
 ## See Also
 
 - [[probability-calibration]] · [[probabilistic-classification]] · [[class-imbalance-evaluation]]
-- [[glicko-rating-system]] · [[trueskill]] · [[elo-rating-system]] · [[bayesian-inference]]
+- [[glicko-rating-system]] · [[trueskill]] · [[elo-rating-system]] · [[bayesian-inference]] · [[expectation-propagation]]
 - [[gaussian-process]] · [[inla]] · [[car-prior]] · [[message-passing]]
-- [[league-strength-rating]] · [[transfer-performance-prediction]] · [[single-pixel-supervision]]
-- [[bayesian-true-skill-rating|TrueSkill Summary]] · [[llm-factcheck-consistency-certainty|PCC Summary]]
+- [[league-strength-rating]] · [[transfer-performance-prediction]] · [[single-pixel-supervision]] · [[capability-profiling]]
+- [[bayesian-true-skill-rating|TrueSkill Summary]] · [[expected-value-possession-framework|EPV Summary]]

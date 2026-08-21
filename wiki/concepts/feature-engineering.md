@@ -51,7 +51,7 @@ The vault's models sit at very different points on this spectrum:
 | [[nmstpp]] | Moderate — engineered zone geometry (distance/angle to goal, coordinate deltas) alongside learned embeddings |
 | [[martingale-epv]] | Moderate — situational covariates, but spatial structure learned via [[gaussian-process]] |
 | [[sig-model]] | Minimal — raw $(x, y, T)$ only; geometry implicit in the signature |
-| [[bert]] / [[gpt]] | None — raw tokens; all structure learned in [[pre-train-then-fine-tune|pre-training]] |
+| Language models | None — raw tokens; all structure learned in pre-training |
 
 The trajectory across deep learning generally has run from heavy engineering toward learned representations. Path signatures offer a third option: a **fixed mathematical transform** that is neither handcrafted-per-task nor learned, which is why it needs no training in the encoder yet still captures order and interaction.
 

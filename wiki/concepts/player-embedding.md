@@ -47,7 +47,7 @@ Players landing at cluster boundaries are informative: [[scoutgpt]] reports Jins
 
 This measurably improves the embeddings — cross-season same-player retrieval rises to 9.20/21.97/30.90 (Top-1/5/10) from 8.48/20.02/27.05 without masking, and beats a statistics-based baseline.
 
-The mechanism is the same as [[masked-language-model|masked language modelling]]: removing a shortcut forces the model to use richer context, and the representation improves as a result. It is also an instance of a general pattern — **if a feature lets the model avoid learning what you want, remove it.**
+The mechanism is the same as masked language modelling: removing a shortcut forces the model to use richer context, and the representation improves as a result. It is also an instance of a general pattern — **if a feature lets the model avoid learning what you want, remove it.** See [[representation-learning]].
 
 ## Similarity Retrieval and Its Limits
 
@@ -60,8 +60,8 @@ But the paper's most useful result is a *negative* one. Among embedding-similar 
 ## Relation to Other Embeddings in This Vault
 
 - [[siamese-network]] embeddings are trained explicitly for similarity via contrastive loss. Player embeddings here are trained for *prediction* and similarity emerges as a by-product — which is why they encode behaviour rather than merely appearance.
-- Word embeddings in [[gpt]] and [[bert]] are the direct analogue: entity embeddings learned as a side effect of next-token or masked-token prediction, then repurposed downstream.
-- [[car-prior]] takes a non-neural route to the same problem — defining player similarity by court-occupancy [[non-negative-matrix-factorization|NMF]] rather than positional labels, for exactly the reason given here: listed position is a poor proxy for behaviour.
+- Word embeddings in large language models are the direct analogue: entity embeddings learned as a side effect of next-token or masked-token prediction, then repurposed downstream. See [[large-event-model]] for the football-as-language framing this rests on.
+- [[car-prior]] takes a non-neural route to the same problem — defining player similarity by court-occupancy NMF rather than positional labels, for exactly the reason given here: listed position is a poor proxy for behaviour.
 
 ## See Also
 

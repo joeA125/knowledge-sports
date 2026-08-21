@@ -88,6 +88,6 @@ An important detail the buffer handles: demonstration data is **never overwritte
 
 - [[temporal-difference-learning]] · [[action-supervision]] · [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[policy-modelling]]
 - [[domain-adaptation]] · [[dynamic-time-warping]] · [[imitation-learning]] · [[imitation-reward-tradeoff]] · [[action-space-design]]
-- [[gated-recurrent-unit]] · [[regularization]] · [[adam-optimizer]] · [[free-parameters-load-bearing]] · [[markov-game]] · [[value-iteration]]
-- [[keisuke-fujii]] · [[hiroshi-nakahara]] · [[google-deepmind]] · [[nfootball]]
+- [[gated-recurrent-unit]] · [[regularization]] · [[free-parameters-load-bearing]] · [[markov-game]] · [[value-iteration]]
+- [[keisuke-fujii]] · [[hiroshi-nakahara]] · [[atom-scott]] · [[nfootball]]
 - [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]]

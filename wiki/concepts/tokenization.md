@@ -2,7 +2,7 @@
 title: "Tokenization"
 type: concept
 tags: [tokenization, sequence-modelling, language-modelling, transformer, encoding, feature-engineering, deep-learning]
-sources: [raw/papers/scoutgpt-generative-transformer-football-player-valuation.md, raw/papers/language_understanding_gpt.md, raw/papers/bert-bidirectional-transformers.md]
+sources: [raw/papers/scoutgpt-generative-transformer-football-player-valuation.md]
 confidence: 0.85
 provenance:
   extracted: 55%
@@ -10,7 +10,7 @@ provenance:
   ambiguous: 7%
 lifecycle: reviewed
 created: 2026-07-24
-updated: 2026-07-24
+updated: 2026-08-14
 ---
 
 # Tokenization
@@ -25,7 +25,7 @@ Tokenization converts raw data into a finite sequence of discrete units that a s
 | Word | One token per word | Short sequences, huge vocabulary, out-of-vocabulary failures |
 | **Subword** | Frequent pieces merged | Balances both; no OOV, since rare words decompose |
 
-Subword schemes dominate. [[gpt]] uses **byte-pair encoding** (40K merges), iteratively merging the most frequent adjacent pair. [[bert]] uses **WordPiece** (30K vocabulary), which merges by likelihood gain rather than raw frequency.
+Subword schemes dominate — byte-pair encoding, which iteratively merges the most frequent adjacent pair, and WordPiece, which merges by likelihood gain rather than raw frequency.
 
 Both guarantee any input is representable, at the cost of splitting rare words into fragments — which is why tokenizers show characteristic weaknesses on numbers, code, and morphologically rich languages.
 
@@ -69,9 +69,10 @@ ScoutGPT's 10-tokens-per-event scheme means a 100-event episode becomes 1,056 to
 
 ## See Also
 
-- [[gpt]]
-- [[bert]]
 - [[scoutgpt]]
+- [[eventgpt]]
 - [[large-event-model]]
 - [[constrained-decoding]]
 - [[event-stream-data]]
+- [[player-embedding]]
+- [[spadl]]

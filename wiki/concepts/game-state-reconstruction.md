@@ -28,7 +28,7 @@ GSR decomposes into several interconnected sub-tasks:
 
 ## Court Detection
 
-Field markings are detected via [[conditional-gan|dual conditional GANs (Pix2Pix)]] that segment grass from background and extract edge maps, providing the input for camera calibration.
+Field markings are detected via **dual conditional GANs (Pix2Pix)** that segment grass from background and extract edge maps, providing the input for camera calibration.
 
 ## Evaluation: GS-HOTA
 
@@ -56,6 +56,6 @@ The [[amateur-football-analytics-computer-vision|Mavrogiannis thesis (2021)]] an
 - [[siamese-network]]
 - [[optical-flow]]
 - [[enhanced-correlation-coefficient]]
-- [[conditional-gan]]
+- [[multi-object-tracking]]
 - [[feature-pyramid-network]]
 - [[semantic-segmentation]]

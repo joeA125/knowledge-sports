@@ -109,11 +109,9 @@ The vault holds **two forward papers and one inverse**, and the forward ones bra
 
 Only the first is properly "multi-agent". The second and third are orthogonal and could be applied to a single-agent formulation — which is roughly what Scott et al. is.
 
-## Beyond Sport
+## The Wider Framing
 
-The team-as-one-agent trap recurs wherever logged behaviour comes from a group credited jointly: trading desks, clinical teams, vehicle fleets. An aggregate reward invites an aggregate agent, which then cannot attribute.
-
-Fujii et al.'s framing generalises further: their stated subject is **biological multi-agents**, with football beside a predator-prey chase task. See [[naoya-takeishi]] and [[kazushi-tsutsui]].
+Fujii et al.'s stated subject is **biological multi-agents**, with football placed beside a predator-prey chase task — so the football results there are a demonstration of a general method rather than a claim about football. See [[naoya-takeishi]] and [[kazushi-tsutsui]].
 
 ## See Also
 

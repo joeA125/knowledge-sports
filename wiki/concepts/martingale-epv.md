@@ -43,7 +43,7 @@ $$\nu_t = \sum_{c \in \mathcal{C}} \mathbb{E}[X \mid C_{\delta_t} = c] \; \mathb
 
 A coarsened semi-[[markov-game|Markov chain]] supplies the first factor by transition-matrix algebra; continuous models of player movement and [[competing-risks|event hazards]] supply the second, requiring forecasts only until the next pass, shot, or turnover.
 
-Supporting machinery: [[gaussian-process]] spatial effects in a functional basis, [[car-prior|CAR priors]] sharing information across similar players, [[non-negative-matrix-factorization|NMF]] for both the player-similarity structure and the spatial bases, and [[inla]] for inference at scale.
+Supporting machinery: [[gaussian-process]] spatial effects in a functional basis, [[car-prior|CAR priors]] sharing information across similar players, NMF for both the player-similarity structure and the spatial bases, and [[inla]] for inference at scale.
 
 ## The Soccer Descendant, and What It Gave Up
 

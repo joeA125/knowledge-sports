@@ -24,7 +24,7 @@ Classification networks achieve global context via pooling and subsampling but d
 ## Deep Learning Approaches
 
 - **[[fully-convolutional-network|Fully Convolutional Networks]] (FCN):** Long et al. (2015) adapted classification networks for dense prediction using up-convolutions and skip connections, fusing predictions across resolutions in a "deep jet" hierarchy.
-- **DeepLab:** Used [[dilated-convolution]]s to avoid resolution loss, combined with dense CRFs for structured prediction.
+- **DeepLab:** Used dilated (atrous) convolutions to avoid resolution loss, combined with dense CRFs for structured prediction.
 - **Dilated context module:** [[context-aggregation-dilated-convolutions|Yu & Koltun (2016)]] proposed a plug-in module using exponentially dilated convolutions for multi-scale context aggregation without resolution loss.
 
 ## Weakly Supervised Variants
@@ -58,7 +58,7 @@ Note that mIoU has no counterpart in the football surface setting, since there i
 
 ## See Also
 
-- [[fully-convolutional-network]] · [[dilated-convolution]] · [[feature-pyramid-network]]
-- [[probability-surface]] · [[single-pixel-supervision]] · [[soccermap]]
-- [[jaccard-index]] · [[convolution]] · [[residual-connections]] · [[batch-normalization]]
-- [[context-aggregation-dilated-convolutions|Dilated Convolutions Summary]]
+- [[fully-convolutional-network]] · [[feature-pyramid-network]] · [[soccermap]] · [[game-state-reconstruction]]
+- [[probability-surface]] · [[single-pixel-supervision]] · [[pitch-value-model]] · [[expected-value-possession-framework]]
+- [[jaccard-index]] · [[camera-calibration]] · [[probability-calibration]]
+- [[context-aggregation-dilated-convolutions|Dilated Convolutions Summary]] · [[expected-value-possession-framework|EPV Summary]]

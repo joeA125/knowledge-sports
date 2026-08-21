@@ -25,7 +25,7 @@ The framework prescribes a uniform recipe:
 Embed categorical attributes (event type, location class), concatenate with continuous features (inter-event time, engineered geometry), giving $\vec{y}_i = [t_i, m_i, z_i, \dots]$.
 
 **2. Encode the history into a fixed-size vector.**
-The whole preceding sequence $(\vec{y}_1, \dots, \vec{y}_{i-1})$ is compressed into a single $\vec{h}_i$. Standard choices: [[recurrence|RNN]], GRU, [[lstm|LSTM]], or a [[transformer]] encoder.
+The whole preceding sequence $(\vec{y}_1, \dots, \vec{y}_{i-1})$ is compressed into a single $\vec{h}_i$. Standard choices: an RNN, [[gated-recurrent-unit|GRU]], [[lstm|LSTM]], or a [[transformer]] encoder.
 
 **3. Predict the next event from $\vec{h}_i$.**
 Any of several parameterisations: probability density, CDF, survival function, hazard function, or cumulative hazard — or, as [[nmstpp]] does, predict the value directly and train on a regression loss.
@@ -49,7 +49,7 @@ The empirical picture from the football experiments:
 | Uni-LSTM | 4.51 | 129 min |
 | Transformer | 4.57 | 47 min |
 
-The LSTM is marginally more accurate; the transformer is **2.7× faster to train**. This matches the general finding in the NTPP literature and in [[seq2event]] — [[recurrence|recurrent]] encoders remain competitive on accuracy, but their sequential gradient computation makes them expensive on long sequences, exactly the tradeoff that motivated the [[transformer]] in the first place.
+The LSTM is marginally more accurate; the transformer is **2.7× faster to train**. This matches the general finding in the NTPP literature and in [[seq2event]] — recurrent encoders remain competitive on accuracy, but their sequential gradient computation makes them expensive on long sequences, exactly the tradeoff that motivated the [[transformer]] in the first place. See [[lstm]].
 
 ## Why Learned Distributions Beat Parametric Ones
 
@@ -65,5 +65,5 @@ Originally developed for general event-sequence domains — Du et al. (2016) on 
 
 - [[point-process]] · [[stochastic-process]] · [[survival-analysis]] · [[competing-risks]]
 - [[nmstpp]] · [[event-prediction]] · [[sig-model]] · [[seq2event]]
-- [[transformer]] · [[attention-mechanism]] · [[recurrence]] · [[encoder-decoder-bottleneck]]
+- [[transformer]] · [[attention-mechanism]] · [[lstm]] · [[gated-recurrent-unit]] · [[encoder-decoder-bottleneck]]
 - [[transformer-point-process-football-event-modelling|Source Summary]]

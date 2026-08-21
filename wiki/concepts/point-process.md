@@ -56,7 +56,7 @@ Each component may be modelled by a different mechanism, yet the components rema
 | **Gamma** | Inter-event times gamma-distributed; captures over- and under-dispersion **without** self-excitation |
 | **Log-Gaussian Cox** | Intensity is itself a random field with a [[gaussian-process]] log-intensity |
 
-Log-Gaussian Cox processes have been used for basketball shot locations (Miller, Bornn, Adams & Goldsberry, 2014) — the same factorised-intensity work whose [[non-negative-matrix-factorization|NMF]] spatial bases feed into [[martingale-epv]].
+Log-Gaussian Cox processes have been used for basketball shot locations (Miller, Bornn, Adams & Goldsberry, 2014) — the same factorised-intensity work whose NMF spatial bases feed into [[martingale-epv]].
 
 ## Football Does Not Self-Excite
 

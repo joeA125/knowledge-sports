@@ -128,11 +128,11 @@ Neither paper comments. Two readings remain undistinguished: the losses genuinel
 
 **Fujii et al. do not resolve this either**, since they report no loss values — only reward and DTW distance. The second reading would substantially weaken Nakahara et al.'s qualitative argument and nothing yet rules it out.
 
-## Beyond Sport
+## Two Portable Consequences
 
-The pattern applies wherever a value function must be learned from logged behaviour that cannot be re-run: clinical treatment policies, recommendation logs, industrial control traces. In each case the counterfactual arm is unvisited by construction, and in each case the fix is to import a prior about the quality of the logged behaviour.
+**The strength of the imported prior is a free parameter and is rarely reported** — even by the paper that introduces it. And **where the logged behaviour comes from a different environment than the one being modelled, the prior must be aligned before it is applied**, which almost nobody does.
 
-Two things follow from this ingest. **The strength of that prior is a free parameter and is rarely reported** — even by the paper that introduces it. And **where the logged behaviour comes from a different environment than the one being modelled, the prior must be aligned before it is applied**, which almost nobody does.
+Both follow from the coverage problem being structural: wherever a value function is learned from logged behaviour that cannot be re-run, the counterfactual arm is unvisited by construction, and something must be assumed to fill it.
 
 ## See Also
 

@@ -44,7 +44,7 @@ The underlying bases come from a Gaussian Markov random field approximation (Lin
 
 $$\text{Cov}[x(\mathbf{z}_1), x(\mathbf{z}_2)] \approx \frac{\sigma^2}{\Gamma(\nu)2^{\nu-1}}(\kappa\|\mathbf{z}_1 - \mathbf{z}_2\|)^\nu K_\nu(\kappa\|\mathbf{z}_1 - \mathbf{z}_2\|)$$
 
-The precision matrix is *sparse* under this construction, giving further computational savings. The 10 final bases are extracted from the 383-vertex representation by [[non-negative-matrix-factorization|NMF]], and are interpretable as shot-type motifs ranging from close-range to long-range.
+The precision matrix is *sparse* under this construction, giving further computational savings. The 10 final bases are extracted from the 383-vertex representation by NMF, and are interpretable as shot-type motifs ranging from close-range to long-range.
 
 ## What the Spatial Effects Reveal
 
@@ -54,14 +54,15 @@ This is the sharp contrast with zone-discretised models like [[expected-threat|x
 
 ## Relation to Other Vault Concepts
 
-- GPs are the function-space counterpart of the finite Gaussian machinery in [[trueskill]] and [[gaussian-density-filtering]] — same distributional family, extended to infinite dimensions.
-- The basis-weight covariance is estimated by eigen-style decomposition, connecting to [[eigenvector]] and to the general problem of finding low-dimensional structure.
+- GPs are the function-space counterpart of the finite Gaussian machinery in [[trueskill]] — same distributional family, extended to infinite dimensions.
+- The basis-weight covariance is estimated by eigen-style decomposition, connecting to the general problem of finding low-dimensional structure.
 - Inference is carried out via [[inla]], which exploits the GMRF sparsity.
 
 ## See Also
 
-- [[non-negative-matrix-factorization]]
 - [[car-prior]]
 - [[inla]]
 - [[martingale-epv]]
+- [[bayesian-inference]]
+- [[point-process]]
 - [[multiresolution-stochastic-process-nba-possessions|Source Summary]]

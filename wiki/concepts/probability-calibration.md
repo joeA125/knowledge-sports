@@ -2,7 +2,7 @@
 title: "Probability Calibration"
 type: concept
 tags: [machine-learning, calibration, probabilistic-classification, evaluation, statistics, model-decomposition, uncertainty-quantification, deep-learning, class-imbalance]
-sources: [raw/papers/evaluating-football-player-actions.md, raw/papers/expected_value_possession_framework.md, raw/papers/llm_factcheck_consistency_certainty.md, raw/papers/football_defence_evaluation.md]
+sources: [raw/papers/evaluating-football-player-actions.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md]
 confidence: 0.9
 provenance:
   extracted: 65%
@@ -10,7 +10,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-20
-updated: 2026-07-27
+updated: 2026-08-14
 ---
 
 # Probability Calibration
@@ -45,7 +45,7 @@ $$\text{ECE} = \sum_{k=1}^{K} \frac{|B_k|}{N} \left| \frac{1}{|B_k|}\sum_{i \in 
 
 ECE isolates calibration where Brier conflates it with discrimination — a model can improve its Brier score by ranking better while getting no closer to honest probabilities. Quantile binning is preferable to equal-width, which leaves sparse tail bins dominated by noise.
 
-Used by [[expected-value-possession-framework|Fernández et al.]] on every component, and by [[llm-factcheck-consistency-certainty|the PCC fact-checking paper]] in an LLM setting.
+Used by [[expected-value-possession-framework|Fernández et al.]] on every component.
 
 ### Reliability curves
 Mean prediction against mean outcome per bin, with point size showing bin mass. More informative than ECE alone: it shows *where* along the range a model is miscalibrated, and reveals when a model never emits predictions in some range at all.
@@ -102,5 +102,4 @@ Calibration can only be verified where outcomes are observed. For a [[probabilit
 - [[vaep]] · [[vdep]] · [[expected-possession-value]] · [[structured-model-decomposition]]
 - [[gradient-boosting]] · [[uncertainty-quantification]]
 - [[probability-surface]] · [[single-pixel-supervision]]
-- [[evaluating-football-player-actions|VAEP Summary]] · [[expected-value-possession-framework|Soccer EPV Framework Summary]]
-- [[llm-factcheck-consistency-certainty|PCC Summary]] · [[football-defence-evaluation-vdep|VDEP Summary]]
+- [[evaluating-football-player-actions|VAEP Summary]] · [[expected-value-possession-framework|Soccer EPV Framework Summary]] · [[football-defence-evaluation-vdep|VDEP Summary]]

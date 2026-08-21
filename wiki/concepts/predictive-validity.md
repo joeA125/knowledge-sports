@@ -104,11 +104,11 @@ Complementary, and they can disagree. A metric could be highly reliable yet fore
 
 The vault's evidence is consistent: xT is the most reliable (ρ = 0.89), while OBSO, HPUS and LPV are the most predictive. No single source reports both for the same metric — a gap in the literature rather than in these notes, and PCR is the sharpest instance, with its forecastability documented in detail and its reliability unreported.
 
-## Beyond Sport
+## Origin
 
-Standard in psychometrics, where predictive validity means a test forecasts a criterion outcome — an aptitude test predicting job performance. It sits alongside construct validity (does it measure the intended concept?) and content validity (does it cover the domain?).
+The term comes from psychometrics, where predictive validity means a test forecasts a criterion outcome — an aptitude test predicting job performance. It sits alongside [[construct-validity]] (does it measure the intended concept?) and content validity (does it cover the domain?).
 
-The PCR case illustrates why the tradition keeps these separate: demonstrating that a test score predicts *next year's test score* is a reliability finding dressed as a validity one. Machine learning's held-out test set is weaker still — generalisation to unseen samples from the same distribution, not forecasting of a genuinely future outcome.
+The PCR case illustrates why that tradition keeps them separate: demonstrating that a test score predicts *next year's test score* is a reliability finding dressed as a validity one.
 
 ## See Also
 

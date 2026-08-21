@@ -71,9 +71,9 @@ DTW corrects **phase** mismatch: the same behaviour occurring at a different rat
 - **Sensitive to the local distance choice.** Euclidean on raw state is what the paper uses; for multi-agent state that means all agents' coordinates weighted equally, which embeds an assumption that every agent's position matters equally to similarity.
 - **Degenerate alignments** are possible — one element matched to a long run of another — unless slope constraints are imposed. The paper cites the standard constraint set but does not report which band, if any, was used.
 
-## Beyond Sport
+## Origin
 
-Speech recognition is the origin and still the canonical use. It generalises to any comparison of sequences whose *shape* matters more than their *timing*: gesture recognition, handwriting, gait analysis, ECG morphology, comparing an executed manufacturing process against a reference one.
+Speech recognition is where DTW comes from and still its canonical use — Sakoe & Chiba's 1978 application to spoken-word matching is the reason the algorithm is widely known at all.
 
 The recurring pattern is the one above: **DTW turns "did the same thing happen?" into a tractable question when "did it happen at the same time?" is the wrong question.**
 

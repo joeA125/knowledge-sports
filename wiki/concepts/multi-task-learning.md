@@ -56,7 +56,7 @@ NMSTPP's composite loss looks multi-task but is really the latter: the three ter
 
 ## Related Patterns in This Vault
 
-- **[[bert]]** trains masked language modelling and next-sentence prediction jointly; the ablation shows removing NSP costs 3.5% on QNLI, so the auxiliary task genuinely helps.
+- **BERT** trains masked language modelling and next-sentence prediction jointly; the ablation shows removing NSP costs 3.5% on QNLI, so the auxiliary task genuinely helps.
 - **[[rlhf]]** adds a KL penalty against the SFT policy — a composite objective, though the second term is a constraint rather than a task.
 - **[[variational-autoencoder|VAE]] ELBO** balances reconstruction against a KL term. Again composite, and again the balance matters, as $\beta$-VAE makes explicit.
 
@@ -66,7 +66,8 @@ The common thread is that **adding a term to a loss is a way of specifying what 
 
 - [[scoutgpt]]
 - [[nmstpp]]
-- [[bert]]
+- [[action-supervision]]
 - [[rlhf]]
 - [[autoregressive-model]]
+- [[representation-learning]]
 - [[scoutgpt-counterfactual-player-valuation|Source Summary]]

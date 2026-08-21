@@ -56,9 +56,9 @@ One cell is empty and Seq2Event's placement is uncertain — nobody has shown a 
 
 | Route | Mechanism | Example here |
 |---|---|---|
-| **Mathematical** | A principled transform with known properties | [[path-signature]], [[non-negative-matrix-factorization\|NMF]] |
+| **Mathematical** | A principled transform with known properties | [[path-signature]], matrix factorisation |
 | **Architectural** | Structure that makes the right thing expressible | [[graph-neural-network\|GNN]] permutation equivariance, [[fully-convolutional-network\|FCN]] weight sharing |
-| **Learned end-to-end** | Train on a proxy task, keep the internals | [[player-embedding]], [[pre-train-then-fine-tune\|pre-training]] |
+| **Learned end-to-end** | Train on a proxy task, keep the internals | [[player-embedding]], pre-training then fine-tuning |
 
 The first two are underrated. [[sig-model]] beats a transformer benchmark with a plain feedforward network on signature features, and [[soccermap]]'s weight sharing is what makes [[single-pixel-supervision|learning a surface from one pixel]] possible at all. Neither is a matter of scale.
 
@@ -66,7 +66,7 @@ The first two are underrated. [[sig-model]] beats a transformer benchmark with a
 
 [[scoutgpt]] **masks position tokens during training**, forcing the model to infer role from player identity plus surrounding events. The learned [[player-embedding|embeddings]] separate by position anyway, with tactically coherent geometry, and cross-season same-player retrieval *improves* (Top-1 9.20% vs 8.48%).
 
-Removing the easy signal produced a better representation — the same logic as [[masked-language-model|masked language modelling]], and behind [[variational-lossy-autoencoder|VLAE]] restricting its decoder's receptive field to force global structure into the latent.
+Removing the easy signal produced a better representation — the same logic as masked language modelling, and behind [[variational-autoencoder|VLAE]] restricting its decoder's receptive field to force global structure into the latent.
 
 The general form: **a representation learns what it is not given for free.**^[generated: the generalisation across these three cases is drawn here; each source states only its own version. rests-on: source:scoutgpt-masking, source:vlae-receptive-field]
 
@@ -77,7 +77,7 @@ Rarely defined explicitly, and the candidates conflict:
 - **Downstream task performance** — the default, and circular if you only have one task.
 - **Transfer** — does it help elsewhere? The [[large-event-model|foundation-model]] ambition.
 - **Structure** — does the geometry mean something? Position separation in ScoutGPT.
-- **Compression** — how much can be discarded? [[variational-lossy-autoencoder|VLAE]]'s framing.
+- **Compression** — how much can be discarded? [[variational-autoencoder|VLAE]]'s framing.
 
 [[interpretability]] is a fifth and often traded against the rest — though [[nmstpp]]'s *Juego de posición* zoning is a rare case where it came free, performing identically to raw coordinates while producing outputs in coaching vocabulary.
 
@@ -85,7 +85,7 @@ Rarely defined explicitly, and the candidates conflict:
 
 - [[handcrafted-features-rule]] — the open question on the rule above
 - [[feature-engineering]] · [[theory-based-modelling]] · [[player-embedding]] · [[path-signature]] · [[tokenization]]
-- [[graph-neural-network]] · [[fully-convolutional-network]] · [[soccermap]] · [[single-pixel-supervision]]
-- [[variational-autoencoder]] · [[variational-lossy-autoencoder]] · [[pre-train-then-fine-tune]] · [[masked-language-model]]
-- [[sig-model]] · [[seq2event]] · [[scoutgpt]] · [[xsot]] · [[large-event-model]] · [[interpretability]]
-- [[understanding-football-possessions-path-signatures|Sig-Model Summary]] · [[optimal-decisions-shot-taking-situations|Yeung & Fujii Summary]]
+- [[graph-neural-network]] · [[fully-convolutional-network]] · [[soccermap]] · [[single-pixel-supervision]] · [[message-passing]]
+- [[variational-autoencoder]] · [[generative-model]] · [[autoregressive-model]] · [[transformer]]
+- [[sig-model]] · [[seq2event]] · [[scoutgpt]] · [[xsot]] · [[large-event-model]] · [[interpretability]] · [[nmstpp]]
+- [[understanding-football-possessions-path-signatures|Sig-Model Summary]] · [[optimal-decisions-shot-taking-situations|Yeung & Fujii Summary]] · [[scoutgpt-counterfactual-player-valuation|ScoutGPT Summary]]

@@ -95,6 +95,6 @@ Almost every [[action-valuation]] framework in this vault computes $Q(S_i) - Q(S
 
 - [[reinforcement-learning]] · [[deep-q-network]] · [[multi-agent-reinforcement-learning]] · [[action-supervision]] · [[value-iteration]] · [[markov-game]]
 - [[temporal-discounting]] · [[policy-modelling]] · [[action-valuation]] · [[expected-threat]] · [[expected-possession-value]] · [[action-space-design]]
-- [[gated-recurrent-unit]] · [[regularization]] · [[adam-optimizer]] · [[free-parameters-load-bearing]] · [[domain-adaptation]] · [[imitation-reward-tradeoff]]
+- [[gated-recurrent-unit]] · [[regularization]] · [[free-parameters-load-bearing]] · [[domain-adaptation]] · [[imitation-reward-tradeoff]]
 - [[hiroshi-nakahara]] · [[keisuke-fujii]]
 - [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]]

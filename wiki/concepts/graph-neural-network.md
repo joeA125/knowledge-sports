@@ -40,11 +40,11 @@ The vault holds two other solutions to the same problem, worth comparing:
 |---|---|---|
 | **Graph structure** | Permutation-equivariant by construction | GVRNN in [[trajectory-prediction]] |
 | **Sorting by a meaningful key** | Impose a canonical order | [[vdep]] — players sorted by distance to ball |
-| **Attention over a set** | Learned, order-free weighting | [[read-process-write]], [[transformer]] |
+| **Attention over a set** | Learned, order-free weighting | [[transformer]] via [[nmstpp]] |
 
 VDEP's sort is the cheap version and works for tree ensembles that cannot express equivariance at all — "the nearest defender" becomes a fixed feature slot. It is lossier: the sort key must itself be meaningful, and two players at similar distances swap slots under noise.
 
-The [[transformer]] connection runs deeper than analogy. Self-attention over a set with no positional encoding *is* message passing on a fully-connected graph with attention-weighted rather than summed aggregation — which is why [[read-process-write|Order Matters]] and the sports GNN literature keep arriving at similar constructions from different directions.
+The [[transformer]] connection runs deeper than analogy. Self-attention over a set with no positional encoding *is* message passing on a fully-connected graph with attention-weighted rather than summed aggregation — which is why the set-modelling and sports GNN literatures keep arriving at similar constructions from different directions. See [[sequence-to-sequence-sets|Order Matters]].
 
 ## In Multi-Agent Trajectory Models
 
@@ -60,6 +60,6 @@ The empirical payoff in [[creating-scoring-opportunities-trajectory-prediction|T
 
 ## See Also
 
-- [[trajectory-prediction]] · [[c-obso]] · [[message-passing]] · [[factor-graph]]
-- [[transformer]] · [[attention-mechanism]] · [[read-process-write]] · [[vdep]]
+- [[trajectory-prediction]] · [[c-obso]] · [[message-passing]] · [[trueskill]]
+- [[transformer]] · [[attention-mechanism]] · [[action-space-design]] · [[vdep]]
 - [[variational-autoencoder]] · [[creating-scoring-opportunities-trajectory-prediction|Source Summary]]

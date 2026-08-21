@@ -61,7 +61,7 @@ Only with appropriate augmentation does the uniqueness-up-to-tree-like-equivalen
 
 ## Applications Beyond Sport
 
-Signatures have been applied across domains with irregular sequential structure: human action and gesture recognition (Yang et al., 2017, 2022; Shi et al., 2025), Alzheimer's diagnosis prediction (Moore et al., 2019), detecting early depressive and manic episodes in bipolar disorder (Kormilitzin et al., 2017), financial modelling and optimal stopping (Cuchiero et al., 2023; Bayer et al., 2023), generative modelling of financial time series with [[variational-autoencoder|VAEs]] (Buehler et al., 2020), and learning neural SDEs by combining log-signatures with [[recurrence|RNNs]] (Liao et al., 2019).
+Signatures have been applied across domains with irregular sequential structure: human action and gesture recognition (Yang et al., 2017, 2022; Shi et al., 2025), Alzheimer's diagnosis prediction (Moore et al., 2019), detecting early depressive and manic episodes in bipolar disorder (Kormilitzin et al., 2017), financial modelling and optimal stopping (Cuchiero et al., 2023; Bayer et al., 2023), generative modelling of financial time series with [[variational-autoencoder|VAEs]] (Buehler et al., 2020), and learning neural SDEs by combining log-signatures with recurrent networks (Liao et al., 2019).
 
 ## Comparison with Learned Sequence Encoders
 
@@ -83,5 +83,5 @@ This is the vault's clearest case for the **mathematical** route to [[representa
 ## See Also
 
 - [[sig-model]] · [[representation-learning]] · [[feature-engineering]] · [[event-prediction]]
-- [[transformer]] · [[recurrence]] · [[neural-temporal-point-process]] · [[lpv]]
+- [[transformer]] · [[lstm]] · [[neural-temporal-point-process]] · [[lpv]] · [[handcrafted-features-rule]]
 - [[understanding-football-possessions-path-signatures|Source Summary]]

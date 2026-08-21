@@ -92,9 +92,11 @@ So the trade is: predicted references risk *model error*, optimum references ris
 
 Simulation answers recruitment questions; baselines answer valuation questions.
 
-## Beyond Sport
+## The Recurring Point
 
-The pattern is standard wherever performance must be separated from circumstance: risk-adjusted clinical outcomes, value-added models in education, benchmark-relative returns in finance.^[imported: background knowledge, not from any held source] Disputes about the metric are usually disputes about the reference.
+Wherever performance must be separated from circumstance, the same structure appears — and **disputes about the metric are usually disputes about the reference.**^[imported: background knowledge, not from any held source]
+
+That is the practical takeaway from the three reference types above: choosing between a population average, a predicted behaviour, and an optimum is choosing which question the metric answers, and the choice is rarely argued for.
 
 ## See Also
 

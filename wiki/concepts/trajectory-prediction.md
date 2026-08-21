@@ -53,7 +53,7 @@ Each agent's latent distribution is conditioned on every other agent's state thr
 
 Error grows with prediction length. Teranishi et al. choose **4 seconds** — long enough for movement to differentiate, short enough for sub-metre error.
 
-The 8 s and 10 s figures are not significantly different, which matters: beyond some horizon the model has stopped tracking the actual future and settled into generic plausible motion. That ceiling, rather than raw accuracy, limits downstream use — and it is the same compounding-error problem that [[teacher-forcing|exposure bias]] describes in autoregressive generation.
+The 8 s and 10 s figures are not significantly different, which matters: beyond some horizon the model has stopped tracking the actual future and settled into generic plausible motion. That ceiling, rather than raw accuracy, limits downstream use — and it is the same compounding-error problem that exposure bias describes in autoregressive generation.
 
 A second constraint is **agent count**. Teranishi et al. predict only three players — one off-ball attacker and two nearest defenders — because error grows with the number predicted. Fujii has described the full-22 version as prohibitively expensive. So a method whose whole appeal is modelling interaction is in practice restricted to the smallest interacting subset.
 
@@ -73,8 +73,8 @@ Pedestrian and vehicle trajectory prediction share the machinery and most of the
 
 ## See Also
 
-- [[c-obso]] · [[counterfactual-baseline]] · [[imitation-learning]] · [[space-creation]]
-- [[graph-neural-network]] · [[variational-autoencoder]] · [[generative-model]] · [[teacher-forcing]]
-- [[recurrence]] · [[lstm]] · [[optical-tracking-data]] · [[event-prediction]]
+- [[c-obso]] · [[counterfactual-baseline]] · [[imitation-learning]] · [[space-creation]] · [[counterfactual-simulation]]
+- [[graph-neural-network]] · [[variational-autoencoder]] · [[generative-model]] · [[message-passing]]
+- [[lstm]] · [[gated-recurrent-unit]] · [[optical-tracking-data]] · [[event-prediction]]
 - [[nmstpp]] · [[sig-model]] · [[scoutgpt]] · [[off-ball-value]] · [[pitch-control]]
 - [[creating-scoring-opportunities-trajectory-prediction|Source Summary]]

@@ -12,7 +12,7 @@ provenance:
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-08-07
+updated: 2026-08-14
 ---
 
 # Gated Recurrent Unit
@@ -32,7 +32,9 @@ where:
 
 ## Relation to LSTM
 
-GRUs combine the LSTM's forget and input gates into a single update gate, and merge the cell state and hidden state. This gives fewer parameters while maintaining the ability to learn long-term dependencies through multiplicative gating.
+GRUs combine the [[lstm|LSTM's]] forget and input gates into a single update gate, and merge the cell state and hidden state. This gives fewer parameters while maintaining the ability to learn long-term dependencies through multiplicative gating.
+
+> **Scope note.** Gate-level detail and the wider recurrent-architecture literature live in the general vault. This page keeps the small-data argument, which is live in football RL.
 
 ## Why It Persists in Small-Data Settings
 
@@ -54,7 +56,7 @@ Standard TD stabilisers — target networks, replay buffers — are absent; the 
 
 ## See Also
 
-- [[bidirectional-rnn]] · [[lstm]] · [[recurrence]] · [[encoder-decoder]] · [[additive-attention]] · [[transformer]]
-- [[temporal-difference-learning]] · [[deep-q-network]] · [[multi-agent-reinforcement-learning]] · [[reinforcement-learning]] · [[regularization]]
-- [[trajectory-prediction]] · [[nmstpp]] · [[theory-based-modelling]] · [[representation-learning]] · [[temporal-discounting]]
+- [[lstm]] · [[transformer]] · [[attention-mechanism]] · [[encoder-decoder-bottleneck]] · [[neural-temporal-point-process]]
+- [[temporal-difference-learning]] · [[deep-q-network]] · [[multi-agent-reinforcement-learning]] · [[reinforcement-learning]] · [[regularization]] · [[action-supervision]]
+- [[trajectory-prediction]] · [[nmstpp]] · [[theory-based-modelling]] · [[representation-learning]] · [[temporal-discounting]] · [[handcrafted-features-rule]]
 - [[neural-machine-translation|Bahdanau et al. Summary]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]]

@@ -1,64 +1,58 @@
 ---
 title: "Attention Mechanism"
 type: concept
-tags: [attention, deep-learning, sequence-modelling, interpretability]
+tags: [attention, deep-learning, sequence-modelling, interpretability, event-prediction, sports-analytics, model-selection]
 sources: [raw/papers/attention-is-all-you-need.md, raw/papers/neural-machine-translation.md, raw/papers/pointer-networks.md, raw/papers/transformer-point-process-football-event-modelling.md]
-confidence: 0.9
+confidence: 0.85
 provenance:
-  extracted: 70%
-  inferred: 25%
-  ambiguous: 5%
+  extracted: 62%
+  inferred: 28%
+  generated: 7%
+  imported: 0%
+  ambiguous: 3%
 lifecycle: reviewed
 created: 2026-05-07
-updated: 2026-07-23
+updated: 2026-08-14
 ---
 
 # Attention Mechanism
 
-An attention mechanism maps a query and a set of key-value pairs to an output, computed as a weighted sum of the values where weights are derived from a compatibility function between the query and each key.
+Maps a query and a set of key–value pairs to an output: a weighted sum of the values, where the weights come from a compatibility function between the query and each key.
 
-## Variants
+**Self-attention** relates positions within a single sequence, and in the [[transformer]] replaces recurrence entirely. Compatibility is computed as a scaled dot product, run in parallel across several projected subspaces.
 
-- **[[additive-attention]]** (Bahdanau et al., 2014): Uses a learned feed-forward network to compute compatibility. The first attention mechanism applied to NMT. Similar theoretical complexity to dot-product but slower in practice.
-- **Dot-product / multiplicative attention:** Computes compatibility as $QK^T$. Faster due to optimised matrix multiplication.
-- **[[scaled-dot-product-attention]]:** Scales by $1/\sqrt{d_k}$ to prevent softmax saturation at large $d_k$. Used in the [[transformer]].
-- **[[multi-head-attention]]:** Runs multiple attention functions in parallel on linearly projected subspaces, then concatenates results.
+> **Scope note.** The variant taxonomy — additive versus multiplicative, scaling, multi-head projection, pointer mechanisms — lives in the general vault. This page keeps what football event modelling depends on.
 
-## Attention as Output (Pointer Mechanism)
+## Why This Page Is Football-Side
 
-[[pointer-network|Pointer Networks]] (Vinyals et al., 2015) repurpose attention scores as the output distribution rather than using them to blend encoder states. This enables variable-size output dictionaries for combinatorial problems.
+[[nmstpp|NMSTPP]] is a Transformer-based point process over match events. Its encoder is self-attention over a 40-event history window, which makes attention the mechanism deciding **how much each past event contributes to the prediction of the next one.**
 
-## Self-Attention
+That is a different use from language. In translation, attention aligns words. Here it weights *history*, and the weights are directly interpretable as a claim about how far back football events remain relevant.
 
-Self-attention (intra-attention) relates positions within a single sequence to compute a contextual representation. In the [[transformer]], self-attention replaces recurrence entirely.
+## Attention Weights as a Hyperparameter Diagnostic
 
-## Role in the Transformer
+The most portable idea on this page, and it comes from the football source.
 
-The [[transformer]] uses attention in three ways:
-1. **Encoder self-attention:** Each position attends to all positions in the previous layer.
-2. **Decoder masked self-attention:** Each position attends only to earlier positions (preserving autoregression).
-3. **Encoder-decoder cross-attention:** Decoder queries attend to all encoder outputs.
+[[transformer-point-process-football-event-modelling|Yeung et al. (2023)]] read the last row of the self-attention matrix — the contribution of each historical event to the final history representation — to test whether their 40-event window is **the right size**. Weights lay between 0.01 and 0.06 with **no trend across the window**, which they take as evidence it is neither too short (weights would pile up at the recent end, implying more history would help) nor too long (distant events would receive negligible weight).
 
-## Attention Weights as Diagnostic Output
+> ### `attention-weights-diagnose-window-length`
+> **Where a fixed-size context window feeds a self-attention encoder, the attention distribution over that window is a cheap test of whether the window is correctly sized — a trend toward either end indicates a misspecified horizon.**
+> ^[generated: the source applies this to its own model; the general form is drawn here. rests-on: source:yeung-attention-window-diagnostic]
 
-Beyond their computational role, attention weights are inspectable, and can be read as a diagnostic on the model's *inputs* rather than its internals.
+This deserves attention because of what surrounds it. [[free-parameters-load-bearing]] catalogues **sixteen asserted parameters with no sensitivity analysis**, and horizon parameters are the largest category — VDEP's $k = 5$, C-OBSO's 4 s, SOG's 3 s window, Nakahara's 300-frame cap. **Yeung et al. are the only case in the vault where a horizon parameter is checked against evidence at all**, and the check costs nothing beyond reading a matrix the model already computes.
 
-[[transformer-point-process-football-event-modelling|Yeung et al. (2023)]] use the last row of the self-attention matrix — the contribution of each historical event to the final history representation — to test whether their 40-event context window is appropriately sized. Weights lay between 0.01 and 0.06 with **no trend across the window**, which they take as evidence the window is neither too short (weights would pile up at the recent end, implying more history could help) nor too long (distant events would receive negligible weight).
+A caveat worth keeping: attention weights are widely used as [[interpretability|interpretability]] evidence and the wider literature is divided on whether they constitute explanation. The diagnostic use here is more defensible than causal claims, since it asks only whether the model *distributes* attention across the window, not what any individual weight means.
 
-This is a cheap and general check on context-length hyperparameters, applicable wherever a fixed-size window feeds a self-attention encoder.
+## The Tokens Are Arbitrary
 
-A caveat worth keeping: attention weights are widely used as [[interpretability|interpretability]] evidence, but the broader literature is divided on whether they constitute genuine explanation of model behaviour. The diagnostic use above is more defensible than causal claims, since it asks only whether the model *distributes* attention across the available window rather than what any individual weight means.
+Attention is agnostic about what a "sequence" contains. In this vault it runs over football match events ([[nmstpp]]), image patches for retrieval ([[siamese-network]] in calibration), and — through the same mathematics — over graphs.
 
-## Beyond Language
-
-Attention is architecture-agnostic about what a "sequence" contains. In this vault it appears over word sequences ([[transformer]], [[additive-attention]]), sets ([[read-process-write]]), memory locations ([[neural-turing-machine]]), image patches for retrieval ([[siamese-network]] in calibration), and football match events ([[nmstpp]]) — the mechanism is unchanged; only the tokens differ.
+Self-attention over a set with no positional encoding **is** [[message-passing]] on a fully-connected graph, with attention-weighted rather than summed aggregation. That places attention alongside the [[graph-neural-network|GNN]] used in [[c-obso|C-OBSO]] as one of three answers to the 22-players-have-no-canonical-order problem. See [[action-space-design]].
 
 ## See Also
 
-- [[additive-attention]]
-- [[scaled-dot-product-attention]]
-- [[multi-head-attention]]
-- [[pointer-network]]
-- [[encoder-decoder-bottleneck]]
-- [[neural-temporal-point-process]]
-- [[transformer]]
+- [[transformer]] · [[nmstpp]] · [[neural-temporal-point-process]] · [[encoder-decoder-bottleneck]] · [[event-prediction]]
+- [[message-passing]] · [[graph-neural-network]] · [[trajectory-prediction]] · [[c-obso]]
+- [[interpretability]] · [[free-parameters-load-bearing]] · [[model-selection]] · [[siamese-network]]
+- [[calvin-yeung]] · [[keisuke-fujii]]
+- [[transformer-point-process-football-event-modelling|NMSTPP Summary]] · [[attention-is-all-you-need|Transformer Summary]]

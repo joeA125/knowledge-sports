@@ -33,7 +33,7 @@ $$D_{k,l}(t) = \sum_d I_d(p_b(t), p_{k,l}(t)), \qquad \hat V_{k,l}(t) = \min(D_{
 
 A feed-forward network with one hidden layer then learns $V_{k,l}(t) = f_n(p_b(t), p_{k,l}(t); \theta)$ — a mapping from ball position and cell position to value. Trained on 2.4M examples from 20 matches, MSE loss, sigmoid activation, Adam, 10-fold cross-validation.
 
-**Defensive behaviour is treated as a revealed preference.** Rather than asking what is valuable, the model asks what professionals *act as though* is valuable, and takes their collective positioning as the answer. That needs no outcome labels at all — a form of [[weak-supervision]] where the supervision is another agent's judgement.
+**Defensive behaviour is treated as a revealed preference.** Rather than asking what is valuable, the model asks what professionals *act as though* is valuable, and takes their collective positioning as the answer. That needs no outcome labels at all — a form of weak supervision where the supervision is another agent's judgement. See [[single-pixel-supervision]] for the related problem of learning a surface from sparse labels.
 
 The same move appears elsewhere in the vault under a different name: [[policy-modelling]] estimates the policy players actually follow rather than an optimal one, and [[imitation-learning|imitation]] treats observed behaviour as the target. This is the spatial version — **infer the value function from the defence's revealed policy.**
 
@@ -70,6 +70,6 @@ The middle column is the interesting comparison. [[obso|Spearman's]] score term 
 ## See Also
 
 - [[space-occupation-gain]] · [[pitch-control]] · [[probability-surface]] · [[space-creation]] · [[off-ball-value]]
-- [[policy-modelling]] · [[imitation-learning]] · [[weak-supervision]] · [[obso]] · [[expected-value-possession-framework]]
+- [[policy-modelling]] · [[imitation-learning]] · [[single-pixel-supervision]] · [[obso]] · [[expected-value-possession-framework]]
 - [[javier-fernandez]] · [[luke-bornn]] · [[shot-value-formulations-compared]]
 - [[wide-open-spaces-space-creation|Source Summary]]

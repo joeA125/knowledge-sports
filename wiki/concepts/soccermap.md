@@ -62,8 +62,8 @@ Even so it predicts 899–984 examples per second, comfortably above the 10 Hz t
 
 ## See Also
 
-- [[fully-convolutional-network]] · [[probability-surface]] · [[single-pixel-supervision]]
-- [[expected-possession-value]] · [[structured-model-decomposition]]
-- [[convolution]] · [[semantic-segmentation]] · [[feature-pyramid-network]] · [[dilated-convolution]]
+- [[fully-convolutional-network]] · [[probability-surface]] · [[single-pixel-supervision]] · [[pitch-value-model]]
+- [[expected-possession-value]] · [[structured-model-decomposition]] · [[dynamic-pressure-lines]]
+- [[semantic-segmentation]] · [[feature-pyramid-network]] · [[game-state-reconstruction]]
 - [[javier-fernandez]] · [[luke-bornn]]
-- [[expected-value-possession-framework|Source Summary]]
+- [[expected-value-possession-framework|Source Summary]] · [[context-aggregation-dilated-convolutions|Dilated Convolutions Summary]]

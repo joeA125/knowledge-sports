@@ -36,11 +36,11 @@ KL divergence recurs so often it is worth collecting:
 | Use | Role |
 |---|---|
 | [[variational-autoencoder\|VAE]] ELBO | $D_{KL}(q(\mathbf{z}\mid\mathbf{x}) \parallel p(\mathbf{z}))$ regularises the latent code toward the prior |
-| [[variational-lossy-autoencoder\|VLAE]] | The bits-back cost $D_{KL}(q(\mathbf{z}\mid\mathbf{x}) \parallel p(\mathbf{z}\mid\mathbf{x}))$ is exactly why powerful decoders ignore the latent code |
+| **VLAE** | The bits-back cost $D_{KL}(q(\mathbf{z}\mid\mathbf{x}) \parallel p(\mathbf{z}\mid\mathbf{x}))$ is exactly why powerful decoders ignore the latent code |
 | [[rlhf\|RLHF]] / PPO | A KL penalty against the SFT policy prevents the RL stage drifting too far from the supervised model |
 | [[expectation-propagation]] | Iterative moment matching minimises a KL divergence per site |
 | Cross-entropy loss | Minimising CEL is equivalent to minimising $D_{KL}$(empirical ‖ model), since the entropy of the empirical distribution is constant |
-| [[non-negative-matrix-factorization\|NMF]] | The divergence minimised in [[martingale-epv]]'s factorisation is a KL-type divergence |
+| NMF | The divergence minimised in [[martingale-epv]]'s factorisation is a KL-type divergence |
 
 The last row makes a point often missed: the ubiquitous cross-entropy loss *is* KL divergence up to a constant. Training a classifier by CEL is fitting a distribution by KL.
 
@@ -67,9 +67,9 @@ The general pattern — *use KL against a conditional empirical distribution as 
 ## See Also
 
 - [[variational-autoencoder]]
-- [[variational-lossy-autoencoder]]
+- [[generative-model]]
 - [[rlhf]]
 - [[expectation-propagation]]
 - [[probability-calibration]]
 - [[sig-model]]
-- [[understanding-football-possessions-path-signatures|Source Summary]]
+- [[understanding-football-possessions-path-signatures|Source Summary]] · [[variational-lossy-autoencoders|VLAE Summary]]

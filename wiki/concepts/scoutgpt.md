@@ -68,7 +68,7 @@ The third and fifth rows are the substantive changes. EventGPT's headline counte
 
 ## Emergent Player Representations
 
-Position tokens are **masked during training**, forcing the model to infer role from identity plus surrounding events. The learned [[player-embedding|embeddings]] separate by position anyway, with tactically coherent geometry, and masking improves cross-season same-player retrieval (Top-1 9.20% vs 8.48%). Removing the shortcut produced better representations — the same logic as [[masked-language-model|masked language modelling]].
+Position tokens are **masked during training**, forcing the model to infer role from identity plus surrounding events. The learned [[player-embedding|embeddings]] separate by position anyway, with tactically coherent geometry, and masking improves cross-season same-player retrieval (Top-1 9.20% vs 8.48%). Removing the shortcut produced better representations — the same logic as masked language modelling, and as [[variational-autoencoder|VLAE]] restricting its decoder to force structure into the latent. See [[representation-learning]].
 
 ## Context Sensitivity
 
@@ -91,7 +91,7 @@ Both belong to the [[large-event-model]] line — football as language, matches 
 - Single league (K League), 5 seasons; 40 transfers, all intra-league.
 - Episode-level generation, not full matches.
 - On-ball events only.
-- Long rollouts are exposed to [[teacher-forcing|exposure bias]], which neither paper measures.
+- Long rollouts are exposed to exposure bias, which neither paper measures.
 - Causal validity is not established — a generative model trained on observational data learns the observational distribution. See [[generative-model]] and [[counterfactual-simulation]].
 - **Selection in the transfer data is unaddressed** — observed moves were chosen by clubs forecasting the same quantity. See [[positive-unlabeled-learning]].
 
@@ -99,5 +99,5 @@ Both belong to the [[large-event-model]] line — football as language, matches 
 
 - [[generative-model]] · [[event-prediction]] · [[counterfactual-simulation]] · [[large-event-model]]
 - [[eventgpt]] · [[player-embedding]] · [[transfer-performance-prediction]]
-- [[tokenization]] · [[constrained-decoding]] · [[multi-task-learning]] · [[teacher-forcing]] · [[gpt]]
+- [[tokenization]] · [[constrained-decoding]] · [[multi-task-learning]] · [[transformer]] · [[representation-learning]]
 - [[scoutgpt-counterfactual-player-valuation|Source Summary]]
