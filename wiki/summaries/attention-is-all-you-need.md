@@ -1,80 +1,69 @@
 ---
 title: "Attention Is All You Need — Source Summary"
 type: summary
-tags: [transformer, attention, machine-translation, deep-learning, architecture]
+tags: [transformer, attention, deep-learning, architecture, sequence-modelling, event-prediction]
 sources: [raw/papers/attention-is-all-you-need.md]
-confidence: 0.95
+confidence: 0.9
 provenance:
-  extracted: 90%
-  inferred: 8%
+  extracted: 80%
+  inferred: 14%
+  generated: 4%
+  imported: 0%
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-07
-updated: 2026-06-18
+updated: 2026-08-14
 ---
 
 # Attention Is All You Need
 
-**Authors:** [[ashish-vaswani]], [[noam-shazeer]], [[niki-parmar]], [[jakob-uszkoreit]], [[llion-jones]], [[aidan-gomez]], [[lukasz-kaiser]], [[illia-polosukhin]]
-**Affiliations:** [[google-brain]], [[google-research]], [[university-of-toronto]]
-**Published:** 2017 (NeurIPS)
+**Vaswani et al.**, [[google-brain]] and [[google-research]], NeurIPS 2017.
 
-## Key Contribution
+> **Held here because [[nmstpp|NMSTPP]] depends on it.** This summary is deliberately lean — the full architectural treatment, the authors, and the paper's impact on language modelling live in the general vault. What follows is what football event modelling needs.
 
-This paper introduces the [[transformer]], the first sequence transduction model built entirely on [[attention-mechanism]]s, eliminating recurrence and convolution altogether. The architecture relies on [[multi-head-attention]] and [[positional-encoding]] to process sequences in parallel, enabling dramatically faster training with superior results.
+## The Contribution
 
-## Architecture Overview
+The first sequence transduction model built entirely on [[attention-mechanism|attention]], eliminating recurrence and convolution. Stacked encoder and decoder layers, each combining multi-head self-attention with a position-wise feed-forward network, wrapped in residual connections and layer normalisation. Sequence order is injected by sinusoidal positional encoding, since attention itself is permutation-invariant.
 
-The [[transformer]] follows an [[encoder-decoder]] structure:
+Base model: $d_{\text{model}} = 512$, $d_{ff} = 2048$, 6 layers, 8 heads, ~65M parameters. Trained to 28.4 BLEU on WMT14 English–German in 3.5 days on 8 P100s.
 
-- **Encoder:** 6 identical layers, each containing a [[multi-head-attention]] sub-layer and a position-wise feed-forward network (two linear transformations with ReLU), with [[residual-connections]] and [[layer-normalization]] around each.
-- **Decoder:** 6 identical layers with an additional masked [[multi-head-attention]] sub-layer for [[autoregressive-model|autoregressive]] generation, plus cross-attention over encoder output.
-- **Attention:** [[scaled-dot-product-attention]] computes $\text{softmax}(QK^T / \sqrt{d_k})V$. Multi-head attention runs $h=8$ parallel heads with $d_k = d_v = 64$.
-- **Positional Encoding:** Sinusoidal functions inject sequence order information, allowing the model to generalise to unseen sequence lengths.
-- **Embedding sharing:** Input/output embeddings and the pre-softmax linear layer share the same weight matrix.
+## Why Self-Attention
 
-Key hyperparameters for the base model: $d_{\text{model}} = 512$, $d_{ff} = 2048$, $N = 6$ layers, $h = 8$ heads, ~65M parameters.
+The paper's argument, on three axes:
 
-## Why Self-Attention?
+| | Self-attention | Recurrence |
+|---|---|---|
+| Complexity per layer | $O(n^2 \cdot d)$ | $O(n \cdot d^2)$ |
+| Sequential operations | **$O(1)$** | $O(n)$ |
+| Path length between positions | **$O(1)$** | $O(n)$ |
 
-The paper argues self-attention is superior to recurrence and convolution on three axes:
+Self-attention wins when $n < d$ — sequences shorter than the model dimension, which holds for most NLP and, as it happens, for football event windows.
 
-1. **Computational complexity:** $O(n^2 \cdot d)$ per layer, faster than recurrent $O(n \cdot d^2)$ when $n < d$ (typical for NLP).
-2. **Parallelisation:** $O(1)$ sequential operations vs $O(n)$ for RNNs.
-3. **Maximum path length:** $O(1)$ between any two positions, making long-range dependencies easier to learn.
+## What Football Took From It
 
-## Results
+**The encoder, and only the encoder.** [[nmstpp|NMSTPP]] uses a Transformer encoder to compress a 40-event match history into a 31-dimensional vector, from which it predicts the next event's time, zone and action type. No decoder, no generation — the architecture is used purely as a history compressor. See [[encoder-decoder-bottleneck]].
 
-- **English-to-German (WMT 2014):** 28.4 BLEU (new SOTA, +2 BLEU over best ensemble).
-- **English-to-French (WMT 2014):** 41.8 BLEU (new single-model SOTA), trained in 3.5 days on 8 P100 GPUs.
-- **English constituency parsing:** 92.7 F1 (semi-supervised), competitive with task-specific models despite no task-specific tuning.
+**And the choice was closer than the paper's reputation suggests.** On football event data, [[transformer-point-process-football-event-modelling|Yeung et al.]] measured a Transformer encoder against a uni-LSTM:
 
-## Training Details
+| Encoder | Total loss | Training time | Parameters |
+|---|---|---|---|
+| Uni-LSTM | **4.51** | 129 min | **4K** |
+| Transformer | 4.57 | **47 min** | 13K |
 
-- Optimizer: Adam with custom warmup schedule ($\text{warmup\_steps} = 4000$).
-- Regularisation: [[dropout]] ($P_{drop} = 0.1$), [[label-smoothing]] ($\epsilon_{ls} = 0.1$).
-- Hardware: 8 NVIDIA P100 GPUs; base model trained in ~12 hours (100K steps).
+The Transformer **lost on loss** and was chosen for a 2.7× speedup. At a 40-event window the parallelisation advantage is worth far less than at document scale. See [[lstm]].
 
-## Model Variations (Table 3 Findings)
+**Permutation invariance turns out to be the feature, not the bug.** In multi-agent sport, the property positional encoding exists to patch is exactly what you want — 22 players have no canonical order. Self-attention with no positional encoding *is* [[message-passing]] on a fully-connected graph, which puts the Transformer in the same family as the [[graph-neural-network|GNN]] behind [[c-obso|C-OBSO]]. See [[action-space-design]].
 
-- Single attention head hurts performance (−0.9 BLEU); too many heads (32) also degrades slightly.
-- Reducing $d_k$ hurts quality, suggesting dot-product compatibility needs sufficient dimensionality.
-- Bigger models perform better; [[dropout]] is essential for avoiding overfitting.
-- Learned positional embeddings perform nearly identically to sinusoidal encodings.
+## Ablation Findings Worth Retaining
 
-## Impact
-
-This paper is one of the most cited in deep learning history. The [[transformer]] architecture became the foundation for BERT, GPT, and virtually all modern large language models, fundamentally reshaping NLP and eventually computer vision, speech, and other domains.
+- A single attention head costs 0.9 BLEU; 32 heads also degrades slightly.
+- Reducing $d_k$ hurts, suggesting dot-product compatibility needs dimensionality.
+- **Learned positional embeddings perform nearly identically to sinusoidal ones** — relevant because NMSTPP had to make the same choice for event positions.
 
 ## See Also
 
-- [[transformer]]
-- [[attention-mechanism]]
-- [[multi-head-attention]]
-- [[scaled-dot-product-attention]]
-- [[positional-encoding]]
-- [[encoder-decoder]]
-- [[residual-connections]]
-- [[layer-normalization]]
-- [[label-smoothing]]
-- [[scaling-laws]]
+- [[transformer]] · [[attention-mechanism]] · [[encoder-decoder-bottleneck]] · [[lstm]] · [[gated-recurrent-unit]]
+- [[nmstpp]] · [[hpus]] · [[neural-temporal-point-process]] · [[event-prediction]] · [[seq2event]]
+- [[message-passing]] · [[graph-neural-network]] · [[action-space-design]] · [[large-event-model]]
+- [[google-brain]] · [[google-research]] · [[calvin-yeung]]
+- [[transformer-point-process-football-event-modelling|NMSTPP Summary]]

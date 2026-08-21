@@ -66,7 +66,7 @@ The first factor is cheap (Markov chain algebra); the second requires forecastin
 
 ## Inference
 
-- Spatial effects given a low-dimensional [[gaussian-process]] representation via functional bases (383-vertex triangular mesh, GMRF/Matérn approximation), reduced to $d = 10$ bases by [[non-negative-matrix-factorization|NMF]].
+- Spatial effects given a low-dimensional [[gaussian-process]] representation via functional bases (383-vertex triangular mesh, GMRF/Matérn approximation), reduced to $d = 10$ bases by NMF.
 - Player-specific coefficients share information through a [[car-prior|conditional autoregressive prior]] over an adjacency matrix of "similar" players — similarity defined by NMF on court-occupancy distributions, not by listed position (LeBron James and Steve Novak are both small forwards but behave nothing alike).
 - Fitted via [[inla|integrated nested Laplace approximation]]. Microtransition models run across 461 processors, ≤18 hours each; each macrotransition type takes ~24 hours on 120GB RAM.
 

@@ -30,7 +30,7 @@ Can behaviour learned in a football simulator tell you anything about real footb
 | Stage | Choice |
 |---|---|
 | Environment | [[google-research-football\|GFootball]] (Kurach et al., 2019), 11v11 |
-| Algorithm | **[[proximal-policy-optimization\|PPO]]** with an IMPALA policy — [[residual-connections\|residual blocks]] on a CNN |
+| Algorithm | **[[proximal-policy-optimization\|PPO]]** with an IMPALA policy — residual blocks on a CNN |
 | State | **Super Mini Map** — four $72 \times 96$ binary matrices (home, away, ball, active player), stacked over four frames |
 | Actions | **19** — 8 directions, shot, short/high/long pass, idle, sliding, dribble, stop-dribble, sprint, stop-moving, stop-sprint |
 | Control | **Single agent controlling one active player**, switchable; others on a rule-based system |
@@ -149,7 +149,7 @@ That is a direct, author-side statement of the problem the vault records as `no-
 
 - [[social-network-analysis]] · [[proximal-policy-optimization]] · [[agent-based-simulation]] · [[domain-adaptation]] · [[google-research-football]]
 - [[reinforcement-learning]] · [[multi-agent-reinforcement-learning]] · [[action-space-design]] · [[trueskill]] · [[nfootball]]
-- [[spadl]] · [[observed-versus-optimal-decisions]] · [[action-valuation-frameworks-compared]] · [[residual-connections]]
-- [[atom-scott]] · [[keisuke-fujii]] · [[masaki-onishi]] · [[hiroshi-nakahara]] · [[ralf-herbrich]] · [[tom-minka]]
+- [[spadl]] · [[observed-versus-optimal-decisions]] · [[action-valuation-frameworks-compared]] · [[free-parameters-load-bearing]]
+- [[atom-scott]] · [[keisuke-fujii]] · [[masaki-onishi]] · [[hiroshi-nakahara]] · [[microsoft-research]]
 - [[aist]] · [[nagoya-university]] · [[data-stadium]]
 - [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]] · [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al. Summary]] · [[bayesian-true-skill-rating|TrueSkill Summary]]

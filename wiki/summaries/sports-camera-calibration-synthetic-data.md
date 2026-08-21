@@ -37,11 +37,11 @@ Exploiting sports camera priors — cameras roughly fixed on the main tribune, b
 
 ### Deep Feature Extraction
 
-A [[siamese-network]] (5 stride-2 convolutions + L2 normalisation) embeds edge images into 16 dimensions via contrastive loss, with pairs labelled by pan, tilt and focal-length thresholds. See [[metric-learning]].
+A [[siamese-network]] (5 stride-2 convolutions + L2 normalisation) embeds edge images into 16 dimensions via contrastive loss, with pairs labelled by pan, tilt and focal-length thresholds.
 
 ### Two-GAN Field Marking Detection
 
-Two chained [[conditional-gan|conditional GANs]] (pix2pix-based):
+Two chained **conditional GANs** (pix2pix-based):
 
 1. **Segmentation GAN** — separates playing surface from background (commercial boards, crowds).
 2. **Detection GAN** — detects field markings from the segmented foreground.
@@ -78,7 +78,7 @@ A key baseline in [[tvcalib-camera-calibration-football|TVCalib]] (Theiner & Ewe
 
 ## See Also
 
-- [[camera-calibration]] · [[homography]] · [[jac-metric]] · [[projective-geometry]] · [[radial-distortion]]
-- [[siamese-network]] · [[metric-learning]] · [[conditional-gan]] · [[image-alignment]] · [[representation-learning]]
-- [[jianhui-chen]] · [[james-little]] · [[game-state-reconstruction]]
+- [[camera-calibration]] · [[homography]] · [[jac-metric]] · [[radial-distortion]] · [[image-alignment]]
+- [[siamese-network]] · [[representation-learning]] · [[theory-based-modelling]] · [[game-state-reconstruction]]
+- [[jianhui-chen]] · [[james-little]]
 - [[tvcalib-camera-calibration-football|TVCalib]] · [[camera-calibration-benchmarking|ProCC]] · [[soccernet-v2-action-spotting|CCBV-SN]]

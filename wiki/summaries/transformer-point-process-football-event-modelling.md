@@ -42,7 +42,7 @@ This is what makes the components *dependent without being independent* — each
 ## Architecture (Five Stages)
 
 1. **Input** — 40 previous events (`seqlen = 40`), each with inter-event time, zone (1 of 20), action (1 of 5), plus engineered features (distance/angle to goal, change in zone coordinates).
-2. **History encoding** — dense layer on continuous features, embeddings for zone and action, then [[positional-encoding]] and a [[transformer]] encoder producing a fixed-size history vector.
+2. **History encoding** — dense layer on continuous features, embeddings for zone and action, then positional encoding and a [[transformer]] encoder producing a fixed-size history vector.
 3. **Forecasting** — three neural networks chained per the factorisation: $NN_t(H) \to t$, then $NN_z(t, H) \to \vec{z}$, then $NN_m(t, \vec{z}, H) \to \vec{m}$.
 4. **Output** — one value for time, 20 logits for zone, 5 logits for action.
 5. **Cost** — $L = \sum 10 \times \text{RMSE}_t + \text{CEL}_z + \text{CEL}_m$, with class-weighted cross-entropy and the ×10 balancing the three terms.

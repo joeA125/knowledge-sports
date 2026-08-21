@@ -1,79 +1,66 @@
 ---
 title: "TrueSkill: A Bayesian Skill Rating System — Source Summary"
 type: summary
-tags: [bayesian, statistics, ranking-system, factor-graph, message-passing, matchmaking, gaming]
+tags: [bayesian, statistics, ranking-system, message-passing, matchmaking, gaming, inference, evaluation]
 sources: [raw/papers/bayesian-true-skill-rating.md]
-confidence: 0.95
+confidence: 0.9
 provenance:
-  extracted: 90%
-  inferred: 8%
+  extracted: 82%
+  inferred: 12%
+  generated: 4%
+  imported: 0%
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-08-14
 ---
 
 # TrueSkill: A Bayesian Skill Rating System
 
-**Authors:** [[ralf-herbrich]], [[tom-minka]], [[thore-graepel]]
-**Affiliation:** [[microsoft-research]]
-**Published:** 2006 (NeurIPS)
+**Herbrich, Minka & Graepel**, [[microsoft-research]], NeurIPS 2006.
 
-## Key Contribution
+> **Held here because [[ai-football-reinforcement-learning|Scott et al.]] use it to rank RL agents**, and because it is the ancestor of the [[glicko-rating-system|Glicko]] machinery behind [[league-strength-rating]] and [[duel-skill-rating]]. The factor-graph inference detail lives in the general vault.
 
-This paper introduces [[trueskill]], a Bayesian skill rating system that generalises the [[elo-rating-system]]. TrueSkill tracks uncertainty about player skills as Gaussian distributions, explicitly models draws, handles any number of competing entities, and infers individual skills from team results. Inference is performed via [[approximate-message-passing]] on a [[factor-graph]] representation of the model.
+## The Model
 
-## Model
+- Each player has a skill $s_i \sim \mathcal{N}(\mu_i, \sigma_i^2)$ — **a belief, not a number.**
+- In a game they exhibit a performance $p_i \sim \mathcal{N}(s_i, \beta^2)$ around that skill.
+- Team performance is the sum of individual performances; outcomes are the ordering of team performances, with an explicit draw margin $\epsilon$.
+- The posterior follows from [[bayes-theorem]] and is computed by [[message-passing]], with [[expectation-propagation]] approximating the non-Gaussian comparison factors by moment matching.
 
-- Each player $i$ has a skill $s_i$ modelled as a Gaussian $\mathcal{N}(\mu_i, \sigma_i^2)$.
-- In a game, each player exhibits a performance $p_i \sim \mathcal{N}(s_i, \beta^2)$ drawn around their skill.
-- Team performance is the sum of individual performances: $t_j = \sum_{i \in A_j} p_i$.
-- Game outcomes are modelled as the ordering of team performances, with an explicit draw margin $\epsilon$.
-- The posterior over skills given outcomes is computed via [[bayes-theorem]]: $p(\mathbf{s}|\mathbf{r}, A) \propto P(\mathbf{r}|\mathbf{s}, A) p(\mathbf{s})$.
+Efficient enough to run within twice the cost of an Elo update.
 
-## Inference
+## What It Generalises
 
-The model is represented as a [[factor-graph]] with four variable types: skills ($s_i$), performances ($p_i$), team performances ($t_j$), and team performance differences ($d_j$). Inference uses [[approximate-message-passing]] based on [[expectation-propagation]]:
+| | Uncertainty | Draws | Teams | Multi-player |
+|---|---|---|---|---|
+| [[elo-rating-system\|Elo]] | No | No | No | No |
+| [[glicko-rating-system\|Glicko]] | **Yes** | No | No | No |
+| **TrueSkill** | **Yes** | **Yes** | **Yes** | **Yes** |
 
-- Messages from comparison factors are non-Gaussian, so marginals are approximated via moment matching (minimising KL divergence).
-- The factor graph is acyclic; messages are iterated between approximate marginals until convergence.
-- The algorithm is extremely efficient — within twice the runtime of a simple Elo update.
+## Results and Deployment
 
-## Relation to Prior Work
+On Halo 2 beta data, TrueSkill beat Elo on prediction accuracy across most modes and converged in **~10 games against Elo's hundreds** — near the information-theoretic limit of about 5 for 8-player matches.
 
-- **[[elo-rating-system]]:** TrueSkill generalises Elo by tracking uncertainty ($\sigma$), modelling draws, handling teams, and handling multi-player games.
-- **[[glicko-rating-system]]:** Glickman's Glicko introduced Gaussian belief over skill. TrueSkill extends this to teams and multi-party games.
-- **Thurstone Case V / Bradley-Terry models:** The Gaussian and logistic variants of paired comparison models that underpin Elo.
+Deployed on Xbox Live at 2+ million subscribers, one of the largest applications of [[bayesian-inference]] at the time. Prior $\mu_0 = 25$, $\sigma_0 = 25/3$; displayed rating is the conservative $\mu_i - 3\sigma_i$.
 
-## Experimental Results (Halo 2 Beta)
+## Why It Reaches Football
 
-Tested on game outcome data from Bungie Studios' Halo 2 beta testing across four game modes (Free for All, Small Teams, Head to Head, Large Teams):
+**Directly:** [[ai-football-reinforcement-learning|Scott et al.]] rank 15 RL agents by TrueSkill over 5,250 round-robin matches in GFootball, and every play-style correlation they report is measured against that axis.
 
-- TrueSkill outperformed Elo in prediction accuracy for most game modes.
-- Significantly better at identifying tight matches (the "challenge" test).
-- Better match quality: higher concentration of draws among top-ranked matches.
-- Fairer win probabilities, especially for players with few games.
-- Faster convergence: TrueSkill approaches target skill in ~10 games (near information-theoretic limit of ~5 for 8-player games), while Elo requires hundreds.
+The fit is unusually good for a reason the paper could not have anticipated. **Frozen model checkpoints satisfy the stationarity assumption humans violate** — but with cheap matches, the uncertainty machinery that justifies TrueSkill over a win rate is largely redundant. See `latent-skill-models-suit-frozen-agents-better-than-people` on [[trueskill]].
 
-## Deployment: Xbox Live
+**Indirectly:** the Gaussian-belief lineage runs through Glicko into [[league-strength-rating]] and [[duel-skill-rating]], where it does real work — a club rated on thin evidence should not be treated like one rated on a full season.
 
-TrueSkill was deployed on Xbox 360 Live (2+ million subscribers, hundreds of thousands of games/day), making it one of the largest applications of [[bayesian-inference]] at the time.
+## Two Deployment Observations Worth Keeping
 
-Key parameters: prior $\mu_0 = 25$, $\sigma_0 = 25/3$, $\beta = \sigma_0/2$, $\gamma = \sigma_0/100$. Player skill displayed as conservative estimate $\mu_i - 3\sigma_i$.
+**Matchmaking creates feedback loops** — players game the system to protect ratings. The football analogue is unaddressed: any rating fed back into team selection or scouting changes the behaviour it measures.
 
-Matchmaking uses a draw probability quality criterion that aligns finding fair matches with finding the most informative matches (sequential experimental design).
-
-## Observations from Deployment
-
-1. Games differ in effective skill levels (chance vs. skill).
-2. Matchmaking creates feedback loops — players game the system to protect ratings.
-3. Skill distribution shifts below prior if new players consistently lose early; tighter matchmaking fixes this.
+**Skill distribution shifts below the prior** if new entrants consistently lose early. Relevant to [[league-strength-rating]], where teams enter continental competition with priors set by domestic form.
 
 ## See Also
 
-- [[trueskill]]
-- [[elo-rating-system]]
-- [[factor-graph]]
-- [[approximate-message-passing]]
-- [[expectation-propagation]]
-- [[bayesian-inference]]
+- [[trueskill]] · [[elo-rating-system]] · [[glicko-rating-system]] · [[bradley-terry-model]] · [[league-strength-rating]] · [[duel-skill-rating]]
+- [[bayesian-inference]] · [[bayes-theorem]] · [[expectation-propagation]] · [[message-passing]] · [[uncertainty-quantification]]
+- [[microsoft-research]] · [[agent-based-simulation]] · [[google-research-football]]
+- [[ai-football-reinforcement-learning|Scott et al. Summary]]

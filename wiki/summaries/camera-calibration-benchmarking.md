@@ -78,7 +78,7 @@ That contrast is worth holding onto — it shows the benchmarking gap is a prope
 
 ## See Also
 
-- [[camera-calibration]] · [[jac-metric]] · [[radial-distortion]] · [[homography]] · [[projective-geometry]]
+- [[camera-calibration]] · [[jac-metric]] · [[radial-distortion]] · [[homography]] · [[image-alignment]]
 - [[game-state-reconstruction]] · [[multi-object-tracking]] · [[object-detection]]
 - [[floriane-magera]] · [[marc-van-droogenbroeck]]
 - [[tvcalib-camera-calibration-football|TVCalib]] · [[sports-camera-calibration-synthetic-data|Chen & Little]] · [[soccernet-v2-action-spotting|CCBV-SN]]

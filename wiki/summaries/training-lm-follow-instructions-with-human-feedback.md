@@ -1,48 +1,54 @@
 ---
 title: "Training Language Models to Follow Instructions with Human Feedback — Source Summary"
 type: summary
-tags: [deep-learning, language-modelling, instruction-tuning, reinforcement-learning, alignment]
+tags: [deep-learning, reinforcement-learning, alignment, policy-gradient, imitation-learning, auxiliary-loss, evaluation]
 sources: [raw/papers/training-lm-follow-instructions-with-human-feedback.md]
-confidence: 0.9
+confidence: 0.85
 provenance:
-  extracted: 80%
-  inferred: 15%
-  ambiguous: 5%
+  extracted: 72%
+  inferred: 16%
+  generated: 10%
+  imported: 0%
+  ambiguous: 2%
 lifecycle: reviewed
 created: 2026-06-10
-updated: 2026-06-18
+updated: 2026-08-14
 ---
 
 # Training Language Models to Follow Instructions with Human Feedback (InstructGPT)
 
-**Authors:** Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al.
-**Affiliation:** [[openai]]
-**Published:** 2022 (NeurIPS 2022)
+**Ouyang et al.**, [[openai]], NeurIPS 2022.
 
-## Key Contribution
+> **Held here for two reasons, neither of them language modelling.** It is the origin of [[proximal-policy-optimization|PPO]] as used by [[ai-football-reinforcement-learning|Scott et al.]] in GFootball, and it is the vault's **best-behaved instance of the [[imitation-reward-tradeoff|imitation/reward trade-off]]**. The alignment literature lives in the general vault.
 
-Introduces InstructGPT, which aligns GPT-3 with human intent using the [[rlhf]] (Reinforcement Learning from Human Feedback) pipeline: (1) supervised fine-tuning (SFT) on human-written demonstrations, (2) training a reward model (RM) on human preference rankings, and (3) optimising the SFT model against the RM using Proximal Policy Optimization (PPO).
+## The Pipeline
 
-## Method (Three Steps)
+1. **Supervised fine-tuning** on ~13K human-written prompt–demonstration pairs.
+2. **Reward model** trained on ~33K human preference comparisons.
+3. **Policy optimisation** with PPO against that reward model, plus a **KL penalty** anchoring the policy to the SFT model.
 
-1. **SFT:** Fine-tune GPT-3 on ~13K prompt–demonstration pairs written by human labelers.
-2. **Reward Model:** Train a 6B model on ~33K comparisons of model outputs ranked by humans.
-3. **RLHF (PPO):** Optimise the SFT policy to maximise the reward model's score, with a KL penalty to prevent divergence from the SFT model.
+**InstructGPT 1.3B was preferred by labellers over GPT-3 175B** — 100× smaller. Alignment substituted for scale.
 
-## Key Results
+## Step 3 Is Why This Paper Is Here
 
-- InstructGPT 1.3B is preferred by human labelers over GPT-3 175B despite being 100× smaller.
-- InstructGPT produces fewer hallucinations, fewer toxic outputs, and better follows user intent.
-- On public NLP benchmarks, InstructGPT shows small performance regressions ("alignment tax") which can be mitigated by mixing pretraining data into PPO training.
+Every RL framework in this vault balances **reproducing observed behaviour** against **maximising reward**, and each anchors differently:
 
-## Impact
+| | Anchor | Coefficient reported? | Swept? |
+|---|---|---|---|
+| **InstructGPT** | KL to the SFT policy | **Yes** | **Yes** |
+| [[action-supervision\|Nakahara et al.]] | Cross-entropy on softmax-$Q$ | $\lambda_1 = 0.01$ | Two points |
+| [[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]] | DTW-adaptive supervision | **No value given** | No |
 
-InstructGPT / RLHF became the standard alignment technique for LLMs, directly informing ChatGPT and subsequent instruction-following models across the industry.
+That anchoring strength governs how much apparent suboptimality survives into the results — which is the whole content of `optimality-gap-is-tunable` on [[action-supervision]]. **InstructGPT demonstrates that reporting and sweeping it is normal practice**, which makes its absence in the football literature a choice rather than a convention. See [[rlhf]] and [[free-parameters-load-bearing]].
+
+## Two Further Transfers
+
+**Reward models can be gamed.** A policy may score highly without satisfying intent. The football parallel is direct: [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] add a shot reward because goals are sparse, and nothing checks whether agents then optimise for shots rather than goals. See [[rare-event-proxy-targets]].
+
+**The alignment tax.** Small regressions on unrelated benchmarks, mitigated by mixing pretraining data back in. The analogue is untested here — no football source asks what a metric optimised for one objective costs on others, which is the same gap [[capability-profiling]] identifies from the evaluation side.
 
 ## See Also
 
-- [[rlhf]]
-- [[chain-of-thought]]
-- [[react]]
-- [[scaling-laws]]
-- [[retrieval-augmented-generation]]
+- [[rlhf]] · [[proximal-policy-optimization]] · [[imitation-reward-tradeoff]] · [[action-supervision]] · [[reinforcement-learning]] · [[imitation-learning]]
+- [[kl-divergence]] · [[free-parameters-load-bearing]] · [[observed-versus-optimal-decisions]] · [[rare-event-proxy-targets]] · [[capability-profiling]]
+- [[openai]] · [[ai-football-reinforcement-learning|Scott et al. Summary]] · [[adaptive-action-supervision-multi-agent-rl|Fujii et al. Summary]]

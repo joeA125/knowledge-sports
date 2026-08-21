@@ -1,72 +1,62 @@
 ---
 title: "Order Matters: Sequence to Sequence for Sets — Source Summary"
 type: summary
-tags: [deep-learning, sequence-modelling, attention, pointer-mechanism, set-modelling, ordering, lstm, language-modelling]
+tags: [deep-learning, sequence-modelling, attention, set-modelling, ordering, lstm, model-selection]
 sources: [raw/papers/sequence-to-sequence-sets.md]
-confidence: 0.95
+confidence: 0.85
 provenance:
-  extracted: 90%
-  inferred: 8%
+  extracted: 76%
+  inferred: 14%
+  generated: 8%
+  imported: 0%
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-08-14
 ---
 
 # Order Matters: Sequence to Sequence for Sets
 
-**Authors:** [[oriol-vinyals]], Samy Bengio, Manjunath Kudlur
-**Affiliation:** [[google-brain]]
-**Published:** 2016 (ICLR 2016); arXiv:1511.06391
+**Vinyals, Bengio & Kudlur**, [[google-brain]], ICLR 2016; arXiv:1511.06391.
 
-## Key Contributions
+> **Held on forward-looking grounds (D3).** No football source cites it. It is retained because **a football game state is an unordered set of 22 players**, and every framework in this vault has to solve that problem — mostly without acknowledging it is a known one. The read-process-write architecture and the combinatorial results live in the general vault.
 
-This paper makes two central claims: (1) the order in which data is presented to or produced by seq2seq models matters significantly for performance, and (2) it introduces the [[read-process-write]] architecture for handling input sets and proposes an order-search training loss for output sets.
+## The Central Claim
 
-## Order Matters — Empirical Evidence
+**Order matters — for inputs and outputs — even when the underlying object is unordered.** With unlimited capacity and data it would not. In practice:
 
-### Input Order
-- Reversing English input sentences improved machine translation by 5.0 BLEU (Sutskever et al., 2014).
-- Sorting input points by angle simplified convex hull computation from $O(n \log n)$ to $O(n)$, improving accuracy by up to 10%.
-- For constituency parsing, reversing the English sentence improved F1 by 0.5%.
+| Change | Effect |
+|---|---|
+| Reversing English input sentences | +5.0 BLEU (Sutskever et al.) |
+| Sorting input points by angle (convex hull) | Up to +10% accuracy |
+| Depth-first vs breadth-first parse traversal | 89.5% vs 81.5% F1 |
+| 3-word scramble in language modelling | Perplexity 86 → 96 |
 
-### Output Order
-- **Language modelling (PTB):** Natural word order and reversed order both achieve 86 perplexity; a 3-word reversal scramble degrades to 96 perplexity.
-- **Parsing:** Depth-first tree traversal achieves 89.5% F1 vs 81.5% for breadth-first.
-- **Combinatorial problems:** Restricting output equivalence classes (e.g., starting from the lowest-indexed city, counter-clockwise) improves accuracy by 5%+ over arbitrary orderings.
-- **Graphical models:** When the head variable of a star graph is output first, the LSTM learns the joint distribution more easily, especially with limited data.
+The paper also proposes searching over orderings during training, maximising $\max_{\pi} \log p(Y_{\pi(X)} \mid X)$, approximated by ancestral sampling since exact search over $n!$ is intractable.
 
-## Read-Process-Write Architecture
+## Why This Bears on Football
 
-A three-component model for handling input sets in a permutation-invariant way:
+Twenty-two players have no canonical ordering, and the vault holds **three distinct responses** to that — none of which cites this paper:
 
-1. **Read block:** Embeds each input element $x_i$ into a memory vector $m_i$ via a shared neural network.
-2. **Process block:** An [[lstm]] with no inputs or outputs performs $T$ attention-based processing steps over the memories, building up a permutation-invariant representation $q^*_T$. Uses content-based [[attention-mechanism|attention]] (Equations 3–7).
-3. **Write block:** A [[pointer-network]] decoder that takes $q^*_T$ as context and points at input elements to produce the output sequence. Extended with "glimpses" — additional attention reads interleaved with pointer outputs.
+| Response | Mechanism | Where |
+|---|---|---|
+| **Symmetric aggregation** | Permutation-equivariant by construction | [[graph-neural-network\|GNN]] in [[trajectory-prediction]], behind [[c-obso]] |
+| **Attention over a set** | Learned order-free weighting | [[transformer]] via [[nmstpp]]; see [[message-passing]] |
+| **Sort by a meaningful key** | Impose a canonical order | [[vdep]] — players sorted by distance to ball |
 
-This can be viewed as a special case of a Neural Turing Machine or Memory Network.
+**The third is exactly what this paper warns about**, and exactly what it recommends. VDEP's proximity sort is an ordering choice that was never searched or ablated — and Vinyals et al.'s convex-hull result shows a *well-chosen* sort can help substantially, while a poor one costs.
 
-## Sorting Experiment Results
+[[gvdep|GVDEP]] later measured part of the cost: ball-gain prediction saturates at three or four sorted players, and the other three targets gain nothing from player positions at all. That is evidence the sort is lossy, but not evidence about *which* sort would be best.
 
-| $N$ | Ptr-Net (no glimpse) | Ptr-Net (glimpse) | RPW $P=5$ (no glimpse) | RPW $P=5$ (glimpse) |
-|---|---|---|---|---|
-| 5 | 81% | 90% | 88% | 94% |
-| 10 | 8% | 28% | 17% | 57% |
-| 15 | 0% | 4% | 2% | 4% |
+> ### `player-ordering-is-an-unsearched-choice`
+> **Where a model imposes an ordering on an unordered set of players, that ordering is a free parameter with measurable effect. VDEP sorts by ball proximity; no held source has compared it against alternatives, and the one paper addressing the problem directly proposes searching over orderings.**
+> ^[generated: connects a general-ML source to a football design choice neither addresses. Speculative. rests-on: source:vinyals-ordering-effects, source:vdep-proximity-sort, source:gvdep-nearest-sweep]
 
-Processing steps and glimpses both significantly improve performance over the baseline [[pointer-network]].
-
-## Finding Optimal Output Orderings
-
-For output sets where no natural order exists, the paper proposes maximising over orderings during training:
-
-$$\theta^\star = \arg \max_\theta \sum_i \max_{\pi(X_i)} \log p(Y_{\pi(X_i)}|X_i; \theta)$$
-
-Since exact search over $n!$ orderings is intractable, they use: (1) pretraining with uniform prior over orderings for 1000 steps, then (2) sampling $\pi(X)$ proportional to $p(Y_{\pi(X)}|X)$ via ancestral sampling ($O(1)$ cost). On 5-gram language modelling, this procedure automatically discovers natural/reversed orderings and achieves optimal perplexity of 225.
+⚠️ **Untested.** Like the pointer-network claim, this is the reason the paper was retained and should be acted on or retired rather than left standing.
 
 ## See Also
 
-- [[read-process-write]]
-- [[pointer-network]]
-- [[attention-mechanism]]
-- [[lstm]]
+- [[message-passing]] · [[graph-neural-network]] · [[transformer]] · [[attention-mechanism]] · [[lstm]] · [[action-space-design]]
+- [[vdep]] · [[gvdep]] · [[trajectory-prediction]] · [[c-obso]] · [[nmstpp]] · [[autoregressive-model]]
+- [[free-parameters-load-bearing]] · [[model-selection]] · [[google-brain]]
+- [[football-defence-evaluation-vdep|VDEP Summary]] · [[generalized-vdep-euro-location-analysis|GVDEP Summary]]

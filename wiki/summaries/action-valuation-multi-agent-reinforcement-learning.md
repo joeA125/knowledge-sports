@@ -34,7 +34,7 @@ Prior [[reinforcement-learning|RL]] valuation in football treats **the team as a
 | Action $a$ | **14 discrete actions** — 8 movement directions at 45°, idle, sprint start, sprint stop, direction release, pass, shot. See [[action-space-design]] |
 | Algorithm | **SARSA** — on-policy [[temporal-difference-learning\|TD]], model-free |
 | Network | [[gated-recurrent-unit\|GRU]], single 64-unit hidden layer, ReLU, 14 Q-values out |
-| Optimiser | [[adam-optimizer\|Adam]], defaults |
+| Optimiser | Adam, defaults |
 
 ### The reward, and what it borrows
 

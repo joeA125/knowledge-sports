@@ -58,7 +58,7 @@ This is the same mechanism [[scoutgpt]] uses, established here first. Without it
 ### Architecture
 nanoGPT decoder-only transformer with **weight tying** between the input embedding matrix and output projection. All attributes — categorical, spatial, temporal, and value — share one vocabulary and one embedding layer, so the transformer learns their interactions through attention rather than hand-designed feature fusion.
 
-Trained with [[teacher-forcing|teacher forcing]] on next-token cross-entropy.
+Trained with teacher forcing on next-token cross-entropy.
 
 ## Data
 
@@ -134,6 +134,6 @@ The key advance in ScoutGPT is generating the *whole* sequence under the new pla
 - [[eventgpt]]
 - [[on-ball-value]]
 - [[player-embedding]]
-- [[teacher-forcing]]
+- [[generative-model]]
 - [[counterfactual-simulation]]
 - [[scoutgpt]]

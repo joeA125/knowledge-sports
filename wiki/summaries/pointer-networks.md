@@ -1,81 +1,60 @@
 ---
 title: "Pointer Networks — Source Summary"
 type: summary
-tags: [deep-learning, attention, sequence-modelling, rnn, combinatorial-optimisation, pointer-mechanism]
+tags: [deep-learning, attention, sequence-modelling, combinatorial-optimisation, pointer-mechanism, pass-modelling]
 sources: [raw/papers/pointer-networks.md]
-confidence: 0.95
+confidence: 0.85
 provenance:
-  extracted: 90%
-  inferred: 8%
+  extracted: 78%
+  inferred: 12%
+  generated: 8%
+  imported: 0%
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-05-08
+updated: 2026-08-14
 ---
 
 # Pointer Networks
 
-**Authors:** [[oriol-vinyals]], [[meire-fortunato]], [[navdeep-jaitly]]
-**Affiliations:** [[google-brain]], UC Berkeley (Department of Mathematics)
-**Published:** 2015 (NeurIPS)
+**Vinyals, Fortunato & Jaitly**, [[google-brain]] and UC Berkeley, NeurIPS 2015.
 
-## Key Contribution
+> **Held on forward-looking grounds (D3).** No football source cites this paper. It is retained because **pass selection is structurally a pointer problem**, and no held framework has yet treated it as one. The architecture's combinatorial-optimisation results live in the general vault.
 
-This paper introduces the [[pointer-network]] (Ptr-Net), a neural architecture that uses [[additive-attention]] as a pointer mechanism to select elements from the input sequence as outputs. This solves the fundamental problem that standard sequence-to-sequence models have fixed output dictionaries, whereas many combinatorial problems require output dictionaries whose size depends on the input length.
+## The Contribution
 
-## The Problem
+Standard sequence-to-sequence models softmax over a **fixed** output vocabulary. Many problems need an output dictionary whose size depends on the input — selecting a subset of the inputs themselves.
 
-Standard [[encoder-decoder]] (sequence-to-sequence) models and even attention-augmented models (e.g., [[neural-machine-translation|Bahdanau et al., 2014]]) use a softmax over a fixed-size output vocabulary. This makes them inapplicable to problems where the output is a variable-length selection of input elements — such as convex hull computation, Delaunay triangulation, and the Travelling Salesman Problem (TSP).
+Pointer networks solve this by using [[attention-mechanism|attention scores directly as the output distribution]] rather than as weights for blending encoder states:
 
-## Architecture
+$$u_j^i = v^T \tanh(W_1 e_j + W_2 d_i), \qquad p(C_i \mid C_{<i}, \mathcal{P}) = \text{softmax}(u^i)$$
 
-The Ptr-Net modifies the content-based [[additive-attention]] mechanism:
+The softmax has dictionary size equal to the input length, varying per instance. **Attention becomes the answer rather than a routing mechanism.**
 
-1. **Encoder:** An LSTM reads the input sequence $\mathcal{P} = \{P_1, \dots, P_n\}$ producing hidden states $(e_1, \dots, e_n)$.
-2. **Decoder:** An LSTM produces hidden states $(d_1, \dots, d_{m(\mathcal{P})})$.
-3. **Pointer mechanism:** Instead of blending encoder states into a context vector, the attention scores are used directly as the output distribution:
+Results: 72.6% exact accuracy on convex hull at $n=50$ against 38.9% for standard attention; near-optimal TSP tours for $n \leq 20$. Notably, when trained on the *worst* available heuristic it outperformed that heuristic — learning past its training signal.
 
-$$u_j^i = v^T \tanh(W_1 e_j + W_2 d_i)$$
-$$p(C_i | C_1, \dots, C_{i-1}, \mathcal{P}) = \text{softmax}(u^i)$$
+## Why It Is Held
 
-The softmax has dictionary size equal to the input length $n$, varying per instance.
+**A pass is a selection over a variable-size candidate set.** Ten teammates, no canonical order, exactly one chosen. That is the pointer formulation.
 
-## Key Difference from Standard Attention
+The vault's existing frameworks handle it differently and less naturally:
 
-In [[additive-attention]], attention weights are used to blend encoder states into a context vector that augments the decoder. In a Ptr-Net, attention weights are the output — they "point" to input positions rather than blending hidden states. This makes the output dictionary inherently variable-sized.
+| Framework | How pass destination is modelled |
+|---|---|
+| [[expected-value-possession-framework\|Fernández et al.]] | A [[probability-surface\|surface]] over pitch *locations* — not over players |
+| [[pass-probability-model\|Spearman et al.]] | Physical intercept and control times, per receiver |
+| [[action-valuation-multi-agent-reinforcement-learning\|Nakahara et al.]] | **One** undifferentiated "pass" action among 14 |
 
-## Experimental Results
+Fernández et al.'s surface is the closest, and it answers *where* rather than *to whom* — which is why it can say a pass should have gone elsewhere but nothing about whether to pass at all. See [[action-space-design]].
 
-### Convex Hull
-- Ptr-Net achieves 72.6% exact accuracy at $n=50$ (vs 38.9% attention, 1.9% vanilla LSTM).
-- Area coverage consistently ~99.9%.
-- A single model trained on $n=5$–$50$ generalises to $n=500$ with 99.2% area coverage.
+> ### `pass-selection-is-a-pointer-problem`
+> **Selecting a receiver from a variable-size set of teammates has the exact structure pointer networks were built for, and no held framework models it that way. Location surfaces and per-action discretisations are both workarounds for an output-space problem that has a known solution.**
+> ^[generated: no source connects these. Speculative — recorded as an acquisition-and-modelling direction rather than a finding. rests-on: source:vinyals-pointer-mechanism, source:fernandez-pass-surface, source:nakahara-14-actions]
 
-### Delaunay Triangulation
-- 80.7% accuracy at $n=5$; 52.8% triangle coverage at $n=50$.
-
-### Travelling Salesman Problem
-- Near-optimal tours for $n \leq 20$ (trained on exact solutions).
-- Competitive with heuristic algorithms at $n=50$.
-- When trained on the worst algorithm (A1), the Ptr-Net outperforms it — learning to improve upon its training signal.
-- Generalisation: trained on $n=5$–$20$, good results up to $n=30$, degrades at $n \geq 40$.
-
-## Architecture Details
-
-- Single-layer LSTM, 256 or 512 hidden units
-- SGD with learning rate 1.0, batch size 128
-- L2 gradient clipping at 2.0
-- 1M training examples
-- Beam search at inference (with validity constraints for TSP)
-- Computational complexity: $O(n^2)$ per sequence
-
-## Impact
-
-Pointer Networks opened a new class of problems to neural network approaches by showing that attention can serve as an output mechanism, not just an internal routing mechanism. The architecture influenced later work on neural combinatorial optimisation, copy mechanisms in NMT, and abstractive summarisation.
+⚠️ **This claim is untested and no held source supports the football half.** It is the reason the paper was retained, and it should be either acted on or retired rather than left standing indefinitely.
 
 ## See Also
 
-- [[pointer-network]]
-- [[additive-attention]]
-- [[attention-mechanism]]
-- [[encoder-decoder]]
+- [[attention-mechanism]] · [[lstm]] · [[transformer]] · [[action-space-design]]
+- [[pass-probability-model]] · [[probability-surface]] · [[expected-possession-value]] · [[receiving-efficiency]]
+- [[google-brain]] · [[neural-machine-translation|Bahdanau Summary]] · [[expected-value-possession-framework|EPV Summary]]
