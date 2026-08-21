@@ -3001,3 +3001,77 @@ Records that the general-ML tier is scheduled to move, and states plainly that t
 Zero lint warnings on write — all wikilinks resolved.
 
 
+## [2026-08-21 19:50] writeback | Vault split completed — 367 to 271 pages; football hubs gained centrality; inference-based classification ran at 25% and needed verification throughout
+Split of knowledge-sports into a football-only vault plus a sibling knowledge-general vault. Executed across several sessions, 2026-08-12 to 2026-08-14.
+
+=== SCOPE ===
+367 pages -> 271. 56 raw sources -> 40. 182 tags declared -> 154.
+96 pages moved out: 34 concepts, 37 entities, 16 source summaries (plus 3 late additions: pre-activation-resnet, batch-normalization, recurrent-dropout).
+22 pages forked (copied, retained in both, each side pruned to its own sources).
+14 pages trimmed (retained, general-only sections stripped).
+
+=== THE RETENTION RULE ===
+Dependency, not topic. A page stayed if a football page's ARGUMENT breaks without it.
+
+Applied to SOURCES this became a provenance test rather than a topic test:
+  A raw paper must stay if any staying page cites it in sources:.
+Removing it would leave that page's frontmatter pointing at a file that no longer exists — nothing errors, so the vault would silently hold a false provenance claim.
+
+That produced a BOTH category of 9 sources larger than first estimated:
+attention-is-all-you-need (transformer <- NMSTPP), neural-machine-translation (GRU <- Nakahara), variational-lossy-autoencoders (VAE <- C-OBSO GVRNN), context-aggregation-dilated-convolutions (FCN <- SoccerMap), bayesian-true-skill-rating (trueskill <- Scott), training-lm-follow-instructions (PPO <- Scott), plus three on forward-looking grounds: pointer-networks, sequence-to-sequence-sets, rnn-regularisation.
+
+=== METHOD FAILURES WORTH RECORDING ===
+
+1. INFERENCE RAN AT 25% ON FORKS.
+Classifying pages by subject matter rather than reading sources: was wrong three times in four. Six pages classified as forks cite NO football source at all and were clean moves: adam-optimizer, regularization, recurrence, encoder-decoder, dropout, convolution. I had reasoned that Nakahara's L1 and Fujii's L2 would appear in regularization, and Nakahara's GRU in recurrence. Neither does — those papers discuss those topics, but the concept pages predate them and were never updated. The reasoning was about the LITERATURE, not the VAULT.
+
+2. THREE FORKS FOUND ONLY BY VERIFICATION.
+lstm, encoder-decoder-bottleneck, autoregressive-model — none in the original Phase 2 list. All three cite NMSTPP, which turned out to be the football paper with the widest reach into general-ML territory (it also anchors attention-mechanism, multi-task-learning, neural-temporal-point-process, point-process).
+
+3. A DUAL-SOURCED PAGE IS A FORK BY DEFINITION.
+Every confirmed BOTH source was confirmed the same way — its concept page cites a football paper AND a general paper in one frontmatter block. That mechanical test is far stronger than "a football page links it", which is exactly what produced the one wrong call (identity-mapping-residual-networks, dropped to GENERAL as D8).
+
+4. "HAS A BEYOND SPORT SECTION" WAS A WEAK PROXY.
+The Partial classification assumed those sections were general-vault material. Reading them, most were 2-4 sentence bridging notes, and three were the concept's own intellectual ORIGIN (dynamic-time-warping/speech recognition, predictive-validity/psychometrics, social-network-analysis/sociology). Stripping mechanically would have deleted the general form of transfer-evidence-is-conditional-on-the-dimension-chosen, a claim declared on domain-adaptation. Revised approach: cut the cross-domain example lists, keep one portable sentence, retitle. 13 pages trimmed rather than stripped.
+
+5. list_unprocessed_sources HAS A BLIND SPOT.
+It finds raw files with no summary. It cannot see a summary with no raw file. The identity-mapping-residual-networks summary was copied rather than moved and sat orphaned in football, citing a paper that had left. Caught only by arithmetic — 41 summaries against 40 raw sources.
+
+6. AN INDEX CAN BE SILENTLY INCOMPLETE.
+find_mentioned_but_missing catches broken links, not omissions. The rebuilt index dropped rlhf and multi-task-learning entirely; found by counting entries against a directory listing, not by any tool.
+
+7. TAG-AS-PAGE LINKING RECURRED FOUR TIMES.
+Writing a taxonomy tag as a wikilink target, every time while FIXING a dead link in a See Also list — the tag namespace is in the frontmatter of the page being edited, so the wrong name is nearest to hand. Write-time lint caught all four. This is not a lapse that goes away with effort; the mitigation is to prefer a page already linked elsewhere on the same page.
+
+=== WORK DONE ===
+- ~90 dead links cleared across ~55 pages, in six clusters: CV (convolution/dilated/residual), teacher-forcing (12 refs, 6 pages), NMF (9 pages), Bayesian inference (7 pages), LLM (bert/gpt/scaling-laws/tool-use), and singles
+- 22 fork pages pruned, each given a scope note pointing at the general vault
+- 10 BOTH summaries rewritten lean, each stating why it is held
+- 14 pages trimmed of general-only sections
+- 2 pages had sources: pruned where they cited moved papers (tokenization, probability-calibration) — the false-provenance case above
+- Taxonomy pruned 177 -> 154; contradicted and stale-risk retained unused as ready vocabulary
+- Index rebuilt and reorganised by football function rather than ML discipline; entities regrouped by research line; summaries grouped by topic with a final section naming each retained general source and WHY
+- Overview updated with real counts and a migration record
+
+=== STRUCTURAL OUTCOME ===
+The football hubs became MORE central, not less:
+  c-obso 54 -> 63, nmstpp 45 -> 55, vaep 71 -> 73, vdep 43 -> 47, expected-value-possession-framework 45 -> 50
+Not from new content — from general pages being rewritten to state their football dependency explicitly.
+And transformer left the top fifteen entirely (was 3rd at 60 inbound). Reducing it to a lean page moved those links onto the pages that actually depend on them.
+
+=== NEW CLAIMS DECLARED DURING THE MIGRATION ===
+- not-all-penalties-are-regularisers (regularization) — a penalty shrinking parameters constrains model complexity; a penalty pulling toward observed behaviour constrains conclusions. Written identically in the loss.
+- anchoring-strength-should-be-reported (rlhf) — RLHF reports and sweeps its KL coefficient as standard; the football RL literature reports neither.
+- attention-weights-diagnose-window-length (attention-mechanism) — Yeung et al. are the only held case of a horizon parameter checked against evidence.
+- attention-can-improve-compression-not-only-replace-it (encoder-decoder-bottleneck)
+- recurrence-persists-where-sequences-are-short (lstm)
+- factorisation-order-is-an-unswept-parameter (autoregressive-model)
+- aggregates-assume-substitutability (capability-profiling)
+- pass-selection-is-a-pointer-problem, player-ordering-is-an-unsearched-choice, capacity-capping-substitutes-for-regularisation — all three SPECULATIVE, marked as such. They are the justification for retaining three papers nobody cites, and should be acted on or retired rather than left standing indefinitely.
+
+=== OUTSTANDING ===
+- knowledge-general has no index and no overview, and its 129 pages still link football material
+- The three speculative claims above
+- capability-profiling was re-sourced to four football papers with the AGI-definition material marked imported: — an honest option-2 rather than a silent re-label
+
+
