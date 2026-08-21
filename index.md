@@ -1,252 +1,201 @@
 A catalog of all wiki pages, organised by type.
 
+**Scope: football and sports analytics.** General ML, LLM and mathematical-foundations material migrated to the sibling general vault on 2026-08-14. Concepts retained here are those a football page genuinely depends on.
+
 ## Navigation
 
-- [[overview]] — high-level map of the domains covered by this wiki
+- [[overview]] — narrative map of what this vault holds and how it hangs together
 - Dashboards: [[health|Health]] · [[reinforcement|Reinforcement]] · [[sources|Source Tracking]]
 
 ## Entities
 
-- [[ashish-vaswani]] · [[noam-shazeer]] · [[niki-parmar]] · [[jakob-uszkoreit]] · [[llion-jones]] · [[aidan-gomez]] · [[lukasz-kaiser]] · [[illia-polosukhin]] — co-authors of "Attention Is All You Need"
-- [[ralf-herbrich]] · [[thore-graepel]] — co-authors of TrueSkill
-- [[tom-minka]] — creator of Expectation Propagation, co-author of TrueSkill
-- [[mark-glickman]] — Statistician, creator of the Glicko and Glicko-2 rating systems
-- [[dzmitry-bahdanau]] — First author of the Bahdanau attention paper
-- [[kyunghyun-cho]] — Developer of GRU, co-author of Bahdanau attention
-- [[yoshua-bengio]] — Deep learning pioneer, co-author of Bahdanau attention
-- [[oriol-vinyals]] — Lead author of Pointer Networks and Order Matters
-- [[meire-fortunato]] · [[navdeep-jaitly]] — co-authors of Pointer Networks
-- [[wojciech-zaremba]] — First author of RNN Regularization
-- [[ilya-sutskever]] — Co-author of RNN Regularization, seq2seq, VLAE, and GPT
-- [[kaiming-he]] · [[xiangyu-zhang]] · [[shaoqing-ren]] · [[jian-sun]] — ResNet authors
-- [[fisher-yu]] · [[vladlen-koltun]] — dilated convolutions
-- [[alex-graves]] · [[greg-wayne]] · [[ivo-danihelka]] — Neural Turing Machines
-- [[jared-kaplan]] · [[sam-mccandlish]] · [[dario-amodei]] — Scaling Laws
-- [[diederik-kingma]] — Co-creator of VAE, co-author of VLAE
-- [[alec-radford]] — Lead author of GPT (2018)
-- [[jacob-devlin]] — Lead author of BERT (2019)
-- [[jianhui-chen]] · [[james-little]] — Sports Camera Calibration via Synthetic Data
-- [[floriane-magera]] · [[marc-van-droogenbroeck]] — ProCC benchmarking; SoccerNet-v2
-- [[tom-decroos]] · [[jesse-davis]] — SPADL/VAEP
-- [[maaike-van-roy]] · [[pieter-robberechts]] — the xT vs VAEP critical comparison
-- [[karun-singh]] — Creator of expected threat (xT)
-- [[garry-gelade]] — Practitioner; Bradley-Terry model of 1v1 duel ability
-- [[william-spearman]] — Hudl; pass probability model, PPCF and OBSO
-- [[daniel-cervone]] · [[alex-damour]] · [[kirk-goldsberry]] — the NBA martingale EPV paper
-- [[luke-bornn]] — NBA EPV, Wide Open Spaces, and the soccer EPV framework
-- [[javier-fernandez]] — Wide Open Spaces, SoccerMap, and the soccer EPV framework
-- [[keisuke-fujii]] — **Author on nine held sources**; the largest single-author cluster in this vault
-- [[calvin-yeung]] — Lead author of NMSTPP and the game-theoretic SPC framework
-- [[kosuke-toda]] — Lead author of VDEP
-- [[rikuhei-umemoto]] — Lead author of GVDEP and DRSO; the defensive-positioning line
-- [[masakiyo-teranishi]] — Lead author of C-OBSO; the trajectory-modelling line
-- [[hiroshi-nakahara]] — Lead author of the multi-agent deep RL valuation framework; the inverse half of a forward/inverse pair
-- [[kazushi-tsutsui]] — Three held sources; the only author on both sides of every division in the Fujii group
-- [[kazuya-takeda]] — Co-author of C-OBSO, Nakahara et al., and the 2020 trajectory work
-- [[atom-scott]] — **Lead author** of the GFootball/real-football comparison; co-author of the adaptive action supervision paper
+### The Fujii group — nine held sources, the largest cluster here
+- [[keisuke-fujii]] — author on all nine; senior author of VDEP, GVDEP, DRSO, C-OBSO, NMSTPP and SPC, first author of the adaptive action supervision paper
+- [[calvin-yeung]] — NMSTPP and the game-theoretic SPC framework
+- [[kosuke-toda]] — VDEP · [[rikuhei-umemoto]] — GVDEP and DRSO · [[masakiyo-teranishi]] — C-OBSO
+- [[hiroshi-nakahara]] — multi-agent deep RL valuation; the inverse half of a forward/inverse pair
+- [[kazushi-tsutsui]] — three held sources; crosses every division in the group
+- [[kazuya-takeda]] · [[keisuke-kushiro]] · [[tony-sit]]
+- [[atom-scott]] — lead author of the GFootball/real-football comparison
 - [[masaki-onishi]] — AIST senior author on the agent-based simulation paper
-- [[naoya-takeishi]] · [[yoshinobu-kawahara]] — the Fujii group's methodological line: multi-agent modelling, counterfactual inference, animal behaviour
-- [[keisuke-kushiro]] — Co-author of VDEP (supervision)
-- [[tony-sit]] — Statistician, co-author of NMSTPP
-- [[ian-simpson]] — Seq2Event and the poss-util metric
+- [[naoya-takeishi]] · [[yoshinobu-kawahara]] — the group's methodological line
+
+### Pitch control, off-ball value and possession
+- [[william-spearman]] — pass probability model, PPCF and OBSO; the substrate for much of this vault
+- [[javier-fernandez]] · [[luke-bornn]] — Wide Open Spaces, SoccerMap, the soccer EPV framework
+- [[daniel-cervone]] · [[alex-damour]] · [[kirk-goldsberry]] — the NBA martingale EPV paper
+
+### Action valuation and event modelling
+- [[tom-decroos]] · [[jesse-davis]] — SPADL and VAEP
+- [[maaike-van-roy]] · [[pieter-robberechts]] — the xT vs VAEP critical comparison
+- [[karun-singh]] — expected threat
+- [[andrei-shelopugin]] — EPV of control and duel actions, PCR
+- [[ian-simpson]] — Seq2Event and poss-util
 - [[david-hirnschall]] · [[robert-bajons]] — the path-signature possession paper
 - [[koffi-amezouwui]] · [[brigitte-gelein]] · [[matthieu-marbac]] · [[anthony-sorel]] — possession mixture-model clustering
 - [[sandeep-narayanan]] — Bayesian point-process model of football events
 - [[miru-hong]] · [[minho-lee]] · [[sang-ki-ko]] · [[geonhee-jo]] · [[jae-hee-so]] — EventGPT and ScoutGPT
+- [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]] — Valuing Players Over Time
+
+### Ratings and duels
+- [[garry-gelade]] — Bradley-Terry model of 1v1 duel ability
+- [[mark-glickman]] — Glicko and Glicko-2 · [[alexander-sirotkin]] — Glicko-2 duel and league ratings
+
+### Computer vision for sport
+- [[floriane-magera]] · [[marc-van-droogenbroeck]] — ProCC benchmarking; SoccerNet-v2
+- [[jianhui-chen]] · [[james-little]] — Sports Camera Calibration via Synthetic Data
 - [[pascal-bauer]] — Chair for Sports Analytics, Saarland
-- [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]] — Valuing Players Over Time; Large Event Models
-- [[andrei-shelopugin]] — Independent researcher; EPV of control and duel actions, PCR
-- [[alexander-sirotkin]] — Glicko-2 duel-rating and league-rating papers
-- [[openai]] · [[google-brain]] · [[google-deepmind]] · [[google-research]] · [[microsoft-research]] — research organisations
-- [[google-research-football]] — GFootball; the shared 11v11 simulator, used directly by one held source and rejected by another
-- [[nfootball]] — the Fujii group's bespoke replacement, and what building your own environment costs in comparability
-- [[university-of-toronto]] · [[jacobs-university-bremen]] · [[universite-de-montreal]] — universities
-- [[universidade-do-porto]] · [[inesc-tec]] — the Porto football-analytics group
-- [[nagoya-university]] · [[kyoto-university]] — the Fujii group and the VDEP lead author
-- [[university-of-tokyo]] · [[osaka-university]] — affiliations on the Fujii group's methodological line
-- [[aist]] — Japanese national institute; the simulation-feasibility half of the programme
-- [[fc-porto]] · [[fc-barcelona]] — clubs with co-author affiliations
-- [[stats-perform]] — Sports data provider (STATS LLC / Opta)
-- [[data-stadium]] — Japanese sports data provider; the J-League data behind five held sources, each subsetting it differently
+
+### Institutions and environments
+- [[nagoya-university]] — nine held sources; the largest single-institution cluster
+- [[aist]] · [[kyoto-university]] · [[university-of-tokyo]] · [[osaka-university]]
+- [[universidade-do-porto]] · [[inesc-tec]] · [[fc-porto]] · [[fc-barcelona]]
+- [[data-stadium]] — J-League data behind five held sources, each subsetting it differently
+- [[stats-perform]] — STATS LLC / Opta
+- [[google-research-football]] — the shared 11v11 simulator, used by one held source and rejected by another
+- [[nfootball]] — the bespoke replacement, and what building your own environment costs
+- [[google-brain]] · [[google-research]] · [[openai]] · [[microsoft-research]] — retained for what bears on football
 
 ## Concepts
 
-### Architectures and Deep Learning
-- [[transformer]] — Attention-only sequence transduction architecture
-- [[attention-mechanism]] · [[additive-attention]] · [[scaled-dot-product-attention]] · [[multi-head-attention]]
-- [[pointer-network]] · [[read-process-write]] · [[neural-turing-machine]]
-- [[positional-encoding]] · [[encoder-decoder]] · [[encoder-decoder-bottleneck]] · [[feed-forward-network]]
-- [[recurrence]] — Sequential hidden-state processing underlying RNNs
-- [[lstm]] · [[gated-recurrent-unit]] · [[bidirectional-rnn]]
-- [[graph-neural-network]] — Message passing over graph-structured data; permutation equivariance
-- [[message-passing]] — The pattern shared by graphical-model inference and GNNs
-- [[convolution]] · [[dilated-convolution]] · [[fully-convolutional-network]] · [[feature-pyramid-network]]
-- [[residual-connections]] · [[pre-activation-resnet]] · [[batch-normalization]] · [[layer-normalization]]
-- [[dropout]] · [[dropout-for-rnns]] · [[label-smoothing]] · [[regularization]]
-- [[adam-optimizer]] · [[teacher-forcing]] · [[multi-task-learning]] · [[constrained-decoding]]
-- [[representation-learning]] — Learning what to feed a model rather than hand-specifying it
-- [[theory-based-modelling]] — Encoding domain structure as a model, often to feed a learned one
-- [[feature-engineering]] · [[tokenization]] · [[player-embedding]] · [[pre-train-then-fine-tune]]
+### Action Valuation
+- [[action-valuation]] — valuing individual actions via change in game-state quality
+- [[expected-possession-value]] — umbrella: a possession's worth, and the four things the term means
+- [[expected-goals]] · [[expected-threat]] · [[vaep]] · [[martingale-epv]] · [[pass-carry-reward]] · [[on-ball-value]]
+- [[xsot]] — expected shot on target, and its off-ball counterpart
+- [[intent-vs-outcome-valuation]] · [[possession-risk]] · [[effective-playing-time]] · [[temporal-discounting]]
+- [[counterfactual-baseline]] — the reference against which deviation is credited
+- [[structured-model-decomposition]] · [[symmetrical-duel-valuation]] · [[duel-skill-rating]]
 
-### Generative and Sequence Models
-- [[generative-model]] — Models of the data distribution itself; families, uses, and the causal caveat
-- [[autoregressive-model]] · [[variational-autoencoder]] · [[variational-lossy-autoencoder]] · [[conditional-gan]]
-- [[trajectory-prediction]] — Positions of interacting agents; VRNN, GVRNN, prediction-as-reference
-- [[event-prediction]] — Forecasting the next event; how forecasting yields valuation metrics
-- [[imitation-learning]] — Learning a policy by mimicking; imitation as a measuring instrument, and as a prior on competence
-- [[rlhf]] · [[gpt]] · [[bert]] · [[masked-language-model]] · [[chain-of-thought]] · [[react]]
-- [[scaling-laws]] · [[retrieval-augmented-generation]] · [[ai-agent]] · [[tool-use]] · [[agent-memory]]
+### Off-Ball and Spatial
+- [[off-ball-value]] — six mechanisms, and the disagreement between the two that have been compared
+- [[obso]] · [[c-obso]] · [[space-creation]] · [[space-occupation-gain]]
+- [[pitch-control]] — two traditions, framed against [[voronoi-tessellation]]
+- [[pitch-value-model]] — learning what a location is worth from where defenders stand
+- [[probability-surface]] · [[soccermap]] · [[single-pixel-supervision]] · [[pass-probability-model]]
+- [[receiving-efficiency]] · [[dynamic-pressure-lines]] · [[tactical-analysis]]
 
-### Reinforcement Learning and Decision Modelling
-- [[reinforcement-learning]] — What sports valuation borrows from RL, what it does not, and the three frameworks here that genuinely do it
-- [[multi-agent-reinforcement-learning]] — Per-player agents against team-as-one-agent; independence, and the centralised alternative that changed nothing
-- [[temporal-difference-learning]] — Bootstrapped value learning; SARSA, on-policy targets, and why differencing a supervised model is not TD
-- [[deep-q-network]] — Target networks, replay buffers, double Q; why one held RL paper uses all of it and the other none
-- [[proximal-policy-optimization]] — The vault's only policy-gradient method, and why that family cannot yield an action-valuation metric
-- [[action-supervision]] — An imitation loss added to a value objective, and the weight neither paper reports
-- [[action-space-design]] — What counts as an action; the choice that fixes which counterfactuals a framework can pose
-- [[domain-adaptation]] — Sim-to-Real and its harder inversion; the transfer claim, four revisions on
-- [[agent-based-simulation]] — Why simulate at all: observational abundance does not substitute for experimental control
-- [[imitation-reward-tradeoff]] — Reproducing the demonstrator against obtaining reward, and where on that frontier a model stops
-- [[policy-modelling]] · [[counterfactual-baseline]] · [[counterfactual-simulation]] · [[temporal-discounting]]
+### Defensive Valuation
+- [[defensive-valuation]] · [[vdep]] · [[gvdep]] · [[drso]]
+
+### Reinforcement Learning and Simulation
+- [[reinforcement-learning]] — what sports valuation borrows, and the three frameworks here that genuinely do it
+- [[multi-agent-reinforcement-learning]] · [[temporal-difference-learning]] · [[deep-q-network]] · [[proximal-policy-optimization]]
+- [[action-supervision]] · [[action-space-design]] · [[imitation-reward-tradeoff]]
+- [[domain-adaptation]] — Sim-to-Real and its harder inversion
+- [[agent-based-simulation]] — why simulate at all
+- [[policy-modelling]] · [[imitation-learning]] · [[counterfactual-simulation]] · [[rlhf]]
 - [[markov-game]] · [[value-iteration]] · [[game-theory]]
 
-### Statistics, Processes and Inference
-- [[stochastic-process]] — Umbrella for the process family and what the process view buys
-- [[martingale]] · [[point-process]] · [[neural-temporal-point-process]] · [[gaussian-process]]
-- [[poisson-binomial]] — Aggregating Bernoulli trials with differing probabilities; expected-versus-actual
-- [[absorbing-markov-chain]] · [[multiresolution-modelling]]
-- [[survival-analysis]] — Time-to-event modelling via hazards; censoring
-- [[competing-risks]] · [[car-prior]] · [[inla]] · [[bayesian-inference]] · [[bayes-theorem]]
-- [[factor-graph]] · [[approximate-message-passing]] · [[expectation-propagation]] · [[gaussian-density-filtering]]
-- [[mixture-model]] · [[expectation-maximization]] · [[identifiability]] · [[clustering]]
-- [[model-selection]] — Choosing complexity; the vault's asserted free parameters
-- [[dynamic-time-warping]] — Aligning sequences that run at different rates; alignment as a loss, and as a metric
-- [[kl-divergence]] · [[non-negative-matrix-factorization]] · [[eigenvector]] · [[path-signature]] · [[smoothing]]
+### Sequence and Event Modelling
+- [[event-prediction]] · [[nmstpp]] · [[seq2event]] · [[sig-model]] · [[hpus]] · [[lpv]]
+- [[neural-temporal-point-process]] · [[point-process]] · [[large-event-model]] · [[eventgpt]] · [[scoutgpt]]
+- [[trajectory-prediction]] · [[tokenization]] · [[constrained-decoding]] · [[player-embedding]]
+- [[transformer]] · [[attention-mechanism]] · [[encoder-decoder-bottleneck]] · [[lstm]] · [[gated-recurrent-unit]]
+- [[autoregressive-model]] · [[generative-model]] · [[variational-autoencoder]] · [[graph-neural-network]] · [[message-passing]]
+- [[path-signature]] · [[representation-learning]] · [[feature-engineering]] · [[multi-task-learning]]
 
-### Machine Learning Practice and Evaluation
-- [[probabilistic-classification]] — Predicting probabilities rather than labels, and why it matters here
-- [[probability-calibration]] · [[uncertainty-quantification]] · [[class-imbalance-evaluation]]
-- [[capability-profiling]] — Reporting a capability vector rather than a composite score
-- [[rare-event-proxy-targets]] — Predicting a frequent correlate when the target is too rare
-- [[sample-weighting]] · [[selection-bias]] · [[positive-unlabeled-learning]] · [[weak-supervision|weak supervision]]
-- [[gradient-boosting]] · [[random-forest]] · [[shap]] · [[interpretability]]
-- [[split-half-reliability]] · [[predictive-validity]] · [[adjusted-rand-index]] · [[jaccard-index]]
-- [[construct-validity]] — Validating a metric by its pattern of agreement and divergence, and why divergence alone proves nothing
+### Statistics and Inference
+- [[stochastic-process]] · [[martingale]] · [[survival-analysis]] · [[competing-risks]] · [[poisson-binomial]]
+- [[bayesian-inference]] · [[bayes-theorem]] · [[expectation-propagation]] · [[inla]] · [[car-prior]] · [[gaussian-process]]
+- [[mixture-model]] · [[expectation-maximization]] · [[identifiability]] · [[clustering]] · [[absorbing-markov-chain]]
+- [[multiresolution-modelling]] · [[kl-divergence]] · [[smoothing]] · [[player-rating-time-series]]
+- [[dynamic-time-warping]] — aligning sequences that run at different rates
 
-### Football and Sports Analytics
-- [[action-valuation]] — Valuing individual actions via change in game-state quality
-- [[expected-possession-value]] — Umbrella: a possession's worth, and the four things the term means
-- [[expected-goals]] · [[expected-threat]] · [[vaep]] · [[martingale-epv]] · [[pass-carry-reward]] · [[on-ball-value]]
-- [[xsot]] — Expected shot on target, and its off-ball counterpart; game-theoretic payoffs
-- [[defensive-valuation]] · [[vdep]] · [[gvdep]] · [[drso]] · [[duel-skill-rating]] · [[symmetrical-duel-valuation]]
-- [[off-ball-value]] · [[space-creation]] · [[obso]] · [[c-obso]] · [[pitch-control]]
-- [[social-network-analysis]] — Pass networks as graphs; the structural tradition alongside the valuation one
-- [[space-occupation-gain]] — SOG and SGG; space for oneself and for a teammate
-- [[pitch-value-model]] — Learning what a location is worth from where defenders stand
-- [[voronoi-tessellation]] — The discrete-dominance baseline both pitch-control traditions replaced
-- [[pass-probability-model]] — Who receives a pass, from intercept and control times
-- [[receiving-efficiency]] — Receptions and interceptions against a model's expectation
-- [[possession-risk]] · [[effective-playing-time]] · [[intent-vs-outcome-valuation]]
-- [[dynamic-pressure-lines]] · [[tactical-analysis]] · [[probability-surface]] · [[soccermap]] · [[single-pixel-supervision]]
-- [[structured-model-decomposition]] — Estimating a quantity by recombining subcomponents
-- [[large-event-model]] · [[nmstpp]] · [[sig-model]] · [[seq2event]] · [[eventgpt]] · [[scoutgpt]] · [[hpus]] · [[lpv]]
-- [[recruitment]] · [[transfer-performance-prediction]] · [[league-strength-rating]]
-- [[player-rating-time-series]] · [[performance-volatility]] · [[player-development-curve]]
-- [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]]
-- [[bradley-terry-model]] · [[elo-rating-system]] · [[glicko-rating-system]] · [[trueskill]]
+### Evaluation and Practice
+- [[predictive-validity]] · [[split-half-reliability]] · [[construct-validity]] · [[capability-profiling]]
+- [[probability-calibration]] · [[probabilistic-classification]] · [[uncertainty-quantification]] · [[class-imbalance-evaluation]]
+- [[rare-event-proxy-targets]] · [[selection-bias]] · [[positive-unlabeled-learning]] · [[sample-weighting]]
+- [[model-selection]] · [[interpretability]] · [[shap]] · [[gradient-boosting]] · [[random-forest]] · [[regularization]]
+- [[theory-based-modelling]] · [[adjusted-rand-index]] · [[jaccard-index]]
+
+### Ratings, Recruitment and Careers
+- [[elo-rating-system]] · [[glicko-rating-system]] · [[bradley-terry-model]] · [[trueskill]] · [[league-strength-rating]]
+- [[recruitment]] · [[transfer-performance-prediction]] · [[player-development-curve]]
+- [[player-rating-time-series]] · [[performance-volatility]]
+
+### Data and Representation
+- [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]] · [[social-network-analysis]]
 
 ### Computer Vision
-- [[multi-object-tracking]] — Following objects across frames with consistent identities
-- [[object-detection]] · [[game-state-reconstruction]] · [[camera-calibration]] · [[jac-metric]]
-- [[homography]] · [[radial-distortion]] · [[image-alignment]] · [[enhanced-correlation-coefficient]]
-- [[semantic-segmentation]] · [[optical-flow]] · [[siamese-network]] · [[combinatorial-optimisation]]
+- [[game-state-reconstruction]] · [[multi-object-tracking]] · [[object-detection]] · [[camera-calibration]]
+- [[homography]] · [[radial-distortion]] · [[image-alignment]] · [[enhanced-correlation-coefficient]] · [[jac-metric]]
+- [[semantic-segmentation]] · [[fully-convolutional-network]] · [[feature-pyramid-network]] · [[optical-flow]] · [[siamese-network]]
 
 ## Syntheses
 
-- [[action-valuation-frameworks-compared]] — **Football Modelling Tasks Compared**: the **seven** distinct tasks (valuation, forecasting, clustering, counterfactual/transfer, tactical, prescription, simulation), how each is validated, why possession metrics outpredict goals, the axes of valuation design, the finding that where two off-ball metrics have been compared they disagree, and the boundary on simulator transfer
+- [[action-valuation-frameworks-compared]] — **Football Modelling Tasks Compared**: the seven distinct tasks, how each is validated, why possession metrics outpredict goals, and the two findings that cut against the field — where metrics have been compared they disagree, and where the forward approach has been attempted it failed
 
 ## Questions
 
-Open investigations — a question, what can be settled from held sources, and what would settle the rest. Grouped by why the question exists, which determines who could answer it.
+Eight open investigations, grouped by who could answer them.
 
 ### Component-level benchmarking gaps
-- [[pitch-control-traditions-compared]] — **Do the two pitch-control traditions agree?** Both origins now held, and **neither cites the other** — they are siblings framed against [[voronoi-tessellation]], not rivals.
-- [[shot-value-formulations-compared]] — **Are the four shot-value formulations interchangeable?** One of six pairwise comparisons exists.
-- [[tracking-error-propagation]] — **Does tracking error propagate into value estimates?** Partially answered for *incomplete observation*.
+- [[pitch-control-traditions-compared]] — **Do the two pitch-control traditions agree?** Neither cites the other.
+- [[shot-value-formulations-compared]] — **Are the four shot-value formulations interchangeable?**
+- [[tracking-error-propagation]] — **Does tracking error propagate into value estimates?**
 
 ### Untested assumptions in held work
-- [[free-parameters-load-bearing]] — **Are the free parameters load-bearing?** Sixteen now asserted, across **six kinds**. The paper the vault predicted would settle the $\lambda_1$ question has been acquired and does not.
+- [[free-parameters-load-bearing]] — **Are the free parameters load-bearing?** Sixteen asserted, across six kinds.
 - [[vaep-conceding-classifier]] — **Is VAEP's conceding classifier broken, or just unthresholdable?**
 
 ### Claims this vault generated
-- [[within-season-variation-noise-or-signal]] — **Is within-season variation noise or signal?** Shown here to be the *same quantity* under two names.
-- [[observed-versus-optimal-decisions]] — **Do players decide suboptimally, or do the models only think so?** The gap is **tunable** by a loss weight and by a training budget — and simulated agents shoot *more* as they improve, against the real-world finding.
-- [[handcrafted-features-rule]] — **Is the handcrafted-features rule right?** Two candidate test cases arrived and both were uninformative — the rule may be unfalsifiable within this literature.
-
-## Conversations
-
-## Archived
-
-Pages kept for history, superseded by a canonical page. **Intentionally without inbound links** — they are expected to appear as orphans.
-
-- [[recurrent-dropout]] — merged into [[dropout-for-rnns]], 2026-07-07
+- [[within-season-variation-noise-or-signal]] — **Is within-season variation noise or signal?**
+- [[observed-versus-optimal-decisions]] — **Do players decide suboptimally, or do the models only think so?**
+- [[handcrafted-features-rule]] — **Is the handcrafted-features rule right?** Three candidate tests, all uninformative.
 
 ## Source Summaries
 
-- [[attention-is-all-you-need]] — "Attention Is All You Need" (Vaswani et al., 2017)
-- [[bayesian-true-skill-rating]] — "TrueSkill: A Bayesian Skill Rating System" (Herbrich et al., 2006)
-- [[neural-machine-translation]] — "Neural Machine Translation by Jointly Learning to Align and Translate" (Bahdanau et al., 2014)
-- [[pointer-networks]] — "Pointer Networks" (Vinyals et al., 2015)
-- [[rnn-regularisation]] — "Recurrent Neural Network Regularization" (Zaremba et al., 2014)
-- [[identity-mapping-residual-networks]] — "Identity Mappings in Deep Residual Networks" (He et al., 2016)
-- [[sequence-to-sequence-sets]] — "Order Matters: Sequence to Sequence for Sets" (Vinyals et al., 2016)
-- [[context-aggregation-dilated-convolutions]] — "Multi-Scale Context Aggregation by Dilated Convolutions" (Yu & Koltun, 2016)
-- [[neural-turing-machines]] — "Neural Turing Machines" (Graves, Wayne & Danihelka, 2014)
-- [[scaling-neural-language-models]] — "Scaling Laws for Neural Language Models" (Kaplan et al., 2020)
-- [[variational-lossy-autoencoders]] — "Variational Lossy Autoencoder" (Chen et al., 2017)
-- [[universal-prompt-retrieval-zero-shot-eval]] — "UPRISE" (Cheng et al., 2023)
-- [[autogressive-language-model-retrieval]] — "Shall We Pretrain Autoregressive LMs with Retrieval?" (Wang et al., 2023)
-- [[autogressive-language-model-retrieval-iterative]] — "ITER-RETGEN" (Shao et al., 2023)
-- [[augmented-llms-parametric-guiding]] — "PKG: Parametric Knowledge Guiding" (Luo et al., 2023)
-- [[agi-definition]] — "A Definition of AGI" (Hendrycks et al., 2025) — the CHC-grounded capability profile
-- [[llm-factcheck-consistency-certainty]] — "PCC: Fact-Checking via Probabilistic Certainty and Consistency" (Wang et al., 2026)
-- [[soccernet-game-state-reconstruction]] — "SoccerNet Game State Reconstruction" (Somers et al., 2024)
-- [[soccernet-game-state-reconstruction-improvement]] — "From Broadcast to Minimap: SOTA GSR" (Golovkin et al., 2024)
-- [[soccernet-v2-action-spotting]] — "Camera Calibration and Player Localization in SoccerNet-v2" (Cioppa et al., 2021)
-- [[detection-tracking-football-broadcast-footage]] — "Multi-Class Detection and Tracking in Soccer Broadcast" (Tshiani, 2025)
-- [[computer-vision-football-review]] — "CV Technology for Football Videos" (Zheng et al., 2025)
-- [[chain-of-thought-reasoning-llms]] — "Chain-of-Thought Prompting Elicits Reasoning in LLMs" (Wei et al., 2022)
-- [[synergising-reasoning-acting-llms]] — "ReAct: Synergizing Reasoning and Acting in LLMs" (Yao et al., 2023)
-- [[training-lm-follow-instructions-with-human-feedback]] — "InstructGPT" (Ouyang et al., 2022)
-- [[rag-intense-nlp-tasks]] — "RAG for Knowledge-Intensive NLP Tasks" (Lewis et al., 2020)
-- [[tvcalib-camera-calibration-football]] — "TVCalib" (Theiner & Ewerth, 2023)
-- [[sports-camera-calibration-synthetic-data]] — "Sports Camera Calibration via Synthetic Data" (Chen & Little, 2019)
-- [[amateur-football-analytics-computer-vision]] — "Amateur Football Analytics Using Computer Vision" (Mavrogiannis, 2021)
-- [[language-understanding-gpt]] — "Improving Language Understanding by Generative Pre-Training" (Radford et al., 2018)
-- [[bert-bidirectional-transformers]] — "BERT" (Devlin et al., 2019)
-- [[camera-calibration-benchmarking]] — "ProCC" (Magera et al., 2025)
-- [[ai-agent-architecture-breakdown]] — "AI Agent Architecture Breakdown" (technical article, 2026)
-- [[eigenvectors-explained]] — "Eigenvectors Explained" (tutorial article, 2026)
-- [[physics-based-pass-probabilities]] — "Physics-Based Modeling of Pass Probabilities in Soccer" (Spearman et al., MIT Sloan 2017) — the intercept/control model and PPCF
-- [[wide-open-spaces-space-creation]] — "Wide Open Spaces" (Fernández & Bornn, MIT Sloan 2018) — Gaussian pitch control, pitch value, SOG and SGG
-- [[beyond-expected-goals]] — "Beyond Expected Goals" (Spearman, MIT Sloan 2018) — OBSO
-- [[evaluating-football-player-actions]] — "Actions Speak Louder than Goals" (Decroos et al., 2019)
-- [[multiresolution-stochastic-process-nba-possessions]] — "A Multiresolution Stochastic Process Model for Predicting Basketball Possession Outcomes" (Cervone et al., 2016)
+### Action valuation and possession
+- [[evaluating-football-player-actions]] — "Actions Speak Louder than Goals" (Decroos et al., 2019) — VAEP
 - [[on-ball-actions-football-xt-vs-vaep]] — "Valuing On-the-Ball Actions in Soccer: xT vs VAEP" (Van Roy et al., 2020)
-- [[transformer-point-process-football-event-modelling]] — "Transformer-Based NMSTPP for Football Match Events" (Yeung et al., 2023)
-- [[understanding-football-possessions-path-signatures]] — "The Path to a Goal: Understanding Soccer Possessions via Path Signatures" (Hirnschall & Bajons, 2025)
-- [[football-event-sequences-point-process-mixture]] — "Model-Based Clustering of Football Event Sequences" (Amezouwui et al., 2025)
-- [[eventgpt-player-impact-team-action-sequences]] — "EventGPT" (Lee, Hong et al., 2025)
-- [[scoutgpt-counterfactual-player-valuation]] — "Modeling Matches as Language" (Hong et al., 2026)
-- [[football-performance-time-series]] — "Valuing Players Over Time" (Mendes-Neves, Meireles & Mendes-Moreira)
-- [[epv-control-duel-skills-football]] — "Expected Possession Value of Control and Duel Actions" (Shelopugin, preprint)
-- [[expected-value-possession-framework]] — "A Framework for the Fine-Grained Evaluation of the Instantaneous Expected Value of Soccer Possessions" (Fernández, Bornn & Cervone, 2020)
-- [[football-defence-evaluation-vdep]] — "Evaluation of Soccer Team Defense Based on Prediction Models of Ball Recovery and Being Attacked" (Toda et al., PLOS ONE 2022)
-- [[generalized-vdep-euro-location-analysis]] — "Location Analysis of Players in UEFA EURO 2020 and 2022 using Generalized VDEP" (Umemoto, Tsutsui & Fujii, 2022) — GVDEP
-- [[team-defense-positioning-counterfactuals]] — "Evaluation of Team Defense Positioning by Computing Counterfactuals using StatsBomb 360 data" (Umemoto & Fujii, StatsBomb 2023) — EF-OBSO and DRSO
-- [[creating-scoring-opportunities-trajectory-prediction]] — "Evaluation of Creating Scoring Opportunities for Teammates in Soccer via Trajectory Prediction" (Teranishi et al., MLSA 2022/23)
-- [[optimal-decisions-shot-taking-situations]] — "A Strategic Framework for Optimal Decisions in Football 1-vs-1 Shot-Taking Situations" (Yeung & Fujii, Complex & Intelligent Systems 2024) — game theory, xSOT
-- [[ai-football-reinforcement-learning]] — "How does AI play football?" (Scott, Fujii & Onishi, ICAART 2022) — PPO in GFootball, TrueSkill ranking, and the vault's only positive simulator-transfer result
-- [[action-valuation-multi-agent-reinforcement-learning]] — "Action Valuation of On- and Off-Ball Soccer Players Based on Multi-Agent Deep Reinforcement Learning" (Nakahara et al., 2023) — per-player SARSA agents, action supervision, and the first off-ball metric comparison
-- [[adaptive-action-supervision-multi-agent-rl]] — "Adaptive Action Supervision in RL from Real-World Multi-Agent Demonstrations" (Fujii et al., 2023) — Real-to-Sim domain adaptation, DTW-adaptive supervision, NFootball, and the vault's clearest negative result on simulator fidelity
+- [[expected-value-possession-framework]] — Fernández, Bornn & Cervone (2020) — the EPV framework and SoccerMap
+- [[epv-control-duel-skills-football]] — "EPV of Control and Duel Actions" (Shelopugin) — PCR
+- [[multiresolution-stochastic-process-nba-possessions]] — Cervone et al. (2016) — NBA martingale EPV
+- [[football-performance-time-series]] — "Valuing Players Over Time" (Mendes-Neves et al.)
+
+### Pitch control and off-ball
+- [[physics-based-pass-probabilities]] — Spearman et al. (MIT Sloan 2017) — the intercept/control model and PPCF
+- [[beyond-expected-goals]] — Spearman (MIT Sloan 2018) — OBSO
+- [[wide-open-spaces-space-creation]] — Fernández & Bornn (MIT Sloan 2018) — SOG and SGG
+- [[creating-scoring-opportunities-trajectory-prediction]] — Teranishi et al. (MLSA 2022/23) — C-OBSO
+
+### Defensive valuation
+- [[football-defence-evaluation-vdep]] — Toda et al. (PLOS ONE 2022) — VDEP
+- [[generalized-vdep-euro-location-analysis]] — Umemoto, Tsutsui & Fujii (2022) — GVDEP
+- [[team-defense-positioning-counterfactuals]] — Umemoto & Fujii (StatsBomb 2023) — EF-OBSO and DRSO
+
+### Reinforcement learning and simulation
+- [[ai-football-reinforcement-learning]] — "How does AI play football?" (Scott, Fujii & Onishi, ICAART 2022) — the vault's only positive simulator-transfer result
+- [[action-valuation-multi-agent-reinforcement-learning]] — Nakahara et al. (2023) — per-player SARSA agents and the first off-ball metric comparison
+- [[adaptive-action-supervision-multi-agent-rl]] — Fujii et al. (2023) — Real-to-Sim, DTW supervision, NFootball
+- [[optimal-decisions-shot-taking-situations]] — Yeung & Fujii (2024) — game theory, xSOT
+
+### Event modelling and generation
+- [[transformer-point-process-football-event-modelling]] — Yeung et al. (2023) — NMSTPP
+- [[understanding-football-possessions-path-signatures]] — Hirnschall & Bajons (2025) — Sig-Model
+- [[football-event-sequences-point-process-mixture]] — Amezouwui et al. (2025)
+- [[eventgpt-player-impact-team-action-sequences]] — Lee, Hong et al. (2025)
+- [[scoutgpt-counterfactual-player-valuation]] — Hong et al. (2026)
+
+### Computer vision for sport
+- [[soccernet-game-state-reconstruction]] — Somers et al. (2024)
+- [[soccernet-game-state-reconstruction-improvement]] — Golovkin et al. (2024)
+- [[soccernet-v2-action-spotting]] — Cioppa et al. (2021)
+- [[camera-calibration-benchmarking]] — ProCC (Magera et al., 2025)
+- [[tvcalib-camera-calibration-football]] — Theiner & Ewerth (2023)
+- [[sports-camera-calibration-synthetic-data]] — Chen & Little (2019)
+- [[detection-tracking-football-broadcast-footage]] — Tshiani (2025)
+- [[computer-vision-football-review]] — Zheng et al. (2025)
+- [[amateur-football-analytics-computer-vision]] — Mavrogiannis (2021)
+
+### Retained general sources — held because a football page depends on them
+- [[attention-is-all-you-need]] — Vaswani et al. (2017); NMSTPP's encoder
+- [[neural-machine-translation]] — Bahdanau et al. (2015); the GRU and attention
+- [[variational-lossy-autoencoders]] — Chen et al. (2017); the VAE behind C-OBSO's GVRNN
+- [[context-aggregation-dilated-convolutions]] — Yu & Koltun (2016); the road SoccerMap did not take
+- [[bayesian-true-skill-rating]] — Herbrich et al. (2006); ranking RL agents
+- [[training-lm-follow-instructions-with-human-feedback]] — Ouyang et al. (2022); PPO, and the coefficient the football papers do not report
+- [[rnn-regularisation]] — Zaremba et al. (2015); small-data overfitting
+- [[pointer-networks]] — Vinyals et al. (2015); pass selection as a pointer problem
+- [[sequence-to-sequence-sets]] — Vinyals et al. (2016); 22 players have no canonical order
