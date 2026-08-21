@@ -2,33 +2,29 @@
 title: "OpenAI"
 type: entity
 tags: [organisation, ai-research]
-sources: [raw/papers/scaling-neural-language-models.md, raw/papers/variational-lossy-autoencoders.md, raw/papers/language_understanding_gpt.md, raw/papers/training-lm-follow-instructions-with-human-feedback.md]
-confidence: 0.9
+sources: [raw/papers/variational-lossy-autoencoders.md, raw/papers/training-lm-follow-instructions-with-human-feedback.md]
+confidence: 0.85
 provenance:
   extracted: 50%
   inferred: 40%
-  ambiguous: 10%
+  generated: 5%
+  ambiguous: 5%
 lifecycle: draft
 created: 2026-05-10
-updated: 2026-07-07
+updated: 2026-08-14
 ---
 
 # OpenAI
 
-AI research organisation. Key contributions in this vault:
+AI research organisation. Two of its papers are held here, both because a football framework depends on them rather than for their own sake.
 
-- [[language-understanding-gpt|GPT]] (Radford et al., 2018) — established [[pre-train-then-fine-tune]] for Transformers
-- [[training-lm-follow-instructions-with-human-feedback|InstructGPT]] (Ouyang et al., 2022) — introduced [[rlhf]] alignment pipeline
-- [[scaling-neural-language-models|Scaling Laws for Neural Language Models]] (Kaplan et al., 2020)
-- [[variational-lossy-autoencoders|Variational Lossy Autoencoder]] (Chen et al., 2017)
+- [[training-lm-follow-instructions-with-human-feedback|InstructGPT]] (Ouyang et al., 2022) — the [[rlhf]] alignment pipeline, and the vault's cleanest instance of the [[imitation-reward-tradeoff|imitation/reward trade-off]]. Reached here via [[proximal-policy-optimization|PPO]], which Scott et al. use in GFootball.
+- [[variational-lossy-autoencoders|Variational Lossy Autoencoder]] (Chen et al., 2017) — underpins [[variational-autoencoder]], and through it the GVRNN trajectory predictor in [[c-obso|C-OBSO]].
 
-## People (in this vault)
-
-- [[ilya-sutskever]], [[jared-kaplan]], [[sam-mccandlish]], [[dario-amodei]], [[diederik-kingma]]
+> **Scope note.** OpenAI's wider output — GPT, scaling laws, the pre-training paradigm — is covered in the general vault, along with the people associated with it. This page holds only what bears on football analytics.
 
 ## See Also
 
-- [[pre-train-then-fine-tune]]
-- [[scaling-laws]]
-- [[rlhf]]
-- [[transformer]]
+- [[rlhf]] · [[proximal-policy-optimization]] · [[imitation-reward-tradeoff]] · [[reinforcement-learning]]
+- [[variational-autoencoder]] · [[generative-model]] · [[c-obso]]
+- [[training-lm-follow-instructions-with-human-feedback|InstructGPT Summary]] · [[variational-lossy-autoencoders|VLAE Summary]]

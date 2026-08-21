@@ -28,7 +28,7 @@ Glicko's advance over [[elo-rating-system|Elo]] was to represent a player's skil
 
 ## Influence in This Vault
 
-Glickman's work sits at a junction. [[trueskill]] takes the Gaussian-belief idea and extends it to teams and multiplayer settings via [[factor-graph]] inference. The football line takes it in a different direction entirely, applying Glicko-2 to contests that are not games:
+Glickman's work sits at a junction. [[trueskill]] takes the Gaussian-belief idea and extends it to teams and multiplayer settings via graphical-model inference. The football line takes it in a different direction entirely, applying Glicko-2 to contests that are not games:
 
 - [[duel-skill-rating]] — individual aerial and ground duels as the contest unit, with a learned advantage term correcting the [[bradley-terry-model|symmetry assumption]].
 - [[league-strength-rating]] — clubs as competitors, aggregated to rate whole competitions.

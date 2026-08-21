@@ -56,7 +56,7 @@ Three independent lines depend on this work:
 
 - The **[[keisuke-fujii|Fujii group]]** builds [[c-obso]] and [[drso]] on OBSO, and PPCF underlies [[xsot|xOSOT]].
 - **[[expected-value-possession-framework|Fernández, Bornn & Cervone]]** cite Spearman as the closest prior work on off-ball valuation; their [[pitch-control|Gaussian influence]] model is an alternative to his.
-- The vault's [[prescription|prescriptive task]] traces to his **hypothetical passing** analysis (2017), which predates [[xsot|Yeung & Fujii]] by seven years.
+- The vault's **prescriptive task** traces to his **hypothetical passing** analysis (2017), which predates [[xsot|Yeung & Fujii]] by seven years. See [[action-valuation-frameworks-compared]].
 
 ## A Citation Note
 

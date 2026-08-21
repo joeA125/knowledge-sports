@@ -31,7 +31,7 @@ Statistician working across basketball and football spatial analytics. Simon Fra
 
 **Turn positional tracking into a spatial field, then reason over the field rather than over events.** In basketball that yields spatial bases and defender-assignment models; in football, control surfaces, value surfaces, and eventually full-pitch [[probability-surface|value surfaces]].
 
-Also co-author on the defensive-structure work (Franks et al., 2015) underlying the EPV microtransition model, and the factorised point-process work (Miller et al., 2013) informing its [[non-negative-matrix-factorization|NMF]] spatial bases.
+Also co-author on the defensive-structure work (Franks et al., 2015) underlying the EPV microtransition model, and the factorised point-process work (Miller et al., 2013) informing its NMF spatial bases.
 
 ## What Wide Open Spaces Established
 
@@ -66,6 +66,6 @@ Funded at the time by DARPA, the US Army Research Office, Amazon AWS, and NSERC.
 
 - [[pitch-control]] · [[pitch-value-model]] · [[space-occupation-gain]] · [[space-creation]] · [[voronoi-tessellation]]
 - [[martingale-epv]] · [[expected-possession-value]] · [[soccermap]] · [[probability-surface]] · [[off-ball-value]]
-- [[gaussian-process]] · [[optical-tracking-data]] · [[multiresolution-modelling]] · [[non-negative-matrix-factorization]]
+- [[gaussian-process]] · [[optical-tracking-data]] · [[multiresolution-modelling]] · [[car-prior]] · [[point-process]]
 - [[javier-fernandez]] · [[daniel-cervone]] · [[kirk-goldsberry]] · [[william-spearman]] · [[fc-barcelona]]
 - [[wide-open-spaces-space-creation|Wide Open Spaces]] · [[expected-value-possession-framework|Soccer EPV Framework]] · [[multiresolution-stochastic-process-nba-possessions|Basketball EPV]]
