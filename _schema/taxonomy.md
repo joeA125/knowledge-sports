@@ -4,12 +4,19 @@ Canonical tags for this knowledge base. All tags on wiki
 pages must come from this list. To add a new tag, add it
 here first with a brief description.
 
+> **Pruned 2026-08-14** on completion of the general-vault
+> migration. 23 tags describing material no longer held here
+> were removed — the LLM and agent cluster, the deep-network
+> training cluster, and the graphical-model inference
+> internals. They live in the general vault's taxonomy.
+> `contradicted` and `stale-risk` are retained unused: a meta
+> tag with no instances is ready vocabulary, not clutter.
+
 ## Domain Tags
 
 - `statistics` — statistical methods and theory
 - `bayesian` — Bayesian inference and updating
 - `machine-learning` — ML models, training, evaluation
-- `AI` — artificial intelligence
 - `deep-learning` — neural networks, backpropagation, gradient-based optimisation
 - `data-engineering` — pipelines, storage, ETL
 - `linear-algebra` — vectors, matrices, eigendecomposition, SVD, and related theory
@@ -38,13 +45,10 @@ here first with a brief description.
 - `random-forest` — bagged ensembles of decorrelated decision trees
 - `class-imbalance` — training and evaluating when one label is far rarer than the other
 - `proxy-target` — predicting a frequent correlate when the outcome of interest is too rare to learn from
-- `RAG` — retrieval augmented generation
-- `MCP` — model context protocol
 - `transformer` — Transformer architecture and variants
 - `attention` — attention mechanisms in neural networks
 - `graph-neural-network` — neural networks operating on graph-structured data via message passing
 - `network-analysis` — graph-theoretic description of an interaction structure via centrality and path metrics (closeness, betweenness, PageRank)
-- `machine-translation` — translating text between languages with ML
 - `sequence-modelling` — modelling sequential data (text, time series, etc.)
 - `sequence-alignment` — matching two sequences that may differ in timing or length (DTW, edit distance, warping paths)
 - `trajectory-prediction` — forecasting future positions of one or more interacting agents
@@ -56,8 +60,7 @@ here first with a brief description.
 - `ordering` — effects of data ordering on model training and performance
 - `architecture` — neural network architecture design patterns
 - `encoding` — representation and encoding schemes (e.g. positional encoding)
-- `normalization` — normalisation techniques (layer norm, batch norm, etc.)
-- `regularization` — techniques to prevent overfitting (dropout, label smoothing, etc.)
+- `regularization` — techniques to prevent overfitting (weight penalties, dropout, label smoothing)
 - `training-technique` — optimiser schedules, training tricks, and procedures
 - `experience-replay` — storing and resampling past transitions to decorrelate updates in off-policy RL
 - `sample-weighting` — reweighting a loss function to correct uneven representation of groups in the training data
@@ -66,7 +69,6 @@ here first with a brief description.
 - `ranking-system` — skill rating and ranking algorithms (Elo, TrueSkill, etc.)
 - `matchmaking` — pairing players/teams for fair competition
 - `gaming` — online gaming, game design, esports
-- `factor-graph` — bipartite graphical model for factorised distributions
 - `message-passing` — inference algorithms that propagate messages on graphs
 - `inference` — computing posteriors or marginals from models and data
 - `probabilistic-graphical-model` — graphical models (factor graphs, Bayesian networks, MRFs)
@@ -91,18 +93,11 @@ here first with a brief description.
 - `alignment` — word/phrase alignment in MT; also AI alignment (training models to follow human intent)
 - `pointer-mechanism` — using attention as a pointer to select input elements as output
 - `combinatorial-optimisation` — solving combinatorial problems (TSP, convex hull, etc.) with learned models
-- `dropout` — dropout regularisation technique and its variants
 - `lstm` — Long Short-Term Memory architecture
 - `language-modelling` — predicting next tokens in sequences of text
 - `speech-recognition` — mapping acoustic signals to words or phonemes
-- `residual-learning` — residual connections, skip connections, and ResNet architectures
-- `batch-normalization` — batch normalisation technique for training deep networks
 - `computer-vision` — image recognition, object detection, and visual tasks
 - `semantic-segmentation` — per-pixel classification of images into semantic categories
-- `dilated-convolution` — convolutions with dilation factor for expanded receptive fields without resolution loss
-- `external-memory` — neural architectures augmented with external readable/writable memory
-- `neural-computation` — neural networks that learn algorithms and program-like behaviour
-- `scaling-laws` — power-law relationships between performance and scale (model size, data, compute)
 - `generative-model` — models that learn to generate data (VAEs, GANs, autoregressive, diffusion)
 - `gan` — generative adversarial networks and variants (cGAN, Pix2Pix, CycleGAN, etc.)
 - `vae` — variational autoencoders and related latent variable models (VAE, VRNN, GVRNN)
@@ -118,19 +113,11 @@ here first with a brief description.
 - `domain-adaptation` — transferring a model across a shift between source and target environments, including Sim-to-Real and Real-to-Sim
 - `agent-based-simulation` — simulating a system by giving individual agents rules or policies and observing emergent collective behaviour
 - `pre-training` — unsupervised or self-supervised training on large corpora before task-specific fine-tuning
-- `masked-language-model` — predicting randomly masked tokens from bidirectional context (BERT-style)
-- `prompt-engineering` — designing or retrieving prompts to guide LLM behaviour
-- `zero-shot-learning` — performing tasks without task-specific training examples
-- `knowledge-intensive` — tasks requiring factual, domain, or world knowledge beyond the input
-- `multi-hop-reasoning` — reasoning over multiple pieces of evidence or steps
-- `chain-of-thought` — prompting LLMs to produce intermediate reasoning steps
-- `instruction-tuning` — fine-tuning LMs on instruction-formatted data for better task generalisation
 - `reinforcement-learning` — learning policies via reward signals (includes RLHF for LLM alignment)
 - `multi-agent` — several interacting decision-makers modelled as separate agents rather than folded into one
 - `action-space` — the set of choices available to an agent, and how a continuous or open-ended one is discretised
 - `simulator` — an environment model used to generate synthetic interaction data or to enable forward-approach learning
 - `imitation-learning` — learning a policy by mimicking observed behaviour rather than optimising a reward
-- `ai-agent` — autonomous systems that plan, use tools, and act iteratively toward goals
 - `tool-use` — LLM function calling and interaction with external tools/APIs
 - `cognitive-science` — models of human cognition, psychometrics, and cognitive ability
 - `animal-behaviour` — modelling non-human collective and individual behaviour (pursuit, flocking, foraging)
@@ -145,8 +132,6 @@ here first with a brief description.
 - `probabilistic-classification` — classifiers that output calibrated probabilities rather than hard labels
 - `calibration` — alignment of predicted probabilities with observed frequencies (Brier score, ECE, temperature scaling)
 - `uncertainty-quantification` — estimating and calibrating model confidence and uncertainty
-- `fact-checking` — verifying factual claims against evidence sources
-- `reasoning` — logical, abstract, or multi-step reasoning capabilities
 - `sports-analytics` — computer vision and data analysis applied to sports
 - `action-valuation` — assigning value to individual game actions via change in game-state quality
 - `defensive-valuation` — quantifying defensive contribution, by team or player
