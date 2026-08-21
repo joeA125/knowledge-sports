@@ -3,7 +3,7 @@ title: "Knowledge Base Overview"
 type: synthesis
 tags: [sports-analytics, action-valuation, off-ball, evaluation, reinforcement-learning, computer-vision, player-evaluation]
 sources: []
-confidence: 0.75
+confidence: 0.8
 provenance:
   extracted: 5%
   inferred: 55%
@@ -27,15 +27,15 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **367** |
-| Concepts | 193 |
-| Entities | 105 |
-| Source summaries | **56** |
+| Total pages | **271** |
+| Concepts | 151 |
+| Entities | 67 |
+| Source summaries | **40** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 56 raw sources are ingested.** Mean page confidence 0.846; 206 pages `reviewed`, 157 `draft`, 1 `archived`.
+**All 40 raw sources are ingested.** Mean page confidence 0.827; 163 pages `reviewed`, 105 `draft`, 3 `evergreen` (the dashboards).
 
 ## What This Vault Is About
 
@@ -71,18 +71,20 @@ By inbound wikilink count, not by memory:
 
 | Page | Inbound |
 |---|---|
-| [[vaep]] | 71 |
-| [[action-valuation]] | 61 |
-| [[transformer]] | 60 |
-| [[keisuke-fujii]] | 60 |
-| [[action-valuation-frameworks-compared]] | 56 |
-| [[c-obso]] | 54 |
-| [[off-ball-value]] | 46 |
-| [[expected-threat]] | 46 |
-| [[nmstpp]] | 45 |
-| [[expected-value-possession-framework]] | 45 |
+| [[vaep]] | 73 |
+| [[keisuke-fujii]] | 63 |
+| [[c-obso]] | 63 |
+| [[action-valuation]] | 62 |
+| [[action-valuation-frameworks-compared]] | 58 |
+| [[nmstpp]] | 55 |
+| [[expected-value-possession-framework]] | 50 |
+| [[off-ball-value]] | 48 |
+| [[expected-threat]] | 47 |
+| [[vdep]] | 47 |
 
-Two of these are worth remarking on. **[[keisuke-fujii]] at 60** reflects a single research group authoring nine held sources — the largest concentration in the vault, and the only one with enough overlapping work on one dataset to check itself. **[[split-half-reliability]] at 42** is higher than its subject matter would suggest, because the absence of reliability figures is load-bearing across the off-ball argument.
+Three things worth remarking on. **[[keisuke-fujii]] at 63** reflects a single research group authoring nine held sources — the largest concentration in the vault, and the only one with enough overlapping work on one dataset to check itself. **[[split-half-reliability]] at 43** is higher than its subject matter would suggest, because the absence of reliability figures is load-bearing across the off-ball argument.
+
+And **[[transformer]] has left the top fifteen entirely.** Before the migration it sat third at 60 inbound. Reducing it to a lean page — what the architecture is, and why [[nmstpp|NMSTPP]] uses one — moved those links onto the football pages that actually depend on them. NMSTPP itself gained ten.
 
 ## Recurring Findings
 
@@ -110,11 +112,29 @@ The vault runs a claim-dependency system beyond ordinary sourcing. Generated cla
 
 Full rules in `_schema/conventions.md`.
 
-## Pending Migration
+## Migration Completed
 
-A general ML and LLM tier remains here and is scheduled to move to the sibling general vault: the transformer and attention line, recurrent architectures, generative models, LLM reasoning and retrieval, and the mathematical foundations pages.
+> **2026-08-14.** The general ML and LLM tier moved to a sibling general vault. 96 pages left — 34 concepts, 37 entities, 16 source summaries and their raw papers.
 
-**This is not a clean cut.** [[transformer]] is the vault's third-largest hub at 60 inbound links, and pages like [[representation-learning]], [[graph-neural-network]] and [[residual-connections]] are load-bearing for football pages that depend on them. Several concepts — [[reinforcement-learning]], [[imitation-learning]], [[trueskill]] — cite football and non-football sources together. The migration will need a bridge policy rather than a filter.
+**The retention rule was dependency, not topic.** A page stayed if a football page's argument breaks without it. Applied to sources, that became a provenance test: a raw paper had to stay if any staying page cited it in `sources:`.
+
+That produced three outcomes:
+
+| | Count | Examples |
+|---|---|---|
+| **Moved** | 96 pages, 16 sources | The Transformer substructure, the LLM tier, the Vinyals and Graves lines, ResNet |
+| **Forked** — copied, kept in both | 22 pages, 9 sources | [[gated-recurrent-unit]], [[variational-autoencoder]], [[trueskill]], [[attention-mechanism]], [[lstm]], [[proximal-policy-optimization]] |
+| **Trimmed** — kept, general content stripped | 14 pages | [[transformer]], and the cross-domain sections on [[domain-adaptation]], [[construct-validity]] and others |
+
+**The cut was not clean, and the interesting part is where it wasn't.** Nine general papers had to be retained because football pages cite them — Bahdanau for the GRU, VLAE for C-OBSO's GVRNN, TrueSkill for ranking RL agents, InstructGPT for PPO. Three more were kept on forward-looking grounds: pointer networks (pass selection is structurally a pointer problem), Order Matters (22 players are an unordered set), and Zaremba (small-data overfitting). **Those three carry speculative claims that should be acted on or retired rather than left standing.**
+
+Every retained general page carries a scope note pointing at the general vault, so it reads as deliberately lean rather than damaged.
+
+### What the migration revealed
+
+- **Inference beat intuition, badly.** Classifying pages by subject matter rather than by reading their `sources:` ran at a **25% hit rate** on forks. Three genuine forks — [[lstm]], [[encoder-decoder-bottleneck]], [[autoregressive-model]] — were found only by verification, all citing [[nmstpp]], which turned out to be the football paper with the widest reach into general-ML territory.
+- **A dual-sourced page is a fork by definition**, and that mechanical test proved far more reliable than "a football page links it".
+- **The football hubs became more central.** [[c-obso]] gained nine inbound links, [[nmstpp]] ten, [[vaep]] two — not from new content but from general pages being rewritten to state their football dependency explicitly.
 
 ## Dashboards
 
@@ -124,7 +144,9 @@ A general ML and LLM tier remains here and is scheduled to move to the sibling g
 
 ## Maintenance Notes
 
-- Created 2026-04-22; this rewrite 2026-08-12
-- 182 tags declared, 180 in use. Six declared-but-unused; separately, **four tags appear on pages without being declared** and will fire lint warnings until reconciled
-- Page-type tags are applied inconsistently: `entity` and `summary` are used, `concept`, `synthesis` and `question` are not, despite being valid types
-- This page previously sat at confidence 0.4 — the lowest in the vault — and was exempt from staleness checks by having no meaningful `updated` discipline. It now carries a real lifecycle and should be revisited whenever a source opens a new area
+- Created 2026-04-22; rewritten 2026-08-12; migration recorded 2026-08-14
+- **154 tags declared, 152 in use.** The 23 that described departed material were pruned; `contradicted` and `stale-risk` are retained unused, as ready vocabulary for conditions that have not yet arisen
+- Page-type tags were removed from the taxonomy — `type:` in frontmatter is the single source of truth. Two namespaces recording one fact had already drifted (`source_summary` against `summary`)
+- **No page sits below 0.5 confidence.** The lowest was this one, at 0.4, before the August rewrite
+- `find_mentioned_but_missing` returns empty — every wikilink resolves, including seven pre-existing breaks that predated the migration
+- This page should be revisited whenever a source opens a new area, and its claims re-checked against `vault_stats` rather than recalled
