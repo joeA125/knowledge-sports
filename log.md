@@ -3075,3 +3075,53 @@ And transformer left the top fifteen entirely (was 3rd at 60 inbound). Reducing 
 - capability-profiling was re-sourced to four football papers with the AGI-definition material marked imported: — an honest option-2 rather than a silent re-label
 
 
+## [2026-08-25 13:37] writeback | Companion entry — what the inbound half revealed; fork list was built from one side, and the copy path produced 19 phantom sources
+Companion entry to the 2026-08-14 split log. Records what the INBOUND half of the migration revealed, because several findings bear on this vault and on how future splits should be run.
+
+=== THE FORK LIST WAS BUILT FROM ONE SIDE ===
+The classification asked "what does football need?" and never "what does general need?"
+
+Consequence: ~35 general-purpose concepts stayed here because their SOURCES are football papers, though the CONCEPTS are not. reinforcement-learning, temporal-difference-learning, imitation-learning, interpretability, model-selection, predictive-validity, tokenization, graph-neural-network were all retained on provenance grounds while the general vault referenced them constantly and had to write its own from scratch.
+
+That is not an error in the retention rule — dependency, not topic, was and remains correct for deciding what STAYS. It is an error in assuming the same test decides what the OTHER vault gets. Two separate questions were answered as one.
+
+For any future split: run the classification from BOTH directions before executing.
+
+=== PHANTOM SOURCES: THE COPY PATH IS UNSAFE ===
+19 sources: entries in the general vault pointed at raw files that never arrived. Every page that got there by file copy had at least one; no page written there did.
+
+This matters here because the same mechanism could have run in reverse. It did not — the football vault's sources: entries were all verified valid — but only because the outbound half moved raw files and summaries together and the counts were reconciled at each step.
+
+NEITHER EXISTING TOOL DETECTS THIS. list_unprocessed_sources finds raw files with no summary, the opposite direction. find_mentioned_but_missing reads wikilinks, not frontmatter paths. A verify_sources tool reading every page's sources: and confirming each file exists would have caught all 19 in one call, and is the clearest tooling gap the migration exposed.
+
+=== WHAT THIS VAULT GAINED ===
+Confirmed by vault_stats after the split:
+- c-obso 54 -> 63 inbound, nmstpp 45 -> 55, vaep 71 -> 73, vdep 43 -> 47, expected-value-possession-framework 45 -> 50
+- transformer left the top fifteen entirely, from 3rd at 60 inbound
+
+The football hubs became MORE central, not less — not from new content but because the retained general pages were rewritten to state their football dependency explicitly. That was the intended outcome and it is measurable.
+
+=== CLAIMS THAT MIGRATED, AND WHAT HAPPENED TO THEM ===
+Several claims generated here were re-derived in the general vault from its own material, which is a useful check on whether they were football-specific or general:
+
+- handcrafted-features-rule: SURVIVED as a general heuristic, but weaker. Here it reconciles three specific conflicting football results; there it has no evidence at all behind it. The football version is the stronger one.
+- optimality-gap-is-tunable: became imitation-weight-tunes-the-conclusion, generalised.
+- aggregates-assume-substitutability: MOVED WELL. capability-profiling is better sourced in the general vault (45% extracted from the AGI paper) than it was here, where it had been re-sourced to four football papers with the AGI material marked imported.
+- The free-parameters taxonomy (horizon / shape / gate / prior strength) was derived here empirically across sixteen instances and is now stated as a general principle on the general vault's model-selection page, which is arguably its proper home. That page is the general vault's second-largest hub at 45 inbound.
+
+=== NOTE ON capability-profiling ===
+This vault's copy was re-sourced to four football papers (Shelopugin, Van Roy, Fernández, Toda) with the AGI-definition material marked imported:. The general vault's copy is sourced directly from Hendrycks et al.
+
+Both are honest, and they now say different things: this one argues decomposition-beats-aggregation from football evidence; that one presents the CHC-grounded capability profile. Worth knowing they are not synchronised copies and should not be reconciled.
+
+=== TAG-AS-PAGE ===
+Recurred ~18 times across both vaults during the migration, always in a See Also list or inline alias, always while reaching for a concept not already linked on that page. Write-time lint caught every occurrence.
+
+The lint's reverse hint — "this is a PAGE, not a tag" — also fired correctly on the mirror error. Both directions are now mechanically visible, which is the durable fix; the earlier attempt to fix it by recording the lesson in the log did not work.
+
+=== STATE OF THIS VAULT ===
+271 pages, 40 sources, 154 tags declared / 152 used, zero dead links, zero undeclared tags, no page below 0.5 confidence. Index rebuilt by football function; overview carries the migration record.
+
+The nine retained general sources each have a stated reason in the index's "Retained general sources" section, so the retention logic survives the deletion of the migration manifests.
+
+
