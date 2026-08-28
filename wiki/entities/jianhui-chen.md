@@ -2,7 +2,7 @@
 title: "Jianhui Chen"
 type: entity
 tags: [person, researcher, ai-research, university]
-sources: [raw/papers/sports-camera_calibration-synthetic_data.md]
+sources: [raw/papers/sports-camera-calibration-synthetic-data.md]
 confidence: 0.85
 lifecycle: draft
 created: 2026-07-08

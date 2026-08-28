@@ -2,7 +2,7 @@
 title: "Homography"
 type: concept
 tags: [computer-vision, projective-geometry, camera-calibration, sports-analytics]
-sources: [raw/papers/tvcalib_camera_calibration_football.md, raw/papers/sports-camera_calibration-synthetic_data.md, raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/soccernet-game-state-reconstruction.md, raw/papers/soccernet-v2-action-spotting.md, raw/papers/camera-calibration-benchmarking.md]
+sources: [raw/papers/tvcalib_camera_calibration_football.md, raw/papers/sports-camera-calibration-synthetic-data.md, raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/soccernet-game-state-reconstruction.md, raw/papers/soccernet-v2-action-spotting.md, raw/papers/camera-calibration-benchmarking.md]
 confidence: 0.95
 provenance:
   extracted: 70%

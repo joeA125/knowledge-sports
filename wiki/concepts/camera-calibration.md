@@ -2,7 +2,7 @@
 title: "Camera Calibration (Sports Broadcast)"
 type: concept
 tags: [computer-vision, camera-calibration, sports-analytics, deep-learning, semantic-segmentation, radial-distortion, evaluation]
-sources: [raw/papers/tvcalib_camera_calibration_football.md, raw/papers/soccernet-v2-action-spotting.md, raw/papers/soccernet-game-state-reconstruction.md, raw/papers/soccernet-game-state-reconstruction-improvement.md, raw/papers/sports-camera_calibration-synthetic_data.md, raw/papers/camera-calibration-benchmarking.md]
+sources: [raw/papers/tvcalib_camera_calibration_football.md, raw/papers/soccernet-v2-action-spotting.md, raw/papers/soccernet-game-state-reconstruction.md, raw/papers/soccernet-game-state-reconstruction-improvement.md, raw/papers/sports-camera-calibration-synthetic-data.md, raw/papers/camera-calibration-benchmarking.md]
 confidence: 0.95
 provenance:
   extracted: 80%

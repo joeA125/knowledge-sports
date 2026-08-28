@@ -2,7 +2,7 @@
 title: "Enhanced Correlation Coefficient Maximization"
 type: concept
 tags: [computer-vision, image-alignment, camera-calibration, sports-analytics]
-sources: [raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/sports-camera_calibration-synthetic_data.md]
+sources: [raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/sports-camera-calibration-synthetic-data.md]
 confidence: 0.9
 provenance:
   extracted: 80%

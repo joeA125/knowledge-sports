@@ -2,7 +2,7 @@
 title: "Siamese Network"
 type: concept
 tags: [deep-learning, architecture, metric-learning, representation-learning]
-sources: [raw/papers/sports-camera_calibration-synthetic_data.md, raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/soccernet-v2-action-spotting.md]
+sources: [raw/papers/sports-camera-calibration-synthetic-data.md, raw/papers/amateur_footbal_analytics_computer_vision.md, raw/papers/soccernet-v2-action-spotting.md]
 confidence: 0.9
 provenance:
   extracted: 75%
