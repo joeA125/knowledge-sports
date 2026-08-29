@@ -106,6 +106,43 @@ Eight, grouped by who could answer them.
 
 The third group is the distinctive one: these are questions no single paper poses, visible only from holding several at once.
 
+## Source Acquisition Priorities
+
+The RL and simulation line is now fully held, so the highest-value acquisitions lie elsewhere. Five areas, highest need first.
+
+### 1. Social network analysis
+**An entire analytic tradition held second-hand.** [[social-network-analysis]] rests wholly on citations inside [[ai-football-reinforcement-learning|Scott et al.]] — the vault has no primary source for a literature with real findings.
+
+- **Peña & Hugo (2012)** — winning teams show *lower* betweenness; the origin of the PageRank formulation used here
+- **Gonçalves et al. (2017)** — lower single-player passing dependency may optimise team performance
+- **Clemente et al. (2016)** — the framework text; **Buldú et al. (2018)** on multilayer passing networks
+
+This is the largest gap because it is the only *task* in the seven-task taxonomy with no held primary source at all.
+
+### 2. Reliability of tracking-derived metrics
+`no-reliability-for-off-ball-metrics` has survived seven ingests. **Six off-ball mechanisms, zero reliability estimates.**
+
+Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
+
+### 3. Team-as-one-agent RL
+Cited across [[multi-agent-reinforcement-learning]] as the tradition both held MARL papers define themselves against, entirely second-hand.
+
+- **Liu & Schulte (2018)**; **Liu et al. (2020)**; **Routley & Schulte (2015)**
+- **Luo, Schulte & Poupart (2020)** on inverse RL for sports
+
+### 4. Primary sources for borrowed parameters
+Two citation problems that only primaries can fix.
+
+- **Spearman (2018) primary** — [[c-obso]] and [[drso]] set PPCF parameters σ = 0.45, λ = 4.3 citing a paper that fits s = 0.54, λ = 3.99. A citation error propagating through the line; see [[obso]]
+- **Kurach et al. (2020)** — everything on [[google-research-football]] comes from three papers that *used* the environment
+
+### 5. Scale versus fidelity in simulation
+- **Liu et al. (2021), Humanoid Football** — the only environment occupying the biomechanical corner of the trade-off tabled on [[agent-based-simulation]], and the natural counterpart to GFootball's 11v11 abstraction
+
+---
+
+**Priorities 1 and 2 are the ones that would change conclusions**, not merely add support. The SNA gap means a whole task rests on second-hand description; the reliability gap means the vault's most striking finding — that two off-ball metrics disagree — cannot currently be interpreted.
+
 ## Method
 
 The vault runs a claim-dependency system beyond ordinary sourcing. Generated claims carry IDs and `rests-on:` clauses recording what they stand on, with four dependency kinds — `source:`, `claim:`, `imported:`, and `absence:`. Absence claims are the dangerous kind: they expire when a source is acquired, not when anything is re-read, and several here have been narrowed or retired exactly that way.
