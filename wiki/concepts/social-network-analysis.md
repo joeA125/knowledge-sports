@@ -1,9 +1,9 @@
 ---
 title: "Social Network Analysis (Pass Networks)"
 type: concept
-tags: [network-analysis, sports-analytics, tactical-analysis, pass-modelling, player-evaluation, evaluation, event-stream-data, simulator, domain-adaptation, interpretability]
-sources: [raw/papers/ai_football_reinforcement_learning.md]
-confidence: 0.75
+tags: [network-analysis, sports-analytics, tactical-analysis, pass-modelling, player-evaluation, evaluation, event-stream-data, simulator, domain-adaptation, interpretability, model-selection]
+sources: [raw/papers/ai_football_reinforcement_learning.md, raw/papers/football_strategy_network_theory_analysis.md]
+confidence: 0.85
 provenance:
   extracted: 55%
   inferred: 24%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 0%
 lifecycle: draft
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-08-29
 ---
 
 # Social Network Analysis (Pass Networks)
@@ -23,20 +23,46 @@ Given adjacency matrix $A$ where $A_{ij}$ is the number of passes from player $i
 
 | Metric | Formula | Reads as |
 |---|---|---|
-| **Closeness** | $1 / \sum_{w \in V} \sigma_{vw}$ | How easily a player connects to teammates |
-| **Betweenness** | $\sum_{s \neq v}\sum_{t \neq v} \sigma_{st}(v)/\sigma_{st}$ | How much a player bridges passing plays |
-| **PageRank** | $p \sum_{v \neq w} \frac{A_{vw}}{L_w^{out}} \text{PR}(w) + q$ | How popular a player is as a pass target |
+| **Closeness** | $C_i = 20 / \left( \sum_{j \neq i} d_{ij} + \sum_{j \neq i} d_{ji} \right)$ | How easily a player connects to teammates |
+| **Betweenness** | $C_B(i) = \frac{1}{90} \sum_{j \neq k \neq i} n^i_{jk} / g_{jk}$ | How much a player bridges passing plays |
+| **PageRank** | $x_i = p \sum_{j \neq i} \frac{A_{ji}}{L_j^{out}} x_j + q$ | How popular a player is as a pass target |
 
-PageRank is run with $p = 0.85$, $q = 1$ following Peña & Hugo (2012) — $p$ read as the probability a player does *not* pass, $q$ as "free popularity".
+**The normalisers matter and the vault did not have them.** Closeness divides by **20** — ten teammates counted in both directions — and betweenness by **90** $= 10 \times 9$, which forces $0 \leq C_B \leq 1$. Both were absent while this page rested on [[ai-football-reinforcement-learning|Scott et al.]]'s summary description, so the metrics were unreproducible from it. Supplied by [[network-theory-football-strategies|López Peña & Touchette]].
 
-## An Established Tradition the Vault Had Missed
+PageRank is run with $p = 0.85$, $q = 1$, following [[network-theory-football-strategies|López Peña & Touchette (2012)]], with $q$ read as "free popularity".
+
+> ⚠️ **Corrected 2026-08-29 on acquiring the primary source.** This page previously read $p$ as **"the probability a player does *not* pass"**. That is backwards. The primary defines $p$ as the probability that a player **"will decide to give the ball away rather than keep it and go for a shot himself"** — the probability he **does** pass.
+>
+> The error was invisible for as long as the page rested on a secondary description, because [[ai-football-reinforcement-learning|Scott et al.]] use the parameter without glossing it.
+
+**And the value is borrowed rather than derived.** $p = 0.85$ is Brin & Page's web-surfer damping factor carried over unchanged, while its interpretation was replaced entirely. Under the football reading, $p$ is empirically measurable — and Spain's 417 passes per match against fifteen-odd shots puts the real ratio far above 0.85. See `borrowed-constants-keep-their-value-and-lose-their-meaning` on [[network-theory-football-strategies]], and [[free-parameters-load-bearing]], where this is the **seventh kind** of free parameter and carries the cheapest available test.
+
+## An Established Tradition, Now Partly Held
 
 This is not a fringe method. [[ai-football-reinforcement-learning|Scott, Fujii & Onishi]] cite a substantial literature: Clemente et al. (2016) for the framework, Buldú et al. (2018) on the multilayer nature of passing networks, and two results with real content —
 
-- **Peña & Hugo (2012):** winning teams presented *lower* betweenness scores.
-- **Gonçalves et al. (2017):** lower passing dependency on any one player, and higher intra-team connectedness, may optimise team performance.
+- **López Peña & Touchette (2012):** **now held.** See [[network-theory-football-strategies]] — and see below, because the claim as transmitted is *not what the paper says*.
+- **Gonçalves et al. (2017):** lower passing dependency on any one player, and higher intra-team connectedness, may optimise team performance. **Not held.**
 
-None of these is held. The vault's football coverage has been almost entirely **valuation-first** — assign a number to an action, aggregate to a player — and this is a genuinely different tradition that describes **structure** instead. It belongs alongside [[tactical-analysis]] rather than [[action-valuation]].
+Clemente, Buldú and Gonçalves remain unheld. The vault's football coverage has been almost entirely **valuation-first** — assign a number to an action, aggregate to a player — and this is a genuinely different tradition that describes **structure** instead. It belongs alongside [[tactical-analysis]] rather than [[action-valuation]].
+
+### ⚠️ The Betweenness Finding Did Not Survive Acquisition
+
+**Corrected 2026-08-29.** This page, the overview and [[action-valuation-frameworks-compared]] all carried *"winning teams presented lower betweenness scores"*, attributed to "Peña & Hugo (2012)". Three problems, found on reading the primary:
+
+1. **The citation was garbled.** The authors are [[javier-lopez-pena|Javier López Peña]] and [[hugo-touchette|Hugo Touchette]]; "Hugo" is a forename. The error is [[ai-football-reinforcement-learning|Scott et al.]]'s and the vault extracted it faithfully.
+2. **The paper never makes the claim.** It observes that Spain kept a low betweenness score, and argues *normatively* that betweenness **should** be evenly distributed across a team. No test, no correlation against finishing position, no claim about winning teams as a class.
+3. **The claim fails against the paper's own table.** Rank-correlated over all sixteen knockout teams, betweenness against finishing position gives $\rho = +0.17$, $p = 0.54$.^[generated: computed on ingest; no such test appears in any source. rests-on: source:lopez-pena-table-1] The two finalists did hold the joint-lowest betweenness — but **Germany and Uruguay, the semi-finalists, were among the four highest**, and **Mexico tied Spain at the bottom and went out in the round of 16.**
+
+> **Narrowed rather than deleted**, per the conventions. The surviving claim is: *the 2010 finalists showed low, evenly distributed betweenness, and the paper reads this as the signature of a well-connected passing style.* The generalisation to winning teams belongs to Scott et al., not to the primary.
+
+**What the vault lost here was not a finding but a false one**, and the loss is instructive about where the tradition's real content sits. The paper's substantive contribution is **descriptive** — a vocabulary for team style — and the inferential claim about winning was manufactured downstream by a one-line gloss. See [[network-theory-football-strategies]].
+
+## The Team-Level Half
+
+Centrality is only one side of the method. The team-level structural measures — **weighted clustering, edge connectivity, maximal clique** — and the paper's reported failure at community detection are on [[network-cohesion]], split out on ingest because this page had grown past the length the conventions allow for two distinct ideas.
+
+The short version: edge connectivity reads as *how many passes an opponent must intercept to sever the team*, and is a **counterfactual computed with no model of the world** — cheap, and shallow in exactly proportion.
 
 ## What Makes It Different From Everything Else Here
 

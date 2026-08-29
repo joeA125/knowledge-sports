@@ -12,7 +12,7 @@ provenance:
   ambiguous: 1%
 lifecycle: reviewed
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-08-29
 ---
 
 # How does AI play football?
@@ -57,6 +57,14 @@ Passes, they argue, do not depend on individual physical ability, so pass-networ
 **That is methodologically honest and it bounds the result severely.** The paper measures transfer on **the one dimension deliberately selected for its insensitivity to the domain gap.** See [[domain-adaptation]], where this is worked through.
 
 Three metrics, all on the weighted directed pass graph: **closeness** (how easily a player connects to teammates), **betweenness** (how much a player bridges passing plays), and **PageRank** (how popular a player is as a pass target).
+
+> ⚠️ **Two problems traced back to this paper, 2026-08-29**, on acquiring the metrics' primary source, [[network-theory-football-strategies|López Peña & Touchette]].
+>
+> **The mis-citation is this paper's.** Its reference list reads *"(Peña and Hugo, 2012)"*, promoting [[hugo-touchette|Touchette's]] forename to a surname and truncating [[javier-lopez-pena|López Peña]] to "Peña". The vault extracted it faithfully onto four pages. **Nothing in the vault's tooling can catch this class of error** — dead-link detection reads wikilinks and `verify_sources` reads file paths; neither reads a bibliography. Acquisition is the only check.
+>
+> **And the finding attributed to it is not in it.** This paper states that López Peña & Touchette "demonstrated that winning teams presented lower betweenness scores". The primary demonstrates no such thing: it observes Spain's low betweenness and argues normatively for even *distribution*, with no test and no claim about winning teams as a class. The claim fails against the primary's own Table 1 at $\rho = +0.17$, $p = 0.54$. See [[social-network-analysis]].
+
+**The metric definitions here are also incomplete.** The primary normalises closeness by 20 and betweenness by 90, neither of which appears in this paper — so the metrics as described here are not reproducible without the primary. That matters for reading the correlations below, which are computed on a scale this paper does not fully specify.^[inferred: the omission is visible only by comparing the two papers]
 
 ## Result 1: What Correlates With Competitiveness
 
@@ -118,6 +126,7 @@ That is a considerably more useful statement than either paper alone supports, a
 ## Limitations
 
 - **$N = 15$ agents** for every correlation, and 5 real matches for every comparison.
+- ⚠️ **The real-world baseline is not aggregated like the tradition it borrows from.** This paper builds pass networks from **five individual J-League matches**; [[network-theory-football-strategies|López Peña & Touchette]] build theirs by **averaging a team's whole tournament**, an artefact they explicitly flag. Metric *names* are shared; the objects are not. Any comparison of these numbers against published pass-network figures is comparing a per-match graph to a per-tournament one.^[inferred: neither paper compares its aggregation choice to the other's; noted here on holding both]
 - **Single-agent central control**, explicitly: the agent controls one active player and multi-agent RL is declared out of scope. The eventual [[multi-agent-reinforcement-learning|MARL]] follow-ups are [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al.]] and [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]].
 - **Non-active players are rule-based**, so the "team" whose pass network is analysed is partly scripted. The pass network is therefore not purely a learned artefact.
 - **The TrueSkill anomaly** above.
@@ -138,7 +147,7 @@ That is a direct, author-side statement of the problem the vault records as `no-
 ## What This Adds to the Vault
 
 1. **The transfer evidence**, and the qualification that makes it interpretable.
-2. **[[social-network-analysis]]** — an entire analytic tradition (Peña & Hugo, Clemente et al., Buldú et al., Gonçalves et al.) the vault had no page for.
+2. **[[social-network-analysis]]** — an entire analytic tradition (López Peña & Touchette, Clemente et al., Buldú et al., Gonçalves et al.) the vault had no page for. **The first of those is now held** — see [[network-theory-football-strategies]].
 3. **[[proximal-policy-optimization|PPO]]** — the vault's first policy-gradient method.
 4. **[[agent-based-simulation]]** — the motivation layer for simulating at all.
 5. **A novel use of [[trueskill|TrueSkill]]**: ranking RL checkpoints rather than human players.

@@ -1,8 +1,8 @@
 ---
 title: "Are the free parameters load-bearing?"
 type: question
-tags: [model-selection, discounting, evaluation, sports-analytics, action-valuation, reliability, predictive-validity, space-creation, reinforcement-learning, auxiliary-loss, domain-adaptation, training-technique, needs-review]
-sources: [raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md]
+tags: [model-selection, discounting, evaluation, sports-analytics, action-valuation, reliability, predictive-validity, space-creation, reinforcement-learning, auxiliary-loss, domain-adaptation, training-technique, needs-review, network-analysis]
+sources: [raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/football_strategy_network_theory_analysis.md]
 confidence: 0.85
 provenance:
   extracted: 56%
@@ -12,16 +12,18 @@ provenance:
   ambiguous: 1%
 lifecycle: draft
 created: 2026-07-27
-updated: 2026-08-07
+updated: 2026-08-29
 ---
 
 # Are the free parameters load-bearing?
 
-**Status:** Open for sixteen parameters. **One has been settled** — by being superseded, not by a sensitivity analysis. **One has a two-point ablation.** And one, newly, is a parameter nobody in this literature reports at all.
+**Status:** Open for eighteen parameters. **One has been settled** — by being superseded, not by a sensitivity analysis. **One has a two-point ablation.** One is a parameter nobody in this literature reports at all. And one, newly, was never derived for football in the first place.
 
 > **Updated 2026-08-07** on ingest of [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] — the paper this page named as the place the $\lambda_1$ answer would be found. **It is not there.** See "The Acquisition That Did Not Help".
 >
-> The count has gone four → five → eight → fourteen → sixteen across five ingests.
+> The count has gone four → five → eight → fourteen → sixteen → **eighteen** across six ingests.
+>
+> **Updated 2026-08-29** on ingest of [[network-theory-football-strategies|López Peña & Touchette]], which adds a **seventh kind** — a constant borrowed from another field — and, unusually, the cheapest test on this page.
 
 | Parameter | Framework | Role | Justification given | Status |
 |---|---|---|---|---|
@@ -40,7 +42,9 @@ updated: 2026-08-07
 | 0.1 m/s | Nakahara et al. | Stop threshold → "idle" label | Asserted | **Open** |
 | 24 km/h | Nakahara et al. | Sprint threshold → sprint labels | Asserted | **Open** |
 | **$\lambda_1$, $\lambda_2$** | **[[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]]** | Imitation and $L_2$ weights | **None — values not reported** | **Open, and unreported** |
-| **Training steps (0.5M)** | **Fujii et al.** | **Where on the imitation/reward frontier the model lands** | None — treated as hygiene | **Open — new sixth kind** |
+| **Training steps (0.5M)** | **Fujii et al.** | **Where on the imitation/reward frontier the model lands** | None — treated as hygiene | **Open — sixth kind** |
+| **$p = 0.85$** | **[[social-network-analysis\|López Peña & Touchette]]** | **PageRank damping — read as P(pass)** | **None — Brin & Page's web default** | **Open — new seventh kind** |
+| $q = 1$ | López Peña & Touchette | "Free popularity" floor | Asserted | **Open** |
 | ~~$C \approx 3.9$~~ | ~~[[vdep]]~~ | ~~Recovery/attack weighting~~ | ~~Event frequency ratio~~ | **Superseded** |
 
 ## Five Kinds, Now Six
@@ -59,6 +63,8 @@ The count is less informative than the taxonomy. Lumping them together obscures 
 
 **Stopping parameters** (training steps) — **new 2026-08-07.** See below.
 
+**Borrowed constants** ($p = 0.85$) — **new 2026-08-29.** A value transplanted from another field's default, keeping its number and losing its derivation. See below.
+
 ## The Sixth Kind: Where You Stop Is a Modelling Choice
 
 [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] report that on the chase-and-escape task,
@@ -74,6 +80,28 @@ That relocates the dial this page has been chasing. The vault had assumed the im
 This is uncomfortable because early stopping is normally treated as hygiene rather than as a substantive claim. Here, **stopping early yields a reward-maximising agent and stopping late an imitative one — two different scientific claims about football, selected by a compute budget.**
 
 Note the ordering is the reverse of the naive expectation. A model pre-trained on demonstrations might be expected to start imitative and drift toward reward; the opposite happened.
+
+## The Seventh Kind: A Constant Borrowed From Another Field
+
+**New 2026-08-29** on ingest of [[network-theory-football-strategies|López Peña & Touchette]].
+
+The PageRank damping factor $p = 0.85$ is **Brin & Page's**, chosen for web surfers following hyperlinks. [[social-network-analysis|Pass-network analysis]] carries the number across unchanged and replaces the interpretation entirely: $p$ becomes the probability that a player **"will decide to give the ball away rather than keep it and go for a shot himself"**.
+
+The authors are candid that the value is not derived from their data — it "does not come from the network alone", "should be determined by heuristics", and could be player-specific $p_i$. What nobody does is notice that **the new interpretation is directly measurable.**
+
+> ### `borrowed-constants-keep-their-value-and-lose-their-meaning`
+> **A parameter transplanted between domains carries its numeric value across unchanged while its interpretation is replaced wholesale — so the value is justified by a derivation that no longer applies, and the new interpretation is testable in a way nobody tests.**
+> ^[generated: declared on [[network-theory-football-strategies]]. rests-on: source:lopez-pena-pagerank-heuristic]
+
+This is distinct from the six kinds above in **where the unjustification lives**. A horizon or a gate is asserted from domain intuition — thin, but at least *about football*. A borrowed constant has a genuine derivation attached to it, which is why it passes review, and the derivation is about something else entirely.
+
+**It is also the cheapest test on this page**, by a wide margin. Every other entry needs a retrain or a re-run; this one needs a ratio:
+
+$$\hat{p} = \frac{\text{passes}}{\text{passes} + \text{shots}}$$
+
+computed on any held event dataset. Spain averaged **417 passes per match** in the source's own data against roughly fifteen to twenty shots, which puts $\hat{p}$ well above 0.95.^[inferred: the pass figure is from the paper's Table 1; the shot count is not in the source and the comparison is approximate] If that holds, $p = 0.85$ is not merely unjustified but **wrong under its stated meaning** — and the question becomes whether PageRank rankings move between 0.85 and 0.95, which is one recomputation on a graph of eleven nodes.
+
+⚠️ **A caveat that may dissolve the whole thing.** "Keeping the ball" plausibly includes dribbles, carries and turnovers, not only shots — in which case the authors' gloss is loose and $p$ retains its ordinary damping-factor role, where 0.85 is conventional and roughly arbitrary. **Both readings are consistent with the text.** That ambiguity is itself the finding: a parameter whose meaning cannot be pinned down from the paper that sets it cannot be justified by that paper either.
 
 ## The Acquisition That Did Not Help
 
@@ -172,7 +200,7 @@ Rank correlation under a parameter sweep. For each, recompute the player or team
 
 **Horizons inert, $\gamma$, the gates and $\lambda_1$ not** — the literature's blanket omission is half-excusable, but the parameters that matter have never been examined.
 
-**All sixteen inert** — a useful negative result; the vault's repeated complaint should soften.
+**All eighteen inert** — a useful negative result; the vault's repeated complaint should soften.
 
 **$\lambda_1$ or the stopping point load-bearing** — the consequential branch. The observed-versus-optimal finding, which [[observed-versus-optimal-decisions]] treats as possibly the literature's only actionable output, would be partly an artefact of a weight or a compute budget.
 

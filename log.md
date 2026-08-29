@@ -3125,3 +3125,86 @@ The lint's reverse hint — "this is a PAGE, not a tag" — also fired correctly
 The nine retained general sources each have a stated reason in the index's "Retained general sources" section, so the retention logic survives the deletion of the migration manifests.
 
 
+## [2026-08-29 14:29] ingest | Lopez Pena & Touchette (2012) — pass networks; closes the #1 acquisition gap and falsifies three held claims
+SOURCE: raw/papers/football_strategy_network_theory_analysis.md
+"A network theory analysis of football strategies" — Javier Lopez Pena & Hugo Touchette, 2012.
+2010 FIFA World Cup passing data. The vault's #1 ranked acquisition priority, and its oldest football source.
+
+WHY IT MATTERED: [[social-network-analysis]] rested WHOLLY on citations inside Scott et al.
+The tactical task was the only one of seven with no held primary. All seven now have one.
+
+THREE CORRECTIONS — the ingest falsified more than it confirmed:
+
+1. CITATION GARBLED ON 4 PAGES. Cited throughout as "Pena & Hugo (2012)". "Hugo" is
+   Touchette's FORENAME; "Lopez Pena" is a compound surname truncated to "Pena".
+   Error originates in Scott et al.'s own reference list and was extracted faithfully.
+   NEW CLAIM `an-extracted-claim-inherits-its-source's-errors` (declared on the summary):
+   provenance marking tracks whether a claim came from a held source, not whether that
+   source was right. A wrong `extracted:` claim is harder to catch than a wrong
+   `imported:` one, because it carries a real citation to a real held file.
+   TOOLING GAP: find_mentioned_but_missing reads wikilinks; verify_sources reads
+   `sources:` paths. NEITHER reads a bibliography. No tool covers the accuracy of a
+   reference to an unheld work. Acquisition is the only check, and it arrived 3 ingests late.
+
+2. PAGERANK PARAMETER INVERTED. Page read p as "probability a player does NOT pass".
+   Primary: p is the probability he DOES ("give the ball away rather than keep it and go
+   for a shot himself"). Invisible while resting on a secondary that never glosses it.
+
+3. HEADLINE FINDING NOT IN THE PAPER. "Winning teams presented lower betweenness" is
+   Scott et al.'s one-line gloss. Primary makes no such claim — observes Spain's low
+   betweenness, argues NORMATIVELY for even distribution, runs no test anywhere.
+   Tested here against its own Table 1, n=16, finish tie-averaged:
+     betweenness rho=+0.17 p=0.54 | clique -0.19 | clustering -0.27 | passes -0.33
+     edge connectivity -0.41 p=0.12  <- strongest, and reported by nobody as a finding
+   Finalists held joint-lowest betweenness, but semi-finalists Germany (4.6) and Uruguay
+   (4.8) were among the four HIGHEST, and Mexico tied Spain at the bottom and exited in
+   the R16. NARROWED not deleted, per conventions.
+
+PAGES CREATED (4):
+  wiki/summaries/network-theory-football-strategies.md
+  wiki/concepts/network-cohesion.md   — split from social-network-analysis; clustering
+    coefficient, edge connectivity, cliques, and the reported community-detection failure
+  wiki/entities/javier-lopez-pena.md  wiki/entities/hugo-touchette.md
+
+PAGES UPDATED (7):
+  social-network-analysis — 3 corrections; now dual-sourced; ADDED THE MISSING
+    NORMALISERS (closeness /20, betweenness /90) absent from the secondary, so the
+    metrics had been unreproducible from the page for three ingests
+  free-parameters-load-bearing — SEVENTH KIND: "borrowed constants". p=0.85 is Brin &
+    Page's web damping factor, value carried across, interpretation replaced wholesale.
+    Count 16 -> 18. Cheapest test on that page: pass/(pass+shots) ratio, no retrain.
+    Caveat recorded — "keeping the ball" may include carries, in which case the gloss is
+    loose and 0.85 is just conventional. Both readings fit the text; the ambiguity IS the finding.
+  action-valuation-frameworks-compared — tactical row primary-sourced; added the point
+    that it is the only task validated by expert recognition of style, not a criterion
+  ai-football-reinforcement-learning — mis-citation traced to source; NEW CONFOUND: its
+    real-world baseline is 5 individual matches, the primary averages a whole tournament.
+    Shared metric names, different objects.
+  overview — SNA demoted from #1 to #2 (narrowed: Goncalves/Buldu/Clemente still unheld);
+    reliability now sole top priority; counts re-read from vault_stats (275/152/69/41)
+  index — 3 new sections; log
+
+OTHER FINDINGS:
+  - Community detection FAILED and the authors report it. Cause is STRUCTURAL: 11 nodes
+    at near-complete density collapse to one community. No algorithm fixes it; the object
+    must change (multilayer, per-phase, opponent nodes). Credited to a Mahadevan suggestion.
+  - Edge connectivity is a COUNTERFACTUAL WITH NO MODEL — delete edges, re-run shortest
+    paths. New claim `graph-counterfactuals-are-cheap-and-shallow`: it assumes the team
+    would not reorganise, which is precisely what a team does. Contrast DRSO.
+  - AGGREGATION ARTEFACT: FIFA released only tournament aggregates, so every network is a
+    per-game average over a rotating squad. Authors flag it. Explains edge connectivity 0
+    for three teams that plainly were not disconnected, and the "forward signature"
+    (lowest closeness/betweenness/pagerank) is partly a substitution/playing-time artefact.
+  - Date: file stamped 2024-11-27, a recompile artefact. Internal evidence (Sage 5.0.1,
+    refs stop at 2011, 2008/2010 grants) dates it 2012.
+
+ABSENCE CLAIMS RE-CHECKED: no-source-reports-both (SURVIVES — this paper reports neither
+  reliability nor predictive validity); no-held-source-reports-off-ball-reliability
+  (SURVIVES, 8th ingest); no-held-source-benchmarks-across-frameworks, shot-value,
+  tracking-error, sgg-vs-cobso, ppcf-vs-gaussian — all out of area, untouched.
+
+TOOL NOTE: write-time lint reported dead links for pages created earlier IN THE SAME
+  SESSION. find_mentioned_but_missing returns clean. The lint index appears stale within
+  a session; the standalone check is authoritative. Also hit one transient WinError 5
+  file lock on wiki/overview.md that cleared on retry.
+

@@ -2,7 +2,7 @@
 title: "Football Modelling Tasks Compared"
 type: synthesis
 tags: [sports-analytics, action-valuation, defensive-valuation, off-ball, space-creation, player-evaluation, evaluation, counterfactual, game-theory, clustering, event-prediction, reliability, predictive-validity, construct-validity, time-series, recruitment, transfer-prediction, duel-analysis, discounting, selection-bias, probability-surface, tactical-analysis, model-decomposition, proxy-target, class-imbalance, trajectory-prediction, pitch-control, theory-based-modelling, reinforcement-learning, multi-agent, action-space, simulator, domain-adaptation, agent-based-simulation, network-analysis, policy-gradient]
-sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/evaluating-football-player-actions.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-event-sequences-spatiotemporal-point-process-mixture-model.md, raw/papers/scoutgpt-generative-transformer-football-player-valuation.md, raw/papers/football-performance-time-series.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md]
+sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/evaluating-football-player-actions.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-event-sequences-spatiotemporal-point-process-mixture-model.md, raw/papers/scoutgpt-generative-transformer-football-player-valuation.md, raw/papers/football-performance-time-series.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md, raw/papers/football_strategy_network_theory_analysis.md]
 confidence: 0.9
 provenance:
   extracted: 46%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 3%
 lifecycle: reviewed
 created: 2026-07-23
-updated: 2026-08-08
+updated: 2026-08-29
 ---
 
 # Football Modelling Tasks Compared
@@ -29,13 +29,19 @@ The vault's football sources are easily mistaken for variations on one problem. 
 | **Forecasting** | What happens next? | [[seq2event]], [[nmstpp]], [[sig-model]], [[trajectory-prediction\|GVRNN]] |
 | **Clustering** | What kind of sequence is this? | [[football-event-sequences-point-process-mixture\|Mixture model]] |
 | **Counterfactual / transfer** | What if this player joined? | [[scoutgpt]], [[transfer-performance-prediction\|Shelopugin regression]] |
-| **Tactical** | How does this team play? | [[tactical-analysis\|Pressing analysis]], **[[social-network-analysis\|pass networks]]** |
+| **Tactical** | How does this team play? | [[tactical-analysis\|Pressing analysis]], **[[social-network-analysis\|pass networks]]**, [[network-cohesion\|network cohesion]] |
 | **Prescription** | What *should* the player have done? | [[physics-based-pass-probabilities\|Spearman (2017)]], [[xsot\|Yeung & Fujii]], [[drso\|DRSO]] |
 | **Simulation** | Can we reproduce real football synthetically? | [[ai-football-reinforcement-learning\|Scott et al.]], [[adaptive-action-supervision-multi-agent-rl\|Fujii et al.]] |
 
 Simulation is distinct from counterfactual/transfer though both generate: **counterfactual work generates to produce a number about a player; simulation work generates to produce a faithful environment.** [[scoutgpt|ScoutGPT]] would succeed with implausible rollouts; the simulation papers would not.
 
-**The tactical row is newly populated.** [[social-network-analysis]] describes team *structure* rather than valuing actions, and is an established tradition (Peña & Hugo, Clemente, Buldú, Gonçalves) the vault had entirely missed.
+**The tactical row is now primary-sourced.** [[social-network-analysis]] describes team *structure* rather than valuing actions, and is an established tradition (López Peña & Touchette, Clemente, Buldú, Gonçalves) the vault had entirely missed until 2026-08.
+
+> **Updated 2026-08-29.** [[network-theory-football-strategies|López Peña & Touchette (2012)]] is held, closing the last row of this table that rested wholly on citations inside another source. **Every one of the seven tasks now has at least one primary source.**
+>
+> ⚠️ Two corrections came with it. The work was cited throughout the vault as *"Peña & Hugo (2012)"* — a mis-citation inherited from [[ai-football-reinforcement-learning|Scott et al.]], in which Touchette's forename was read as a surname. And the finding attributed to it — *winning teams show lower betweenness* — **is not in the paper** and does not survive a rank correlation against its own table ($\rho = +0.17$, $p = 0.54$). See [[social-network-analysis]].
+
+**The tactical task is also the only one validated differently from every other row.** The other six are judged against a predicted or observed outcome; pass-network analysis is judged by whether the description **recognisably matches a team's known style** — Spain's numbers looking like tiki-taka. That is [[construct-validity]] by expert assent, with no criterion behind it, and it is why the one inferential claim the tradition produced turned out to be manufactured downstream rather than measured.^[generated: no source contrasts the tactical task's validation mode against the other six. rests-on: source:lopez-pena-no-statistical-test]
 
 ### Prescription is the oldest task
 
@@ -83,7 +89,9 @@ VAEP's conceding classifier at **F1 = 0.000**. ⚠️ Near-guaranteed for any ca
 
 ### Free parameters
 
-**Sixteen asserted parameters carry no sensitivity analysis**, of **six kinds** — horizons, shapes, geometric gates, detection thresholds, prior strengths, and stopping points.^[generated: rests-on: absence:no-sensitivity-analysis-on-horizon-parameters — re-checked at every ingest. Declared on [[model-selection]].]
+**Eighteen asserted parameters carry no sensitivity analysis**, of **seven kinds** — horizons, shapes, geometric gates, detection thresholds, prior strengths, stopping points, and **constants borrowed from another field**.^[generated: rests-on: absence:no-sensitivity-analysis-on-horizon-parameters — re-checked at every ingest; seventh kind added 2026-08-29. Declared on [[model-selection]].]
+
+The seventh kind arrived with [[network-theory-football-strategies|López Peña & Touchette]]: PageRank's damping factor $p = 0.85$, taken from Brin & Page's web-surfer model, keeping its value while its football interpretation — the probability a player passes rather than shoots — replaced the derivation that justified it. **It carries the cheapest test on [[free-parameters-load-bearing]]**, needing a pass/shot ratio rather than a retrain.
 
 ⚠️ **The vault predicted where the $\lambda_1$ answer would be and was wrong.** The recorded lesson: **methods papers optimise for ablation questions ("is this component needed?"), not calibration questions ("how much of it?")**. See [[free-parameters-load-bearing]].
 
@@ -182,7 +190,8 @@ Fujii et al. supply the honest version of mode 1 — [[dynamic-time-warping|DTW]
 - **Season-long recruitment** → xT for stability; [[transfer-performance-prediction|regression]] to shortlist; [[scoutgpt|simulation]] for fit, noting the coarseness caveat.
 - **An attacker whose output understates him** → [[obso|OBSO]] and [[c-obso]], the two with external validation. ⚠️ They disagree with the RL Q-values.
 - **A defender or deep midfielder** → the RL Q-values, on 14 players and no reliability figure.
-- **Describing team *style* rather than valuing players** → [[social-network-analysis|pass networks]]. Note these metrics **cannot be summed or transferred between clubs.**
+- **Describing team *style* rather than valuing players** → [[social-network-analysis|pass networks]] for players, [[network-cohesion]] for the team as a structure. Note these metrics **cannot be summed or transferred between clubs**, and that the tradition's one inferential claim about winning did not survive acquisition of its primary source.
+- **Asking what breaks if a passing lane is cut** → [[network-cohesion|edge connectivity]], which is a counterfactual with no model behind it. Cheap, and shallow in proportion: it assumes the team would not reorganise, which is exactly what a team does.
 - **Coaching a decision** → [[xsot|SPC]]. **A position** → [[drso|DRSO]]. **A pass** → [[physics-based-pass-probabilities|hypothetical passing]].
 - **Simulating football** → agents can be trained and their *passing structure* partly resembles reality; movement does not. Nothing here supports a tactical conclusion drawn from a simulator.
 - **Assessing a defence** → [[gvdep|GVDEP]] over [[vdep|VDEP]]. Team level.

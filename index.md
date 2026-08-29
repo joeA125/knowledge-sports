@@ -37,6 +37,9 @@ A catalog of all wiki pages, organised by type.
 - [[miru-hong]] · [[minho-lee]] · [[sang-ki-ko]] · [[geonhee-jo]] · [[jae-hee-so]] — EventGPT and ScoutGPT
 - [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]] — Valuing Players Over Time
 
+### Network analysis of team structure
+- [[javier-lopez-pena]] · [[hugo-touchette]] — the 2010 World Cup pass-network paper; the vault's oldest football source, and its only primary source on this tradition
+
 ### Ratings and duels
 - [[garry-gelade]] — Bradley-Terry model of 1v1 duel ability
 - [[mark-glickman]] — Glicko and Glicko-2 · [[alexander-sirotkin]] — Glicko-2 duel and league ratings
@@ -115,7 +118,9 @@ A catalog of all wiki pages, organised by type.
 - [[player-rating-time-series]] · [[performance-volatility]]
 
 ### Data and Representation
-- [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]] · [[social-network-analysis]]
+- [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]]
+- [[social-network-analysis]] — pass networks as weighted directed graphs; player-level centrality
+- [[network-cohesion]] — the team-level half: clustering, edge connectivity, cliques, and a reported community-detection failure
 
 ### Computer Vision
 - [[game-state-reconstruction]] · [[multi-object-tracking]] · [[object-detection]] · [[camera-calibration]]
@@ -177,6 +182,9 @@ Eight open investigations, grouped by who could answer them.
 - [[football-event-sequences-point-process-mixture]] — Amezouwui et al. (2025)
 - [[eventgpt-player-impact-team-action-sequences]] — Lee, Hong et al. (2025)
 - [[scoutgpt-counterfactual-player-valuation]] — Hong et al. (2026)
+
+### Tactical description and pass networks
+- [[network-theory-football-strategies]] — "A network theory analysis of football strategies" (López Peña & Touchette, 2012) — the tactical task's only primary source
 
 ### Computer vision for sport
 - [[soccernet-game-state-reconstruction]] — Somers et al. (2024)

@@ -1,7 +1,7 @@
 ---
 title: "Knowledge Base Overview"
 type: synthesis
-tags: [sports-analytics, action-valuation, off-ball, evaluation, reinforcement-learning, computer-vision, player-evaluation]
+tags: [sports-analytics, action-valuation, off-ball, evaluation, reinforcement-learning, computer-vision, player-evaluation, network-analysis, tactical-analysis]
 sources: []
 confidence: 0.8
 provenance:
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-04-22
-updated: 2026-08-14
+updated: 2026-08-29
 ---
 
 # Knowledge Base Overview
@@ -27,15 +27,17 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **271** |
-| Concepts | 151 |
-| Entities | 67 |
-| Source summaries | **40** |
+| Total pages | **275** |
+| Concepts | 152 |
+| Entities | 69 |
+| Source summaries | **41** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 40 raw sources are ingested.** Mean page confidence 0.827; 163 pages `reviewed`, 105 `draft`, 3 `evergreen` (the dashboards).
+**All 41 raw sources are ingested.** Mean page confidence 0.827; 163 pages `reviewed`, 109 `draft`, 3 `evergreen` (the dashboards).
+
+> **Updated 2026-08-29** on ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**. Counts re-read from `vault_stats`, not recalled.
 
 ## What This Vault Is About
 
@@ -61,6 +63,8 @@ The material divides into **seven tasks**, set out in full on [[action-valuation
 
 **Sequence and event modelling.** [[nmstpp]], [[seq2event]], [[sig-model]], [[scoutgpt]], [[eventgpt]] — forecasting the next event, and the metrics ([[hpus]], [[lpv]]) derived downstream from those forecasts.
 
+**Tactical description.** [[social-network-analysis]] and [[network-cohesion]] — pass networks as weighted directed graphs, characterising a team by graph structure rather than by valuing its actions. **The one line here that entered football from outside sports analytics**, from graph theory and statistical physics, and the only task validated by expert recognition of a style rather than against a criterion. Primary-sourced since 2026-08 by [[network-theory-football-strategies|López Peña & Touchette]].
+
 **Computer vision for sport.** [[game-state-reconstruction]], [[camera-calibration]], [[soccernet-game-state-reconstruction]], [[camera-calibration-benchmarking]]. Notably the **only area here with functioning cross-method benchmarking**, which makes it a useful control on the valuation literature's failure to do the same.
 
 **Rating systems.** [[elo-rating-system]], [[glicko-rating-system]], [[trueskill]], [[bradley-terry-model]], applied through [[league-strength-rating]] and [[duel-skill-rating]].
@@ -71,15 +75,15 @@ By inbound wikilink count, not by memory:
 
 | Page | Inbound |
 |---|---|
-| [[vaep]] | 73 |
+| [[vaep]] | 74 |
+| [[c-obso]] | 64 |
 | [[keisuke-fujii]] | 63 |
-| [[c-obso]] | 63 |
 | [[action-valuation]] | 62 |
-| [[action-valuation-frameworks-compared]] | 58 |
+| [[action-valuation-frameworks-compared]] | 61 |
 | [[nmstpp]] | 55 |
 | [[expected-value-possession-framework]] | 50 |
 | [[off-ball-value]] | 48 |
-| [[expected-threat]] | 47 |
+| [[expected-threat]] | 48 |
 | [[vdep]] | 47 |
 
 Three things worth remarking on. **[[keisuke-fujii]] at 63** reflects a single research group authoring nine held sources — the largest concentration in the vault, and the only one with enough overlapping work on one dataset to check itself. **[[split-half-reliability]] at 43** is higher than its subject matter would suggest, because the absence of reliability figures is load-bearing across the off-ball argument.
@@ -91,8 +95,9 @@ And **[[transformer]] has left the top fifteen entirely.** Before the migration 
 - **Metrics beat outcomes at predicting outcomes.** [[obso|OBSO]] predicts next-match goals better than shots or goals do. Goals are the worst predictor of future goals at both player and team level. See [[predictive-validity]].
 - **Where metrics have been compared, they disagree** — and the comparisons are rare because comparison requires two methods on one dataset, which licensing usually prevents. See [[data-stadium]].
 - **The literature does not benchmark across frameworks.** Weakened twice and still standing; contrast the CV cluster, where [[camera-calibration-benchmarking|ProCC]] exists specifically to enable it.
-- **Sixteen asserted free parameters carry no sensitivity analysis**, across six distinct kinds. See [[free-parameters-load-bearing]].
+- **Sixteen asserted free parameters carry no sensitivity analysis**, across six distinct kinds — **now eighteen across seven**, the seventh being a constant borrowed from another field entirely ([[social-network-analysis|PageRank's]] $p = 0.85$, from web search). See [[free-parameters-load-bearing]].
 - **Offensive bias has four causes with four different remedies** — definitional, data, modelling choice, and statistical. See [[action-valuation]].
+- **A claim held only through citation is unaudited, not merely thin.** Acquiring [[network-theory-football-strategies|one long-cited primary]] falsified three things the vault believed about it, including a finding its citing source had manufactured. See [[social-network-analysis]].
 
 ## Open Questions
 
@@ -108,21 +113,25 @@ The third group is the distinctive one: these are questions no single paper pose
 
 ## Source Acquisition Priorities
 
-The RL and simulation line is now fully held, so the highest-value acquisitions lie elsewhere. Five areas, highest need first.
+The RL and simulation line is fully held, and **the SNA gap that topped this list has been closed** — see below for what remains of it. Five areas, highest need first.
 
-### 1. Social network analysis
-**An entire analytic tradition held second-hand.** [[social-network-analysis]] rests wholly on citations inside [[ai-football-reinforcement-learning|Scott et al.]] — the vault has no primary source for a literature with real findings.
-
-- **Peña & Hugo (2012)** — winning teams show *lower* betweenness; the origin of the PageRank formulation used here
-- **Gonçalves et al. (2017)** — lower single-player passing dependency may optimise team performance
-- **Clemente et al. (2016)** — the framework text; **Buldú et al. (2018)** on multilayer passing networks
-
-This is the largest gap because it is the only *task* in the seven-task taxonomy with no held primary source at all.
-
-### 2. Reliability of tracking-derived metrics
-`no-reliability-for-off-ball-metrics` has survived seven ingests. **Six off-ball mechanisms, zero reliability estimates.**
+### 1. Reliability of tracking-derived metrics
+`no-reliability-for-off-ball-metrics` has survived eight ingests. **Six off-ball mechanisms, zero reliability estimates.**
 
 Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
+
+**Now unambiguously the top priority**, and the only remaining one that would change a conclusion rather than add support.
+
+### 2. Social network analysis — *narrowed, not closed*
+> **Closed as the #1 gap, 2026-08-29.** [[network-theory-football-strategies|López Peña & Touchette (2012)]] is held. The tactical task is primary-sourced and **every one of the seven tasks now has at least one primary source.**
+
+Acquiring it was more productive than a confirming source would have been, because it **falsified** what the vault held second-hand: a garbled citation on four pages, an inverted PageRank parameter, and a headline finding that is not in the paper and does not survive testing against its own table. See [[social-network-analysis]].
+
+What remains, and why it still ranks second:
+
+- **Gonçalves et al. (2017)** — lower single-player passing dependency may optimise team performance. **The last unheld SNA claim carrying an inferential conclusion**, and therefore the one most likely to be a downstream gloss like the one just corrected
+- **Buldú et al. (2018)** — multilayer passing networks; the route past the [[network-cohesion|community-detection failure]], which is structural rather than fixable by method
+- **Clemente et al. (2016)** — the framework text; lowest priority, since the framework is now held in instance form
 
 ### 3. Team-as-one-agent RL
 Cited across [[multi-agent-reinforcement-learning]] as the tradition both held MARL papers define themselves against, entirely second-hand.
@@ -136,12 +145,16 @@ Two citation problems that only primaries can fix.
 - **Spearman (2018) primary** — [[c-obso]] and [[drso]] set PPCF parameters σ = 0.45, λ = 4.3 citing a paper that fits s = 0.54, λ = 3.99. A citation error propagating through the line; see [[obso]]
 - **Kurach et al. (2020)** — everything on [[google-research-football]] comes from three papers that *used* the environment
 
+⚠️ **This category has been upgraded by the SNA ingest.** It was framed as parameter hygiene; it is now the vault's second confirmed instance of **a numeric detail propagating wrongly through a citation chain**, alongside the "Peña & Hugo" name and the $p = 0.85$ damping factor borrowed from web search. Three instances is a pattern, and the Spearman discrepancy is the one still unresolved.
+
 ### 5. Scale versus fidelity in simulation
 - **Liu et al. (2021), Humanoid Football** — the only environment occupying the biomechanical corner of the trade-off tabled on [[agent-based-simulation]], and the natural counterpart to GFootball's 11v11 abstraction
 
 ---
 
-**Priorities 1 and 2 are the ones that would change conclusions**, not merely add support. The SNA gap means a whole task rests on second-hand description; the reliability gap means the vault's most striking finding — that two off-ball metrics disagree — cannot currently be interpreted.
+**Priority 1 is now the only acquisition that would change a conclusion** rather than add support. The reliability gap means the vault's most striking finding — that two off-ball metrics disagree — cannot currently be interpreted.
+
+**And the SNA ingest taught something about this list itself.** The gap was ranked first on the assumption that a whole task held second-hand was *under-supported*. It was worse than that: it was **wrongly supported**, and three of the vault's claims about it were false. A tradition described only through citations is not a thin part of the vault but an unaudited one.^[generated: drawn from the outcome of this ingest against the reasoning that prioritised it. rests-on: source:lopez-pena-betweenness-not-stated]
 
 ## Method
 
