@@ -1,8 +1,8 @@
 ---
 title: "Off-Ball Value"
 type: concept
-tags: [off-ball, space-creation, sports-analytics, action-valuation, defensive-valuation, player-evaluation, optical-tracking-data, probability-surface, pitch-control, counterfactual, reinforcement-learning, multi-agent, construct-validity, evaluation]
-sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md]
+tags: [off-ball, space-creation, sports-analytics, action-valuation, defensive-valuation, player-evaluation, optical-tracking-data, probability-surface, pitch-control, counterfactual, reinforcement-learning, multi-agent, construct-validity, evaluation, reliability]
+sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md]
 confidence: 0.85
 provenance:
   extracted: 60%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-27
-updated: 2026-08-07
+updated: 2026-08-29
 ---
 
 # Off-Ball Value
@@ -120,6 +120,31 @@ $N = 14$, so this is weak evidence for any conclusion. But it is the only eviden
 - **No reliability figure for any off-ball metric here.**^[generated: an instance of `no-reliability-for-off-ball-metrics`, declared on the synthesis. **Re-checked 2026-08-07** on the Nakahara ingest: still holds — that paper reports no reliability figure either, and its authors state no ground truth exists. Six mechanisms, zero reliability estimates. rests-on: claim:no-reliability-for-off-ball-metrics] Since [[split-half-reliability|reliability]] is the criterion that matters most for [[recruitment]], the metrics best suited to finding undervalued players are the ones whose stability is least known.
 
 **The reliability gap and the disagreement gap are the same gap.** If two metrics disagree, either they measure different things or at least one is unstable — and without a reliability figure those cannot be told apart. That makes reliability the cheapest next measurement in this whole area.
+
+### ⚠️ And the Missing Numbers Are Probably Worse Than Assumed
+
+> **Added 2026-08-29** on ingest of [[gps-deceleration-reliability|Jones et al. (2024)]]. See [[reliability-layers]].
+
+The only empirical handle the vault has on how reliability behaves under transformation comes from outside football valuation entirely: **reliability falls with derivation depth.** Measuring maximal deceleration, directly sampled velocity reproduced at ICC 0.81 and CV 1.4%; quantities two transformations away — an integral, a detected segment duration — fell to ICC 0.48–0.57.
+
+Ranked by how far each mechanism sits from a sampled position:
+
+| Mechanism | Chain from tracking data | Depth |
+|---|---|---|
+| [[vdep]], [[gvdep]] | positions → classifier | **Shallowest** |
+| Route 6 ($Q$) | positions, velocities → GRU → $Q$ | Shallow |
+| [[obso\|OBSO]] | positions → pitch control → scoring surface | Medium |
+| [[space-occupation-gain\|SOG]] | positions → control × value → **differenced over 3 s** | Deep |
+| [[drso\|DRSO]] | positions → control → danger → **optimal-position search** | Deep |
+| [[c-obso\|C-OBSO]] | positions → **trajectory prediction** → control → surface → **counterfactual difference** | **Deepest** |
+
+^[generated: no source ranks these by derivation depth; constructed here from each mechanism's stated pipeline. rests-on: claim:each-layer-of-derivation-costs-reliability]
+
+**Two of the deepest three are the ones that differencing makes deeper still.** A difference of two noisy quantities is noisier than either — the standard variance result — and routes 2, 4 and 5 all end in a subtraction.
+
+This is an extrapolation across domains and explicitly not a measurement.^[generated: flagged as extrapolation on [[reliability-layers]]] But it predicts something checkable: **if the six mechanisms were ranked by split-half reliability, the counterfactual-differenced ones should come last.** That is a concrete, falsifiable ordering where the vault previously had only "nobody has measured it".
+
+**It also supplies a candidate reading of the ρ = 0.182 disagreement above.** C-OBSO is the deepest mechanism here and the Q-values among the shallowest. The paper's explanation — different position groups — and an instability explanation are not exclusive, and **the reliability measurement would separate them.** One number, and it settles which.^[generated: neither reading is proposed by any source]
 
 ## What the Evidence Shows
 

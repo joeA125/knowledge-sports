@@ -3509,3 +3509,89 @@ LIMITATIONS WORTH REMEMBERING: n=16 for reliability; DECave ICC 0.57 has 95% CI 
       and split-half-reliability but the question page itself is NOT updated
   A flag on the overview now points here. These deserve a fresh run.
 
+## [2026-08-30 17:32] maintenance | Cross-page propagation run — clearing the four-ingest backlog
+No new source read. Dedicated propagation run clearing the backlog accumulated across four
+ingests in the preceding session (Lopez Pena & Touchette, Fujii survey, Gong et al., Jones et al.).
+
+PAGES UPDATED (8) + CREATED (1):
+
+within-season-variation-noise-or-signal — the highest-priority item, flagged as most affected
+  and least updated. A THIRD POSSIBILITY ELIMINATED: the page's "noise vs stable player
+  property" framing had quietly folded in a third option — that epsilon is MEASUREMENT ERROR.
+  Now closed from two directions: (1) xT and VAEP computed on the SAME event stream, so coding
+  noise would depress both, and xT returns 0.89; (2) Gong et al. bound coding agreement at
+  ICC >= 0.93. BOTH SURVIVING OPTIONS ARE ABOUT THE PLAYER.
+  PRIOR SHIFTED, CAREFULLY: Jones et al. found their CRITERION RADAR only moderately reliable
+  (ICC 0.62-0.78) with error attributed to the athlete's deceleration strategy. But this shows
+  epsilon is LARGE and ATHLETE-ORIGINATED — NOT that a player's epsilon MAGNITUDE is a stable
+  trait, which is what the page's test actually asks. A player may be inconsistently
+  inconsistent. Recorded as a prior shift, not a resolution.
+  Added a THIRD TEST: code n matches twice, compute VAEP under each, correlate ratings.
+
+off-ball-value — DERIVATION-DEPTH RANKING of the six mechanisms, constructed from each one's
+  stated pipeline: VDEP/GVDEP shallowest; route 6 shallow; OBSO medium; SOG and DRSO deep;
+  C-OBSO deepest (tracking -> trajectory prediction -> control -> surface -> counterfactual
+  difference). TWO OF THE DEEPEST THREE END IN A SUBTRACTION, and a difference of two noisy
+  quantities is noisier than either.
+  This makes a FALSIFIABLE PREDICTION where the vault previously had only "nobody measured it":
+  if the six were ranked by split-half reliability, the counterfactual-differenced ones should
+  come last. It also supplies a candidate reading of the rho=0.182 C-OBSO/Q-value disagreement
+  — C-OBSO is the deepest mechanism, the Q-values among the shallowest. The paper's
+  position-group explanation and an instability explanation are NOT EXCLUSIVE, and one
+  reliability measurement separates them.
+
+rare-event-proxy-targets — A FOURTH CONDITION FOR A GOOD PROXY, which no source states:
+  RELIABLY OBSERVABLE. Gong et al.: passing ICC 1.00 / TE 0.01; defending-and-goalkeeper
+  ICC 0.93-0.95 / TE 0.24-0.29. NEW CLAIM
+  `proxy-substitution-trades-statistical-power-for-measurement-noise` — goals are the one
+  football event nobody misclassifies; the events substituted for them are defined by judgement
+  and coded worst. The move buys positives and pays in per-observation noise, and NO SOURCE
+  PRICES THE SECOND HALF. Predicts an ordering: shot-on-target cleanest, ball recovery noisiest.
+
+vdep — its proxies sit in the noisiest coding cell. Also bears on C: a frequency ratio computed
+  over event types with DIFFERENT coding reliability inherits that asymmetry, and neither VDEP's
+  frequency-based C nor GVDEP's VAEP-scaled replacement accounts for it.
+
+construct-validity — EXPERT ASSENT IS A RECURRING MODE, three instances the vault had recorded
+  separately without noticing they were the same move: Gong et al. (20 coaches, definitions),
+  Fernandez & Bornn (2 analysts, the quantity), tactical style recognition (implicit, the reader).
+  NEW CLAIM `expert-panels-validate-definitions-well-and-quantities-poorly`. Gong et al. is the
+  GOOD case because it does both jobs SEPARATELY — panel establishes what should be counted,
+  hard statistics establish whether it was counted consistently. The tactical case is weakest:
+  assent is never elicited. PRACTICAL RULE: where a metric's only validation is expert assent to
+  a QUANTITY, the honest status is "not yet validated", not "validated differently".
+  Added content validity as a fourth column to the validity-criteria table.
+
+spadl — NEW CLAIM `interchange-formats-standardise-vocabulary-not-measurement`. SPADL unifies
+  ActionType faithfully, but StartLoc/EndLoc/Result are MEASUREMENTS, not type labels, and they
+  are what xT and VAEP consume. Gong et al. vs OPTA: similar total pass counts, disagreement on
+  SHORT PASSES — same events, different length threshold. Marked as a caution not a finding
+  (one match, and Champdas is a provider none of the vault's sources use).
+  NEW ABSENCE CLAIM: no held source reports a metric computed on TWO PROVIDERS' coverage of the
+  same matches. The SPADL converter makes that test cheap.
+  Also propagated the segmentation absence claim: StartTime/EndTime are boundary decisions of
+  the kind that were the two least reliable variables in Jones et al.
+
+CREATED: wiki/entities/miguel-angel-gomez.md — the vault's ONLY representative of European
+  sports performance analysis, as distinct from the ML literature that is nearly all the rest.
+  Kept strictly to what the held paper evidences, per the conventions' worked example on entity
+  affiliations. His value is as a LEAD INTO A LITERATURE.
+
+overview — NEW PRIORITY 1b: the validation literature. Gong et al. cite reliability validations
+  of AMISCO, PROZONE, SportsCode, OPTA, SICS, Dartfish, Nacsports — the vault holds NONE.
+  Highest-value item: Liu, Hopkins, Gomez & Molinuevo (2013), inter-operator reliability of OPTA
+  Sportsdata — OPTA IS A PROVIDER THE VAULT'S OWN SOURCES USE, unlike Champdas. Also Beato et al.
+  (2018) on Data.Stadium, which shares a name with the provider behind four held sources.
+  Backlog warning replaced with a completion note.
+
+RESIDUAL BACKLOG (small, deliberate):
+  - c-obso / obso / drso pages: the derivation-depth ranking is stated on off-ball-value, which
+    is the right home; per-page notes would be duplication. Revisit only if reliability figures
+    ever arrive.
+  - gvdep: inherits the VDEP coding-noise point by reference; not separately annotated.
+  - Author entities for Gong, Cui, Jones, Leduc, Harper, Bliss not created. Gomez was the one
+    with cross-vault value; the others are single-source with no lead attached.
+  - Champdas/Data.Stadium NAME COLLISION not investigated — Beato et al. (2018) validate a
+    "Data.Stadium System"; the vault holds data-stadium as the J-League tracking provider behind
+    four sources. Same company or not is UNRESOLVED and worth checking on acquisition.
+

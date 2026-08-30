@@ -1,8 +1,8 @@
 ---
 title: "Rare-Event Proxy Targets"
 type: concept
-tags: [proxy-target, class-imbalance, machine-learning, statistics, evaluation, sports-analytics, defensive-valuation, predictive-validity, game-theory]
-sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md]
+tags: [proxy-target, class-imbalance, machine-learning, statistics, evaluation, sports-analytics, defensive-valuation, predictive-validity, game-theory, reliability, event-stream-data]
+sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/stats_reliability_football_champdas.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -10,7 +10,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-29
 ---
 
 # Rare-Event Proxy Targets
@@ -59,6 +59,32 @@ Three conditions, and the second is the one that gets skipped.
 
 **3. Not so far upstream that it measures something else.** Push far enough and the proxy becomes its own construct with its own validity question.
 
+### 4. Reliably observable — the condition nobody states
+
+> **Added 2026-08-29** on ingest of [[champdas-validity-reliability|Gong et al. (2019)]]. See [[operator-reliability]].
+
+The trade above is always presented as **statistical**: swap a rare target for a frequent one and buy positives. It is also a trade in **measurement quality**, and that half has gone unremarked.
+
+Operator agreement on manual event coding is not uniform across event types:
+
+| Event group | Inter-operator ICC | Typical error |
+|---|---|---|
+| Passing | **1.00** | **0.01** |
+| Attacking | 0.99–1.00 | 0.06–0.08 |
+| **Defending and goalkeeper** | **0.93, 0.95** | **0.24, 0.29** |
+
+**[[vdep|VDEP]]'s proxies live in the worst cell.** Ball recovery is built from tackles, interceptions and clearances — precisely the actions two trained analysts agree on least.
+
+> ### `proxy-substitution-trades-statistical-power-for-measurement-noise`
+> **A frequent proxy is not merely more numerous than the rare outcome; it may also be harder to observe consistently. Goals are unambiguous and near-perfectly coded — a goal is the one football event nobody misclassifies. The events substituted for them are defined by judgement, and coding agreement is measurably worse on exactly those. The move buys positives and pays in per-observation noise, and no source prices the second half.**
+> ^[generated: no source connects coding-agreement figures to proxy selection. rests-on: source:gong-table5-defensive-cell, source:vdep-proxy-frequencies]
+
+⚠️ **Not a refutation, and the direction of the net effect is unknown.** A typical error of 0.29 is still "small" on Hopkins' scale, and 90× more observations is a large gain against a modest per-observation cost. The point is that **the arithmetic has never been done**, and the trade has been presented as free.
+
+It also predicts an ordering: among the proxies tabled above, **shot on target should be the cleanest** — a discrete, refereeable outcome — and **ball recovery the noisiest.** [[hpus|HPUS]] sits oddly, being built from possession dynamics rather than from any single coded event type.
+
+⚠️ Note the coding figures come from **one system on one match**, and from a provider none of the vault's sources use. They bound nothing; they raise a question. See [[reliability-layers]].
+
 ## The Evidence That It Works
 
 Three independent results, all pointing the same way:
@@ -78,6 +104,8 @@ The pattern is consistent: **a metric built on a denser proxy can outperform one
 **Validation gets harder.** You can no longer check against the real outcome without reintroducing the sparsity you escaped. [[predictive-validity]] against downstream results becomes the main available test.
 
 **Goodhart risk.** A proxy optimised as a target drifts from the thing it proxied. Acute in sport, where a team told to maximise ball recoveries can do so by conceding territory cheaply.
+
+**Noisier per observation.** See condition 4 above — the events substituted in are the ones coders agree on least.
 
 ## Elsewhere
 

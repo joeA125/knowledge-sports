@@ -139,6 +139,7 @@ Three appearances across unrelated lines makes this a **recurring validation str
 ## See Also
 
 - [[operator-reliability]] — the concept this ingest created, and the layer distinction
+- [[reliability-layers]] · [[miguel-angel-gomez]] — the senior author, and a lead into the validation literature
 - [[split-half-reliability]] · [[within-season-variation-noise-or-signal]] · [[predictive-validity]] · [[construct-validity]] · [[performance-volatility]]
 - [[champdas-master-system]] · [[data-stadium]] · [[stats-perform]]
 - [[event-stream-data]] · [[spadl]] · [[expected-threat]] · [[vaep]] · [[action-valuation]]

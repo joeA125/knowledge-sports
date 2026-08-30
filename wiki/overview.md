@@ -39,7 +39,7 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 > **Updated 2026-08-29**, four times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]] and [[gps-deceleration-reliability|Jones et al. (2024)]]. Counts re-read from `vault_stats`, not recalled.
 >
-> ⚠️ **Cross-page propagation is behind.** Four ingests in one run exceeds the vault's own one-or-two-per-run standard, and several updates declared on new pages have not been pushed to the pages they concern. The backlog is itemised in the last four `log.md` entries under *DEFERRED*.
+> ✅ **Cross-page propagation caught up** in a dedicated run, 2026-08-29. The derivation-depth argument reached [[off-ball-value]]; the coding-noise finding reached [[vdep]] and [[rare-event-proxy-targets]] as a **fourth proxy criterion**; the expert-assent mode reached [[construct-validity]]; the attribute-level provider caution reached [[spadl]]; and the shifted prior reached [[within-season-variation-noise-or-signal]]. Residual backlog is itemised in the final `log.md` entry.
 
 ## What This Vault Is About
 
@@ -142,7 +142,17 @@ Any source reporting split-half or test–retest reliability for a tracking-deri
 >
 > **Where the closing source will come from:** outside the ML literature. [[data-driven-team-sports-behaviors|Fujii's survey]] does not treat reliability as a topic; both new sources appeared in psychology and sports-physiology journals.
 
-### 1b. The Koopman line — new, and by the vault's most central author
+### 1b. The validation literature — a whole discipline the vault does not hold
+> **Added 2026-08-29.** Three reliability papers arrived at three different layers and none closed priority 1. The reason is disciplinary: [[data-driven-team-sports-behaviors|Fujii's survey]] shows the ML literature does not treat reliability as a topic, and both new sources came from psychology and sports-physiology journals instead.
+
+[[champdas-validity-reliability|Gong et al.]] cite prior reliability validations of **AMISCO, PROZONE, SportsCode, OPTA, SICS, Dartfish and Nacsports.** The vault holds none.
+
+- **Liu, Hopkins, Gómez & Molinuevo (2013)**, *Inter-operator reliability of live football match statistics from OPTA Sportsdata* — **the highest-value item.** Opta is a provider the vault's own sources use, unlike Champdas
+- **Bradley et al. (2007)** on ProZone MatchViewer; **Beato et al. (2018)** on Data.Stadium — the latter shares a name with [[data-stadium|the tracking provider behind four held sources]]
+
+See [[miguel-angel-gomez]], the vault's only representative of this literature.
+
+### 1c. The Koopman line — new, and by the vault's most central author
 > **Added 2026-08-29.** [[koopman-mode-decomposition]] was created this ingest from a survey description alone, and carries a generated claim resting on an `imported:` dependency — the shape the vault has just been burned by twice.
 
 - **Fujii, Takeishi, Hojo, Inaba & Kawahara (2020)**, *Physically-interpretable classification of network dynamics*, Scientific Reports — the fullest application

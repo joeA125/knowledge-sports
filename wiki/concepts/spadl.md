@@ -1,8 +1,8 @@
 ---
 title: "SPADL (Soccer Player Action Description Language)"
 type: concept
-tags: [sports-analytics, data-engineering, action-space, event-stream-data, simulator, evaluation, action-valuation]
-sources: [raw/papers/evaluating-football-player-actions.md, raw/papers/ai_football_reinforcement_learning.md]
+tags: [sports-analytics, data-engineering, action-space, event-stream-data, simulator, evaluation, action-valuation, reliability]
+sources: [raw/papers/evaluating-football-player-actions.md, raw/papers/ai_football_reinforcement_learning.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md]
 confidence: 0.9
 provenance:
   extracted: 80%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-07-20
-updated: 2026-08-08
+updated: 2026-08-29
 ---
 
 # SPADL (Soccer Player Action Description Language)
@@ -79,6 +79,28 @@ SPADL and GFootball's action set do structurally similar work — both impose a 
 **Neither is a superset.** SPADL cannot express "the player ran north-east"; GFootball cannot express "the tackle succeeded". The overlap is passes and shots, which is precisely what Scott et al. were reduced to.
 
 That also explains a choice the vault flagged as odd on [[action-space-design]]: [[action-valuation-multi-agent-reinforcement-learning|Nakahara et al.]] adopt GFootball's vocabulary over SPADL despite working on real tracking data, and consequently discard the dribbling and trapping labels their provider supplies. **The movement-first vocabulary was the one that matched their question**, and the cost was on-ball granularity SPADL would have preserved.
+
+## ⚠️ Unification Is at the Type Level, and the Disagreement Is in the Attributes
+
+> **Added 2026-08-29** on ingest of [[champdas-validity-reliability|Gong et al. (2019)]], the vault's only direct provider-versus-provider event comparison.
+
+Gong et al. benchmarked one commercial system against **OPTA** on the same match. Agreement was acceptable across variables **except short passes** — and total pass counts were similar across both systems. **The passes are the same events; the labels differ**, because the two systems draw the short/long boundary at different lengths. They report the same problem for pass directions.
+
+SPADL's nine-attribute tuple unifies `ActionType`: a pass is a pass in both vendors, and the Python converter handles that faithfully. **But `StartLoc`, `EndLoc` and `Result` are not type labels — they are measurements**, and they are where a value model draws its features. [[expected-threat|xT]] is defined entirely over start and end zones; [[vaep|VAEP]] reads locations and results directly.
+
+> ### `interchange-formats-standardise-vocabulary-not-measurement`
+> **Converting two providers into one schema makes their records comparable in shape without making them comparable in content. A pipeline can be provider-agnostic at the level SPADL unifies and provider-dependent at the level its metrics consume.**
+> ^[generated: no source connects provider disagreement to SPADL's design. rests-on: source:gong-opta-short-pass-discrepancy, source:decroos-spadl-design-goals]
+
+This is a caution rather than a finding: **one match, two systems, and one of them is a provider none of the vault's sources use.** It does not establish that Opta, Wyscout and StatsBomb disagree with each other. It establishes that the *class* of disagreement is real and sits below the level SPADL operates on — which is enough to make it worth measuring, and nobody has.
+
+**No held source reports a metric computed on two providers' coverage of the same matches.** That is the test, it is straightforward, and the SPADL converter is what makes it cheap.^[generated: an absence claim, newly declared. rests-on: source:gong-opta-short-pass-discrepancy]
+
+### And boundary detection is unmeasured
+
+[[gps-deceleration-reliability|Jones et al. (2024)]] found the two least reliable variables in their set were the two that depend on **detecting where a phase ends** — while a quantity read directly from the same signal stayed stable. See [[reliability-layers]].
+
+SPADL's `StartTime` and `EndTime` are boundary decisions of exactly that kind, and every possession-based construct in this vault stacks more on top: where a possession begins, when pressing starts, which frames belong to an attack. **No held source reports the reliability of any segmentation decision in football.**^[generated: declared on [[reliability-layers]]. rests-on: source:jones-tts-dts-icc]
 
 ## See Also
 

@@ -2,7 +2,7 @@
 title: "Construct Validity"
 type: concept
 tags: [construct-validity, evaluation, predictive-validity, reliability, player-evaluation, sports-analytics, action-valuation, off-ball, statistics, needs-review]
-sources: [raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/football-performance-time-series.md]
+sources: [raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/wide_open_spaces_creation_football.md]
 confidence: 0.7
 provenance:
   extracted: 42%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 0%
 lifecycle: draft
 created: 2026-08-07
-updated: 2026-08-07
+updated: 2026-08-29
 ---
 
 # Construct Validity
@@ -65,12 +65,14 @@ This is the vault's first head-to-head between two off-ball metrics, and it is n
 
 ## The Three Validity Criteria, Compared
 
-| | [[split-half-reliability\|Reliability]] | [[predictive-validity]] | **Construct validity** |
-|---|---|---|---|
-| Asks | Is it stable? | Does it forecast? | Is it *the thing*? |
-| Needs | Repeated samples | A future outcome | Other metrics |
-| Can be gamed by | A degenerate constant | A proxy for the outcome | **Divergence from everything** |
-| Reported by | [[player-rating-time-series\|Mendes-Neves et al.]], [[on-ball-actions-football-xt-vs-vaep\|Van Roy et al.]] | [[obso\|OBSO]] (0.26 next-match goals) | Nakahara et al., [[c-obso\|C-OBSO]] |
+| | [[split-half-reliability\|Reliability]] | [[predictive-validity]] | **Construct validity** | **Content validity** |
+|---|---|---|---|---|
+| Asks | Is it stable? | Does it forecast? | Is it *the thing*? | Is it **defined** right? |
+| Needs | Repeated samples | A future outcome | Other metrics | **An expert panel** |
+| Can be gamed by | A degenerate constant | A proxy for the outcome | **Divergence from everything** | A friendly panel |
+| Reported by | [[player-rating-time-series\|Mendes-Neves et al.]], [[on-ball-actions-football-xt-vs-vaep\|Van Roy et al.]] | [[obso\|OBSO]] (0.26 next-match goals) | Nakahara et al., [[c-obso\|C-OBSO]] | [[champdas-validity-reliability\|Gong et al.]] |
+
+⚠️ **Reliability is itself three things** — coding, instrument, metric — measured by different statistics and failing for different reasons. The column above is the metric layer. See [[reliability-layers]].
 
 These are not substitutes and none is sufficient alone. The strongest result in the vault — OBSO predicting next-match goals at 0.26, beating shots and goals themselves — is *predictive*, against an external outcome, and that is why it is the strongest.
 
@@ -84,6 +86,30 @@ Both papers reach for external quantities as stand-ins for ground truth.
 - **Expert match ratings** (both papers) — reflect journalists' judgement, and are known from C-OBSO's own tables to be **heavily goal-driven**.
 
 Neither is ground truth; both are *other raters*. Agreement is convergent evidence against a noisy human criterion, and disagreement is ambiguous between "the metric sees what humans miss" and "the metric is wrong". C-OBSO's salary result is the more useful mainly because it was the only positive result among three tested on one sample, which makes it harder to attribute to fishing.
+
+## Expert Assent Is a Recurring Mode, Not a One-Off Compromise
+
+> **Added 2026-08-29** on ingest of [[champdas-validity-reliability|Gong et al. (2019)]]. The vault had recorded three instances separately without noticing they were the same move.
+
+| Instance | Panel | What was judged |
+|---|---|---|
+| [[champdas-validity-reliability\|Gong et al.]] | **20 licensed coaches**, 13.3 ± 7.1 yrs experience | Whether each of 31 event **definitions** is correct and pertinent — Aiken's V 0.84–0.85 against a 0.52 critical value |
+| [[wide-open-spaces-space-creation\|Fernández & Bornn]] | Two FC Barcelona analysts | Whether the **space-value surface itself** looks right, by video review |
+| Tactical description | Implicit — the reader | Whether [[social-network-analysis\|pass-network]] numbers **recognisably match a known style** (Spain, *tiki-taka*) |
+
+Three appearances across unrelated research lines makes this a **standard instrument** wherever the target quantity has no observable ground truth — which, per the top of this page, is most of what this vault holds.
+
+**But the three are not equally sound, and the difference is what gets judged.**
+
+> ### `expert-panels-validate-definitions-well-and-quantities-poorly`
+> **Asking experts whether a definition is correct is the right use of a panel: definitional adequacy has no ground truth even in principle, so expert consensus is not a substitute for a measurement but the actual criterion. Asking experts whether a computed quantity is right is a fallback, because there the panel stands in for a measurement that could exist and has not been taken.**
+> ^[generated: no source distinguishes these uses; drawn across the three instances. rests-on: source:gong-aiken-v, source:fb-expert-review]
+
+Gong et al. is the good case, and it is instructive **because it does both jobs separately**: coaches rate the definitions, and then agreement on applying those definitions is measured with Kappa, ICC and typical error. Expert judgement establishes *what should be counted*; hard statistics establish *whether it was counted consistently*. Fernández & Bornn have no such second step available, because there is no ground truth for space value — and they say so explicitly.
+
+**The tactical case is the weakest**, because the assent is never elicited. A reader recognising *tiki-taka* in a table of clustering coefficients is doing uncontrolled, unblinded, post-hoc validation with a sample of one. See [[action-valuation-frameworks-compared]], where the tactical task is the only one of seven validated this way.
+
+⚠️ **Practical consequence for reading this vault:** where a metric's only validation is expert assent to *the quantity*, the honest status is "not yet validated" rather than "validated differently". Where the assent is to a *definition*, it is doing legitimate work and should not be discounted.
 
 ## What Would Settle It
 
