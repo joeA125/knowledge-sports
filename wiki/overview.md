@@ -27,17 +27,17 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **275** |
-| Concepts | 152 |
+| Total pages | **278** |
+| Concepts | 154 |
 | Entities | 69 |
-| Source summaries | **41** |
+| Source summaries | **42** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 41 raw sources are ingested.** Mean page confidence 0.827; 163 pages `reviewed`, 109 `draft`, 3 `evergreen` (the dashboards).
+**All 42 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 112 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29** on ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**. Counts re-read from `vault_stats`, not recalled.
+> **Updated 2026-08-29**, twice. First on ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**. Then on ingest of [[data-driven-team-sports-behaviors|Fujii (2021)]], the group's own field survey. Counts re-read from `vault_stats`, not recalled.
 
 ## What This Vault Is About
 
@@ -76,15 +76,15 @@ By inbound wikilink count, not by memory:
 | Page | Inbound |
 |---|---|
 | [[vaep]] | 74 |
-| [[c-obso]] | 64 |
-| [[keisuke-fujii]] | 63 |
+| [[c-obso]] | 66 |
+| [[keisuke-fujii]] | 65 |
+| [[action-valuation-frameworks-compared]] | 63 |
 | [[action-valuation]] | 62 |
-| [[action-valuation-frameworks-compared]] | 61 |
-| [[nmstpp]] | 55 |
+| [[nmstpp]] | 57 |
 | [[expected-value-possession-framework]] | 50 |
-| [[off-ball-value]] | 48 |
+| [[vdep]] | 49 |
+| [[off-ball-value]] | 49 |
 | [[expected-threat]] | 48 |
-| [[vdep]] | 47 |
 
 Three things worth remarking on. **[[keisuke-fujii]] at 63** reflects a single research group authoring nine held sources — the largest concentration in the vault, and the only one with enough overlapping work on one dataset to check itself. **[[split-half-reliability]] at 43** is higher than its subject matter would suggest, because the absence of reliability figures is load-bearing across the off-ball argument.
 
@@ -98,6 +98,8 @@ And **[[transformer]] has left the top fifteen entirely.** Before the migration 
 - **Sixteen asserted free parameters carry no sensitivity analysis**, across six distinct kinds — **now eighteen across seven**, the seventh being a constant borrowed from another field entirely ([[social-network-analysis|PageRank's]] $p = 0.85$, from web search). See [[free-parameters-load-bearing]].
 - **Offensive bias has four causes with four different remedies** — definitional, data, modelling choice, and statistical. See [[action-valuation]].
 - **A claim held only through citation is unaudited, not merely thin.** Acquiring [[network-theory-football-strategies|one long-cited primary]] falsified three things the vault believed about it, including a finding its citing source had manufactured. See [[social-network-analysis]].
+- **The field's own survey neither benchmarks nor discusses reliability.** [[data-driven-team-sports-behaviors|Fujii (2021)]] catalogues dozens of frameworks and compares none, with no licensing constraint to excuse it — which moves both absences from *structural* to *disciplinary*. See [[action-valuation-frameworks-compared]].
+- **Twenty-two players have no canonical order**, and every framework here resolves that silently. Four routes exist, they trade order against interpretability, and none has been compared. See [[permutation-problem]].
 
 ## Open Questions
 
@@ -116,11 +118,22 @@ The third group is the distinctive one: these are questions no single paper pose
 The RL and simulation line is fully held, and **the SNA gap that topped this list has been closed** — see below for what remains of it. Five areas, highest need first.
 
 ### 1. Reliability of tracking-derived metrics
-`no-reliability-for-off-ball-metrics` has survived eight ingests. **Six off-ball mechanisms, zero reliability estimates.**
+`no-reliability-for-off-ball-metrics` has survived **nine** ingests. **Six off-ball mechanisms, zero reliability estimates.**
 
 Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
 
 **Now unambiguously the top priority**, and the only remaining one that would change a conclusion rather than add support.
+
+⚠️ **And the gap looks disciplinary, not incidental.** [[data-driven-team-sports-behaviors|Fujii's 2021 field survey]] contains **no discussion of measurement reliability at all** — the field's own review does not treat it as a topic that exists. A source that closes this will most likely come from **outside** sports analytics, from psychometrics or sports science, rather than from the literature catalogued here.
+
+### 1b. The Koopman line — new, and by the vault's most central author
+> **Added 2026-08-29.** [[koopman-mode-decomposition]] was created this ingest from a survey description alone, and carries a generated claim resting on an `imported:` dependency — the shape the vault has just been burned by twice.
+
+- **Fujii, Takeishi, Hojo, Inaba & Kawahara (2020)**, *Physically-interpretable classification of network dynamics*, Scientific Reports — the fullest application
+- **Fujii, Inaba & Kawahara (2017)**, Koopman spectral kernels — the construct itself
+- **Kawahara (2016)**, DMD with reproducing kernels — the methodological primary
+
+Cheap to justify: [[keisuke-fujii]] already accounts for ten held sources, and this is the one line of his work the vault describes without holding.
 
 ### 2. Social network analysis — *narrowed, not closed*
 > **Closed as the #1 gap, 2026-08-29.** [[network-theory-football-strategies|López Peña & Touchette (2012)]] is held. The tactical task is primary-sourced and **every one of the seven tasks now has at least one primary source.**
@@ -138,6 +151,8 @@ Cited across [[multi-agent-reinforcement-learning]] as the tradition both held M
 
 - **Liu & Schulte (2018)**; **Liu et al. (2020)**; **Routley & Schulte (2015)**
 - **Luo, Schulte & Poupart (2020)** on inverse RL for sports
+
+⚠️ **[[data-driven-team-sports-behaviors|Fujii's survey]] describes Liu & Schulte and does not close this.** It reports Q-function estimation with an RNN, made interpretable via a linear model tree. That is a second-hand description in a survey — precisely the status of the López Peña gloss that turned out to have manufactured a finding. Use it to locate the papers, not to characterise them.
 
 ### 4. Primary sources for borrowed parameters
 Two citation problems that only primaries can fix.

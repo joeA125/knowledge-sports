@@ -48,7 +48,8 @@ here first with a brief description.
 - `transformer` — Transformer architecture and variants
 - `attention` — attention mechanisms in neural networks
 - `graph-neural-network` — neural networks operating on graph-structured data via message passing
-- `network-analysis` — graph-theoretic description of an interaction structure via centrality and path metrics (closeness, betweenness, PageRank)
+- `dynamical-systems` — describing a system by its evolution operator and spectral properties rather than by fitted associations (Koopman operator, dynamic mode decomposition, spectral kernels)
+- `network-analysis` — graph-theoretic description of an interaction structure via centrality and path metrics (closeness, betweenness, PageRank), plus team-level cohesion measures (clustering coefficient, connectivity, cliques)
 - `sequence-modelling` — modelling sequential data (text, time series, etc.)
 - `sequence-alignment` — matching two sequences that may differ in timing or length (DTW, edit distance, warping paths)
 - `trajectory-prediction` — forecasting future positions of one or more interacting agents

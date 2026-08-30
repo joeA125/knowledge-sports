@@ -2,7 +2,7 @@
 title: "Social Network Analysis (Pass Networks)"
 type: concept
 tags: [network-analysis, sports-analytics, tactical-analysis, pass-modelling, player-evaluation, evaluation, event-stream-data, simulator, domain-adaptation, interpretability, model-selection]
-sources: [raw/papers/ai_football_reinforcement_learning.md, raw/papers/football_strategy_network_theory_analysis.md]
+sources: [raw/papers/ai_football_reinforcement_learning.md, raw/papers/football_strategy_network_theory_analysis.md, raw/papers/team_sports_data_analysis.md]
 confidence: 0.85
 provenance:
   extracted: 55%
@@ -45,6 +45,23 @@ This is not a fringe method. [[ai-football-reinforcement-learning|Scott, Fujii &
 - **Gonçalves et al. (2017):** lower passing dependency on any one player, and higher intra-team connectedness, may optimise team performance. **Not held.**
 
 Clemente, Buldú and Gonçalves remain unheld. The vault's football coverage has been almost entirely **valuation-first** — assign a number to an action, aggregate to a player — and this is a genuinely different tradition that describes **structure** instead. It belongs alongside [[tactical-analysis]] rather than [[action-valuation]].
+
+### ⚠️ The Group's Own Survey Gives This One Clause
+
+> **Added 2026-08-29** on ingest of [[data-driven-team-sports-behaviors|Fujii's 2021 survey]].
+
+Pass-network analysis appears in that survey **once** — a single citation of Yamamoto & Yokoyama (2011), listed among "more mathematically sophisticated" rule-based approaches, alongside self-similarity in team front position and group theory in a 3-vs-1 possession task.
+
+One year later, [[ai-football-reinforcement-learning|Scott, Fujii & Onishi]] make pass-network topology **the central instrument** of their sim-to-real transfer study.
+
+**The method was peripheral in the group's own map of the field twelve months before it became load-bearing in the group's own paper.**
+
+This is not an inconsistency. It is confirmation of the reason Scott et al. gave: SNA was selected for a **property** — insensitivity to physical differences between simulator and reality — rather than because the group considered it a central tool. The survey is the group's own evidence that it was not otherwise a priority.
+
+> Strengthens `transfer-evidence-is-conditional-on-the-dimension-chosen` on [[domain-adaptation]]. A dimension chosen instrumentally is a weaker basis for a transfer claim than one chosen because it matters, and here the instrumental choice is documented from two directions.
+> ^[generated: the juxtaposition is drawn here; neither source remarks on it. rests-on: source:fujii-survey-sna-single-clause, source:scott-sna-justification]
+
+It also bears on the [[network-theory-football-strategies|citation error]] found in the previous ingest. A tradition the citing group treated as peripheral is exactly the kind whose bibliography receives least scrutiny — which is consistent with, though not proof of, how "Peña & Hugo" survived review.^[inferred: no source connects the two; offered as a mechanism, not a finding]
 
 ### ⚠️ The Betweenness Finding Did Not Survive Acquisition
 

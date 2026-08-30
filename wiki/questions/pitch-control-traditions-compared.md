@@ -2,7 +2,7 @@
 title: "Do the two pitch-control traditions agree?"
 type: question
 tags: [pitch-control, sports-analytics, optical-tracking-data, probability-surface, evaluation, model-selection, needs-review]
-sources: [raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/expected_value_possession_framework.md, raw/papers/optimal_football_decisions_shot_taking_situations.md]
+sources: [raw/papers/physics_based_pass_probabilities.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/beyond_expected_goals.md, raw/papers/expected_value_possession_framework.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/team_sports_data_analysis.md]
 confidence: 0.75
 provenance:
   extracted: 55%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 2%
 lifecycle: draft
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-29
 ---
 
 # Do the two pitch-control traditions agree?
@@ -30,6 +30,33 @@ Neither tradition cites the other. Both position against **[[voronoi-tessellatio
 That reframes the absence. Two methods that **never engaged** is a different situation from two that engaged and disagreed: the silence is a fact about the field's structure, not evidence about relative merit. Neither paper had a reason built into it to compare against the other, because each was written as an improvement on Voronoi rather than as a competitor to a contemporary.
 
 It also means the comparison is **nobody's responsibility**, which is why it has stayed undone for eight years.
+
+### Partly Corroborated by an Independent Source — and Partly Complicated
+
+> **Added 2026-08-29** on ingest of [[data-driven-team-sports-behaviors|Fujii's 2021 survey]], which describes both traditions without being party to either.
+
+The survey supplies the first outside view of this genealogy, and it **splits on the two halves of the claim**:
+
+| Claim component | Survey's treatment |
+|---|---|
+| **Fernández & Bornn descends from Voronoi** | ✅ **Corroborated.** Space-value work — F&B and Cervone et al.'s NBA court realty — is described as *extending a Voronoi diagram* (Taki & Hasegawa, 2000) |
+| **Spearman descends from Voronoi** | ⚠️ **Not corroborated.** Spearman's work is introduced separately, as a probabilistic physics-based model, with no Voronoi lineage attached |
+
+So the "common ancestor" framing is **half confirmed by an independent party and half left standing on the vault's own inference.** The survey places the two traditions in the same section, one paragraph apart, and assigns them different parentage.
+
+⚠️ **The generated claim is narrowed accordingly**, per the conventions:
+
+> Both traditions *position against* Voronoi in their own texts, but only the Gaussian line is described by outside observers as descending from it. Spearman's is read from outside as belonging to a **physics-based modelling** lineage instead. The mutual silence may therefore be explained by *different intellectual parentage* as much as by a shared opponent.
+
+That is a **different and slightly better explanation** of the same silence. Two papers with a shared opponent might still have noticed each other; two papers from different traditions solving adjacent problems have less occasion to.
+
+### The Absence Claim Survives, and Is Now Stronger
+
+`no-held-source-compares-ppcf-and-gaussian` **holds.** The survey lists both, one paragraph apart, and compares nothing.
+
+This is the most informative test that absence has had. A survey faces **no licensing constraint** — the structural explanation this vault offers for missing comparisons, that two methods must be run on one dataset nobody holds. A review could have tabulated published results at zero data cost. It did not.^[generated: the survey's silence is observed here; the contrast against the licensing explanation is drawn here. rests-on: absence:no-held-source-compares-ppcf-and-gaussian, source:fujii-survey-no-comparison]
+
+An absence that survives a dedicated review of the field is evidence the gap is **disciplinary rather than incidental**, and it raises the value of the test proposed below: nobody is going to do it as a by-product of something else.
 
 ## They Are Not Answering the Same Question
 

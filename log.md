@@ -3208,3 +3208,106 @@ TOOL NOTE: write-time lint reported dead links for pages created earlier IN THE 
   a session; the standalone check is authoritative. Also hit one transient WinError 5
   file lock on wiki/overview.md that cleared on retry.
 
+## [2026-08-30 10:30] ingest | Fujii (2021) survey — the group's charter; resolves a flagged speculative claim and strengthens two absence claims
+SOURCE: raw/papers/team_sports_data_analysis.md
+"Data-driven Analysis for Understanding Team Sports Behaviors" — Keisuke Fujii, SOLE AUTHOR.
+Nagoya University. arXiv:2102.07545v2, Feb 2021. Acknowledges Atom Scott, Masaki Onishi, Rory Bunker.
+
+A SURVEY, not a primary. Treated as one throughout — see provenance note below.
+
+WHY IT MATTERS: it is the Fujii group's own map of the field, and it PREDATES EIGHT OF THE
+NINE other held Fujii sources. Only VDEP and GVDEP are contemporaneous. It is therefore not a
+retrospective but a CHARTER — what Fujii thought the field needed, immediately before his
+group produced the papers this vault is built on. Fujii now has TEN held sources.
+NEW CLAIM `the-group's-later-work-executes-its-earlier-survey`: the group's output is legible
+as a programme, not a sequence of papers. Supplies a CAUSE for a pattern the vault had only
+recorded — why the group's work is weighted toward counterfactual/interpretable constructs
+(C-OBSO, DRSO, VDEP) over raw predictive performance. The survey argues for exactly that in
+advance. Also: the vault's "Two Registers" split of Fujii's work maps onto the survey's own
+two sections (extract features/rules vs generate/control behaviour).
+
+PROVENANCE RULE FIRST EXERCISED: the rule proposed on network-theory-football-strategies one
+ingest ago — that a description of an unheld work read out of a HELD secondary is `imported:`,
+not `extracted:` — gets its first real test here. This page is 27% imported as a result.
+
+PAGES CREATED (3):
+  wiki/summaries/data-driven-team-sports-behaviors.md
+  wiki/concepts/koopman-mode-decomposition.md — Koopman operator / DMD / spectral kernels.
+    Fujii's OWN methodological line with Takeishi and Kawahara, entirely absent from the vault
+    despite entity pages describing it. NEW CLAIM
+    `dynamics-similarity-and-content-similarity-are-different-objects`: comparing plays by
+    trajectories (DTW, Frechet, path signature) vs by generating dynamics are distinct
+    operations that can disagree arbitrarily; no held source computes both. Flagged as resting
+    partly on `imported:` and therefore a hypothesis to test on acquisition, not a finding.
+  wiki/concepts/permutation-problem.md — split out; four routes, not three.
+
+PAGES UPDATED (7):
+  sequence-to-sequence-sets — SPECULATIVE CLAIM ACTED ON. The overview flagged three pages
+    retained on forward-looking grounds whose claims "should be acted on or retired rather
+    than left standing". `player-ordering-is-an-unsearched-choice` is now resolved:
+      SURVIVES: ordering is a free parameter with measurable effect
+      SURVIVES: no held source compares VDEP's sort against alternatives
+      FALSIFIED: "football frameworks mostly do not acknowledge this is a known problem" —
+        Fujii's survey names it explicitly and catalogues FOUR responses, not three.
+    Missing route was ROLE ASSIGNMENT via the Hungarian algorithm, longer track record than
+    any of the three the vault had. Narrowed, and the narrowed claim is STRONGER: a choice
+    made in a field that has catalogued the alternatives is harder to excuse, not easier.
+    NEW CLAIM `permutation-handling-trades-order-against-interpretability` — the four routes
+    differ in whether the player index means anything; a framework that needs to name a player
+    has already chosen its route. Connects to off-ball-value's team-only reporting.
+    Test restated with a FOURTH ARM: shirt-number null. Without it, two sensible orderings
+    agreeing is uninformative — they may agree because the model ignores order entirely.
+  keisuke-fujii — nine -> TEN sources; survey moved out of "Cited, Not Held"
+  social-network-analysis — the survey gives pass networks ONE CLAUSE (Yamamoto & Yokoyama
+    2011), twelve months before Scott/Fujii/Onishi make it their central instrument.
+    Confirms SNA was chosen INSTRUMENTALLY (insensitivity to the sim/real gap), not because
+    the group valued it. Strengthens `transfer-evidence-is-conditional-on-the-dimension-chosen`.
+    Also offers a mechanism (not a finding) for how the "Pena & Hugo" mis-citation survived
+    review: a peripheral tradition's bibliography gets least scrutiny.
+  pitch-control-traditions-compared — the common-ancestor claim is HALF corroborated by an
+    independent party. Survey describes Fernandez & Bornn as extending Voronoi (Taki &
+    Hasegawa 2000) but places Spearman in a separate PHYSICS-BASED lineage with no Voronoi
+    parentage. Narrowed: the mutual silence may be explained by DIFFERENT PARENTAGE as much
+    as by a shared opponent — a better explanation of the same silence.
+  action-valuation-frameworks-compared — see absence claims below; plus player ordering added
+    as an "eighteenth-and-a-half" free parameter, harder to see than any on the list because
+    it is written as an array index, not as a parameter
+  overview — counts re-read (278/154/69/42); hubs refreshed; priority 1 annotated as
+    DISCIPLINARY (a closing source will likely come from outside sports analytics); new
+    priority 1b for the Koopman line; priority 3 annotated that the survey does NOT close it
+  index — new "Field surveys" section; two new concepts
+
+ABSENCE CLAIMS — TWO STRENGTHENED FROM THE MOST AWKWARD DIRECTION:
+  no-held-source-benchmarks-across-frameworks — SURVIVES, and this is its hardest test. The
+    vault explained the gap STRUCTURALLY (comparison needs two methods on one dataset;
+    licensing prevents it). A SURVEY FACES NO LICENSING CONSTRAINT and could have tabulated
+    published results at zero data cost. Fujii did not. Explanation shifts from structural to
+    DISCIPLINARY: comparison is nobody's paper.
+  no-held-source-reports-off-ball-reliability — SURVIVES, ninth ingest. The survey contains NO
+    discussion of measurement reliability anywhere. The field's own review does not treat it
+    as a topic that exists.
+  no-held-source-compares-ppcf-and-gaussian — SURVIVES. Survey lists both traditions ONE
+    PARAGRAPH APART and compares nothing.
+  no-source-reports-both — SURVIVES (survey reports neither reliability nor predictive validity).
+
+OTHER FINDINGS:
+  - The vault's FORWARD/INVERSE axis is borrowed twice over. Fujii takes it from Rudenko et al.
+    (2020), a ROBOTICS survey on human trajectory prediction. So it is not a finding about
+    football; it is an imported organising device whose fit to football is assumed, never argued.
+  - Fujii's stated practical applications are unusually modest and worth keeping: reduce the
+    workload of people classifying plays on video; a play-retrieval recommender. And his
+    adoption standard — better than humans, less expensive with fewer mistakes — rather than
+    near-perfect.
+  - Survey is 2021 so predates the entire event-modelling/LLM line held here (NMSTPP, Seq2Event,
+    Sig-Model, EventGPT, ScoutGPT) and does not anticipate it.
+
+TOOLING NOTES:
+  - str_replace_note WORKED on _schema/taxonomy.md this time, contrary to the standing note
+    that taxonomy needs full rewrites via write_note. Added tag `dynamical-systems`. Worth
+    retesting rather than assuming; full-file rewrites of a 155-tag taxonomy are expensive.
+  - check_links at composition time caught `metric-learning` written as a wikilink target when
+    it is a TAG — the recurring error. Caught before the write this time on one page, and by
+    write-time lint on another.
+  - Write-time lint again reported dead links for pages created earlier in the same session;
+    find_mentioned_but_missing clean. Stale index within session, confirmed a second time.
+

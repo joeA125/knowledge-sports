@@ -1,7 +1,7 @@
 ---
 title: "Order Matters: Sequence to Sequence for Sets — Source Summary"
 type: summary
-tags: [deep-learning, sequence-modelling, attention, set-modelling, ordering, lstm, model-selection]
+tags: [deep-learning, sequence-modelling, attention, set-modelling, ordering, lstm, model-selection, multi-agent, sports-analytics]
 sources: [raw/papers/sequence-to-sequence-sets.md]
 confidence: 0.85
 provenance:
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-05-08
-updated: 2026-08-14
+updated: 2026-08-29
 ---
 
 # Order Matters: Sequence to Sequence for Sets
@@ -50,13 +50,37 @@ Twenty-two players have no canonical ordering, and the vault holds **three disti
 
 > ### `player-ordering-is-an-unsearched-choice`
 > **Where a model imposes an ordering on an unordered set of players, that ordering is a free parameter with measurable effect. VDEP sorts by ball proximity; no held source has compared it against alternatives, and the one paper addressing the problem directly proposes searching over orderings.**
-> ^[generated: connects a general-ML source to a football design choice neither addresses. Speculative. rests-on: source:vinyals-ordering-effects, source:vdep-proximity-sort, source:gvdep-nearest-sweep]
+> ^[generated: connects a general-ML source to a football design choice neither addresses. **Acted on 2026-08-29** — see below. rests-on: source:vinyals-ordering-effects, source:vdep-proximity-sort, source:gvdep-nearest-sweep]
 
-⚠️ **Untested.** Like the pointer-network claim, this is the reason the paper was retained and should be acted on or retired rather than left standing.
+## ✅ Acted On, 2026-08-29 — Retained and Narrowed
+
+> **This page was held on forward-looking grounds with a speculative claim flagged to be acted on or retired.** The claim has now been tested against a held football source: [[data-driven-team-sports-behaviors|Fujii's 2021 survey]], which names the permutation problem explicitly and catalogues the responses to it.
+>
+> **The retention was justified.** The claim survives, but one of its premises was wrong.
+
+| Component | Status |
+|---|---|
+| The ordering is a free parameter with measurable effect | **Survives** — untested, unchanged |
+| No held source compares VDEP's sort against alternatives | **Survives** — the survey lists alternatives and compares none |
+| Football frameworks mostly do not acknowledge this is a known problem | ⚠️ **Falsified at field level** |
+
+The third premise was this page's framing — that football sources solve the problem "mostly without acknowledging it is a known one". **Fujii's survey acknowledges it as a known one by name**, and catalogues four routes past it rather than the three recorded here. The missing route is **role assignment via the Hungarian algorithm**, which has a longer track record in team-sport analysis than any of the three.
+
+**Narrowing rather than deletion**, per the conventions — and the narrowed claim is *stronger*:
+
+> Individual football method papers mostly do not acknowledge the permutation problem, though the field's own survey does. The choice is therefore made in a field that has catalogued the alternatives, which makes an unexamined sort **harder** to excuse rather than easier.
+
+An unmarked arbitrary choice is a blind spot. The same choice, in a field that has written down the alternatives, is a decision nobody recorded.
+
+**The material has moved to [[permutation-problem]]**, which is now the home page for this claim and carries the four routes, the trade-off against interpretability, and a four-arm test including a shirt-number null.
+
+This page reverts to what it is: **a general-ML source about ordering effects**, retained because the football connection it supports has now been made explicit elsewhere.
 
 ## See Also
 
 - [[message-passing]] · [[graph-neural-network]] · [[transformer]] · [[attention-mechanism]] · [[lstm]] · [[action-space-design]]
+- [[permutation-problem]] — the football-side home for this page's claim, since 2026-08-29
+- [[data-driven-team-sports-behaviors|Fujii survey]] — the held football source that names the problem
 - [[vdep]] · [[gvdep]] · [[trajectory-prediction]] · [[c-obso]] · [[nmstpp]] · [[autoregressive-model]]
 - [[free-parameters-load-bearing]] · [[model-selection]] · [[google-brain]]
 - [[football-defence-evaluation-vdep|VDEP Summary]] · [[generalized-vdep-euro-location-analysis|GVDEP Summary]]

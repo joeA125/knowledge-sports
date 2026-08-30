@@ -1,8 +1,8 @@
 ---
 title: "Keisuke Fujii"
 type: entity
-tags: [person, researcher, ai-research, university, sports-analytics, defensive-valuation, off-ball, event-prediction, game-theory, proxy-target, counterfactual, reinforcement-learning, multi-agent, domain-adaptation, agent-based-simulation, optical-tracking-data, animal-behaviour]
-sources: [raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md]
+tags: [person, researcher, ai-research, university, sports-analytics, defensive-valuation, off-ball, event-prediction, game-theory, proxy-target, counterfactual, reinforcement-learning, multi-agent, domain-adaptation, agent-based-simulation, optical-tracking-data, animal-behaviour, interpretability, dynamical-systems, trajectory-prediction]
+sources: [raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/ai_football_reinforcement_learning.md, raw/papers/team_sports_data_analysis.md]
 confidence: 0.9
 provenance:
   extracted: 76%
@@ -12,17 +12,18 @@ provenance:
   ambiguous: 2%
 lifecycle: reviewed
 created: 2026-07-23
-updated: 2026-08-08
+updated: 2026-08-29
 ---
 
 # Keisuke Fujii
 
-Researcher at the Graduate School of Informatics, [[nagoya-university]], with affiliations at the RIKEN Center for Advanced Intelligence Project and JST PRESTO. **Author on nine held sources** — nearly three times anyone else in this vault.
+Researcher at the Graduate School of Informatics, [[nagoya-university]], with affiliations at the RIKEN Center for Advanced Intelligence Project and JST PRESTO. **Author on ten held sources** — more than three times anyone else in this vault.
 
-## Nine Primary Sources
+## Ten Primary Sources
 
 | Year | Work | Lead author | Contribution |
 |---|---|---|---|
+| **2021** | **[[data-driven-team-sports-behaviors\|Data-driven analysis of team sports behaviors]]** | **Fujii — *sole author*** | **Survey; the group's programme statement** |
 | **2022** | **[[ai-football-reinforcement-learning\|How does AI play football?]]** | **[[atom-scott\|Scott]]** | **[[agent-based-simulation\|ABS]] feasibility; [[proximal-policy-optimization\|PPO]] in GFootball; [[social-network-analysis\|SNA]] comparison** |
 | 2022 | [[football-defence-evaluation-vdep\|VDEP]] | [[kosuke-toda\|Toda]] | [[vdep]] — team defensive value from frequent proxies |
 | 2022 | [[generalized-vdep-euro-location-analysis\|GVDEP]] | [[rikuhei-umemoto\|Umemoto]] | [[gvdep]] — score-scaled weights |
@@ -33,7 +34,23 @@ Researcher at the Graduate School of Informatics, [[nagoya-university]], with af
 | 2023 | [[adaptive-action-supervision-multi-agent-rl\|Adaptive action supervision]] | **Fujii — *first author*** | [[domain-adaptation\|Real-to-Sim]]; [[dynamic-time-warping\|DTW]] supervision; [[nfootball]] |
 | 2024 | [[optimal-decisions-shot-taking-situations\|SPC framework]] | Yeung | [[game-theory\|Game-theoretic]] shot decisions; [[xsot\|xSOT]] |
 
-> **Corrected three times on 2026-08-07/08.** Six → seven (Nakahara et al. moved from cited-not-held) → eight (arXiv:2305.13030 acquired) → **nine** (Scott et al. 2022 acquired). The 2022 Scott paper is now the **earliest** of the nine and was the vault's standing acquisition target across four ingests.
+> **Corrected three times on 2026-08-07/08.** Six → seven (Nakahara et al. moved from cited-not-held) → eight (arXiv:2305.13030 acquired) → **nine** (Scott et al. 2022 acquired). **Now ten**, on acquisition of the 2021 survey — which had been sitting in this page's *Cited, Not Held* list since it was written.
+
+## The Survey Is a Charter, Not a Retrospective
+
+> **Added 2026-08-29.** The survey is **sole-authored** — the only such work here — and it **predates eight of the other nine.** Only VDEP and GVDEP are contemporaneous; everything else came after.
+
+That inverts how a survey is normally read. This is not Fujii summarising a field he had already shaped; it is Fujii **stating what he thought the field needed, immediately before his group produced the papers this vault is built on.**
+
+Its thesis is a trade-off — non-linear models buy predictive power and pay in [[interpretability]] — and its demand is that such models earn their place by delivering **extracted mathematical structure, visualised representations, or plausibly generated behaviour**.
+
+> ### `the-group's-later-work-executes-its-earlier-survey`
+> **The Fujii group's held output is legible as a programme rather than a sequence of separate papers, because its organising commitment is set out in a 2021 survey that precedes almost all of it.**
+> ^[generated: declared on [[data-driven-team-sports-behaviors]]. rests-on: source:fujii-survey-interpretability-aim]
+
+**This supplies a cause for a pattern the vault had recorded without one.** The three signatures below — target substitution, counterfactual on one named agent, forward simulation — were catalogued as observed regularities. The survey argues for the underlying commitment in advance: every one of them is a way of making a non-linear model yield something a coach can read.
+
+It also explains the *"Two Registers"* split more economically than the affiliations do. The methodological line is not a side interest; it is the survey's approach (2), *generate and control behaviour*, and the applied line is approach (1), *extract features and rules*. **The two registers are the survey's own two sections.**^[inferred: the survey does not map its sections onto the group's later papers; the correspondence is drawn here]
 
 ## Two Registers, and the Earliest Paper Belongs to the Second
 
@@ -112,8 +129,11 @@ Two papers ([[c-obso]], [[drso]]) set PPCF parameters $\sigma = 0.45$, $\lambda 
 
 ## Cited, Not Held
 
-- **Fujii (2021)**, *Data-driven analysis for understanding team sports behaviors*, arXiv:2102.07545 — the group's own survey.
-- **Fujii, Takeishi, Kawahara & Takeda (2020)**, *Policy learning with partial observation and mechanical constraints*, arXiv:2007.03155.
+> **Fujii (2021)**, the survey, moved to *held* on 2026-08-29. Its own reference list is now the vault's best-mapped source of acquisition targets — including second-hand descriptions of **Liu & Schulte**, the vault's third-ranked priority. ⚠️ Those descriptions do **not** close that priority: the [[network-theory-football-strategies|previous ingest]] showed a one-line gloss inside a held source manufacturing a finding its primary never made.
+
+- **Fujii, Takeishi, Kawahara & Takeda (2020)**, *Policy learning with partial observation and mechanical constraints*, arXiv:2007.03155. **Now higher priority** — the survey identifies decentralised modelling as what is "rigorously needed" to compute each agent's own observation, and names this as the instance.
+- **Fujii, Inaba & Kawahara (2017)**, *Koopman spectral kernels for comparing complex dynamics* — see [[koopman-mode-decomposition]].
+- **Fujii, Takeishi, Hojo, Inaba & Kawahara (2020)**, *Physically-interpretable classification of network dynamics*, Scientific Reports — the fullest application of the Koopman line.
 - **Fujii, Takeishi, Tsutsui et al. (2021)**, *Learning interaction rules from multi-animal trajectories*, NeurIPS 34.
 - **Fujii, Takeuchi, Kuribayashi et al. (2022)**, *Estimating counterfactual treatment outcomes in complex multi-agent scenarios*, arXiv:2206.01900.
 - **Tsutsui, Takeda & Fujii (2023)**, *Synergizing deep RL and biological pursuit behavioral rule*, ICML workshop.
