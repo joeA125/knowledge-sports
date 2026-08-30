@@ -27,17 +27,19 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **281** |
-| Concepts | 155 |
+| Total pages | **283** |
+| Concepts | 156 |
 | Entities | 70 |
-| Source summaries | **43** |
+| Source summaries | **44** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 43 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 115 `draft`, 3 `evergreen` (the dashboards).
+**All 44 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 117 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29**, three times. On ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**; then [[data-driven-team-sports-behaviors|Fujii (2021)]], the group's own field survey; then [[champdas-validity-reliability|Gong et al. (2019)]], the vault's first source on measurement reliability. Counts re-read from `vault_stats`, not recalled.
+> **Updated 2026-08-29**, four times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]] and [[gps-deceleration-reliability|Jones et al. (2024)]]. Counts re-read from `vault_stats`, not recalled.
+>
+> ⚠️ **Cross-page propagation is behind.** Four ingests in one run exceeds the vault's own one-or-two-per-run standard, and several updates declared on new pages have not been pushed to the pages they concern. The backlog is itemised in the last four `log.md` entries under *DEFERRED*.
 
 ## What This Vault Is About
 
@@ -120,17 +122,25 @@ The third group is the distinctive one: these are questions no single paper pose
 The RL and simulation line is fully held, and **the SNA gap that topped this list has been closed** — see below for what remains of it. Five areas, highest need first.
 
 ### 1. Reliability of tracking-derived metrics
-`no-reliability-for-off-ball-metrics` has survived **ten** ingests. **Six off-ball mechanisms, zero reliability estimates.**
+`no-reliability-for-off-ball-metrics` has survived **eleven** ingests. **Six off-ball mechanisms, zero reliability estimates.**
 
 Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
 
 **Still the top priority**, and the only remaining one that would change a conclusion rather than add support.
 
-> ⚠️ **Sharpened, not closed, 2026-08-29.** [[champdas-validity-reliability|Gong et al. (2019)]] is the vault's first source on measurement reliability — but at the **coding layer**, not the metric layer. It measures whether two analysts produce the same event log, not whether a player's rating is stable across samples. See [[operator-reliability]].
+> ⚠️ **Three reliability papers have now arrived and none of them is this one.** They measure three *different layers* — see [[reliability-layers]], created 2026-08-29 to keep them apart.
 >
-> **What it did settle:** event-coding noise is ruled out as the cause of VAEP's low split-half reliability. So the standing question is narrower — the instability is in the metric or in the players, not in the data collection.
+> | Layer | Source | Closes priority 1? |
+> |---|---|---|
+> | Coding | [[champdas-validity-reliability\|Gong et al. (2019)]] | No |
+> | Instrument & protocol | [[gps-deceleration-reliability\|Jones et al. (2024)]] | No |
+> | **Metric** | xT and VAEP only | **This is the gap** |
 >
-> **What is still wanted** is unchanged: split-half or test–retest for a *tracking-derived* metric. And [[data-driven-team-sports-behaviors|Fujii's survey]] suggests it will come from **outside** sports analytics. Gong et al. supports that — it was published in *Frontiers in Psychology*, under **Quantitative Psychology and Measurement**, by a group working in performance analysis rather than in the machine-learning literature this vault otherwise holds.
+> **The list was not wrong about the gap — it was imprecise about it**, and imprecision let two near-misses look like hits. Now stated by layer, and falsifiable by inspection.
+>
+> **What they did contribute:** coding noise is ruled out as the cause of VAEP's low reliability, and Jones et al.'s finding that a *criterion radar device* is only moderately reliable — with the error attributed to the athlete rather than the instrument — **shifts the prior toward genuine player variability** on [[within-season-variation-noise-or-signal]].
+>
+> **Where the closing source will come from:** outside the ML literature. [[data-driven-team-sports-behaviors|Fujii's survey]] does not treat reliability as a topic; both new sources appeared in psychology and sports-physiology journals.
 
 ### 1b. The Koopman line — new, and by the vault's most central author
 > **Added 2026-08-29.** [[koopman-mode-decomposition]] was created this ingest from a survey description alone, and carries a generated claim resting on an `imported:` dependency — the shape the vault has just been burned by twice.

@@ -23,15 +23,15 @@ This is **upstream of everything else in the vault.** Every held event-based fra
 
 ## The Layer Distinction
 
-The vault had been treating "reliability" as one quantity. It is at least two, and they fail for unrelated reasons.
+The vault had been treating "reliability" as one quantity. It is **three**, and they fail for unrelated reasons — full taxonomy on [[reliability-layers]]. This page covers the first.
 
-| | **Coding layer** *(this page)* | **Metric layer** ([[split-half-reliability]]) |
-|---|---|---|
-| Question | Same match → same event log? | Same player → same rating across samples? |
-| Fails because of | Operator error, ambiguous definitions, camera angle | Rare events, small samples, genuine inconsistency |
-| Statistics | **Kappa, ICC, typical error** | **Split-half $\rho$, test–retest** |
-| Fix | Better definitions, training, automation | More data, or a different metric |
-| Measured for football? | ✅ [[champdas-validity-reliability\|Gong et al. (2019)]], one system, one match | ✅ xT and VAEP only |
+| | **Coding layer** *(this page)* | Instrument & protocol | Metric layer |
+|---|---|---|---|
+| Question | Same match → same event log? | Same test → same value? | Same player → same rating? |
+| Fails because of | Operator error, ambiguous definitions, camera angle | Sampling rate, derivation depth, **athlete variability** | Rare events, small samples, genuine inconsistency |
+| Statistics | **Kappa, ICC, typical error** | ICC, CV%, LOA, TEE | **Split-half $\rho$, test–retest** |
+| Fix | Better definitions, training, automation | Better hardware, simpler variables | More data, or a different metric |
+| Held source | ✅ [[champdas-validity-reliability\|Gong et al. (2019)]] | ✅ [[gps-deceleration-reliability\|Jones et al. (2024)]] | ✅ xT and VAEP only ([[split-half-reliability]]) |
 
 They compose. In the decomposition on [[split-half-reliability]],
 

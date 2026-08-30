@@ -120,6 +120,7 @@ A catalog of all wiki pages, organised by type.
 ### Data and Representation
 - [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]]
 - [[operator-reliability]] — whether two analysts watching the same match produce the same event log; upstream of every event-based framework here
+- [[reliability-layers]] — the three-layer taxonomy tying coding, instrument and metric reliability together
 - [[permutation-problem]] — 22 players have no canonical order; four routes past it, and what each costs
 - [[koopman-mode-decomposition]] — comparing plays by their generating dynamics rather than their trajectories
 - [[social-network-analysis]] — pass networks as weighted directed graphs; player-level centrality
@@ -187,7 +188,9 @@ Eight open investigations, grouped by who could answer them.
 - [[scoutgpt-counterfactual-player-valuation]] — Hong et al. (2026)
 
 ### Reliability and validity of measurement
-- [[champdas-validity-reliability]] — Gong et al. (2019) — the vault's only source on **operator reliability**; a different layer from the standing metric-reliability gap
+- [[reliability-layers]] — **three** distinct layers (coding, instrument, metric), one held source each, and the standing gap precisely located
+- [[champdas-validity-reliability]] — Gong et al. (2019) — operator/coding reliability
+- [[gps-deceleration-reliability]] — Jones et al. (2024) — GPS device and protocol reliability; derivation depth predicts reliability
 
 ### Field surveys
 - [[data-driven-team-sports-behaviors]] — Fujii (2021), sole-authored survey — the group's own map of the field, written before eight of the nine Fujii-group sources held here

@@ -3419,3 +3419,93 @@ TOOL NOTES:
     existed; check_links showed none do (the vault has stats-perform and data-stadium).
     check_links before writing provider names remains the right habit.
 
+## [2026-08-30 17:24] ingest | Jones et al. (2024) — third reliability layer, still not priority 1; derivation depth predicts reliability
+SOURCE: raw/papers/test_retest_reliability_soccer_positioning_and_movement.md
+"Concurrent agreement and test-retest reliability of a GPS device for measuring maximal
+horizontal deceleration ability in elite youth academy soccer players" — Jones, Leduc,
+Greatorex, Callaghan, Weaving, Harper & Bliss. Int J Sports Physiol Perform, Brief Report,
+IJSPP.2024-0212.R3. St Mary's Twickenham / Leeds Beckett / UCLan / Crystal Palace FC Academy.
+
+FOURTH PAPER THIS SESSION. See the honesty note at the end.
+
+THE CENTRAL JUDGEMENT AGAIN: filename and title look like priority 1. IT IS NOT.
+`no-reliability-for-off-ball-metrics` asks for split-half/test-retest of a TRACKING-DERIVED
+FOOTBALL-VALUE metric (OBSO, C-OBSO, DRSO, SOG). This measures DEVICE AND PROTOCOL reliability
+of a PHYSICAL CAPACITY TEST — how hard a player can brake in a standardised 20m sprint-and-stop
+on a training pitch. GPS wearable, not optical tracking. Not match play. Not a value metric.
+ABSENCE CLAIM SURVIVES, ELEVENTH INGEST.
+
+*** THREE RELIABILITY PAPERS IN THREE INGESTS, THREE DIFFERENT LAYERS, NONE OF THEM THE ONE.
+    Created wiki/concepts/reliability-layers.md to stop this recurring:
+      1 CODING     same match -> same event log?      Gong et al. (2019)      Kappa/ICC/TE
+      2 INSTRUMENT same test -> same value?           Jones et al. (2024)     ICC/CV/LOA/TEE
+      3 METRIC     same player -> same rating?        Van Roy et al. (2020)   split-half rho
+    They compose downward: coding and instrument noise both flow into sigma^2_eps. A metric can
+    be no more reliable than its inputs; the CONVERSE DOES NOT HOLD, which is why the layers
+    must stay apart.
+    THE ACQUISITION LIST WAS NOT WRONG ABOUT THE GAP — IT WAS IMPRECISE ABOUT IT, and
+    imprecision let two near-misses look like hits. Now stated by layer and falsifiable by
+    inspection rather than by argument.
+
+MEASURED: 32 elite youth academy players (18.1+-1.6 yrs) for concurrent agreement; only 16 for
+  test-retest (fixture congestion). 47 Hz radar criterion vs 10 Hz STATSports APEX GPS,
+  simultaneous. Butterworth 4th order zero-lag, 1 Hz cutoff, custom R.
+
+KEY FINDING 1 — DERIVATION DEPTH PREDICTS RELIABILITY:
+    Vmax    sampled directly            ICC 0.81-0.82   CV 1.4%
+    DECmax  derivative, extremum        ICC 0.84-0.86   CV 4.5-5.5%
+    DECave  derivative, mean            ICC 0.57        CV 6.1%
+    DTS     integral over segment       ICC 0.53        CV 6.6%
+    TTS     detected segment duration   ICC 0.48        CV 5.8%
+  NEW CLAIM `each-layer-of-derivation-costs-reliability`. Every football-value metric here sits
+  FURTHER OUT than any variable in that table — C-OBSO is tracking -> trajectory prediction ->
+  pitch control -> scoring surface -> counterfactual difference, four or five transformations
+  past a sampled position, each with a fitted model attached. Explicitly an extrapolation, not
+  a measurement, but it is the only empirical handle the vault has on WHY layer 3 might be
+  worse than assumed — and it argues the standing gap matters MORE.
+
+KEY FINDING 2 — THE ATHLETE IS THE UNSTABLE COMPONENT, NOT THE INSTRUMENT:
+  The CRITERION RADAR is itself only moderately reliable: TTS 0.67, DTS 0.62, DECave 0.73,
+  DECmax 0.78. Authors: "error from the testing procedure (e.g., deceleration strategy) rather
+  than the measurement technique itself." An elite academy player under maximal effort in a
+  standardised protocol one week apart DOES NOT REPRODUCE HIS OWN BRAKING.
+  This is the cleanest evidence the vault holds on the sigma^2_theta vs sigma^2_eps question
+  behind within-season-variation-noise-or-signal, and it MOVES THE PRIOR TOWARD GENUINE PLAYER
+  VARIABILITY — i.e. toward form being real rather than read into noise. Does NOT settle it: a
+  capacity test is not a match, and the transfer is inference.
+
+KEY FINDING 3 — AGGREGATE STATISTICS FLATTER AGREEMENT (SECOND INDEPENDENT INSTANCE):
+  DECmax/DECave: mean difference INSIDE equivalence bounds, limits of agreement OUTSIDE them.
+  Group-equivalent, individually unreliable. DTS correlates with its own criterion at r=0.22;
+  standardised TEE 4.50. Same structure as the stratification caution already on
+  pitch-control-traditions-compared. Any comparison in this vault reporting a single global
+  correlation should be read as an UPPER BOUND on agreement.
+
+NEW ABSENCE CLAIM DECLARED: TTS and DTS are the two worst variables and both depend on
+  DETECTING WHERE A PHASE ENDS, while Vmax from the same trace is stable — so the instability
+  is plausibly SEGMENT-BOUNDARY DETECTION, not signal noise. Segmentation is what possession-
+  and event-based pipelines do constantly (possession start, pressing onset, attack frames).
+  NO HELD SOURCE REPORTS RELIABILITY OF ANY SEGMENTATION DECISION IN FOOTBALL.
+
+PAGES CREATED (2): wiki/summaries/gps-deceleration-reliability.md
+                   wiki/concepts/reliability-layers.md
+PAGES UPDATED (4): split-half-reliability, operator-reliability, overview, index
+
+LIMITATIONS WORTH REMEMBERING: n=16 for reliability; DECave ICC 0.57 has 95% CI 0.13-0.83,
+  spanning poor to good. One club, one age group, artificial turf. GPS not optical. The two
+  GPS streams share a unit and satellites so their agreement says nothing about hardware.
+
+*** HONESTY NOTE — THROUGHPUT ***
+  This is the FOURTH ingest in a single run, against the vault's own standard of one or two.
+  Scope was deliberately kept tight: the two new pages and the four reliability-related updates
+  are done properly, but CROSS-PAGE PROPAGATION IS BEHIND across the whole session. Standing
+  backlog, cumulative over the last four entries:
+    - author entity pages: Gong, Cui, Gomez (prolific, will recur); Jones, Leduc, Harper, Bliss
+    - defensive-coding-noise finding -> vdep, gvdep, rare-event-proxy-targets
+    - construct-validity: the recurring expert-assent validation mode
+    - derivation-depth claim -> c-obso, obso, drso, off-ball-value (declared, not propagated)
+    - segmentation-reliability absence claim -> spadl, event-stream-data, possession pages
+    - within-season-variation-noise-or-signal: the shifted prior is stated on reliability-layers
+      and split-half-reliability but the question page itself is NOT updated
+  A flag on the overview now points here. These deserve a fresh run.
+

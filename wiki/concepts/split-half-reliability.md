@@ -2,7 +2,7 @@
 title: "Split-Half Reliability"
 type: concept
 tags: [statistics, evaluation, reliability, predictive-validity, player-evaluation, sports-analytics, cognitive-science, volatility, selection-bias, time-series, event-stream-data]
-sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md]
+sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -23,27 +23,30 @@ It originates in psychometrics as a test of internal consistency, but applies to
 
 > ## ⚠️ This Is the Metric Layer, Not the Only Layer
 >
-> **Added 2026-08-29** on ingest of [[champdas-validity-reliability|Gong et al. (2019)]], the vault's first source on measurement reliability of any kind.
+> **Added 2026-08-29**, revised the same day. The vault now holds **three** reliability sources at **three distinct layers** — coding, instrument-and-protocol, and metric. Full taxonomy on [[reliability-layers]].
 >
-> "Reliability" in this vault had meant one thing. It is at least two, failing for unrelated reasons:
+> | Layer | Source |
+> |---|---|
+> | Coding — same match → same event log? | [[champdas-validity-reliability\|Gong et al. (2019)]] |
+> | Instrument & protocol — same test → same value? | [[gps-deceleration-reliability\|Jones et al. (2024)]] |
+> | **Metric — same player → same rating?** *(this page)* | [[on-ball-actions-football-xt-vs-vaep\|Van Roy et al. (2020)]], xT and VAEP only |
 >
-> | | **Coding layer** | **Metric layer** *(this page)* |
-> |---|---|---|
-> | Same match → same event log? | ✅ measured, one system, one match | — |
-> | Same player → same rating across samples? | — | ✅ measured for xT and VAEP only |
->
-> See [[operator-reliability]]. **The standing absence claim is about this page's layer** and survives untouched — no held source reports split-half or test–retest reliability for [[obso|OBSO]], [[c-obso|C-OBSO]], [[drso|DRSO]] or [[space-occupation-gain|SOG]].
->
-> The gain is precision. The vault can now say *which* layer is unmeasured for the off-ball metrics, rather than treating reliability as one undifferentiated hole.
+> **The standing absence claim is about this page's layer** and survives its eleventh ingest — no held source reports split-half or test–retest reliability for [[obso|OBSO]], [[c-obso|C-OBSO]], [[drso|DRSO]] or [[space-occupation-gain|SOG]].
 
 ### Coding noise is ruled out as the cause of VAEP's low $\rho$
 
-Event-coding error sits inside $\sigma^2_\varepsilon$ in the decomposition below, so it was a live candidate explanation. Two arguments now close it:
+Event-coding error sits inside $\sigma^2_\varepsilon$ below, so it was a live candidate. Two arguments close it:
 
 1. **Internal, and decisive.** xT and VAEP were computed on the **same event stream**. Coding noise would depress both. xT returns 0.89.
-2. **External.** Coding noise is small in absolute terms where it has been measured — standardised TE ≤ 0.29, ICC ≥ 0.93.^[inferred: Gong et al. measure the Champdas system; Van Roy et al. used a different provider. Suggestive, not a measurement on their data]
+2. **External.** Coding agreement runs at ICC ≥ 0.93 where measured.^[inferred: Gong et al. measure a different provider; suggestive, not a measurement on Van Roy's data]
 
-**The low $\rho$ is therefore either genuine game-to-game variation in what players did, or instability in the metric's construction** — precisely the disjunction [[within-season-variation-noise-or-signal]] exists to resolve. One branch is closed; the question is unchanged in structure but narrower.
+### And the player is a real source of variance
+
+[[gps-deceleration-reliability|Jones et al.]] found their **criterion radar** only moderately reliable (ICC 0.62–0.78) and attributed the error to the athlete's *deceleration strategy* rather than the instrument. An elite player under maximal effort in a standardised protocol does not reproduce his own braking a week later.
+
+**That moves the prior on the question below toward $\sigma^2_\theta$ being genuinely unstable** — toward form being real rather than read into noise — without settling it, since a capacity test is not a match.^[inferred: no source connects the deceleration result to metric-level reliability]
+
+**So VAEP's low $\rho$ is not a data-collection artefact.** It is genuine game-to-game variation, instability in the metric's construction, or both — the disjunction [[within-season-variation-noise-or-signal]] exists to resolve, now with one branch closed and the prior shifted on the rest.
 
 ## Reliability Is Not Validity
 
