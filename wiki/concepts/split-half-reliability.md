@@ -1,8 +1,8 @@
 ---
 title: "Split-Half Reliability"
 type: concept
-tags: [statistics, evaluation, reliability, predictive-validity, player-evaluation, sports-analytics, cognitive-science, volatility, selection-bias, time-series]
-sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md]
+tags: [statistics, evaluation, reliability, predictive-validity, player-evaluation, sports-analytics, cognitive-science, volatility, selection-bias, time-series, event-stream-data]
+sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-23
-updated: 2026-07-27
+updated: 2026-08-29
 ---
 
 # Split-Half Reliability
@@ -20,6 +20,30 @@ updated: 2026-07-27
 Split-half reliability measures whether a metric produces consistent results when computed on two disjoint halves of the same data. Split the observations randomly, compute the measure on each half, and correlate across subjects. High correlation means the metric captures a stable underlying property; low correlation means it largely captures noise.
 
 It originates in psychometrics as a test of internal consistency, but applies to any repeated measurement.
+
+> ## ⚠️ This Is the Metric Layer, Not the Only Layer
+>
+> **Added 2026-08-29** on ingest of [[champdas-validity-reliability|Gong et al. (2019)]], the vault's first source on measurement reliability of any kind.
+>
+> "Reliability" in this vault had meant one thing. It is at least two, failing for unrelated reasons:
+>
+> | | **Coding layer** | **Metric layer** *(this page)* |
+> |---|---|---|
+> | Same match → same event log? | ✅ measured, one system, one match | — |
+> | Same player → same rating across samples? | — | ✅ measured for xT and VAEP only |
+>
+> See [[operator-reliability]]. **The standing absence claim is about this page's layer** and survives untouched — no held source reports split-half or test–retest reliability for [[obso|OBSO]], [[c-obso|C-OBSO]], [[drso|DRSO]] or [[space-occupation-gain|SOG]].
+>
+> The gain is precision. The vault can now say *which* layer is unmeasured for the off-ball metrics, rather than treating reliability as one undifferentiated hole.
+
+### Coding noise is ruled out as the cause of VAEP's low $\rho$
+
+Event-coding error sits inside $\sigma^2_\varepsilon$ in the decomposition below, so it was a live candidate explanation. Two arguments now close it:
+
+1. **Internal, and decisive.** xT and VAEP were computed on the **same event stream**. Coding noise would depress both. xT returns 0.89.
+2. **External.** Coding noise is small in absolute terms where it has been measured — standardised TE ≤ 0.29, ICC ≥ 0.93.^[inferred: Gong et al. measure the Champdas system; Van Roy et al. used a different provider. Suggestive, not a measurement on their data]
+
+**The low $\rho$ is therefore either genuine game-to-game variation in what players did, or instability in the metric's construction** — precisely the disjunction [[within-season-variation-noise-or-signal]] exists to resolve. One branch is closed; the question is unchanged in structure but narrower.
 
 ## Reliability Is Not Validity
 

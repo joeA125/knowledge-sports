@@ -27,17 +27,17 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **278** |
-| Concepts | 154 |
-| Entities | 69 |
-| Source summaries | **42** |
+| Total pages | **281** |
+| Concepts | 155 |
+| Entities | 70 |
+| Source summaries | **43** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 42 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 112 `draft`, 3 `evergreen` (the dashboards).
+**All 43 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 115 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29**, twice. First on ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**. Then on ingest of [[data-driven-team-sports-behaviors|Fujii (2021)]], the group's own field survey. Counts re-read from `vault_stats`, not recalled.
+> **Updated 2026-08-29**, three times. On ingest of [[network-theory-football-strategies|López Peña & Touchette (2012)]] — **the acquisition this page had ranked first**; then [[data-driven-team-sports-behaviors|Fujii (2021)]], the group's own field survey; then [[champdas-validity-reliability|Gong et al. (2019)]], the vault's first source on measurement reliability. Counts re-read from `vault_stats`, not recalled.
 
 ## What This Vault Is About
 
@@ -100,6 +100,8 @@ And **[[transformer]] has left the top fifteen entirely.** Before the migration 
 - **A claim held only through citation is unaudited, not merely thin.** Acquiring [[network-theory-football-strategies|one long-cited primary]] falsified three things the vault believed about it, including a finding its citing source had manufactured. See [[social-network-analysis]].
 - **The field's own survey neither benchmarks nor discusses reliability.** [[data-driven-team-sports-behaviors|Fujii (2021)]] catalogues dozens of frameworks and compares none, with no licensing constraint to excuse it — which moves both absences from *structural* to *disciplinary*. See [[action-valuation-frameworks-compared]].
 - **Twenty-two players have no canonical order**, and every framework here resolves that silently. Four routes exist, they trade order against interpretability, and none has been compared. See [[permutation-problem]].
+- **Reliability is at least two things.** Whether two analysts produce the same event log, and whether a player's rating is stable across samples, fail for unrelated reasons. The vault had one hole and now has one measurement and one hole. See [[operator-reliability]].
+- **Summaries misreport primaries, and the pattern is about which text gets checked.** Three consecutive ingests found it: a citing paper garbling a citation and manufacturing a finding, a survey describing works second-hand, and a paper's own abstract misreporting its own table. See [[champdas-validity-reliability]].
 
 ## Open Questions
 
@@ -118,13 +120,17 @@ The third group is the distinctive one: these are questions no single paper pose
 The RL and simulation line is fully held, and **the SNA gap that topped this list has been closed** — see below for what remains of it. Five areas, highest need first.
 
 ### 1. Reliability of tracking-derived metrics
-`no-reliability-for-off-ball-metrics` has survived **nine** ingests. **Six off-ball mechanisms, zero reliability estimates.**
+`no-reliability-for-off-ball-metrics` has survived **ten** ingests. **Six off-ball mechanisms, zero reliability estimates.**
 
 Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
 
-**Now unambiguously the top priority**, and the only remaining one that would change a conclusion rather than add support.
+**Still the top priority**, and the only remaining one that would change a conclusion rather than add support.
 
-⚠️ **And the gap looks disciplinary, not incidental.** [[data-driven-team-sports-behaviors|Fujii's 2021 field survey]] contains **no discussion of measurement reliability at all** — the field's own review does not treat it as a topic that exists. A source that closes this will most likely come from **outside** sports analytics, from psychometrics or sports science, rather than from the literature catalogued here.
+> ⚠️ **Sharpened, not closed, 2026-08-29.** [[champdas-validity-reliability|Gong et al. (2019)]] is the vault's first source on measurement reliability — but at the **coding layer**, not the metric layer. It measures whether two analysts produce the same event log, not whether a player's rating is stable across samples. See [[operator-reliability]].
+>
+> **What it did settle:** event-coding noise is ruled out as the cause of VAEP's low split-half reliability. So the standing question is narrower — the instability is in the metric or in the players, not in the data collection.
+>
+> **What is still wanted** is unchanged: split-half or test–retest for a *tracking-derived* metric. And [[data-driven-team-sports-behaviors|Fujii's survey]] suggests it will come from **outside** sports analytics. Gong et al. supports that — it was published in *Frontiers in Psychology*, under **Quantitative Psychology and Measurement**, by a group working in performance analysis rather than in the machine-learning literature this vault otherwise holds.
 
 ### 1b. The Koopman line — new, and by the vault's most central author
 > **Added 2026-08-29.** [[koopman-mode-decomposition]] was created this ingest from a survey description alone, and carries a generated claim resting on an `imported:` dependency — the shape the vault has just been burned by twice.

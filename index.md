@@ -119,6 +119,7 @@ A catalog of all wiki pages, organised by type.
 
 ### Data and Representation
 - [[spadl]] · [[event-stream-data]] · [[optical-tracking-data]]
+- [[operator-reliability]] — whether two analysts watching the same match produce the same event log; upstream of every event-based framework here
 - [[permutation-problem]] — 22 players have no canonical order; four routes past it, and what each costs
 - [[koopman-mode-decomposition]] — comparing plays by their generating dynamics rather than their trajectories
 - [[social-network-analysis]] — pass networks as weighted directed graphs; player-level centrality
@@ -184,6 +185,9 @@ Eight open investigations, grouped by who could answer them.
 - [[football-event-sequences-point-process-mixture]] — Amezouwui et al. (2025)
 - [[eventgpt-player-impact-team-action-sequences]] — Lee, Hong et al. (2025)
 - [[scoutgpt-counterfactual-player-valuation]] — Hong et al. (2026)
+
+### Reliability and validity of measurement
+- [[champdas-validity-reliability]] — Gong et al. (2019) — the vault's only source on **operator reliability**; a different layer from the standing metric-reliability gap
 
 ### Field surveys
 - [[data-driven-team-sports-behaviors]] — Fujii (2021), sole-authored survey — the group's own map of the field, written before eight of the nine Fujii-group sources held here

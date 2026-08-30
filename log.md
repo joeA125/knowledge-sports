@@ -3311,3 +3311,111 @@ TOOLING NOTES:
   - Write-time lint again reported dead links for pages created earlier in the same session;
     find_mentioned_but_missing clean. Stale index within session, confirmed a second time.
 
+## [2026-08-30 17:08] ingest | Gong et al. (2019) — first reliability source, but the coding layer; top priority sharpened, not closed
+SOURCE: raw/papers/stats_reliability_football_champdas.md
+"The Validity and Reliability of Live Football Match Statistics From Champdas Master Match
+Analysis System" — Gong, Cui, Gai, Yi & Gomez. Frontiers in Psychology 10:1339, June 2019.
+Beijing Sport University + Universidad Politecnica de Madrid.
+
+THIRD PAPER THIS SESSION. 160KB — too large for read_note; extracted via bash and read in
+sections (headings, methods, results, Table 5, Table 6, discussion, limitations).
+
+THE CENTRAL JUDGEMENT: this is a reliability paper, but NOT the layer the vault has been
+asking for. `no-reliability-for-off-ball-metrics` has topped the acquisition list for ten
+ingests. This measures OPERATOR/CODING reliability (do two analysts produce the same event
+log?), not METRIC reliability (is a player's rating stable across samples?). Getting this
+distinction right is the main contribution of the ingest — over-claiming would have wrongly
+retired the vault's top priority.
+
+  CODING LAYER  — measured here. Kappa, ICC, typical error.
+  METRIC LAYER  — measured only for xT and VAEP (Van Roy et al.). STILL THE GAP for OBSO,
+                  C-OBSO, DRSO, SOG.
+  ABSENCE CLAIM SURVIVES, but is now SHARPER: the vault can name which layer is unmeasured
+  rather than treating reliability as one undifferentiated hole.
+
+WHAT IT DID SETTLE: coding noise is RULED OUT as the cause of VAEP's rho=0.25 vs xT's 0.89.
+  Two arguments — (1) internal and decisive: xT and VAEP were computed on the SAME event
+  stream, so coding noise would depress both; (2) external: coding noise is small in absolute
+  terms where measured (TE <= 0.29, ICC >= 0.93), though on a different provider so this is
+  inference not measurement. So the low rho is EITHER genuine game-to-game player variation
+  OR metric construction — exactly the disjunction within-season-variation-noise-or-signal
+  exists to resolve. ONE BRANCH CLOSED.
+
+MEASURED: Aiken's V 0.84+-0.03 (pertinence), 0.85+-0.03 (definition), 31 variables, 20
+  licensed coaches, critical value 0.52. Intra-operator ICC 0.98-1.00, TE 0.01-0.15;
+  inter-operator ICC 0.93-1.00, TE 0.01-0.29. One La Liga match (Real Madrid v Villarreal,
+  13 Jan 2018), 4 operators, coded twice two weeks apart, from TV coverage.
+
+*** THE ABSTRACT MISREPORTS THE PAPER'S OWN TABLE 5. Verified against Table 5 directly, not
+    against the results prose:
+      intra ICC   abstract 0.93-1.00   Table 5  0.98-1.00
+      intra TE    abstract 0.01-0.34   Table 5  0.01-0.15
+      inter ICC   abstract 0.90-1.00   Table 5  0.93-1.00
+      inter TE    abstract 0.01-0.24   Table 5  0.01-0.29
+    The values 0.34 and 0.90 APPEAR NOWHERE IN TABLE 5. Abstract also appears to have imported
+    the inter-operator ICC floor (0.93) into the intra row. Kappa disagrees too: abstract gives
+    Op1 as 0.92/0.90, results text gives 0.91/0.93. Errors run in BOTH directions, so this
+    reads as transcription failure, not favourable rounding.
+    NEW CLAIM `a-paper's-abstract-is-a-secondary-source-for-its-own-results`.
+    THIRD INSTANCE IN THREE INGESTS of a summary misreporting a primary — Scott et al.
+    garbling a citation and manufacturing a finding; Fujii's survey describing works
+    second-hand; now a paper's own abstract. The pattern is about WHICH TEXT GETS CHECKED.
+    PRACTICAL RULE: anything extracted from an abstract must be verified against the body;
+    where only an abstract is available the claim is closer to `imported:` than `extracted:`.
+
+OTHER FINDINGS:
+  - PER-GROUP AGREEMENT IS NOT UNIFORM. Passing ICC 1.00 / TE 0.01; defending-and-goalkeeper
+    ICC 0.93-0.95 / TE 0.24-0.29. NEW CLAIM
+    `coding-agreement-is-worst-where-the-vault's-hardest-metrics-live`: the measurement layer
+    degrades in the same places the modelling layer does, so the two sets of difficulties are
+    CORRELATED, not independent. Bears on VDEP/GVDEP, whose proxies (recoveries, tackles,
+    interceptions) sit in the weakest coding cell. The vault had treated proxy substitution
+    as a purely statistical trade (rare target -> frequent target); the frequent proxies are
+    also the noisier ones to OBSERVE, which the trade does not account for.
+  - AGGREGATE KAPPA IS DOMINATED BY PASSES (~182 events/team vs 7-14 defensive). A headline
+    Kappa of 0.97 is mostly a statement about passing.
+  - WITHIN-SYSTEM RELIABILITY != BETWEEN-SYSTEM AGREEMENT, and both were measured. Operators
+    agreed with each other but disagreed with OPTA on SHORT PASSES, with similar total pass
+    counts — a definitional threshold difference, not a coding error. Pass DIRECTION errors
+    come from marking on a miniaturised on-screen pitch (system auto-labels lateral if angle
+    to sideline < 15 deg). CAUTION FOR SPADL: it unifies providers at the level of ACTION
+    TYPE; the disagreement here is in the ATTRIBUTES (length band, direction), which is
+    exactly where xT and VAEP draw features.
+  - CHAMPDAS'S DISTINGUISHING FEATURE IS ITS WEAKEST. Passing direction is what the authors
+    claim sets the system apart, and it is the least reliable part — both facts have the same
+    cause: direction is DERIVED from marked geometry rather than notated directly.
+  - EXPERT-ASSENT VALIDATION is now a RECURRING mode, not a one-off: Aiken's V here,
+    Fernandez & Bornn's expert video review, and the tactical task's style recognition. But
+    note Gong et al. use it for DEFINITIONS (where ground truth cannot exist) and measure
+    agreement separately with hard statistics — a better use than validating the quantity itself.
+
+PAGES CREATED (3):
+  wiki/summaries/champdas-validity-reliability.md
+  wiki/concepts/operator-reliability.md — the new layer; includes the cheap test nobody has
+    run (code n matches twice, compute VAEP/xT under each, correlate player ratings — an
+    upper bound on how much metric instability is inherited from coding)
+  wiki/entities/champdas-master-system.md — data provider
+
+PAGES UPDATED (3): split-half-reliability (layer distinction + coding noise ruled out),
+  overview (priority 1 sharpened not closed; recurring-findings), index
+
+DEFERRED — NOT DONE, flagged for a later run:
+  - Author entity pages (Gong, Cui, Gomez). Gomez in particular is a prolific
+    performance-analysis author likely to recur.
+  - Cross-links into vdep / gvdep / rare-event-proxy-targets for the defensive-coding-noise
+    finding. Declared on operator-reliability but not propagated to those pages.
+  - construct-validity page not updated with the recurring expert-assent mode.
+  This is the third ingest in one session and those updates deserve a fresh run rather than
+  a tired one.
+
+TOOL NOTES:
+  - read_note FAILED on a 160KB source ("too large for context"), stored to
+    /mnt/user-data/tool_results/ and read via bash. Worth knowing the size ceiling exists.
+  - update_frontmatter MERGES list fields even with append_to_lists unset — it could not
+    REMOVE the erroneous `spadl` tag. Had to use str_replace_note on the frontmatter line.
+    Standing note: update_frontmatter adds, it does not replace lists.
+  - I wrote `spadl` as a TAG when it is a PAGE — the inverse of the usual tag-as-wikilink
+    error, and write-time lint caught it. Also assumed statsbomb/wyscout/opta entity pages
+    existed; check_links showed none do (the vault has stats-perform and data-stadium).
+    check_links before writing provider names remains the right habit.
+
