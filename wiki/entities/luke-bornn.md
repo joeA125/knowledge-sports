@@ -1,8 +1,8 @@
 ---
 title: "Luke Bornn"
 type: entity
-tags: [person, researcher, ai-research, university, sports-analytics, spatiotemporal, pitch-control, off-ball, space-creation]
-sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/expected_value_possession_framework.md]
+tags: [person, researcher, ai-research, university, sports-analytics, spatiotemporal, pitch-control, off-ball, space-creation, reliability, evaluation, statistics]
+sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/multiresolution-stochastic-process-model-nba-possessions.md, raw/papers/expected_value_possession_framework.md, raw/papers/understanding-sports-metric-statistical-properties.md]
 confidence: 0.9
 provenance:
   extracted: 70%
@@ -12,26 +12,45 @@ provenance:
   ambiguous: 0%
 lifecycle: reviewed
 created: 2026-07-23
-updated: 2026-07-27
+updated: 2026-08-29
 ---
 
 # Luke Bornn
 
 Statistician working across basketball and football spatial analytics. Simon Fraser University and the Sacramento Kings at the time of the 2018 paper; Assistant Professor at Simon Fraser at the time of the 2016 one.
 
-**Three held sources**, and the connective figure in the vault's possession-value literature.
+**Four held sources**, and the connective figure in the vault's possession-value literature.
 
 | Year | Work | With | Contribution |
 |---|---|---|---|
 | 2016 | [[multiresolution-stochastic-process-nba-possessions\|Multiresolution EPV]] | Cervone, D'Amour, Goldsberry | [[martingale-epv]] |
+| **2016** | **[[meta-analytics-sports-metrics\|Meta-Analytics]]** | **Franks, D'Amour, Cervone** | **[[metric-discrimination]], [[metric-stability]], [[metric-independence]]** |
 | 2018 | [[wide-open-spaces-space-creation\|Wide Open Spaces]] | [[javier-fernandez\|Fernández]] | [[pitch-control]] (Gaussian), [[pitch-value-model]], [[space-occupation-gain\|SOG/SGG]] |
 | 2020/21 | [[expected-value-possession-framework\|Soccer EPV framework]] | Fernández, Cervone | Decomposed tracking-based EPV, [[soccermap]] |
+
+## ⚠️ He Co-Wrote the Standard His Own Football Metrics Do Not Meet
+
+> **Added 2026-08-29** on ingest of [[meta-analytics-sports-metrics|Franks et al. (2016)]].
+
+In the same year as the basketball EPV paper, Bornn co-authored the framework defining **[[metric-discrimination|discrimination]], [[metric-stability|stability]] and [[metric-independence|independence]]** as measurable properties of a player metric — the vault's top acquisition priority for twelve ingests.
+
+He then went on to build [[wide-open-spaces-space-creation|Wide Open Spaces]] and the [[expected-value-possession-framework|soccer EPV framework]]. **Neither reports any of the three.**
+
+> ### `the-framework-and-the-metrics-share-authors-and-never-meet`
+> **The absence of reliability figures in football valuation is not explained by the field lacking the tools. Two of the four authors who defined how to measure metric quality went on to build football value surfaces and reported none of those properties for them.**
+> ^[generated: declared on [[meta-analytics-sports-metrics]]. rests-on: source:franks-author-list, source:fernandez-bornn-wide-open-spaces]
+
+**This overturned a reading three prior ingests had built up** — that reliability was missing because it belonged to a different discipline. It does not. It belongs to the same people. See [[reliability-layers]].
+
+The [[space-occupation-gain|SOG]] case is the sharpest: the page below notes SOG and SGG "have not been extended by anyone", and the vault has no reliability figure for either. **Their co-author had, two years earlier, published the method for producing one.**
 
 ## The Through-Line
 
 **Turn positional tracking into a spatial field, then reason over the field rather than over events.** In basketball that yields spatial bases and defender-assignment models; in football, control surfaces, value surfaces, and eventually full-pitch [[probability-surface|value surfaces]].
 
 Also co-author on the defensive-structure work (Franks et al., 2015) underlying the EPV microtransition model, and the factorised point-process work (Miller et al., 2013) informing its NMF spatial bases.
+
+⚠️ **The 2015 Franks collaboration is now an acquisition target.** *Counterpoints: advanced defensive metrics for NBA basketball* is a tracking-derived defensive metric by the same group that then wrote the metric-quality framework — the most likely place in the corpus where the two registers actually meet. See [[alexander-franks]] and [[defensive-valuation]].
 
 ## What Wide Open Spaces Established
 

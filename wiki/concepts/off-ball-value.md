@@ -2,7 +2,7 @@
 title: "Off-Ball Value"
 type: concept
 tags: [off-ball, space-creation, sports-analytics, action-valuation, defensive-valuation, player-evaluation, optical-tracking-data, probability-surface, pitch-control, counterfactual, reinforcement-learning, multi-agent, construct-validity, evaluation, reliability]
-sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md]
+sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md]
 confidence: 0.85
 provenance:
   extracted: 60%
@@ -145,6 +145,10 @@ Ranked by how far each mechanism sits from a sampled position:
 This is an extrapolation across domains and explicitly not a measurement.^[generated: flagged as extrapolation on [[reliability-layers]]] But it predicts something checkable: **if the six mechanisms were ranked by split-half reliability, the counterfactual-differenced ones should come last.** That is a concrete, falsifiable ordering where the vault previously had only "nobody has measured it".
 
 **It also supplies a candidate reading of the ρ = 0.182 disagreement above.** C-OBSO is the deepest mechanism here and the Q-values among the shallowest. The paper's explanation — different position groups — and an instability explanation are not exclusive, and **the reliability measurement would separate them.** One number, and it settles which.^[generated: neither reading is proposed by any source]
+
+> **And the measurement now has a specification.** [[meta-analytics-sports-metrics|Franks et al. (2016)]] require meta-metrics to be computed **conditional on player type**, precisely because a metric can score well by tracking position rather than ability. Computing discrimination for these six within position groups distinguishes "different positional slices of one construct" from "position dressed as skill". See [[construct-validity]].
+>
+> Add [[metric-independence|independence]] across all six on shared players and the redundancy question — how much of this proliferation is one signal renamed — becomes a reported statistic rather than a complaint. ⚠️ Franks et al.'s NBA result suggests **defensive and off-ball metrics are the *least* redundant class**, which would make the proliferation here more defensible than the vault has assumed.
 
 ## What the Evidence Shows
 

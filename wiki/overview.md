@@ -27,17 +27,17 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **283** |
-| Concepts | 156 |
-| Entities | 70 |
-| Source summaries | **44** |
+| Total pages | **291** |
+| Concepts | 161 |
+| Entities | 72 |
+| Source summaries | **45** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 44 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 117 `draft`, 3 `evergreen` (the dashboards).
+**All 45 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 121 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29**, four times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]] and [[gps-deceleration-reliability|Jones et al. (2024)]]. Counts re-read from `vault_stats`, not recalled.
+> **Updated 2026-08-29**, five times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]], [[gps-deceleration-reliability|Jones et al. (2024)]] and [[meta-analytics-sports-metrics|Franks et al. (2016)]]. Counts re-read from `vault_stats`, not recalled.
 >
 > ✅ **Cross-page propagation caught up** in a dedicated run, 2026-08-29. The derivation-depth argument reached [[off-ball-value]]; the coding-noise finding reached [[vdep]] and [[rare-event-proxy-targets]] as a **fourth proxy criterion**; the expert-assent mode reached [[construct-validity]]; the attribute-level provider caution reached [[spadl]]; and the shifted prior reached [[within-season-variation-noise-or-signal]]. Residual backlog is itemised in the final `log.md` entry.
 
@@ -102,7 +102,8 @@ And **[[transformer]] has left the top fifteen entirely.** Before the migration 
 - **A claim held only through citation is unaudited, not merely thin.** Acquiring [[network-theory-football-strategies|one long-cited primary]] falsified three things the vault believed about it, including a finding its citing source had manufactured. See [[social-network-analysis]].
 - **The field's own survey neither benchmarks nor discusses reliability.** [[data-driven-team-sports-behaviors|Fujii (2021)]] catalogues dozens of frameworks and compares none, with no licensing constraint to excuse it — which moves both absences from *structural* to *disciplinary*. See [[action-valuation-frameworks-compared]].
 - **Twenty-two players have no canonical order**, and every framework here resolves that silently. Four routes exist, they trade order against interpretability, and none has been compared. See [[permutation-problem]].
-- **Reliability is at least two things.** Whether two analysts produce the same event log, and whether a player's rating is stable across samples, fail for unrelated reasons. The vault had one hole and now has one measurement and one hole. See [[operator-reliability]].
+- **Reliability is at least two things.** Whether two analysts produce the same event log, and whether a player's rating is stable across samples, fail for unrelated reasons. **Revised 2026-08-29: it is three layers, and the metric layer is itself three properties** — discrimination, stability, independence. See [[reliability-layers]].
+- **The framework and the metrics share authors and never meet.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote the standard for testing metric quality and two of this vault's football value surfaces, reporting none of those properties for the latter. The gap is a norm about what a paper contains, not a missing tool. See [[meta-analytics-sports-metrics]].
 - **Summaries misreport primaries, and the pattern is about which text gets checked.** Three consecutive ingests found it: a citing paper garbling a citation and manufacturing a finding, a survey describing works second-hand, and a paper's own abstract misreporting its own table. See [[champdas-validity-reliability]].
 
 ## Open Questions
@@ -122,25 +123,31 @@ The third group is the distinctive one: these are questions no single paper pose
 The RL and simulation line is fully held, and **the SNA gap that topped this list has been closed** — see below for what remains of it. Five areas, highest need first.
 
 ### 1. Reliability of tracking-derived metrics
-`no-reliability-for-off-ball-metrics` has survived **eleven** ingests. **Six off-ball mechanisms, zero reliability estimates.**
-
-Any source reporting split-half or test–retest reliability for a tracking-derived metric would settle it — and would also resolve whether the ρ = 0.182 disagreement between [[c-obso|C-OBSO]] and the RL Q-values reflects different constructs or one unstable measure. See [[within-season-variation-noise-or-signal]].
+`no-reliability-for-off-ball-metrics` has survived **twelve** ingests. **Six off-ball mechanisms, zero reliability estimates.**
 
 **Still the top priority**, and the only remaining one that would change a conclusion rather than add support.
 
-> ⚠️ **Three reliability papers have now arrived and none of them is this one.** They measure three *different layers* — see [[reliability-layers]], created 2026-08-29 to keep them apart.
+> ⚠️ **Restated by property, 2026-08-29.** [[meta-analytics-sports-metrics|Franks et al. (2016)]] is now held — the framework this priority needs. It shows the gap is **larger than this list recorded**, because "reliability" at the metric layer is three properties, not one.
 >
-> | Layer | Source | Closes priority 1? |
-> |---|---|---|
-> | Coding | [[champdas-validity-reliability\|Gong et al. (2019)]] | No |
-> | Instrument & protocol | [[gps-deceleration-reliability\|Jones et al. (2024)]] | No |
-> | **Metric** | xT and VAEP only | **This is the gap** |
+> | Property | Held for football? |
+> |---|---|
+> | **Discrimination** — separates players within a season | ✅ xT (0.89), VAEP (0.25), **nothing else** |
+> | **Stability** — measures the same thing across seasons | ❌ **nothing, for any football metric** |
+> | **[[metric-independence\|Independence]]** — says anything the others do not | ❌ nothing; the vault had no word for it |
 >
-> **The list was not wrong about the gap — it was imprecise about it**, and imprecision let two near-misses look like hits. Now stated by layer, and falsifiable by inspection.
+> This list said *"split-half or test–retest reliability"*, treating those as two ways of measuring one property. **They are two different properties.** Split-half estimates discrimination; test–retest estimates stability. So even xT — which [[recruitment]] prefers *because* it replicates — has no stability figure.
 >
-> **What they did contribute:** coding noise is ruled out as the cause of VAEP's low reliability, and Jones et al.'s finding that a *criterion radar device* is only moderately reliable — with the error attributed to the athlete rather than the instrument — **shifts the prior toward genuine player variability** on [[within-season-variation-noise-or-signal]].
+> **Four reliability papers arrived across three layers and none closed this.** See [[reliability-layers]] for both axes. The successive corrections all ran the same way: the gap was never mis-identified, only described too coarsely to be checked against an arriving source.
 >
-> **Where the closing source will come from:** outside the ML literature. [[data-driven-team-sports-behaviors|Fujii's survey]] does not treat reliability as a topic; both new sources appeared in psychology and sports-physiology journals.
+> ⚠️ **And the "outside the field" reading is now wrong.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote this framework *and* two of the vault's football value surfaces ([[expected-value-possession-framework|EPV]], [[wide-open-spaces-space-creation|Wide Open Spaces]]), reporting none of these properties for either. **The tools were never outside the field — they were outside the paper.**
+
+### 1a. Applications of the framework to football
+> **Added 2026-08-29.** The framework is held; what is missing is football numbers computed with it. Two candidates identified but **not yet acquired**:
+> - **Bischofberger et al. (2026)**, *Blame is easier than praise* — a tracking-derived off-ball defensive metric evaluated with match-level ICC, first-half/second-half season correlation and bootstrapped season ICC, across men's World Cup and women's Bundesliga data. **The closest thing to a direct hit found so far.**
+> - **Swartz et al.**, *Evaluation of Off-the-Ball Actions in Soccer* — splits a Chinese Super League season into even and odd weeks to test a tracking-derived defensive anticipation metric. An explicit discrimination design.
+> - **Franks, Miller, Bornn & Goldsberry (2015)**, *Counterpoints* — a tracking-derived defensive metric by an author who then wrote the framework. See [[alexander-franks]].
+>
+> ⚠️ **Vocabulary note.** This literature says **"stability"**, following Franks, not "split-half reliability", following psychometrics. Searching the psychometric register is part of why the area looked emptier than it is.
 
 ### 1b. The validation literature — a whole discipline the vault does not hold
 > **Added 2026-08-29.** Three reliability papers arrived at three different layers and none closed priority 1. The reason is disciplinary: [[data-driven-team-sports-behaviors|Fujii's survey]] shows the ML literature does not treat reliability as a topic, and both new sources came from psychology and sports-physiology journals instead.

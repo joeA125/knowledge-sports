@@ -38,6 +38,7 @@ A catalog of all wiki pages, organised by type.
 - [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]] — Valuing Players Over Time
 
 ### Network analysis of team structure
+- [[alexander-franks]] — first author of the metric-quality framework; the vault's only pure statistician, and a lead into the psychometrics literature
 - [[javier-lopez-pena]] · [[hugo-touchette]] — the 2010 World Cup pass-network paper; the vault's oldest football source, and its only primary source on this tradition
 
 ### Ratings and duels
@@ -188,7 +189,13 @@ Eight open investigations, grouped by who could answer them.
 - [[scoutgpt-counterfactual-player-valuation]] — Hong et al. (2026)
 
 ### Reliability and validity of measurement
-- [[reliability-layers]] — **three** distinct layers (coding, instrument, metric), one held source each, and the standing gap precisely located
+- [[reliability-layers]] — **three** distinct layers (coding, instrument, metric), and within the metric layer **three properties**
+- [[metric-variance-components]] — the season/player/interaction/sampling decomposition all three properties are ratios of
+- [[metric-discrimination]] — does it separate players, or noise? What the vault's split-half figures actually measure
+- [[metric-stability]] — does it measure the same thing across seasons? **No football metric here has one**
+- [[metric-independence]] — does it say anything the others do not? The question the vault had no word for
+- [[empirical-bayes-shrinkage]] — the only post-hoc route to a more reliable metric, and it assumes away the volatility question
+- [[meta-analytics-sports-metrics]] — Franks et al. (2016) — the framework; NBA and NHL, no football
 - [[champdas-validity-reliability]] — Gong et al. (2019) — operator/coding reliability
 - [[gps-deceleration-reliability]] — Jones et al. (2024) — GPS device and protocol reliability; derivation depth predicts reliability
 

@@ -2,7 +2,7 @@
 title: "Construct Validity"
 type: concept
 tags: [construct-validity, evaluation, predictive-validity, reliability, player-evaluation, sports-analytics, action-valuation, off-ball, statistics, needs-review]
-sources: [raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/wide_open_spaces_creation_football.md]
+sources: [raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/understanding-sports-metric-statistical-properties.md]
 confidence: 0.7
 provenance:
   extracted: 42%
@@ -40,7 +40,21 @@ That argument is legitimate. It is also **unfalsifiable as deployed**, which is 
 
 > ### `discriminant-claims-need-a-convergent-anchor`
 > **A metric validated only by divergence from existing measures cannot be distinguished from a metric measuring nothing. Noise also diverges from goals.**
-> ^[generated: no source states this; drawn here from Nakahara et al.'s validation strategy. rests-on: source:nakahara-negative-goal-correlation, source:nakahara-no-ground-truth]
+> ^[generated: no source states this; drawn here from Nakahara et al.'s validation strategy. **Independently corroborated 2026-08-29** — see below. rests-on: source:nakahara-negative-goal-correlation, source:nakahara-no-ground-truth]
+
+### ✅ Corroborated From the Other Side
+
+> **Added 2026-08-29** on ingest of [[meta-analytics-sports-metrics|Franks et al. (2016)]], which reaches the same wall from the *internal* direction.
+
+Franks et al. define three measurable properties of a metric — discrimination, stability and [[metric-independence|independence]] — and then note the limit of all three:
+
+> an athlete's birthplace zip code would be perfectly discriminative, stable and independent from all other metrics, but is clearly irrelevant
+
+They propose **relevance** as a needed fourth criterion, and do not build it.
+
+**Two routes, one conclusion.** The vault argued that divergence cannot establish value because noise diverges too; Franks et al. argue that internal statistical quality cannot establish value because structured noise passes all three tests. The claim above was generated here from a single football paper's validation strategy — **it is now supported by an independent methodological source that never mentions football.**
+
+That is a stronger position than the claim had, and it reframes what the vault already holds: [[obso|OBSO]]'s next-match goal prediction (0.26, beating shots and goals) is a **relevance** result, and remains the only one in this vault against an external criterion.
 
 A metric needs at least one thing it is *supposed* to agree with, specified in advance. Nakahara et al. offer none: they diverge from goals (−0.761), from expert ratings (−0.218), from [[obso|OBSO]] (−0.305), and are unrelated to [[c-obso|C-OBSO]] (0.182). **Every comparison they report is a divergence, and all four are read as favourable.**
 
@@ -58,6 +72,23 @@ The C-OBSO comparison is the sharpest case in the vault, because here the discri
 | **Harsh** (not considered) | "Off-ball contribution" is not one construct, so at least one metric is named more broadly than it measures | Equally consistent with the evidence |
 
 The paper's own explanation concedes most of the harsh reading. If C-OBSO ranks forwards and Q-values rank midfielders and defenders, then neither measures off-ball contribution *as such* — each measures a positional slice of it. **The honest report would rename both**, or state the construct as position-conditional.
+
+### ✅ There Is a Test, and It Was Available All Along
+
+> **Added 2026-08-29** on ingest of [[meta-analytics-sports-metrics|Franks et al. (2016)]].
+
+The vault had treated this as undecidable from the evidence. It is not. Franks et al. observe that blocks and rebounds score highly on metric-quality measures **largely because they indicate player position rather than ability** — and that meta-metrics must therefore be recomputed conditional on player type.
+
+Applied here:
+
+| Result | Reading |
+|---|---|
+| Both metrics remain **discriminative within position groups** | They measure position-conditional skill, and should be reported that way. The benign reading holds |
+| Discrimination **collapses within groups** | They were measuring position all along. The harsh reading holds |
+
+**One computation separates two readings the vault had recorded as equally consistent with the evidence.**^[generated: no source applies the conditional-meta-metric argument to this case. rests-on: source:franks-conditional-metametrics, source:nakahara-cobso-correlation]
+
+Add [[metric-independence|independence]] over the full set — C-OBSO, the Q-values, [[obso|OBSO]] and [[space-occupation-gain|SOG]] on shared players — and the third explanation below becomes testable too.
 
 **A third explanation exists and is more mundane.** The four held sources on this dataset each **subset it differently** — C-OBSO uses shot-ending sequences only, Nakahara et al. attacking-third possessions regardless of outcome. Metrics computed over different populations of moments need not agree, and no comparison controls for this. See [[data-stadium]].
 

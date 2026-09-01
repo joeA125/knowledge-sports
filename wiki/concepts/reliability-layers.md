@@ -1,8 +1,8 @@
 ---
 title: "Layers of Reliability"
 type: concept
-tags: [reliability, evaluation, statistics, sports-analytics, player-evaluation, event-stream-data, optical-tracking-data, model-selection]
-sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md]
+tags: [reliability, evaluation, statistics, sports-analytics, player-evaluation, event-stream-data, optical-tracking-data, model-selection, construct-validity]
+sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding-sports-metric-statistical-properties.md]
 confidence: 0.8
 provenance:
   extracted: 46%
@@ -36,14 +36,30 @@ $$\rho = \frac{\sigma^2_\theta}{\sigma^2_\theta + 2\sigma^2_\varepsilon / n}$$
 
 A metric can be no more reliable than its inputs. **The converse does not hold**, and that asymmetry is the reason the layers must be kept apart: clean inputs do not buy a stable metric.
 
-## ⚠️ The Standing Gap Is Layer 3, and It Is Still Open
+## ⚠️ The Standing Gap Is Layer 3, and It Is Larger Than Recorded
 
-`no-reliability-for-off-ball-metrics` has survived **eleven ingests.** It asks for split-half or test–retest reliability of a **tracking-derived football-value metric** — [[obso|OBSO]], [[c-obso|C-OBSO]], [[drso|DRSO]], [[space-occupation-gain|SOG]].
+> **Revised 2026-08-29** on ingest of [[meta-analytics-sports-metrics|Franks et al. (2016)]]. Layer 3 is not one property but **three**, and the vault holds one of them for two metrics.
 
-Three reliability papers have now arrived and **none of them is that paper.** Two measured layers 1 and 2; the third measured layer 3 for two on-ball event metrics only.
+`no-reliability-for-off-ball-metrics` has survived **twelve ingests.**
 
-> **The vault's acquisition list was not wrong about the gap — it was imprecise about it**, and imprecision let two near-misses look like hits. The claim is now stated by layer, which makes it falsifiable by inspection rather than by argument.
-> ^[generated: drawn from the outcome of three consecutive ingests against the claim as previously worded]
+**Layers are one axis. Properties are the other.** Within the metric layer:
+
+| Property | Question | Design | Held for football? |
+|---|---|---|---|
+| **[[metric-discrimination\|Discrimination]]** | Does it separate players *within* a season, beyond chance? | Split a season; bootstrap the sampling variance | ✅ xT (0.89) and VAEP (0.25), **nothing else** |
+| **[[metric-stability\|Stability]]** | Does it measure the same thing *across* seasons? | Multiple seasons per player, chance removed | ❌ **nothing, for any football metric** |
+| **[[metric-independence\|Independence]]** | Does it say anything the others do not? | Copula over several metrics on shared players | ❌ nothing, and the vault had no word for it |
+
+All three are ratios of the same four variances — season, player, player-season interaction, and sampling. See [[metric-variance-components]], where the difference between discrimination and stability turns out to be **which side of the ratio the interaction term sits on.**
+
+⚠️ **The vault's own phrasing was wrong.** The absence claim read *"split-half or test–retest reliability"*, treating those as two ways of measuring one property. They are **two different properties**: split-half estimates discrimination, test–retest estimates stability.
+
+So [[split-half-reliability]]'s $\rho = 0.25$ for VAEP is a **discrimination** figure. **No football metric here has a stability figure at all** — including xT, which the [[recruitment]] recommendation leans on precisely because season-to-season dependability is what recruitment needs.
+
+> **Four reliability papers arrived, and the fourth revealed that the layer which mattered was itself subdivided.** The correction ran the same way each time: the gap was never mis-identified, only described too coarsely to be checked against an arriving source.
+> ^[generated: drawn from the outcome of four consecutive ingests against the claim as successively worded]
+
+See [[metric-independence]] for the third property, which is the cheapest of the three to run and the only one needing neither a bootstrap nor repeated seasons.
 
 ## What the Two New Layers Contributed Anyway
 
@@ -100,18 +116,27 @@ Recorded here because it has now appeared twice in unrelated places.
 
 ## What Would Actually Close Layer 3
 
-Unchanged, and now precisely stated:
+Restated by property, 2026-08-29:
 
-1. **Split-half or test–retest for a tracking-derived value metric.** Split a season, compute OBSO or C-OBSO player ratings on each half, correlate. Nobody has done it.
-2. **The coding-noise upper bound** — code $n$ matches twice, compute VAEP under each, correlate ratings. Proposed on [[operator-reliability]].
-3. **Reliability of a segmentation decision** — the gap this page just opened.
+1. **Discrimination for a tracking-derived value metric.** Split a season, compute OBSO or C-OBSO player ratings on each half, correlate. Nobody has done it. ⚠️ **Compute it conditional on position** — [[meta-analytics-sports-metrics|Franks et al.]] show blocks and rebounds score highly largely because they indicate position rather than ability.
+2. **Stability for any football metric.** Needs multiple seasons per player, which the vault's football sources mostly lack — C-OBSO uses one season, SOG a single match. **The framework is cheap; the data is not held.**
+3. **Independence across the six off-ball mechanisms.** The cheapest of the three: no bootstrap, no repeated seasons, only several metrics over one shared set of players. See [[metric-independence]].
+4. **The coding-noise upper bound** — code $n$ matches twice, compute VAEP under each, correlate ratings. Proposed on [[operator-reliability]].
+5. **Reliability of a segmentation decision** — the gap opened above.
 
-[[data-driven-team-sports-behaviors|Fujii's survey]] contains no discussion of reliability at all, which suggests the closing source will come from **outside** the machine-learning literature. Both new sources support that: one appeared in *Frontiers in Psychology* under Quantitative Psychology and Measurement, the other in a sports-physiology journal.
+And a route that needs none of them: **empirical Bayes shrinkage improves discrimination and stability simultaneously**, post-hoc, without changing the metric. Franks et al. demonstrate it on three-point percentage (0.43 → 0.53 and 0.30 → 0.64). See [[split-half-reliability]].
+
+⚠️ **A caution on all five.** Meta-metrics measure *internal* quality only. Franks et al. note that birthplace zip code would score perfectly on all three and be useless — so a metric passing them still needs an external anchor. That is the same wall [[construct-validity]] reaches from the other side.
+
+[[data-driven-team-sports-behaviors|Fujii's survey]] contains no discussion of reliability at all, which suggested the closing source would come from **outside** the machine-learning literature — supported by three of the four arrivals, from psychology, sports physiology and quantitative-analysis-of-sports journals.
+
+⚠️ **But the fourth complicates that reading.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote this framework *and* two of the vault's football value surfaces, reporting none of these properties for the latter. **The tools were never outside the field — they were outside the paper.** See [[meta-analytics-sports-metrics]].
 
 ## See Also
 
 - [[champdas-validity-reliability]] · [[gps-deceleration-reliability]] · [[on-ball-actions-football-xt-vs-vaep]] — one source per layer
-- [[operator-reliability]] · [[split-half-reliability]] · [[within-season-variation-noise-or-signal]] · [[performance-volatility]]
+- [[metric-discrimination]] · [[metric-stability]] · [[metric-independence]] · [[metric-variance-components]] · [[empirical-bayes-shrinkage]] — the properties within layer 3
+- [[meta-analytics-sports-metrics]] · [[operator-reliability]] · [[split-half-reliability]] · [[within-season-variation-noise-or-signal]] · [[performance-volatility]]
 - [[predictive-validity]] · [[construct-validity]] · [[probability-calibration]] · [[selection-bias]]
 - [[event-stream-data]] · [[optical-tracking-data]] · [[spadl]] · [[obso]] · [[c-obso]] · [[drso]] · [[space-occupation-gain]]
 - [[action-valuation-frameworks-compared]] · [[model-selection]] · [[recruitment]]

@@ -2,7 +2,7 @@
 title: "Split-Half Reliability"
 type: concept
 tags: [statistics, evaluation, reliability, predictive-validity, player-evaluation, sports-analytics, cognitive-science, volatility, selection-bias, time-series, event-stream-data]
-sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md]
+sources: [raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding_football_posessions_using_path_signatures.md, raw/papers/football-performance-time-series.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -20,6 +20,18 @@ updated: 2026-08-29
 Split-half reliability measures whether a metric produces consistent results when computed on two disjoint halves of the same data. Split the observations randomly, compute the measure on each half, and correlate across subjects. High correlation means the metric captures a stable underlying property; low correlation means it largely captures noise.
 
 It originates in psychometrics as a test of internal consistency, but applies to any repeated measurement.
+
+> ### ⚠️ What This Page Actually Measures Is *Discrimination*
+>
+> **Added 2026-08-29** on ingest of [[meta-analytics-sports-metrics|Franks et al. (2016)]].
+>
+> Splitting **one season** into two random halves and correlating across players estimates the fraction of between-player variance that is not chance. In Franks et al.'s vocabulary that is **[[metric-discrimination|discrimination]]** — a within-season property. **[[metric-stability|Stability]]** is a different quantity: within-player, *across seasons*, with chance already removed. Both are ratios of the four variances on [[metric-variance-components]].
+>
+> $$\mathcal{D}_m = \frac{\sigma^2_{PM} + \sigma^2_{SPM}}{\sigma^2_{PM} + \sigma^2_{SPM} + \tau^2_M} \qquad \mathcal{S}_m = \frac{\sigma^2_{PM}}{\sigma^2_{PM} + \sigma^2_{SM} + \sigma^2_{SPM}}$$
+>
+> So the figures below — xT 0.89, VAEP 0.25 — are **discrimination**, and **no football metric in this vault has a stability figure at all.** That matters most where it is quietly assumed: [[recruitment]] prefers xT for season-long decisions because it "replicates better", but replication *across seasons* is the property recruitment needs and the one nobody has measured.
+>
+> A third property, [[metric-independence|independence]], the vault had no word for. See [[reliability-layers]] for both axes.
 
 > ## ⚠️ This Is the Metric Layer, Not the Only Layer
 >
@@ -128,12 +140,24 @@ It also means **reliability and volatility are not independent evidence** and sh
 
 There is separately a [[selection-bias]] caveat on the reliability figures. They are computed on players with enough minutes to rate, and minutes are awarded partly on performance — a restricted range attenuates correlations. Comparisons *between* metrics on the same sample remain fair.
 
-## Two Routes to a More Reliable Metric
+## Three Routes to a More Reliable Metric
 
 1. **Restrict scope** (tested): drop finishing and defensive value. Recovers $\rho = 0.25 \to 0.59$.
 2. **Withhold outcome information** ([[intent-vs-outcome-valuation|untested]]): value the *decision* rather than the result, removing the dominant noise channel while retaining full action scope.
+3. **Shrink toward a prior** — **added 2026-08-29.** [[empirical-bayes-shrinkage|Empirical Bayes shrinkage]] toward a player's career average improves **discrimination and stability simultaneously**: three-point percentage goes 0.43 → 0.53 and 0.30 → 0.64. The estimator is biased for every player and has lower mean squared error anyway. ⚠️ It also **assumes the answer** to the volatility question — see that page.
 
 The second should raise $\rho$ by shrinking $\sigma^2_\varepsilon$ while leaving $\sigma^2_\theta$ intact, whereas restricting scope shrinks both.^[generated: follows from the decomposition above. rests-on: claim:reliability-volatility-identity] No source has measured it.
+
+> **Route 3 is the cheapest by a wide margin, and the vault had missed it.** Routes 1 and 2 require redesigning what is measured. Shrinkage is **post-hoc** — it takes an existing metric's outputs and a player's history, and needs no change to the mechanism. For six off-ball mechanisms with no reliability figures, a technique that improves reliability without touching any of them is the obvious first move.
+> ^[generated: the contrast is drawn here. rests-on: source:franks-empirical-bayes-3pt]
+
+⚠️ **It also cuts against the volatility reading above.** Shrinking toward a career average assumes $\theta_i$ is roughly constant — exactly what [[performance-volatility]] denies. If form is real, shrinkage buys reliability by erasing the signal. **The two frameworks prescribe opposite treatments of the same variance**, which is one more reason [[within-season-variation-noise-or-signal]] has to be settled before either is applied.^[generated: neither source addresses the other]
+
+## Beware Playing Time
+
+**Added 2026-08-29.** [[meta-analytics-sports-metrics|Franks et al.]] find metrics incorporating total minutes (win shares, VORP) score higher than rate metrics — and say plainly it is *not* because they carry more signal about ability, only because minutes played is itself highly discriminative.
+
+**Any football metric summed over a season inherits the reliability of appearance count.** It also means rate and total metrics should not be compared on these scores at all — which would otherwise be tempting across, say, [[hpus|HPUS]] and season-summed [[vaep|VAEP]].
 
 ## Relation to Other Evaluation Concepts
 

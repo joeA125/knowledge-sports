@@ -3595,3 +3595,194 @@ RESIDUAL BACKLOG (small, deliberate):
     "Data.Stadium System"; the vault holds data-stadium as the J-League tracking provider behind
     four sources. Same company or not is UNRESOLVED and worth checking on acquisition.
 
+## [2026-08-30 17:48] ingest | Franks et al. (2016) — the metric-quality framework; the gap is three properties, not one, and its authors are already in the vault
+SOURCE: raw/papers/understanding-sports-metric-statistical-properties.md
+"Meta-Analytics: Tools for Understanding the Statistical Properties of Sports Metrics" —
+Franks, D'Amour, Cervone & Bornn. J. Quantitative Analysis in Sports 12(4):151-165, 2016.
+NBA and NHL. NO FOOTBALL.
+
+Acquired after a web search run in the preceding turn identified it as the highest-value
+target for priority 1. FIFTH INGEST THIS SESSION.
+
+*** THE CORRECTION: THE GAP IS BIGGER THAN THE VAULT RECORDED, NOT SMALLER ***
+  The absence claim read "no held source reports split-half OR test-retest reliability",
+  treating those as two ways of measuring one property. THEY ARE TWO DIFFERENT PROPERTIES.
+    DISCRIMINATION  within-season, between-player, chance removed. Split-half estimates THIS.
+    STABILITY       within-player, ACROSS SEASONS, chance already removed.
+    INDEPENDENCE    variance surviving conditioning on other metrics. NO VAULT VOCABULARY.
+  So Van Roy's xT 0.89 / VAEP 0.25 are DISCRIMINATION figures. NO FOOTBALL METRIC IN THE
+  VAULT HAS A STABILITY FIGURE AT ALL — including xT, which the recruitment recommendation
+  prefers precisely BECAUSE it "replicates better". Replication ACROSS SEASONS is the property
+  recruitment needs and nobody has measured it.
+  Four reliability papers arrived across three layers; the fourth revealed the layer that
+  mattered was itself subdivided. Same failure mode each time: the gap was never
+  mis-identified, only described too coarsely to be checked against an arriving source.
+  reliability-layers now carries TWO AXES — three layers, and three properties within layer 3.
+
+*** THE AUTHOR OVERLAP ***
+  CERVONE AND BORNN ARE ALREADY IN THIS VAULT — both on expected-value-possession-framework,
+  Bornn also on wide-open-spaces-space-creation (origin of the SOG line).
+  NEW CLAIM `the-framework-and-the-metrics-share-authors-and-never-meet`: the absence of
+  reliability figures in football valuation is NOT explained by the field lacking tools. The
+  same people wrote the standard and then built football value surfaces reporting none of it.
+  THIS OVERTURNS the "closing source will come from outside the ML literature" reading that
+  three prior ingests had built up. The tools were never outside the field; they were outside
+  the paper. Overview and reliability-layers both corrected.
+
+CORROBORATION OF A GENERATED CLAIM (rare, worth marking):
+  Franks et al.'s discussion: "an athlete's birthplace zip code would be perfectly
+  discriminative, stable and independent from all other metrics, but is clearly irrelevant."
+  They propose RELEVANCE as a needed fourth criterion and do not build it.
+  This INDEPENDENTLY CORROBORATES `discriminant-claims-need-a-convergent-anchor`, which the
+  vault generated from Nakahara et al.'s validation strategy. Two routes, one conclusion:
+  the vault argued divergence can't establish value because noise diverges; Franks argues
+  internal quality can't establish value because structured noise passes all three tests.
+  Also reframes OBSO's 0.26 next-match goal prediction as the vault's only RELEVANCE result.
+
+RESOLVES AN OPEN VAULT PROBLEM (rho = 0.182, C-OBSO vs RL Q-values):
+  The vault had recorded the benign reading (different positional slices) and the harsh
+  reading (neither measures off-ball contribution as such) as EQUALLY CONSISTENT with the
+  evidence. Franks et al. note blocks/rebounds score highly largely because they INDICATE
+  POSITION, and require meta-metrics be computed CONDITIONAL ON PLAYER TYPE.
+    discriminative within position groups -> position-conditional skill, benign reading holds
+    discrimination collapses within groups -> position all along, harsh reading holds
+  ONE COMPUTATION SEPARATES TWO READINGS THE VAULT HAD CALLED UNDECIDABLE.
+  Propagated to construct-validity and off-ball-value.
+
+A THIRD ROUTE TO A MORE RELIABLE METRIC (split-half-reliability listed two):
+  EMPIRICAL BAYES SHRINKAGE toward career average improves discrimination AND stability
+  simultaneously. 3P%: D 0.43->0.53, S 0.30->0.64. Biased for every player, lower MSE anyway.
+  CHEAPEST ROUTE BY FAR because it is POST-HOC — needs no change to the metric, only its
+  outputs and a player history. For six off-ball mechanisms with no reliability figures that
+  is the obvious first move.
+  BUT: shrinkage assumes theta_i is roughly constant, which performance-volatility DENIES. If
+  form is real, shrinkage buys reliability by ERASING SIGNAL. The two frameworks prescribe
+  OPPOSITE treatments of the same variance — one more reason
+  within-season-variation-noise-or-signal must be settled before either is applied.
+
+OTHER FINDINGS:
+  - RATE VS TOTAL: WS/VORP beat rate metrics "primarily because MP significantly increases
+    their reliability, NOT because there is stronger signal about player ability." Any football
+    metric summed over a season inherits the reliability of APPEARANCE COUNT. Rate and total
+    metrics should not be compared on these scores at all.
+  - DEFENSIVE METRICS ARE THE LEAST REDUNDANT CLASS. Independence curves are CONCAVE for
+    defensive metrics (first PC of five = 51%) and roughly LINEAR for omnibus metrics (73%).
+    If it transfers, the off-ball proliferation is MORE DEFENSIBLE than the vault's "too many
+    metrics, no comparison" framing — but sparseness is also why nothing anchors them.
+  - REDUNDANCY: 15 of 70 NBA principal components explain >75%. No held football source
+    reports independence or any redundancy measure. NEW ABSENCE CLAIM.
+  - The paper formalises material that "mostly appears in blogs" (Arthur, Blackport,
+    Sprigings). Suggests a football version may exist informally, in clubs and blogs, without
+    entering the literature the vault searches.
+
+PAGES CREATED (3): wiki/summaries/meta-analytics-sports-metrics.md
+                   wiki/concepts/metric-independence.md
+                   wiki/entities/alexander-franks.md
+  (alex-damour, daniel-cervone, luke-bornn, kirk-goldsberry all already existed — checked
+   with check_links before writing, which avoided the provider-name error made two ingests ago)
+
+PAGES UPDATED (6): reliability-layers (two axes), split-half-reliability (it measures
+  DISCRIMINATION; third route; playing-time warning), construct-validity (corroboration +
+  the conditional-meta-metric test), off-ball-value, overview (priority 1 restated by
+  property; new 1a for applications), index
+
+STILL OPEN: absence claim SURVIVES, TWELFTH INGEST. This is the framework, not a football
+  measurement. Priority 1a now lists the application candidates found by search:
+  Bischofberger et al. (2026) "Blame is easier than praise"; Swartz "Evaluation of Off-the-Ball
+  Actions in Soccer"; Franks, Miller, Bornn & Goldsberry (2015) "Counterpoints".
+  VOCABULARY NOTE recorded: this literature says "stability" (Franks), not "split-half
+  reliability" (psychometrics). Searching the wrong register is part of why the area looked
+  emptier than it is.
+
+DATA CONSTRAINT WORTH REMEMBERING: stability needs MULTIPLE SEASONS PER PLAYER. C-OBSO uses
+  one season, Nakahara et al. 14 players from one club, SOG a single match. The framework is
+  cheap; the data to run its stability half is NOT HELD. Discrimination and independence are
+  runnable today; stability is not.
+
+## [2026-09-01 06:24] correction | Under-extraction corrected — Franks et al. gets four more concept pages and three entity updates
+Correction run. Joe flagged that the Franks et al. ingest created only ONE concept page from a
+first-of-type methodology paper. He was right — that is under-extraction, the vault's known
+primary failure mode, and it happened on exactly the source shape where it does most damage.
+
+WHAT WENT WRONG: four distinct, named, formally-defined concepts were folded into prose on the
+summary and on existing pages instead of getting pages. check_links confirmed the scale of the
+miss: 14 of 16 candidate concept targets were MISSING, including `metric-stability`,
+`metric-discrimination`, `empirical-bayes-shrinkage` and every variance-decomposition variant.
+The paper defines three named properties, a four-term variance decomposition, a bootstrap
+estimator, a copula dependence model and a shrinkage method. It got one page.
+
+A first-of-type paper warrants MORE pages than a typical empirical paper, not fewer. This is a
+pure methodology source — the vault's first — and its content is almost entirely concepts.
+
+PAGES CREATED (4), bringing the ingest to 7 total:
+  wiki/concepts/metric-discrimination.md
+    NEW CLAIM `discrimination-rewards-measuring-position`: a metric separating player TYPES
+    scores identically to one separating player QUALITY, because both produce large true
+    between-player variance. In a sport with strong role differentiation the positional signal
+    is the larger one. A high score is evidence the metric measures SOMETHING stable, not that
+    it measures skill. Fix is conditional computation and it is cheap.
+    Also: VAEP at D=0.25 is LOWER THAN THE WORST METRIC IN FRANKS' NBA SET (3P% at 0.43).
+    Flagged that the estimators differ (split-half vs bootstrap variance ratio) and Van Roy
+    doesn't state whether Spearman-Brown was applied — reconciling them is itself unrun.
+  wiki/concepts/metric-stability.md
+    NEW CLAIM `stability-and-discrimination-are-independent-axes`, with Franks' own data as
+    proof: FT% 0.65/0.98, MP 0.96/0.40. They move in opposite directions.
+    THE RECRUITMENT MISMATCH: recruitment prefers xT over VAEP because it "replicates better",
+    citing rho=0.89 — a WITHIN-SEASON figure. Recruitment is a BETWEEN-SEASON decision. The
+    property the recommendation needs is the one nobody has measured.
+    Instability is NOT a defect — Franks defines stability AFTER removing sampling variance, so
+    what remains is real change (context or development).
+    DATA CONSTRAINT: stability needs multiple seasons per player. C-OBSO one season, Nakahara
+    14 players one club, SOG a single match, DRSO one season. Discrimination and independence
+    are runnable on held data TODAY; stability is not runnable on anything here. That reframes
+    acquisition: a multi-season tracking dataset beats a seventh mechanism.
+  wiki/concepts/metric-variance-components.md
+    The four terms (sigma^2_SM season, sigma^2_PM player, sigma^2_SPM interaction, tau^2_M
+    sampling) and how all three meta-metrics slice them.
+    NEW CLAIM `form-is-signal-or-noise-depending-on-the-decision`: sigma^2_SPM sits in the
+    NUMERATOR of discrimination and the DENOMINATOR of stability. There is no reading on which
+    a metric is simply "reliable" — the same variance is signal for attribution and noise for
+    acquisition. Sharpest available statement of why within-season-variation-noise-or-signal
+    cannot be settled by measurement alone: the question is what DECISION the number is for.
+    RECONCILED the vault's existing identity rho = sigma^2_theta/(sigma^2_theta + 2sigma^2_eps/n)
+    with Franks' components. THE VAULT'S IDENTITY HAS NO SEASON TERM, so it CANNOT EXPRESS
+    STABILITY AT ALL. That is the formal reason the absence claim was mis-worded for twelve
+    ingests — the vocabulary could not represent the property being asked for.
+    BOOTSTRAP CAVEAT: resampling games assumes exchangeability within a season. Football
+    violates this badly (opponent strength, venue, scoreline, rotation). A naive game bootstrap
+    UNDERSTATES tau^2_M and inflates every meta-metric computed from it. Fix: block/stratify.
+  wiki/concepts/empirical-bayes-shrinkage.md
+    NEW CLAIM `shrinkage-buys-reliability-by-assuming-the-answer`: shrinkage raises stability
+    BY CONSTRUCTION because it suppresses exactly the between-season movement stability
+    measures. If form is real, the better number reflects erased signal, and the statistic
+    cannot tell — the assumption is in the prior, not the data.
+    PRIOR CHOICE MATTERS: career average vs population mean vs position-group mean. The third
+    is tempting in football and dangerous — it removes between-position variance while raising
+    scores, the same confound as `discrimination-rewards-measuring-position` through another door.
+    NEW ABSENCE CLAIM `no-held-football-source-uses-shrinkage` — standard in baseball for
+    decades, demonstrated here on basketball, absent from every football source held.
+
+ENTITY PAGES UPDATED (3) — the other omission, and arguably the worse one, since this is where
+  the session's headline finding actually belongs:
+  luke-bornn — three -> FOUR held sources. He co-wrote the metric-quality standard in 2016 and
+    then built Wide Open Spaces and the soccer EPV framework, reporting none of the three
+    properties for either. SOG is the sharpest case: not extended by anyone, no reliability
+    figure, and its co-author had published the method for producing one two years earlier.
+    Franks et al. (2015) "Counterpoints" flagged as an acquisition target.
+  daniel-cervone — two -> THREE held sources. Contrast is SHARPER than for Bornn because his
+    signature is uncertainty-awareness: the martingale guarantee is a PROOF-shaped commitment
+    to the value process being coherent. So the omission is not obliviousness but a difference
+    in what counts as evidence — proved guarantees where available, no measured properties at all.
+  alex-damour — one -> TWO held sources. This page ALREADY said his interests include "the
+    reliability of machine learning systems", written before the vault held anything of his on
+    reliability. It now does. He is the ONE member of that group who wrote the framework and did
+    NOT go on to build a football metric ignoring it, so the shared-authors claim does not
+    attach to him — making him the cleanest lead into that literature.
+
+ALSO UPDATED: reliability-layers, split-half-reliability, meta-analytics-sports-metrics, index
+  — all rewired to point at the four new pages rather than carrying the content inline.
+
+TOOL NOTE: check_links reported `hierarchical-model` as a TAG, not a page, with an explicit
+  note that adding it to taxonomy.md does not create a page. Useful — used it as a tag on two
+  new pages rather than linking it.
+
