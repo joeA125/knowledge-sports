@@ -156,6 +156,27 @@ The second stabiliser they identify — adding a **role-conditioned expected inv
 
 ⚠️ **And their headline scores are z-scored composites**, so the absolute reliability of any off-ball metric remains unmeasured. The prediction above is confirmed in *direction* and still untested in *level*.
 
+### ✅ The Levels, Recovered 2026-08-29
+
+Computed in-vault from their committed World Cup data — **not figures they published.**
+
+| | Unadjusted ICC(1,1) | Role-adjusted |
+|---|---|---|
+| Best of twelve off-ball variants | **0.656** | **0.304** |
+| Worst | **0.342** | **0.077** |
+
+^[generated: computed in-vault; full table and caveats on [[off-ball-defensive-performance-blame]]. rests-on: source:bischofberger-committed-player-level-csv]
+
+**Two things follow for this page.**
+
+**The derivation-depth ordering holds with absolute numbers.** Raw fault 0.656 against valued fault 0.479 on the same denominator, and the raw-beats-valued gap holds across all six metric pairs. Removing the xT weighting — one derivation layer — is worth roughly 0.15 of ICC.
+
+⚠️ **But the levels are low enough to change how the ρ = 0.182 disagreement should be read.** At an unadjusted ICC of 0.34–0.66, and **0.08–0.30 once position is removed**, these metrics do not have the reliability required to support a construct-level interpretation of a correlation that size. **Two measures this noisy would disagree even if they were measuring the same thing.**
+
+That does not settle the disagreement — [[c-obso|C-OBSO]] and the RL Q-values are different constructs from these, on different data — but it makes the **instability reading substantially more plausible than the vault has been treating it**, and it is the first evidence on that question rather than an inference.^[generated: the transfer from these metrics to C-OBSO is an inference across constructs and datasets, not a measurement of either]
+
+⚠️ **Caveats apply**: World Cup only, median three matches per unit, and a blunter role correction than the authors use. See the source page.
+
 **It also supplies a candidate reading of the ρ = 0.182 disagreement above.** C-OBSO is the deepest mechanism here and the Q-values among the shallowest. The paper's explanation — different position groups — and an instability explanation are not exclusive, and **the reliability measurement would separate them.** One number, and it settles which.^[generated: neither reading is proposed by any source]
 
 > **And the measurement now has a specification.** [[meta-analytics-sports-metrics|Franks et al. (2016)]] require meta-metrics to be computed **conditional on player type**, precisely because a metric can score well by tracking position rather than ability. Computing discrimination for these six within position groups distinguishes "different positional slices of one construct" from "position dressed as skill". See [[construct-validity]].

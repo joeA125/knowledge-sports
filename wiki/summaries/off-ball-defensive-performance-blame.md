@@ -107,6 +107,57 @@ So the absence claim **narrows sharply rather than closing**: the vault now hold
 
 ⚠️ Note also that $r_{Repeat}$ is **excluded for the World Cup** — too few matches per team when halved — so the stability-like evidence rests on the Frauen-Bundesliga and 3. Liga.
 
+### ✅ Recovered, 2026-08-29 — the Absolute Figures the Paper Did Not Print
+
+> **These are vault-side recomputations, not reported results.** Derived from the authors' own committed data (`scripts/2026-05-25_player_level_enriched_with_ratings.csv`, MIT-licensed) using the one-way ICC(1,1) estimator in their own `scripts/2026-04-20_robustness_icc.py`. **The authors did not publish these numbers and are not responsible for them.**
+
+**What was recoverable, and what was not:**
+
+| Component | Status |
+|---|---|
+| $ICC_{Match}$ | ✅ **Recovered** — per-player per-match values for all six base metrics in four aggregations are committed |
+| $ICC_{Season}$ | ✅ Recoverable in principle — bootstrap over the same rows |
+| $r_{Repeat}$ | ❌ **Structurally unavailable.** Excluded for the World Cup by the authors; the two league datasets are proprietary (DFB request) |
+
+**So the published composite cannot be reproduced from public data** — only a two-component statistic on one competition, which is a different object.
+
+Coverage: 64 matches, 32 teams, **675 players in the dataset**; after the paper's 30-minute filter, **601 players and 1,624 observations**, giving **436 player-role units with ≥2 matches.**
+
+| Metric | ICC(1,1) | Role-adjusted |
+|---|---|---|
+| Raw fault per pass against | 0.656 | **0.280** |
+| Raw fault per 90 | 0.645 | **0.250** |
+| Raw involvement per pass against | 0.621 | **0.304** |
+| Raw involvement per 90 | 0.620 | **0.282** |
+| Valued fault per 90 | 0.543 | **0.286** |
+| Raw contribution per 90 | 0.510 | **0.269** |
+| Raw contribution per pass against | 0.493 | **0.264** |
+| Valued fault per pass against | 0.479 | **0.191** |
+| Valued involvement per 90 | 0.474 | **0.257** |
+| Valued involvement per pass against | 0.416 | **0.150** |
+| Valued contribution per 90 | 0.348 | **0.138** |
+| Valued contribution per pass against | 0.342 | **0.077** |
+
+^[generated: computed in-vault from the authors' committed World Cup data using their own ICC(1,1) function. Not reported by any source. rests-on: source:bischofberger-committed-player-level-csv]
+
+**Unadjusted, nothing exceeds 0.66** — moderate on Koo & Li's bands, and **no off-ball defensive metric reaches "good" (0.75).**
+
+> ### `off-ball-defensive-metrics-are-poor-once-position-is-removed`
+> **Removing role-group means drops every metric to 0.08–0.30 — uniformly "poor". Roughly half the apparent reliability of off-ball defensive metrics is positional rather than individual, and the drop is largest for the metrics that score best unadjusted.**
+> ^[generated: computed in-vault; no source reports role-adjusted absolute figures. rests-on: source:bischofberger-committed-player-level-csv, claim:discrimination-rewards-measuring-position]
+
+**This is `discrimination-rewards-measuring-position` in numbers**, on the exact class of construct the vault has asked about for thirteen ingests. See [[metric-discrimination]].
+
+It also **confirms the derivation-depth direction with absolute values**: raw fault 0.656 against valued fault 0.479 on the same aggregation, and the raw/valued gap holds across all six pairs.
+
+⚠️ **Caveats, and they are not minor:**
+
+- **Not the authors' numbers.** They add role group as a covariate in a mixed model; the role-adjusted column here subtracts role means, which is blunter and **probably over-corrects.** Treat the *direction and size of the drop* as solid and the adjusted values as indicative.
+- **World Cup only** — a tournament, not a season, with a **median of three matches per unit.** ICC estimates at $k = 3$ are noisy, and no confidence intervals are given above.
+- **Opponent quality varies enormously** in a World Cup group stage, which inflates within-unit variance for reasons unrelated to the metric.
+- **The 30-minute filter is applied; the paper's role-specific minute thresholds for the other two statistics are not.**
+- ⚠️ **Reference point:** *passes defended per 90* — close to a team-possession proxy — scores **0.622** unadjusted, in the same band as the best genuine metrics. Consistent with `the-most-robust-metric-may-be-measuring-the-team`, above.
+
 ## ✅ It Also Benchmarks Across Frameworks
 
 `no-held-source-benchmarks-across-frameworks` has survived every ingest by the same argument: comparison needs two methods on one dataset, and licensing prevents anyone holding both.

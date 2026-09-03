@@ -4029,3 +4029,90 @@ OTHER FINDINGS:
 TOOL NOTE: check_links before writing again paid off — pascal-bauer already existed, four other
   targets did not. No tag-as-page or page-as-tag errors this ingest.
 
+## [2026-09-03 13:47] analysis | Recovered absolute ICCs from Bischofberger et al.'s committed data — off-ball defensive metrics are poor once position is removed
+No new source. RECOVERY of statistics computed but not printed in Bischofberger et al. (2026),
+following Joe supplying the repo link: https://github.com/jonas-bischofberger/defensive-network
+(MIT licence, 167 commits, cloned at 246MB).
+
+*** WHAT THE REPO ACTUALLY CONTAINS ***
+  scripts/2026-05-25_player_level_enriched_with_ratings.csv IS COMMITTED — 1,974 rows of
+  per-player per-match values for all six base metrics in four aggregations (raw, per90,
+  per_pass_against, per_pass_defended), plus mins_played, position, starter flag, and the
+  FIFA overall/defending/def_awareness ratings used as the validity anchor.
+  Also committed: scripts/2026-04-20_robustness_icc.csv (team-level ICCs WITH CIs, 18 rows) and
+  the repo's own icc_oneway() implementation in scripts/2026-04-20_robustness_icc.py.
+
+*** RECOVERABILITY, COMPONENT BY COMPONENT ***
+  ICC_Match   RECOVERABLE   World Cup only. Done — see below.
+  ICC_Season  RECOVERABLE   in principle; bootstrap over the same rows. Not run.
+  r_Repeat    NOT RECOVERABLE. Authors excluded it for the World Cup (too few matches per team
+              when halved — data confirms: median 3.5 matches/team). meta.csv shows Bundesliga
+              and 3. Liga in their pipeline but ONLY METADATA is shipped; no league-derived
+              metrics. Those datasets are proprietary, DFB request.
+  => THE PUBLISHED COMPOSITE CANNOT BE REPRODUCED FROM PUBLIC DATA. Only a two-component
+     statistic on one competition, which is a different object.
+  ACQUISITION LIST UPDATED: the top item under priority 1a is now the DFB data request, and it
+  is an ACQUISITION not a computation. Previously listed as "a computation, not an acquisition"
+  — that was wrong and is corrected.
+
+*** RECOVERED FIGURES (ICC(1,1), World Cup, >30 min, 436 player-role units) ***
+                                          ICC     role-adj    drop
+  raw_fault_per_pass_against             0.656      0.280    -0.376
+  raw_fault_per90                        0.645      0.250    -0.394
+  raw_involvement_per_pass_against       0.621      0.304    -0.318
+  raw_involvement_per90                  0.620      0.282    -0.338
+  valued_fault_per90                     0.543      0.286    -0.257
+  raw_contribution_per90                 0.510      0.269    -0.242
+  raw_contribution_per_pass_against      0.493      0.264    -0.228
+  valued_fault_per_pass_against          0.479      0.191    -0.289
+  valued_involvement_per90               0.474      0.257    -0.218
+  valued_involvement_per_pass_against    0.416      0.150    -0.266
+  valued_contribution_per90              0.348      0.138    -0.210
+  valued_contribution_per_pass_against   0.342      0.077    -0.265
+  reference: passes_against 0.316 | passes_defended_per90 0.622
+
+  UNADJUSTED: 0.34-0.66. NO OFF-BALL DEFENSIVE METRIC REACHES "GOOD" (0.75) on Koo & Li.
+  ROLE-ADJUSTED: 0.08-0.30. EVERY ONE IS "POOR".
+  NEW CLAIM `off-ball-defensive-metrics-are-poor-once-position-is-removed`: roughly HALF the
+  apparent reliability is positional, and the drop is LARGEST for the metrics that score best
+  unadjusted (raw fault per 90 loses 0.394 — more than half).
+  This is `discrimination-rewards-measuring-position` IN NUMBERS, on the exact construct class
+  the vault has asked about for thirteen ingests.
+  DERIVATION-DEPTH CONFIRMED WITH ABSOLUTE VALUES: raw beats valued in all six pairs; the xT
+  weighting costs roughly 0.15 of ICC.
+
+*** PROVENANCE — MARKED THROUGHOUT AS generated: ***
+  These are NOT the authors' numbers and every page carrying them says so explicitly.
+  rests-on: source:bischofberger-committed-player-level-csv
+  CAVEATS RECORDED ON EVERY PAGE:
+   - authors add role group as a COVARIATE in a mixed model; the role-adjusted column here
+     SUBTRACTS ROLE MEANS, which is blunter and PROBABLY OVER-CORRECTS
+   - World Cup only: tournament not season, median 3 matches per unit, ICC at k=3 is noisy,
+     no confidence intervals computed
+   - WC group-stage opponent quality varies enormously, inflating within-unit variance for
+     reasons unrelated to the metric
+   - direction and size of the drop are the finding; the levels are indicative
+  Reproducible script written to /mnt/user-data/outputs/recover_bischofberger_icc.py and
+  verified to reproduce the table exactly.
+
+PAGES UPDATED (5):
+  off-ball-defensive-performance-blame — full recovered table, recoverability breakdown, caveats
+  reliability-layers — discrimination row now carries absolute figures; RESIDUAL CLAIM
+    REWRITTEN: it is now about r_Repeat specifically, not about absolute levels
+  metric-discrimination — the position confound measured rather than warned about; the
+    discrimination-figures table gains the off-ball range, with a note that split-half and
+    one-way ICC are not strictly comparable
+  off-ball-value — the levels are low enough to change how rho=0.182 should be read. TWO
+    MEASURES THIS NOISY WOULD DISAGREE EVEN IF MEASURING THE SAME THING. Marked as an
+    inference across constructs and datasets, not a measurement of C-OBSO or the Q-values.
+  overview — priority 1 restated; 1a top item corrected to the DFB request; new recurring finding
+
+*** UNRELATED FLAG — POSSIBLE CREDENTIAL EXPOSURE ***
+  token.json is committed at the repository ROOT of a public repo, and the README describes
+  secrets/ as holding "Token etc. for accessing Google Drive". NOT OPENED. If live, it needs
+  revoking and scrubbing from history, not just deleting. Worth reporting to the authors.
+
+TOOL NOTE: read_note is not needed for external repos — bash git clone against github.com works
+  (it is in the allowed egress domains), and grep/pandas over the clone is far faster than
+  fetching individual files through web_fetch.
+

@@ -46,7 +46,7 @@ A metric can be no more reliable than its inputs. **The converse does not hold**
 
 | Property | Question | Design | Held for football? |
 |---|---|---|---|
-| **[[metric-discrimination\|Discrimination]]** | Does it separate players *within* a season, beyond chance? | Split a season; bootstrap the sampling variance | ✅ xT (0.89), VAEP (0.25), **and ~32 off-ball defensive metrics — but z-scored** |
+| **[[metric-discrimination\|Discrimination]]** | Does it separate players *within* a season, beyond chance? | Split a season; bootstrap the sampling variance | ✅ xT (0.89), VAEP (0.25); **off-ball defensive metrics 0.34–0.66, or 0.08–0.30 role-adjusted** |
 | **[[metric-stability\|Stability]]** | Does it measure the same thing *across* seasons? | Multiple seasons per player, chance removed | ⚠️ **24 FBref counting stats** ([[year-to-year-metric-stability-football\|Shaikh 2026]]); no value model, no tracking metric |
 | **[[metric-independence\|Independence]]** | Does it say anything the others do not? | Copula over several metrics on shared players | ❌ nothing, and the vault had no word for it |
 
@@ -54,9 +54,24 @@ A metric can be no more reliable than its inputs. **The converse does not hold**
 >
 > [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]] computes $ICC_{Match}$, a half-season repeat correlation and a bootstrapped $ICC_{Season}$ for **tracking-derived off-ball defensive metrics** — the exact class the vault has asked about for thirteen ingests — and cites [[meta-analytics-sports-metrics|Franks et al.]] for the framing.
 >
-> ⚠️ **It reports the three as a z-scored composite, not as raw values.** So the vault has *relative* robustness rankings and still **no absolute ICC or correlation for any off-ball metric.** A z-score says a metric is one standard deviation above the mean of the set; if the whole set is unreliable, the best member still scores +1.
+> ⚠️ **It reports the three as a z-scored composite, not as raw values.** So the paper gives *relative* robustness rankings and no absolute coefficient.
 >
-> **The absence claim narrows to its sharpest form yet:** *no held source reports an absolute reliability coefficient for any tracking-derived football value metric.* The code is public, so recovering the components is possible.
+> ### ✅ And Then the Absolute Figures Were Recovered
+>
+> **From the authors' own committed data**, not from the paper. `ICC_Match` is recomputable because their MIT-licensed repository ships per-player per-match values for all six base metrics; $r_{Repeat}$ is **not**, because they excluded it for the World Cup and the two league datasets are proprietary.
+>
+> | | Best metric | Worst metric |
+> |---|---|---|
+> | **ICC(1,1), unadjusted** | 0.656 (raw fault per pass) | 0.342 |
+> | **Role-adjusted** | **0.304** | **0.077** |
+>
+> ^[generated: computed in-vault from `scripts/2026-05-25_player_level_enriched_with_ratings.csv` using the repo's own ICC(1,1) function. Not reported by any source. Full table and caveats on [[off-ball-defensive-performance-blame]]. rests-on: source:bischofberger-committed-player-level-csv]
+>
+> **Unadjusted, no off-ball defensive metric reaches "good" on Koo & Li's bands. Role-adjusted, every one is "poor".** Roughly half the apparent reliability is positional — see `off-ball-defensive-metrics-are-poor-once-position-is-removed`.
+>
+> ⚠️ **This is a vault-side recomputation with real limits**: World Cup only, median three matches per unit, and a blunter role correction than the authors' covariate model, which probably over-corrects. **The direction and size of the drop are solid; the adjusted values are indicative.**
+>
+> **The residual claim is now about `r_Repeat`, not about absolute levels:** *no held source reports a between-season repeat correlation for any tracking-derived football value metric, and the data to compute one is proprietary.*
 
 All three properties are ratios of the same four variances — season, player, player-season interaction, and sampling. See [[metric-variance-components]], where the difference between discrimination and stability turns out to be **which side of the ratio the interaction term sits on.**
 

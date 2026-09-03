@@ -1,8 +1,8 @@
 ---
 title: "Metric Discrimination"
 type: concept
-tags: [reliability, evaluation, statistics, player-evaluation, model-selection, sports-analytics, uncertainty-quantification]
-sources: [raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md]
+tags: [reliability, evaluation, statistics, player-evaluation, model-selection, sports-analytics, uncertainty-quantification, off-ball, defensive-valuation]
+sources: [raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/off-ball-defensive-performance-football.md]
 confidence: 0.85
 provenance:
   extracted: 58%
@@ -38,8 +38,10 @@ $$\mathcal{D}_m = \frac{\sigma^2_{PM} + \sigma^2_{SPM}}{\sigma^2_{PM} + \sigma^2
 | [[expected-threat\|xT]] | **0.89** | [[on-ball-actions-football-xt-vs-vaep\|Van Roy et al.]] |
 | [[vaep\|VAEP]] | **0.25** | Van Roy et al. |
 | VAEP, attacking actions only | 0.59 | Van Roy et al. |
+| **Off-ball defensive, best of twelve** | **0.656** *(0.280 role-adjusted)* | Recovered in-vault — see below |
+| **Off-ball defensive, worst of twelve** | **0.342** *(0.077 role-adjusted)* | Recovered in-vault |
 
-**These are the only three discrimination figures for any football metric in this vault.** None of the six mechanisms on [[off-ball-value]] has one.
+⚠️ **The first three and the last two are not strictly comparable** — different estimators (split-half against one-way ICC), different populations, and different [[aggregation-denominator|denominators]]. They are indicative of scale, not a ranking.
 
 ## Two Ways to Score Well, Only One of Them Good
 
@@ -54,6 +56,28 @@ Franks et al. find rebounds, blocks and assists highly discriminative — **beca
 **The fix is stated and cheap:** recompute conditional on player type. Franks et al. note the meta-metrics are defined through expectations and variances, so conditional versions require only replacing marginal moments with conditional ones.
 
 ⚠️ **This lands directly on football**, where positional differentiation is severe and the vault's metrics are known to sort by position. See [[construct-validity]] on the ρ = 0.182 problem, which this test resolves.
+
+### ✅ Measured, 2026-08-29 — and It Is About Half the Signal
+
+> Computed in-vault from [[off-ball-defensive-performance-blame|Bischofberger et al.'s]] committed World Cup data, which ships per-player per-match values for twelve off-ball defensive metric variants.
+
+| | Unadjusted ICC(1,1) | After removing role means |
+|---|---|---|
+| Best (raw fault per pass against) | 0.656 | **0.280** |
+| Worst (valued contribution per pass) | 0.342 | **0.077** |
+| Range across twelve variants | 0.34 – 0.66 | **0.08 – 0.30** |
+
+^[generated: computed in-vault, not reported by any source; full table and caveats on [[off-ball-defensive-performance-blame]]. rests-on: source:bischofberger-committed-player-level-csv]
+
+**Every metric falls by 0.21 to 0.39, and the drop is largest for the metrics that score best unadjusted.** Raw fault per 90 loses 0.394 — more than half its apparent reliability.
+
+> ### `off-ball-defensive-metrics-are-poor-once-position-is-removed`
+> **Roughly half the apparent reliability of off-ball defensive metrics is positional rather than individual. Unadjusted they reach "moderate"; role-adjusted, every one is "poor" on Koo & Li's bands.**
+> ^[generated: declared on [[off-ball-defensive-performance-blame]]]
+
+This is the concrete version of the warning above. **A metric can look moderately reliable and be measuring, half of the time, that a centre-back is a centre-back.**
+
+⚠️ **Caveats.** Subtracting role means is blunter than Franks' covariate adjustment and **probably over-corrects**, so the adjusted column is indicative rather than exact. World Cup only, median three matches per unit, no confidence intervals. **The direction and magnitude of the drop are the finding; the levels are not precise.**
 
 ## What Would Raise It, and What That Costs
 

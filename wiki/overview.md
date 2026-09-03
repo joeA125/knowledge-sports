@@ -109,6 +109,7 @@ And **[[transformer]] has left the top fifteen entirely.** Before the migration 
 - **The framework and the metrics share authors and never meet.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote the standard for testing metric quality and two of this vault's football value surfaces, reporting none of those properties for the latter. The gap is a norm about what a paper contains, not a missing tool. See [[meta-analytics-sports-metrics]].
 - **Summaries misreport primaries, and the pattern is about which text gets checked.** Four consecutive ingests found it: a citing paper garbling a citation and manufacturing a finding, a survey describing works second-hand, a paper's own abstract misreporting its own table, and a preprint mis-describing two sources it builds on. See [[champdas-validity-reliability]].
 - ⚠️ **The most robust metric may be measuring the team.** *Passes against per 90* — essentially how much your side defends — scores near the top on both robustness and validity in [[off-ball-defensive-performance-blame|the one study that ranked them]], because good players play for good teams. This is Franks' zip-code warning appearing in real data, and internal properties cannot detect it.
+- **Off-ball defensive metrics are poor once position is removed.** Recovered ICCs run 0.34–0.66 unadjusted and **0.08–0.30 role-adjusted** — roughly half the apparent reliability is positional. The vault's longest-running question has an answer, and the answer is that these metrics are noisier than the literature's use of them assumes. See [[metric-discrimination]].
 
 ## Open Questions
 
@@ -129,15 +130,19 @@ The RL and simulation line is fully held, and **the SNA gap that topped this lis
 ### 1. Reliability of tracking-derived metrics — ✅ **substantially closed 2026-08-29**
 > ✅ [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]] reports $ICC_{Match}$, a half-season repeat correlation and a bootstrapped $ICC_{Season}$ for **~32 tracking-derived off-ball defensive metrics** across three competitions, citing [[meta-analytics-sports-metrics|Franks et al.]] for the framing. **Thirteen ingests of asking, answered.**
 >
-> ⚠️ **What remains open is narrow and specific: the numbers are z-scored.** The three statistics are combined into a standardised composite before reporting, so the vault has **relative rankings and no absolute coefficient for any off-ball metric.** If the whole set is unreliable, the best member still scores +1.
+> ⚠️ They report the three as a **z-scored composite**, not as raw values.
 >
-> **Residual claim:** *no held source reports an absolute reliability coefficient for any tracking-derived football value metric.* Their code is public, so recovering the components is a computation rather than an acquisition.
+> ✅ **The absolute figures were then recovered in-vault** from their committed World Cup data. Unadjusted ICC(1,1) runs **0.34–0.66** across twelve off-ball variants — **no metric reaches "good"** — and **0.08–0.30 once role-group means are removed**, which is uniformly "poor". Roughly half the apparent reliability is positional. See [[off-ball-defensive-performance-blame]] and [[metric-discrimination]].
+>
+> ⚠️ **Vault-side recomputation, not published figures.** World Cup only, median three matches per unit, and a blunter role correction than the authors' covariate model. Direction and magnitude solid; levels indicative.
 
 | Property | Held for football? |
 |---|---|
-| **[[metric-discrimination\|Discrimination]]** | ✅ xT (0.89), VAEP (0.25), and ~32 off-ball metrics **z-scored only** |
+| **[[metric-discrimination\|Discrimination]]** | ✅ xT (0.89), VAEP (0.25); off-ball defensive **0.34–0.66**, or **0.08–0.30 role-adjusted** |
 | **[[metric-stability\|Stability]]** | ⚠️ 24 FBref counting stats ([[year-to-year-metric-stability-football\|Shaikh 2026]]); no value model |
 | **[[metric-independence\|Independence]]** | ❌ nothing |
+
+**What remains open is now specific:** $r_{Repeat}$ — the between-season repeat correlation — **cannot be recovered from public data.** The authors excluded it for the World Cup (too few matches per team when halved), and the Frauen-Bundesliga and 3. Liga datasets are proprietary. **That requires a DFB data request, not a computation.**
 
 This list originally said *"split-half or test–retest reliability"*, treating those as two ways of measuring one property. **They are two different properties**, and stability is not one number either — it decays with lag. See [[stability-decay]] and [[reliability-layers]].
 
@@ -148,7 +153,7 @@ This list originally said *"split-half or test–retest reliability"*, treating 
 ⚠️ **The "outside the field" reading remains wrong.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote the framework *and* two of the vault's football value surfaces, reporting none of these properties for either.
 
 ### 1a. What is still worth acquiring here
-- **The raw robustness components** from Bischofberger et al.'s public repository — a computation, not an acquisition
+- ⚠️ **Frauen-Bundesliga and 3. Liga data from the DFB** — the only route to $r_{Repeat}$ and to reproducing Bischofberger et al.'s published composite. **This is now the top item, and it is an acquisition rather than a computation.**
 - **Gregson, Drust, Atkinson & Di Salvo (2010)**, match-to-match variability of high-speed activities, 485 Premier League players over three seasons — **not a closer but the missing zero point**: how noisy is a tracking-derived quantity *before* transformation. Also finds variability higher for central players, and higher in possession (~30%) than out of it (~23%)
 - **Bush et al. (2015)**, extending that design to **technical** as well as physical variability
 - **Swartz et al.**, *Evaluation of Off-the-Ball Actions in Soccer* — even/odd week split on a tracking-derived defensive anticipation metric
