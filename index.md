@@ -38,6 +38,8 @@ A catalog of all wiki pages, organised by type.
 - [[tiago-mendes-neves]] · [[luis-meireles]] · [[joao-mendes-moreira]] — Valuing Players Over Time
 
 ### Network analysis of team structure
+- [[defensive-pressure-area]] · [[role-conditioned-baseline]] — geometric attribution of pass value to defenders, and the role-based expectation that corrects it
+- [[jonas-bischofberger]] · [[arnold-baca]] — the Vienna group; the first football source to report meta-metrics for tracking-derived off-ball metrics
 - [[alexander-franks]] — first author of the metric-quality framework; the vault's only pure statistician, and a lead into the psychometrics literature
 - [[mohammad-arshan-shaikh]] — sole author of the vault's only football stability figures; evidence that the measurement is blocked by data access, not method
 - [[javier-lopez-pena]] · [[hugo-touchette]] — the 2010 World Cup pass-network paper; the vault's oldest football source, and its only primary source on this tradition
@@ -196,9 +198,11 @@ Eight open investigations, grouped by who could answer them.
 - [[metric-stability]] — does it measure the same thing across seasons? First football figures, 2026-08
 - [[stability-decay]] — stability is a property *at a lag*; all 24 measured combinations decay by two years
 - [[metric-independence]] — does it say anything the others do not? The question the vault had no word for
+- [[aggregation-denominator]] — per 90, per pass or raw total; an eighth free parameter, and the only one that has been swept
 - [[empirical-bayes-shrinkage]] — the only post-hoc route to a more reliable metric, and it assumes away the volatility question
 - [[meta-analytics-sports-metrics]] — Franks et al. (2016) — the framework; NBA and NHL, no football
-- [[year-to-year-metric-stability-football]] — Shaikh (2026) — the framework applied to football; FBref counting stats, no value model
+- [[year-to-year-metric-stability-football]] — Shaikh (2026) — the framework applied; FBref counting stats, no value model
+- [[off-ball-defensive-performance-blame]] — Bischofberger et al. (2026) — **the framework applied to tracking-derived off-ball metrics**; the closest thing to the vault's top priority
 - [[champdas-validity-reliability]] — Gong et al. (2019) — operator/coding reliability
 - [[gps-deceleration-reliability]] — Jones et al. (2024) — GPS device and protocol reliability; derivation depth predicts reliability
 

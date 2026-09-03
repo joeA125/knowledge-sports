@@ -2,7 +2,7 @@
 title: "Rare-Event Proxy Targets"
 type: concept
 tags: [proxy-target, class-imbalance, machine-learning, statistics, evaluation, sports-analytics, defensive-valuation, predictive-validity, game-theory, reliability, event-stream-data]
-sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/metric-stability-elite-football.md]
+sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/metric-stability-elite-football.md, raw/papers/off-ball-defensive-performance-football.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -98,6 +98,16 @@ Tackles won (0.414), blocks (0.399) and interceptions (0.476) are the three **le
 > ^[generated: declared on [[year-to-year-metric-stability-football]]. rests-on: source:gong-table5-defensive-cell, source:shaikh-defensive-volume-low-stability]
 
 **So proxy substitution pays twice.** [[vdep|VDEP]] escapes goal sparsity by moving to ball recoveries — events 90× more frequent, harder to code, *and* far less repeatable across seasons.
+
+### ⚠️ Three Times: They Score Badly on Validity Too
+
+> **Added 2026-08-29.** [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]] benchmark tackles and interceptions against ~29 tracking-derived alternatives across three competitions.
+
+*Interceptions per 90* scores **−0.3** on their validity scale; *tackles won per 90* scores **−0.6**. Both correlate poorly with market values and FIFA "defensive awareness" ratings, and the authors show a figure in which interceptions simply **fail** for centre-backs and full-backs — the positions the metric is most often used to assess.
+
+**The proxies VDEP substitutes in are now, on the available evidence: worst-coded, least stable, and least valid.** Frequency is the only thing on their side.
+
+⚠️ **One important qualification.** *Interceptions per pass* scores **+0.6 validity and +0.7 robustness** — far better than the same count per 90. That is a fact about [[aggregation-denominator|the denominator]], not about interceptions. **The proxy is not uniformly bad; it is bad the way it is normally reported**, which is a cheaper problem to fix than a bad proxy.^[generated: drawn from the paper's two rows for the same underlying count. rests-on: source:bischofberger-validity-table]
 
 ⚠️ **The third cost is the one that matters most, and it is not noise at all.** Shaikh's explanation for defensive instability is **team context**: a defender's tackle count depends on how often the team defends, how high the line sits, and whether teammates win the ball first. That is not error to be averaged away — **it is the metric measuring the team rather than the player**, which is a [[construct-validity]] problem rather than a reliability one.
 

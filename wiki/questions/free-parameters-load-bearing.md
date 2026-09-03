@@ -2,7 +2,7 @@
 title: "Are the free parameters load-bearing?"
 type: question
 tags: [model-selection, discounting, evaluation, sports-analytics, action-valuation, reliability, predictive-validity, space-creation, reinforcement-learning, auxiliary-loss, domain-adaptation, training-technique, needs-review, network-analysis]
-sources: [raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/football_strategy_network_theory_analysis.md]
+sources: [raw/papers/epv_control_and_duel_skills_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/wide_open_spaces_creation_football.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/adaptive_action_supervision_multi_agent_reinforcement.md, raw/papers/football_strategy_network_theory_analysis.md, raw/papers/off-ball-defensive-performance-football.md]
 confidence: 0.85
 provenance:
   extracted: 56%
@@ -17,7 +17,7 @@ updated: 2026-08-29
 
 # Are the free parameters load-bearing?
 
-**Status:** Open for eighteen parameters. **One has been settled** — by being superseded, not by a sensitivity analysis. **One has a two-point ablation.** One is a parameter nobody in this literature reports at all. And one, newly, was never derived for football in the first place.
+**Status:** Open for eighteen parameters. **One has been settled** — by being superseded, not by a sensitivity analysis. **One has a two-point ablation.** One is a parameter nobody in this literature reports at all. One was never derived for football in the first place. And **one kind has now been swept and found decisive** — see the aggregation denominator, below.
 
 > **Updated 2026-08-07** on ingest of [[adaptive-action-supervision-multi-agent-rl|Fujii et al.]] — the paper this page named as the place the $\lambda_1$ answer would be found. **It is not there.** See "The Acquisition That Did Not Help".
 >
@@ -64,6 +64,22 @@ The count is less informative than the taxonomy. Lumping them together obscures 
 **Stopping parameters** (training steps) — **new 2026-08-07.** See below.
 
 **Borrowed constants** ($p = 0.85$) — **new 2026-08-29.** A value transplanted from another field's default, keeping its number and losing its derivation. See below.
+
+**Aggregation denominators** (per 90, per pass, raw total) — **new 2026-08-29.** The eighth kind, and the only one that has actually been swept. [[off-ball-defensive-performance-blame|Bischofberger et al.]] find that fault metrics score well per 90 and badly per pass, contribution metrics the reverse, and naïve combinations of the two perform weakly. See [[aggregation-denominator]].
+
+> ⚠️ **This kind is less visible than any of the seven above, because a denominator reads as arithmetic rather than as a modelling decision.** It is also the only one with a demonstrated reversal — most entries on this page are unswept, and this one was swept and found decisive.
+
+### ⚠️ And One Case Where Assertion Is the Right Answer
+
+> **Added 2026-08-29.** This page's implicit standard — that an asserted parameter is a defect — has a counter-case.
+
+[[defensive-pressure-area|Bischofberger et al.'s]] 5 m pressure radius is handcrafted, and they argue explicitly against fitting it: with no ground truth for defensive involvement, optimising against a proxy would "risk overfitting and reproducing biases present in the selected target variable."
+
+> ### `fitting-a-parameter-to-a-bad-benchmark-is-worse-than-asserting-it`
+> **Where no ground truth exists, optimising a free parameter against a proxy launders arbitrariness rather than removing it, replacing a visible judgement with an invisible inheritance of the proxy's biases.**
+> ^[generated: declared on [[defensive-pressure-area]]. rests-on: source:bischofberger-handcrafted-dpa]
+
+**The standard that survives is narrower and better:** a parameter should be **swept for sensitivity** even where it cannot be **fitted for value**. Knowing whether 4 m or 6 m changes the rankings is separable from knowing which is correct — and Bischofberger et al. do not report that either, so the entry stays on the list.
 
 ## The Sixth Kind: Where You Stop Is a Modelling Choice
 

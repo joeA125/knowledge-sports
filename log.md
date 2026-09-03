@@ -3895,3 +3895,137 @@ TOOL NOTE: wrote `expected-goals` as a TAG when it is a PAGE — same error clas
   stability-decay. THE PATTERN: I reach for a plausible domain noun as a tag without checking
   the taxonomy. check_links catches PAGE targets; only the write-time lint catches bad TAGS.
 
+## [2026-09-03 13:02] ingest | Bischofberger et al. (2026) — substantially closes priority 1 after thirteen ingests; confirms two vault claims and z-scores the answer away
+SOURCE: raw/papers/off-ball-defensive-performance-football.md
+"Blame is easier than praise: Measuring off-ball defensive performance in football" —
+Bischofberger*, Ma*, Bauer, Arnsmeyer & Baca (*equal contribution). University of Vienna,
+Saarlandes, DFB, VfB Stuttgart. arXiv:2606.19931, June 2026.
+516 matches: 64 men's World Cup (PFF FC), 116 women's Bundesliga, 336 men's 3. Liga (STS/Track160).
+78M frames, 413k passes.
+
+Acquired after I identified it in a web search two turns ago as the top candidate. SEVENTH
+INGEST THIS SESSION.
+
+*** THIS SUBSTANTIALLY CLOSES PRIORITY 1 AFTER THIRTEEN INGESTS ***
+  Reports THREE robustness measures for ~32 TRACKING-DERIVED OFF-BALL metrics, citing Franks
+  et al. (2016) explicitly for the framing:
+    ICC_Match    match-by-match repeatability and discriminatory power  -> DISCRIMINATION
+    r_Repeat     first half of season vs second half                    -> split-half at season scale
+    ICC_Season   bootstrapped robustness of season aggregates           -> Franks' own estimator
+  First held source to do this for the class of construct the vault has asked about since the
+  absence claim was written.
+
+*** BUT THE NUMBERS ARE Z-SCORED AWAY ***
+  Equation 8: Robustness = mean of z(ICC_Match), z(r_Repeat), z(ICC_Season). Figures 7 and 8
+  report the COMPOSITE, not the components. So we learn "raw fused responsibility is +0.6 SD
+  above the mean of the metrics considered" and NOT whether its ICC is 0.3 or 0.9.
+  A Z-SCORE IS A RANKING, NOT A MEASUREMENT. If every metric in the set is unreliable, the best
+  one still scores +1. THE ABSOLUTE QUESTION IS COMPUTED IN THIS PAPER AND NOT REPORTED.
+  RESIDUAL CLAIM: no held source reports an ABSOLUTE reliability coefficient for any
+  tracking-derived football value metric. Code is public -> recovering it is a COMPUTATION,
+  not an acquisition. That is now the top item.
+  Also: r_Repeat is EXCLUDED for the World Cup (too few matches per team when halved), so the
+  stability-like evidence rests on Frauen-Bundesliga and 3. Liga only.
+
+*** TWO VAULT CLAIMS CONFIRMED BY AN INDEPENDENT SOURCE ***
+  1. `each-layer-of-derivation-costs-reliability` was GENERATED FROM A GPS DECELERATION STUDY
+     and explicitly flagged as a cross-domain extrapolation, not a measurement. The paper now
+     measures it on football off-ball metrics and states it directly: "removing pass value"
+     raises stability, allowing "lower variance on the event level" while "retaining the
+     ability to distinguish players". RAW metrics beat VALUED metrics on robustness almost
+     everywhere. Removing xT weighting IS removing a derivation layer.
+     NUANCE THE VAULT'S VERSION LACKED: valued fault per 90 has the HIGHEST VALIDITY of any
+     metric tested and BELOW-AVERAGE ROBUSTNESS. DERIVATION COSTS RELIABILITY AND BUYS
+     SOMETHING. The vault had treated the cost as pure loss. It is a trade.
+  2. The second stabiliser — "adding a location-independent responsibility" — IS SHRINKAGE
+     under another name: replace measured involvement with the role's average involvement.
+     empirical-bayes-shrinkage warned that a POSITION-GROUP prior bakes positional structure
+     in. Here that is the POINT, not a bug, because defensive duty genuinely is role-assigned.
+     THE SAME OPERATION IS CONTAMINATION IN ONE FRAMING AND THE CONSTRUCT IN ANOTHER, and no
+     statistic can settle which.
+
+*** THE ZIP-CODE PROBLEM APPEARS IN REAL DATA ***
+  "Passes Against per 90" — essentially how much your team defends — scores ROBUSTNESS 1.0 and
+  VALIDITY 0.9, near the top of their table, beating most sophisticated metrics. It is a TEAM
+  statistic wearing a player's name, stable and discriminative and market-value-correlated
+  because good players play for good teams.
+  NEW CLAIM `the-most-robust-metric-may-be-measuring-the-team`. Franks warned birthplace zip
+  code would score perfectly on all internal properties; here is the football instance, sitting
+  in a results table as a HIGH SCORER rather than as a warning. The authors half-see it — the
+  possession confound is in limitations — but do not connect it to their own results row.
+
+*** BENCHMARKING ABSENCE PARTLY BREACHED ***
+  They evaluate tackles won, tackles won ratio and interceptions AGAINST their own ~29 variants
+  on THREE SHARED DATASETS under one protocol. That IS a cross-framework benchmark, run on
+  proprietary multi-league data by a group with club and federation access. THE LICENSING
+  EXCUSE IS NOW MUCH WEAKER.
+  Claim survives only on SCOPE: none of the vault's six off-ball mechanisms appears.
+  RESULT WORTH CARRYING: interceptions per 90 scores -0.3 validity, tackles won per 90 -0.6.
+  The two most widely used defensive metrics come out close to uninformative about positioning.
+  BUT interceptions PER PASS scores +0.6 validity / +0.7 robustness — a fact about the
+  DENOMINATOR, not about interceptions. The proxy is not uniformly bad; it is bad THE WAY IT IS
+  NORMALLY REPORTED. Third leg for rare-event-proxy-targets: worst-coded, least stable, least
+  valid — but partly fixable by renormalising.
+
+PAGES CREATED (5):
+  wiki/summaries/off-ball-defensive-performance-blame.md
+  wiki/concepts/defensive-pressure-area.md — geometric attribution, four shapes by pass outcome.
+    NEW CLAIM `fitting-a-parameter-to-a-bad-benchmark-is-worse-than-asserting-it`: with no
+    ground truth, optimising against a proxy LAUNDERS arbitrariness rather than removing it,
+    replacing a visible judgement with an invisible inheritance of the proxy's biases. This is a
+    COUNTER-CASE to free-parameters-load-bearing's implicit standard. Surviving standard is
+    narrower: sweep for SENSITIVITY even where you cannot fit for VALUE.
+  wiki/concepts/role-conditioned-baseline.md — responsibility as expected involvement per
+    (passer role, receiver role, defender role). NEW CLAIM
+    `population-averages-are-counterfactuals-you-can-afford`. Authors flag it may be BIASED
+    TOWARD WEAKER TEAMS because passive teams face more passes and dominate the averages.
+    MBAPPE CASE: 3rd BEST defending winger by raw fault, 3rd WEAKEST by raw fault
+    responsibility. Same player, two related metrics, opposite conclusions. Authors note this
+    contrasts with offensive metrics where one metric serves across roles -> DEFENSIVE METRICS
+    MAY BE IRREDUCIBLY ROLE-SPECIFIC, and rho=0.182 on off-ball-value is what that incoherence
+    looks like when two such numbers are correlated.
+  wiki/concepts/aggregation-denominator.md — EIGHTH KIND of free parameter, built from THREE
+    sources (Franks MP inflation, Shaikh's PassPct conversion, Bischofberger's reversal).
+    Fault scores well per 90 and badly per pass; contribution the reverse; naive combination
+    performs weakly. NEW CLAIM `the-denominator-is-a-free-parameter-that-nobody-lists`.
+    THE ONLY KIND ANYONE HAS SWEPT, and the sweep says it is decisive.
+    Their fusion introduces a 250 constant ("typical passes faced combined with an additional
+    weighting factor") — a fix for one free parameter that introduces another.
+  wiki/entities/jonas-bischofberger.md, wiki/entities/arnold-baca.md
+
+PAGES UPDATED (7): reliability-layers, off-ball-value, free-parameters-load-bearing (eighth
+  kind + the assertion counter-case), action-valuation-frameworks-compared (benchmarking),
+  rare-event-proxy-targets (third leg), overview (priority 1 closed; hubs; recurring findings),
+  index
+
+*** THE PREVIOUS INGEST'S PREDICTION HELD WITHIN ONE INGEST ***
+  Shaikh's entry concluded the measurement was blocked by MULTI-SEASON TRACKING ACCESS, not
+  method/funding/expertise, and that the acquisition list should FILTER BY INSTITUTIONAL ACCESS
+  RATHER THAN TOPIC. Bischofberger has a VfB STUTTGART appointment and two co-authors at the
+  DFB, working on 516 matches of proprietary data. Recorded on jonas-bischofberger.
+
+OTHER FINDINGS:
+  - DISCRIMINATION DEPENDS ON THE LEAGUE, NOT JUST THE METRIC. Novel metrics beat traditional
+    ones in the World Cup and Frauen-Bundesliga but only marginally in the 3. Liga. Authors
+    attribute this to SKILL SPREAD (3. Liga best-to-worst 2.03 vs 0.79 ppm; Frauen-Bundesliga
+    2.73 vs 0.18). Franks' D has between-player variance in the numerator, so a homogeneous
+    league MECHANICALLY depresses it. DISCRIMINATION FIGURES ARE NOT COMPARABLE ACROSS
+    COMPETITIONS.
+  - SEVERAL CONTRIBUTION METRICS CORRELATE NEGATIVELY WITH EXTERNAL RATINGS and the authors do
+    not explain it. Offered as inferred: high contribution counts may indicate a player
+    repeatedly PLACED IN defensive situations — team quality inverted.
+  - The DPA attribution is NOT ZERO-SUM: nothing normalises value across defenders, so total
+    attributed blame can exceed a pass's value. Rewards defensive crowding, which the
+    responsibility model partly corrects.
+  - They REJECTED motion-model reachable areas because "physically reachable areas may
+    overestimate the involvement of players who are additionally restricted by team tactics" —
+    a substantive argument against the pitch-control tradition, made in passing by someone who
+    had previously VALIDATED such models (Renkin et al. 2022). Added to acquisition list.
+  - BEST-CONNECTED PAPER IN THE CORPUS: cites Franks, Singh, Van Roy, and Toda/Teranishi/
+    Umemoto/Fujii from the Nagoya line. The vault's standing observation is that these groups
+    do not cite each other. This one does, and it produced the missing measurement. Recorded on
+    arnold-baca as an observation, explicitly not a mechanism.
+
+TOOL NOTE: check_links before writing again paid off — pascal-bauer already existed, four other
+  targets did not. No tag-as-page or page-as-tag errors this ingest.
+

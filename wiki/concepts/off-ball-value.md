@@ -2,7 +2,7 @@
 title: "Off-Ball Value"
 type: concept
 tags: [off-ball, space-creation, sports-analytics, action-valuation, defensive-valuation, player-evaluation, optical-tracking-data, probability-surface, pitch-control, counterfactual, reinforcement-learning, multi-agent, construct-validity, evaluation, reliability]
-sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md]
+sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/off-ball-defensive-performance-football.md]
 confidence: 0.85
 provenance:
   extracted: 60%
@@ -144,11 +144,28 @@ Ranked by how far each mechanism sits from a sampled position:
 
 This is an extrapolation across domains and explicitly not a measurement.^[generated: flagged as extrapolation on [[reliability-layers]]] But it predicts something checkable: **if the six mechanisms were ranked by split-half reliability, the counterfactual-differenced ones should come last.** That is a concrete, falsifiable ordering where the vault previously had only "nobody has measured it".
 
+### ✅ Confirmed on Football Tracking Data, 2026-08-29
+
+> The extrapolation is no longer an extrapolation. [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]] measured robustness for ~32 tracking-derived off-ball defensive metrics and report, in their own words, that **removing pass value** raises stability — allowing "lower variance on the event level" while "retaining the ability to distinguish players".
+
+Their *raw* metrics — proximity without [[expected-threat|xT]] weighting — beat their *valued* metrics on robustness almost everywhere. **Removing the value model is removing a derivation layer**, and it does exactly what the claim predicted, on the right class of construct, measured by people not testing the claim.
+
+⚠️ **With a nuance the vault's version lacked.** *Valued fault per 90* has the **highest validity of any metric they tested** and below-average robustness. **Derivation costs reliability and buys something.** The vault had treated the cost as pure loss; it is a trade, and the ranking above is therefore a prediction about *reliability only*, not about which mechanism is best.
+
+The second stabiliser they identify — adding a **role-conditioned expected involvement** — is [[empirical-bayes-shrinkage|shrinkage]] under another name. See [[role-conditioned-baseline]].
+
+⚠️ **And their headline scores are z-scored composites**, so the absolute reliability of any off-ball metric remains unmeasured. The prediction above is confirmed in *direction* and still untested in *level*.
+
 **It also supplies a candidate reading of the ρ = 0.182 disagreement above.** C-OBSO is the deepest mechanism here and the Q-values among the shallowest. The paper's explanation — different position groups — and an instability explanation are not exclusive, and **the reliability measurement would separate them.** One number, and it settles which.^[generated: neither reading is proposed by any source]
 
 > **And the measurement now has a specification.** [[meta-analytics-sports-metrics|Franks et al. (2016)]] require meta-metrics to be computed **conditional on player type**, precisely because a metric can score well by tracking position rather than ability. Computing discrimination for these six within position groups distinguishes "different positional slices of one construct" from "position dressed as skill". See [[construct-validity]].
 >
 > Add [[metric-independence|independence]] across all six on shared players and the redundancy question — how much of this proliferation is one signal renamed — becomes a reported statistic rather than a complaint. ⚠️ Franks et al.'s NBA result suggests **defensive and off-ball metrics are the *least* redundant class**, which would make the proliferation here more defensible than the vault has assumed.
+
+> ⚠️ **And role-dependence may be worse than a confound — it may be the construct.** [[off-ball-defensive-performance-blame|Bischofberger et al.]] rank Kylian Mbappé **third best** defending winger at the 2022 World Cup by raw fault and **third weakest** by raw fault responsibility. Two closely related metrics, one player, opposite conclusions — because responsibility charges him for passes his role implied he should have covered and he was nowhere near.
+>
+> They note this contrasts with offensive metrics like pass completion and xT, where one metric serves across roles. **If defensive duty is assigned by shape while attacking contribution is largely taken, a single off-ball defensive number may not be a coherent object** — and ρ = 0.182 is what that incoherence looks like when two such numbers are correlated. See [[role-conditioned-baseline]].
+> ^[generated: the paper states the role-dependence but does not connect it to cross-metric disagreement]
 
 ## What the Evidence Shows
 

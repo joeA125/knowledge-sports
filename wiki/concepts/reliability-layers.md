@@ -1,8 +1,8 @@
 ---
 title: "Layers of Reliability"
 type: concept
-tags: [reliability, evaluation, statistics, sports-analytics, player-evaluation, event-stream-data, optical-tracking-data, model-selection, construct-validity]
-sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md]
+tags: [reliability, evaluation, statistics, sports-analytics, player-evaluation, event-stream-data, optical-tracking-data, model-selection, construct-validity, off-ball]
+sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md, raw/papers/off-ball-defensive-performance-football.md]
 confidence: 0.8
 provenance:
   extracted: 46%
@@ -46,15 +46,21 @@ A metric can be no more reliable than its inputs. **The converse does not hold**
 
 | Property | Question | Design | Held for football? |
 |---|---|---|---|
-| **[[metric-discrimination\|Discrimination]]** | Does it separate players *within* a season, beyond chance? | Split a season; bootstrap the sampling variance | ✅ xT (0.89) and VAEP (0.25), **nothing else** |
-| **[[metric-stability\|Stability]]** | Does it measure the same thing *across* seasons? | Multiple seasons per player, chance removed | ✅ **24 FBref counting stats** ([[year-to-year-metric-stability-football\|Shaikh 2026]]) — **no value model, no tracking metric** |
+| **[[metric-discrimination\|Discrimination]]** | Does it separate players *within* a season, beyond chance? | Split a season; bootstrap the sampling variance | ✅ xT (0.89), VAEP (0.25), **and ~32 off-ball defensive metrics — but z-scored** |
+| **[[metric-stability\|Stability]]** | Does it measure the same thing *across* seasons? | Multiple seasons per player, chance removed | ⚠️ **24 FBref counting stats** ([[year-to-year-metric-stability-football\|Shaikh 2026]]); no value model, no tracking metric |
 | **[[metric-independence\|Independence]]** | Does it say anything the others do not? | Copula over several metrics on shared players | ❌ nothing, and the vault had no word for it |
 
-⚠️ **The stability row changed 2026-08-29** and the change is instructive. One ingest after this page declared *"nothing, for any football metric"*, a source arrived with 24 stability figures — **none for a metric the vault values.** The claim narrows again rather than dying: *no tracking-derived football metric, and no value model of any kind, has a stability figure.*
-
-Stability also turns out not to be one number: it decays with lag, universally, and fastest for the least stable metrics. See [[stability-decay]].
+> ### ✅ The Discrimination Row Changed, 2026-08-29
+>
+> [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]] computes $ICC_{Match}$, a half-season repeat correlation and a bootstrapped $ICC_{Season}$ for **tracking-derived off-ball defensive metrics** — the exact class the vault has asked about for thirteen ingests — and cites [[meta-analytics-sports-metrics|Franks et al.]] for the framing.
+>
+> ⚠️ **It reports the three as a z-scored composite, not as raw values.** So the vault has *relative* robustness rankings and still **no absolute ICC or correlation for any off-ball metric.** A z-score says a metric is one standard deviation above the mean of the set; if the whole set is unreliable, the best member still scores +1.
+>
+> **The absence claim narrows to its sharpest form yet:** *no held source reports an absolute reliability coefficient for any tracking-derived football value metric.* The code is public, so recovering the components is possible.
 
 All three properties are ratios of the same four variances — season, player, player-season interaction, and sampling. See [[metric-variance-components]], where the difference between discrimination and stability turns out to be **which side of the ratio the interaction term sits on.**
+
+⚠️ **And every one of them is denominator-specific.** Whether a metric is aggregated per 90 minutes, per opponent pass or as a raw total changes its robustness ranking, sometimes reversing it. See [[aggregation-denominator]].
 
 ⚠️ **The vault's own phrasing was wrong.** The absence claim read *"split-half or test–retest reliability"*, treating those as two ways of measuring one property. They are **two different properties**: split-half estimates discrimination, test–retest estimates stability.
 
