@@ -3786,3 +3786,112 @@ TOOL NOTE: check_links reported `hierarchical-model` as a TAG, not a page, with 
   note that adding it to taxonomy.md does not create a page. Useful — used it as a tag on two
   new pages rather than linking it.
 
+## [2026-09-03 08:32] ingest | Shaikh (2026) — first football stability figures; falsifies a claim made one ingest ago, and the gap is data access not method
+SOURCE: raw/papers/metric-stability-elite-football.md
+"Year-to-Year Metric Stability in Elite Football: A Positional Analysis Across the Big Five
+European Leagues" — Mohammad Arshan Shaikh, SOLE AUTHOR. Khoury College, Northeastern.
+SportRxiv preprint, submitted to J. Sports Analytics. 8,207 player-season pairs, 2,866
+players, 5 leagues, 2017/18-2024/25.
+
+This is the SportRxiv paper identified in the web search two turns ago. SIXTH INGEST THIS SESSION.
+
+*** FALSIFIES A CLAIM MADE ONE INGEST AGO ***
+  metric-stability stated flatly "no football metric in this vault has a stability figure at
+  all". FALSE as of this ingest — 24 position-metric combinations now have one.
+  BUT: FBref counting stats (goals, assists, tackles, progressive passes, pass %). NOT VAEP,
+  NOT xT, NOT any of the six tracking-derived mechanisms. Absence claim SURVIVES, THIRTEENTH
+  INGEST. Claim narrowed again: no TRACKING-DERIVED football metric, and no VALUE MODEL of any
+  kind, has a stability figure.
+
+FINDING 1 — PROCESS BEATS OUTCOME. First empirical support for an untested vault claim.
+  FWD: progression 0.707-0.733 > xG 0.664 > npxG 0.635 > goals 0.593 > assists 0.428.
+  intent-vs-outcome-valuation has carried "withholding outcome information should raise
+  reliability" as EXPLICITLY UNTESTED since it was written. This is the first support.
+  NEW CLAIM `distance-from-the-actor-predicts-instability`: the ordering tracks how many
+  people's execution stands between the decision and the recorded outcome — zero for a
+  progressive carry, one for a goal, TWO for an assist. The intent/outcome partition is the
+  special case at the boundary between the acting player and everything downstream.
+  CAVEATS RECORDED: (a) different metrics, not one metric with/without outcome features, so
+  the I-VAEP/O-VAEP experiment is still unrun; (b) it supports the prediction on STABILITY
+  when the original inference was about DISCRIMINATION — right answer, wrong axis.
+
+FINDING 2 — DEFENSIVE ACTIONS DEGRADE AT EVERY LAYER. Two independent studies converge.
+  Gong et al. (CODING layer, ICC/TE):    passing 1.00/0.01   defending 0.93-0.95/0.24-0.29
+  Shaikh   (METRIC layer, Pearson r):    passing 0.824       defending 0.399-0.476
+  Same ordering, different property, different statistic, different data.
+  NEW CLAIM `defensive-actions-degrade-at-every-measurement-layer`.
+  SECOND LEG for `proxy-substitution-trades-statistical-power-for-measurement-noise`: VDEP's
+  ball-recovery proxy is 90x more frequent, HARDER TO CODE, and LEAST STABLE. Pays twice.
+  AND A THIRD COST WHICH IS NOT NOISE AT ALL: Shaikh attributes defensive instability to TEAM
+  CONTEXT (how often the team defends, how high the line sits). That is not error to average
+  away — the metric is measuring the TEAM. A construct-validity problem, not a reliability one,
+  and no amount of data fixes it. Distinguished on rare-event-proxy-targets as CONTAMINATION
+  vs NOISE.
+  NUANCE ADDED ON VDEP: VDEP is a TEAM-level model, so a team-measuring target is not obviously
+  a contaminant there. GVDEP extends the same machinery to INDIVIDUAL valuation, and there the
+  contamination is direct — team structure carried into a number under a player's name.
+
+FINDING 3 — AGE. Veterans more stable than U23 in 18/24 (15 at p<0.001). FWD PrgP 0.621->0.825.
+  DEFENDERS ARE THE EXCEPTION: only PassPct significant; tackles/blocks/int/clr show NO age
+  effect. Author's reading: where team context dominates, there is nothing for age-related
+  convergence to act on.
+  PROPAGATED TO empirical-bayes-shrinkage: the population where shrinkage most improves the
+  numbers (U23) is where it most destroys the meaning, because a career average is both
+  short-sampled AND genuinely changing. And for defensive counts shrinkage cannot help at all —
+  the career average is contaminated too.
+
+FINDING 4 — STABILITY DECAY. All 24 combinations decay at t->t+2, median dr = -0.097.
+  Created wiki/concepts/stability-decay.md. NEW CLAIM `unstable-metrics-decay-faster-than-
+  stable-ones` — PassPct loses 0.056-0.070, defensive counts lose 0.119-0.124, roughly double.
+  CAVEAT RECORDED: some of this is regression-to-the-mean arithmetic (correlations near zero
+  have less room to fall); the Fisher-z scale is the right test and the paper does not report
+  it, so this is a pattern to check, not established.
+  Unresolved tension surfaced: SHRINKAGE says weight career history MORE, DECAY says weight it
+  LESS. Proposed synthesis (recency-weighted career average, discount set by measured decay) is
+  marked as proposed-here, not established.
+
+*** TWO VERIFIABLE MIS-CITATIONS — and the vault holds one of the cited papers ***
+  Franks et al. (2016) described as "investigated the repeatability of various metrics in ICE
+  HOCKEY". The vault holds it: NBA AND NHL, and the basketball half is LARGER (70 NBA metrics
+  vs 40 NHL). Drops the bigger half.
+  Brooks et al. (2016) twice described as BASEBALL PITCH-TYPE reliability. The reference list
+  gives "Developing a data-driven player ranking in SOCCER using predictive model weights",
+  SIGKDD. Wrong sport, wrong topic, and a claim in 4.1 attributed to it that it does not make.
+  FOURTH INSTANCE IN FIVE INGESTS, and the FIRST verifiable from both ends because the vault
+  holds the cited primary. `a-paper's-abstract-is-a-secondary-source-for-its-own-results`
+  GENERALISES: any characterisation of another work, anywhere in a paper, has the epistemic
+  status of a secondary description.
+
+*** METHODOLOGICAL CONCERN ABOUT THE HEADLINE RESULT ***
+  2.2: PassPct "was converted to a seasonal total by multiplying by 90-minute equivalents".
+  A PERCENTAGE times MINUTES is dimensionally odd and dominated by playing time, which is
+  strongly autocorrelated. Franks et al. warn about exactly this (MP inflates reliability
+  without adding signal; MP scores 0.96 on discrimination).
+  The paper anticipates it — ICC computed on per-90 rates to strip playing time. BUT the two
+  estimates then agree to THREE DECIMALS across essentially every row (0.824/0.823, 0.709/0.709).
+  If one is on a playing-time-inflated variable and the other on a clean rate, near-identity
+  across all 24 is unexplained. NOT a demonstrated error — flagged as unresolvable from the
+  text and affecting the headline claim. Analysis code is public and checkable.
+
+PAGES CREATED (3): wiki/summaries/year-to-year-metric-stability-football.md
+                   wiki/concepts/stability-decay.md
+                   wiki/entities/mohammad-arshan-shaikh.md
+PAGES UPDATED (8): metric-stability (correction), rare-event-proxy-targets (second leg + the
+  contamination/noise distinction), vdep (team vs player level), intent-vs-outcome-valuation
+  (first empirical support), empirical-bayes-shrinkage (age + decay tensions), reliability-layers
+  (stability row changed), overview (priority 1 restated again), index
+
+*** WHAT THIS SETTLES ABOUT THE ACQUISITION PROBLEM ***
+  Shaikh produced 24 stability estimates SOLE-AUTHORED, on FREE PUBLIC FBref data via Kaggle,
+  with NO FUNDING (declarations state this explicitly), no club partnership, no tracking access.
+  THE MEASUREMENT IS NOT BLOCKED BY DIFFICULTY, METHOD, EXPERTISE OR MONEY. It is blocked by
+  MULTI-SEASON TRACKING ACCESS. The vault should stop looking for a methodologically
+  sophisticated source and start looking for anyone with a multi-season commercial tracking
+  dataset. Recorded on mohammad-arshan-shaikh and the overview.
+
+TOOL NOTE: wrote `expected-goals` as a TAG when it is a PAGE — same error class as `spadl` two
+  ingests ago. Write-time lint caught it, and the fix needed str_replace_note on the frontmatter
+  line because update_frontmatter merges rather than replaces. Same for `player-rating` on
+  stability-decay. THE PATTERN: I reach for a plausible domain noun as a tag without checking
+  the taxonomy. check_links catches PAGE targets; only the write-time lint catches bad TAGS.
+

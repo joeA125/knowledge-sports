@@ -2,7 +2,7 @@
 title: "Rare-Event Proxy Targets"
 type: concept
 tags: [proxy-target, class-imbalance, machine-learning, statistics, evaluation, sports-analytics, defensive-valuation, predictive-validity, game-theory, reliability, event-stream-data]
-sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/stats_reliability_football_champdas.md]
+sources: [raw/papers/football_defence_evaluation.md, raw/papers/transformer-point-process-football-event-modelling.md, raw/papers/epv_control_and_duel_skills_football.md, raw/papers/optimal_football_decisions_shot_taking_situations.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/metric-stability-elite-football.md]
 confidence: 0.85
 provenance:
   extracted: 50%
@@ -80,6 +80,28 @@ Operator agreement on manual event coding is not uniform across event types:
 > ^[generated: no source connects coding-agreement figures to proxy selection. rests-on: source:gong-table5-defensive-cell, source:vdep-proxy-frequencies]
 
 ⚠️ **Not a refutation, and the direction of the net effect is unknown.** A typical error of 0.29 is still "small" on Hopkins' scale, and 90× more observations is a large gain against a modest per-observation cost. The point is that **the arithmetic has never been done**, and the trade has been presented as free.
+
+### ⚠️ The Second Leg: Those Events Are Also the Least Stable
+
+> **Added 2026-08-29** on ingest of [[year-to-year-metric-stability-football|Shaikh (2026)]], which measures a **different property at a different layer** and finds the same ordering.
+
+| Event group | Coding agreement (Gong) | Year-to-year stability (Shaikh) |
+|---|---|---|
+| Passing | **ICC 1.00, TE 0.01** | **$r = 0.824$** |
+| Attacking | ICC 0.99–1.00 | $r$ 0.52–0.73 |
+| **Defending** | **ICC 0.93–0.95, TE 0.24–0.29** | **$r$ 0.399–0.476** |
+
+Tackles won (0.414), blocks (0.399) and interceptions (0.476) are the three **least stable** combinations in a dataset of 8,207 player-season pairs — and, separately, the worst-coded cell in a reliability study that never looked at stability.
+
+> ### `defensive-actions-degrade-at-every-measurement-layer`
+> **Defensive event counts are simultaneously the hardest to code consistently and the least stable year to year. The difficulties are not independent — they compound in the metrics built on them.**
+> ^[generated: declared on [[year-to-year-metric-stability-football]]. rests-on: source:gong-table5-defensive-cell, source:shaikh-defensive-volume-low-stability]
+
+**So proxy substitution pays twice.** [[vdep|VDEP]] escapes goal sparsity by moving to ball recoveries — events 90× more frequent, harder to code, *and* far less repeatable across seasons.
+
+⚠️ **The third cost is the one that matters most, and it is not noise at all.** Shaikh's explanation for defensive instability is **team context**: a defender's tackle count depends on how often the team defends, how high the line sits, and whether teammates win the ball first. That is not error to be averaged away — **it is the metric measuring the team rather than the player**, which is a [[construct-validity]] problem rather than a reliability one.
+
+A proxy chosen for frequency can therefore be *systematically* contaminated rather than merely noisy, and no amount of additional data fixes it.^[generated: the distinction between noise and contamination in proxy selection is drawn here. rests-on: source:shaikh-defensive-team-context]
 
 It also predicts an ordering: among the proxies tabled above, **shot on target should be the cleanest** — a discrete, refereeable outcome — and **ball recovery the noisiest.** [[hpus|HPUS]] sits oddly, being built from possession dynamics rather than from any single coded event type.
 

@@ -27,17 +27,19 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **291** |
-| Concepts | 161 |
-| Entities | 72 |
-| Source summaries | **45** |
+| Total pages | **294** |
+| Concepts | 162 |
+| Entities | 73 |
+| Source summaries | **46** |
 | Open questions | 8 |
 | Syntheses | 1 (plus this page) |
 | Dashboards | 3 |
 
-**All 45 raw sources are ingested.** Mean page confidence 0.826; 163 pages `reviewed`, 121 `draft`, 3 `evergreen` (the dashboards).
+**All 46 raw sources are ingested.** Mean page confidence 0.825; 163 pages `reviewed`, 128 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29**, five times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]], [[gps-deceleration-reliability|Jones et al. (2024)]] and [[meta-analytics-sports-metrics|Franks et al. (2016)]]. Counts re-read from `vault_stats`, not recalled.
+> **Updated 2026-08-29**, six times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]], [[gps-deceleration-reliability|Jones et al. (2024)]], [[meta-analytics-sports-metrics|Franks et al. (2016)]] and [[year-to-year-metric-stability-football|Shaikh (2026)]]. Counts re-read from `vault_stats`, not recalled.
+>
+> **Four of the six were reliability sources**, arriving across three layers and three properties, and none closed the top priority.
 >
 > ✅ **Cross-page propagation caught up** in a dedicated run, 2026-08-29. The derivation-depth argument reached [[off-ball-value]]; the coding-noise finding reached [[vdep]] and [[rare-event-proxy-targets]] as a **fourth proxy criterion**; the expert-assent mode reached [[construct-validity]]; the attribute-level provider caution reached [[spadl]]; and the shifted prior reached [[within-season-variation-noise-or-signal]]. Residual backlog is itemised in the final `log.md` entry.
 
@@ -132,14 +134,18 @@ The RL and simulation line is fully held, and **the SNA gap that topped this lis
 > | Property | Held for football? |
 > |---|---|
 > | **Discrimination** — separates players within a season | ✅ xT (0.89), VAEP (0.25), **nothing else** |
-> | **Stability** — measures the same thing across seasons | ❌ **nothing, for any football metric** |
+> | **Stability** — measures the same thing across seasons | ⚠️ **24 FBref counting stats only** ([[year-to-year-metric-stability-football\|Shaikh 2026]]) — no value model, no tracking metric |
 > | **[[metric-independence\|Independence]]** — says anything the others do not | ❌ nothing; the vault had no word for it |
 >
 > This list said *"split-half or test–retest reliability"*, treating those as two ways of measuring one property. **They are two different properties.** Split-half estimates discrimination; test–retest estimates stability. So even xT — which [[recruitment]] prefers *because* it replicates — has no stability figure.
 >
-> **Four reliability papers arrived across three layers and none closed this.** See [[reliability-layers]] for both axes. The successive corrections all ran the same way: the gap was never mis-identified, only described too coarsely to be checked against an arriving source.
+> ⚠️ **And stability is not one number.** It decays with lag: all 24 measured combinations fall by a median $\Delta r = -0.097$ at two years, fastest for the least stable. See [[stability-decay]].
 >
-> ⚠️ **And the "outside the field" reading is now wrong.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote this framework *and* two of the vault's football value surfaces ([[expected-value-possession-framework|EPV]], [[wide-open-spaces-space-creation|Wide Open Spaces]]), reporting none of these properties for either. **The tools were never outside the field — they were outside the paper.**
+> **Five reliability papers have now arrived across three layers and none has closed this.** See [[reliability-layers]]. The corrections all ran the same way: the gap was never mis-identified, only described too coarsely to be checked against an arriving source.
+>
+> ⚠️ **And the "outside the field" reading is now wrong.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote the framework *and* two of the vault's football value surfaces ([[expected-value-possession-framework|EPV]], [[wide-open-spaces-space-creation|Wide Open Spaces]]), reporting none of these properties for either. **The tools were never outside the field — they were outside the paper.**
+>
+> ✅ **What is blocking it is data access, nothing else.** [[mohammad-arshan-shaikh|Shaikh (2026)]] produced 24 stability estimates **sole-authored, on free public FBref data, with no funding.** The method is not hard and the expertise is not scarce. **What the vault needs is anyone with multi-season tracking access** — a club, a provider, or a paper using a multi-season commercial dataset.
 
 ### 1a. Applications of the framework to football
 > **Added 2026-08-29.** The framework is held; what is missing is football numbers computed with it. Two candidates identified but **not yet acquired**:

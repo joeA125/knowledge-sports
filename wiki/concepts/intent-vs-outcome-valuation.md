@@ -1,8 +1,8 @@
 ---
 title: "Intent vs Outcome Valuation"
 type: concept
-tags: [sports-analytics, action-valuation, player-evaluation, evaluation, feature-engineering, interpretability, recruitment]
-sources: [raw/papers/football-performance-time-series.md, raw/papers/evaluating-football-player-actions.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md]
+tags: [sports-analytics, action-valuation, player-evaluation, evaluation, feature-engineering, interpretability, recruitment, reliability, statistics]
+sources: [raw/papers/football-performance-time-series.md, raw/papers/evaluating-football-player-actions.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/metric-stability-elite-football.md]
 confidence: 0.8
 provenance:
   extracted: 65%
@@ -10,7 +10,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-29
 ---
 
 # Intent vs Outcome Valuation
@@ -53,6 +53,35 @@ This connects to the vault's central measurement problem. [[split-half-reliabili
 An intent model should be structurally less exposed to that failure. Removing outcome features removes the strongest channel through which rare conversion events dominate a rating, leaving behind the more stable component — where players choose to act from and what they choose to attempt, which [[split-half-reliability|is known to be highly consistent]].
 
 > **Untested inference.** No source in this vault reports split-half reliability for I-VAEP. The prediction that intent ratings are more reliable than outcome ratings is a plausible consequence of two separate findings, not a measured result. It is a well-posed experiment that nobody in the vault's sources has run.
+
+### ✅ First Empirical Support, 2026-08-29
+
+> On ingest of [[year-to-year-metric-stability-football|Shaikh (2026)]], which measures year-to-year [[metric-stability|stability]] for 24 position-metric combinations across 8,207 player-season pairs.
+
+The ordering he finds among forwards runs **from what a player did to what resulted**:
+
+| | $r$ |
+|---|---|
+| Progressive carries / passes / passes into box | **0.707–0.733** |
+| Expected goals | 0.664 |
+| Non-penalty xG | 0.635 |
+| **Goals** | 0.593 |
+| **Assists** | **0.428** |
+
+Three separate comparisons, all in the predicted direction. xG beats goals — the standard finishing-luck argument. **Goals beat assists**, because an assist's realisation depends on a *teammate's* execution, putting it one step further from the acting player than a goal is.
+
+> ### `distance-from-the-actor-predicts-instability`
+> **The stability ordering tracks how many people's execution stands between a player's decision and the recorded outcome. Zero for a progressive carry, one for a goal, two for an assist. The intent/outcome partition is the special case of this at the boundary between the acting player and everything downstream.**
+> ^[generated: the paper reports the ordering and explains assists by teammate dependence, but does not generalise it into a distance principle. rests-on: source:shaikh-table2-fwd-ordering]
+
+⚠️ **This is support, not a test.** These are *different metrics*, not one metric computed with and without outcome features. The I-VAEP/O-VAEP experiment remains unrun, and it is still the clean version — same architecture, same data, one ablated feature group.
+
+⚠️ **And it measures stability, not the discrimination figure the original inference was about.** [[metric-stability|Those are different properties]]. The prediction happens to be supported on the axis that was not being predicted, which is weaker than it looks but harder to explain away than a null would have been.
+
+Two notes that strengthen the case for actually running it:
+
+- The gradient shows up at **season-to-season** scale, where [[recruitment]] operates. The original argument was about within-season replication.
+- [[expected-threat|xT]] sits at the pure-intent end of the table above and [[vaep|VAEP]] at the conflated end — so the vault's two most-compared metrics **already straddle this gradient**, and nobody has computed either metric's stability. See [[metric-stability]].
 
 ## Where Other Frameworks Sit
 

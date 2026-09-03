@@ -2,7 +2,7 @@
 title: "Empirical Bayes Shrinkage"
 type: concept
 tags: [statistics, reliability, evaluation, player-evaluation, model-selection, sports-analytics, hierarchical-model, uncertainty-quantification]
-sources: [raw/papers/understanding-sports-metric-statistical-properties.md]
+sources: [raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md]
 confidence: 0.8
 provenance:
   extracted: 54%
@@ -58,6 +58,27 @@ Shrinking toward a career average encodes a prior belief that **a player's true 
 Franks et al. are not wrong to use it — three-point shooting really is close to a fixed ability, which is why free-throw percentage scores 0.98 on stability. **The question is whether football's off-ball metrics are that kind of quantity**, and the vault's own material leans the other way: [[gps-deceleration-reliability|Jones et al.]] found an elite player cannot reproduce his own maximal braking a week later.
 
 **A metric measuring something genuinely volatile should not be shrunk**, and shrinking it will make it look better by every meta-metric while making it worse for the decision it serves.
+
+### ⚠️ Where the Assumption Fails Hardest Is Where Shrinkage Is Most Wanted
+
+> **Added 2026-08-29** on ingest of [[year-to-year-metric-stability-football|Shaikh (2026)]].
+
+Veterans (30+) are more stable than U23 players in **18 of 24** position-metric combinations, 15 at $p < 0.001$. Forwards' progressive passes run 0.621 for U23 against 0.825 for veterans; xG runs 0.643 against 0.809.
+
+**A career average is a well-estimated prior for a 32-year-old and a poor one for a 20-year-old** — because the young player's history is short *and* because he is genuinely still changing. Shrinking a U23 rating toward it suppresses developmental trajectory, which is the signal a scouting operation is specifically trying to read.
+
+> **The population where shrinkage would most improve the numbers is the population where it most destroys the meaning.** Squad-building attention concentrates on young players precisely because their futures are uncertain, and shrinkage answers that uncertainty by assuming it away.
+> ^[generated: the paper reports the age effect but does not connect it to shrinkage. rests-on: source:shaikh-fisher-z-age, claim:shrinkage-buys-reliability-by-assuming-the-answer]
+
+See [[player-development-curve]] and [[recruitment]].
+
+⚠️ **One qualification, from the same paper.** The age effect is **absent for defenders** — tackles, blocks, interceptions and clearances show no significant U23-versus-veteran difference. Shaikh's reading is that where team context dominates individual signal, there is nothing for age-related convergence to act on.
+
+So the caution above applies to *attacking and midfield* metrics. For defensive volume counts the prior is equally poor at every age, which is a different and worse problem: **shrinkage cannot help a metric whose instability is contextual rather than sampling-driven**, because the career average is contaminated too.^[generated: drawn from the null age result. rests-on: source:shaikh-def-age-null]
+
+### And the prior itself decays
+
+Shrinking toward a career average pulls toward seasons whose signal has already faded — see [[stability-decay]], where all 24 combinations lose a median $\Delta r = -0.097$ by the two-year horizon. **The two prescriptions point opposite ways** and nobody has reconciled them.
 
 ## Choosing the Prior Is Choosing What You Believe
 

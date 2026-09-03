@@ -1,8 +1,8 @@
 ---
 title: "Metric Stability"
 type: concept
-tags: [reliability, evaluation, statistics, player-evaluation, model-selection, sports-analytics, uncertainty-quantification, recruitment]
-sources: [raw/papers/understanding-sports-metric-statistical-properties.md]
+tags: [reliability, evaluation, statistics, player-evaluation, model-selection, sports-analytics, uncertainty-quantification, recruitment, event-stream-data]
+sources: [raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md]
 confidence: 0.8
 provenance:
   extracted: 52%
@@ -27,16 +27,41 @@ $$\mathcal{S}_m = \frac{\sigma^2_{PM}}{\sigma^2_{PM} + \sigma^2_{SM} + \sigma^2_
 
 From [[meta-analytics-sports-metrics|Franks et al. (2016)]]. If a metric never changes for a player, $\mathcal{S} = 1$; if within-player variation is as large as total variation, $\mathcal{S} = 0$.
 
-## ⚠️ No Football Metric in This Vault Has One
+## ⚠️ Football Now Has Stability Figures — But Not for Anything the Vault Values
 
-Not [[obso|OBSO]], not [[c-obso|C-OBSO]], not [[drso|DRSO]], not [[space-occupation-gain|SOG]] — and **not [[expected-threat|xT]] or [[vaep|VAEP]] either**, despite those two having [[metric-discrimination|discrimination]] figures.
+> **Corrected 2026-08-29**, one ingest after this page was written. It stated flatly that **"no football metric in this vault has a stability figure at all."** That is now false.
 
-This is the correction the Franks ingest forced. The vault's absence claim read *"split-half **or** test–retest reliability"*, as though those were two routes to one number. They are two different properties, and the vault holds **zero** of one of them.
+[[year-to-year-metric-stability-football|Shaikh (2026)]] reports year-to-year Pearson $r$ and ICC for **24 position-metric combinations** across 8,207 player-season pairs, five leagues, eight seasons.
 
-> **The gap is worst exactly where it is quietly assumed.** [[recruitment]] recommends xT over VAEP for season-long squad decisions on the grounds that it "replicates better" — citing $\rho = 0.89$, a **within-season** figure. Recruitment is a between-season decision. **The property the recommendation needs is the one nobody has measured.**
+| Tier | Metrics | $r$ |
+|---|---|---|
+| Very high | Pass completion % (MID, DEF) | **0.824** |
+| High | Progressive carries / passes / passes into box — **forwards** | 0.707–0.733 |
+| Moderate | xG 0.664, npxG 0.635, goals 0.593, SCA, key passes, GCA | 0.52–0.68 |
+| Low | **Assists 0.428**, interceptions 0.476, **tackles 0.414**, **blocks 0.399** | < 0.50 |
+
+**These are FBref counting statistics.** Not [[vaep|VAEP]], not [[expected-threat|xT]], and none of the six mechanisms on [[off-ball-value]]. `no-reliability-for-off-ball-metrics` survives its **thirteenth** ingest.
+
+The claim narrows rather than dies: *no **tracking-derived** football metric has a stability figure, and no **value model** of any kind has one.*
+
+### The process-to-outcome gradient
+
+Progression metrics (0.71–0.73) > xG (0.664) > goals (0.593) > assists (0.428). **The ordering runs from what a player did to what resulted** — the first empirical support for [[intent-vs-outcome-valuation]]'s untested proposal that withholding outcome information should raise reliability.
+
+### Defensive metrics are worst here too
+
+Tackles, blocks and interceptions occupy the bottom three. [[champdas-validity-reliability|Gong et al.]] independently find defensive actions the worst-coded cell at a **different layer** with a **different statistic**. See `defensive-actions-degrade-at-every-measurement-layer` on [[year-to-year-metric-stability-football]] and the second leg it supplies to [[rare-event-proxy-targets]].
+
+### Stability at one year is not stability
+
+All 24 combinations decay at two years, median $\Delta r = -0.097$, and the least stable decay fastest. See [[stability-decay]].
+
+> **The gap is worst exactly where it is quietly assumed.** [[recruitment]] recommends xT over VAEP for season-long squad decisions on the grounds that it "replicates better" — citing $\rho = 0.89$, a **within-season** figure. Recruitment is a between-season decision. **The property the recommendation needs is the one nobody has measured for either metric.**
 > ^[generated: no source notes the mismatch between the figure cited and the decision it supports. rests-on: source:vanroy-vaep-splithalf, claim:recruitment-prefers-xt]
 
 The recommendation may well survive — xT is a coarser, zone-based construct and plausibly steadier across seasons. But it currently rests on the wrong statistic.
+
+⚠️ **And [[year-to-year-metric-stability-football|Shaikh's]] results give a reason to doubt it.** xT is built from ball progression between zones, and progression metrics are among the *most* stable things measured — which supports the recommendation. But VAEP's largest components are shot and outcome-adjacent, and **outcome metrics are consistently the least stable.** The two metrics therefore sit at opposite ends of the one gradient that has been measured, which makes the recommendation plausible **and** makes the missing measurement more embarrassing, not less.^[generated: the mapping of xT and VAEP onto Shaikh's gradient is drawn here; neither metric appears in his data]
 
 ## Why It Is Not Merely Discrimination Measured Twice
 

@@ -39,6 +39,7 @@ A catalog of all wiki pages, organised by type.
 
 ### Network analysis of team structure
 - [[alexander-franks]] — first author of the metric-quality framework; the vault's only pure statistician, and a lead into the psychometrics literature
+- [[mohammad-arshan-shaikh]] — sole author of the vault's only football stability figures; evidence that the measurement is blocked by data access, not method
 - [[javier-lopez-pena]] · [[hugo-touchette]] — the 2010 World Cup pass-network paper; the vault's oldest football source, and its only primary source on this tradition
 
 ### Ratings and duels
@@ -192,10 +193,12 @@ Eight open investigations, grouped by who could answer them.
 - [[reliability-layers]] — **three** distinct layers (coding, instrument, metric), and within the metric layer **three properties**
 - [[metric-variance-components]] — the season/player/interaction/sampling decomposition all three properties are ratios of
 - [[metric-discrimination]] — does it separate players, or noise? What the vault's split-half figures actually measure
-- [[metric-stability]] — does it measure the same thing across seasons? **No football metric here has one**
+- [[metric-stability]] — does it measure the same thing across seasons? First football figures, 2026-08
+- [[stability-decay]] — stability is a property *at a lag*; all 24 measured combinations decay by two years
 - [[metric-independence]] — does it say anything the others do not? The question the vault had no word for
 - [[empirical-bayes-shrinkage]] — the only post-hoc route to a more reliable metric, and it assumes away the volatility question
 - [[meta-analytics-sports-metrics]] — Franks et al. (2016) — the framework; NBA and NHL, no football
+- [[year-to-year-metric-stability-football]] — Shaikh (2026) — the framework applied to football; FBref counting stats, no value model
 - [[champdas-validity-reliability]] — Gong et al. (2019) — operator/coding reliability
 - [[gps-deceleration-reliability]] — Jones et al. (2024) — GPS device and protocol reliability; derivation depth predicts reliability
 

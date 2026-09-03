@@ -2,7 +2,7 @@
 title: "VDEP (Valuing Defense by Estimating Probabilities)"
 type: concept
 tags: [sports-analytics, defensive-valuation, action-valuation, off-ball, proxy-target, gradient-boosting, optical-tracking-data, evaluation, class-imbalance, reliability]
-sources: [raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/stats_reliability_football_champdas.md]
+sources: [raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/stats_reliability_football_champdas.md, raw/papers/metric-stability-elite-football.md]
 confidence: 0.85
 provenance:
   extracted: 80%
@@ -81,6 +81,10 @@ The n_nearest result also revises what VDEP's off-ball state was buying. VDEP fe
 - ⚠️ **Its proxies sit in the noisiest coding cell.** **Added 2026-08-29.** Ball recovery is built from tackles, interceptions and clearances, and [[champdas-validity-reliability|Gong et al.]] measured inter-operator agreement on defending-and-goalkeeper actions at **ICC 0.93–0.95 with typical error 0.24–0.29**, against **1.00 and 0.01 for passing**. VDEP escaped the sparsity of goals by moving to events that are 90× more frequent and **measurably harder to code consistently**. See condition 4 on [[rare-event-proxy-targets]] and `proxy-substitution-trades-statistical-power-for-measurement-noise`.
 
   This is not a refutation — the errors are small on Hopkins' scale, the figures come from one match on a system none of the vault's sources use, and 90× more observations is a large gain against a modest per-observation cost. **The point is that the arithmetic has never been done.** It also bears on the $C$ parameter: a frequency ratio computed over event types with *different* coding reliability inherits that asymmetry, and neither VDEP's frequency-based $C$ nor [[gvdep|GVDEP's]] VAEP-scaled replacement accounts for it.^[generated: no source connects coding reliability to VDEP's target selection or weighting. rests-on: source:gong-table5-defensive-cell, source:vdep-proxy-frequencies]
+
+  ⚠️ **And the same events are the least stable year to year.** [[year-to-year-metric-stability-football|Shaikh (2026)]] finds tackles won ($r = 0.414$), blocks (0.399) and interceptions (0.476) the three least stable of 24 position-metric combinations, against 0.824 for pass completion. His explanation is **team context** — a defender's tackle count depends on how often his team defends and how high the line sits.
+  
+  That is the more serious version of the problem for VDEP specifically. VDEP is a **team-level** defensive model, so a target that measures team defensive posture is not obviously a contaminant. **But GVDEP extends the same machinery to individual player valuation**, and there the contamination is direct: the proxy carries team structure into a number reported against a player's name.^[generated: no source distinguishes the team-level and player-level cases here. rests-on: source:shaikh-defensive-team-context]
 
 ## Where It Sits
 
