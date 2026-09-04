@@ -4203,3 +4203,28 @@ TOOL/PROCESS NOTES:
   - vault_stats now shows 2 syntheses (was 1) — a page was reclassified synthesis at some earlier
     point; not this ingest. Flagging for a later audit, not chasing now.
 
+## [2026-09-04 09:52] correction | Synthesis count was never 1 — no reclassification; my Gregson-entry note and table edit were both wrong
+Correction to the note at the foot of the 2026-09-04 Gregson ingest entry, which read
+"vault_stats now shows 2 syntheses (was 1) — a page was reclassified synthesis at some earlier
+point". THAT NOTE WAS WRONG. No reclassification occurred.
+
+vault_stats has reported synthesis: 2 since at least 2026-08-14 — the overview rewrite entry of
+that date explicitly records "'concept', 'synthesis' and 'question' are declared but never
+applied, despite being valid types with 193, 2 and 8 pages respectively." The two synthesis-typed
+pages are wiki/overview.md (type: synthesis in its own frontmatter, since the 2026-08-14 rewrite)
+and wiki/syntheses/action-valuation-frameworks-compared.md. Confirmed by list_files (only the
+latter sits in wiki/syntheses/) plus search for `type: synthesis` (returns both, plus the
+_schema template).
+
+ROOT CAUSE OF MY ERROR: the overview's composition table phrases the count as "N (plus this
+page)", where "this page" is the overview itself — which IS one of the two synthesis-typed pages.
+I misread vault_stats' synthesis:2 as excluding the overview, concluded a page had newly become a
+synthesis, and — worse — edited the table to "2 (plus this page)", which double-counts the
+overview and implies three synthesis pages. There are two.
+
+FIXED: composition table now reads "Syntheses | 1 (plus this page, which is also type:
+synthesis)". One genuine synthesis in wiki/syntheses/, plus the overview. Total synthesis-typed =
+2, matching vault_stats.
+
+No audit needed; nothing drifted. This was a read-and-arithmetic error on my part, now closed.
+

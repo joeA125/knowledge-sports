@@ -32,7 +32,7 @@ A narrative map of what this vault holds and how it hangs together. The index is
 | Entities | 77 |
 | Source summaries | **48** |
 | Open questions | 8 |
-| Syntheses | 2 (plus this page) |
+| Syntheses | 1 (plus this page, which is also `type: synthesis`) |
 | Dashboards | 3 |
 
 **All 48 raw sources are ingested.** Mean page confidence 0.823; 163 pages `reviewed`, 139 `draft`, 3 `evergreen` (the dashboards).
