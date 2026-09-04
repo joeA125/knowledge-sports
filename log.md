@@ -4116,3 +4116,90 @@ TOOL NOTE: read_note is not needed for external repos — bash git clone against
   (it is in the allowed egress domains), and grep/pandas over the clone is far faster than
   fetching individual files through web_fetch.
 
+## [2026-09-04 08:46] ingest | Gregson et al. (2010) — the raw-signal noise floor (CV 16-31%); plus date correction and a new optical-validation priority
+DATE CORRECTION: Joe flagged that this thread has run over 5 days on one conversation, and that
+prior ingests were all mis-stamped 2026-08-29. Genuine date confirmed via bash `date`: today is
+FRIDAY 2026-09-04. So the reliability run (Lopez Pena -> Fujii -> Gong -> Jones -> Franks ->
+Shaikh -> Bischofberger -> ICC recovery -> this) spanned roughly a week, not one day. Prior
+frontmatter and log entries stamped 2026-08-29 are approximate to within that window; corrected
+from today onward. Overview carries a date-stamp caveat noting this. Not retroactively editing
+every 2026-08-29 stamp — that would be false precision in the other direction; the caveat is the
+honest record.
+
+SOURCE: raw/papers/match-level-variability-high-speed-actions-football.md
+"Match-to-Match Variability of High-Speed Activities in Premier League Soccer" — Gregson, Drust,
+Atkinson & Di Salvo. Int J Sports Med, accepted Jan 2010. Liverpool JMU + Rome Foro Italico.
+485 outfield players, 7,281 match observations, EPL 2003/04-2005/06, Prozone. 90-min completers only.
+
+Acquired after I flagged it two turns ago as the "missing zero point". SCOPE KEPT TIGHT
+deliberately: this is a supporting baseline, not a framework, and the reliability cluster is
+already dense. 3 concepts + 2 entities, no synthesis-level restructuring.
+
+WHAT IT IS: the RAW-SIGNAL NOISE FLOOR. Not a value metric, not a closer for priority 1. It
+measures how variable a DIRECTLY-TRACKED physical quantity is match-to-match, by CV:
+  THSR 17.7% | HSR 16.2% | TSD 30.8% | HSRP 30.6% | HSRWP 23.5% | sprint number 30.0%
+  Short-term (8 weeks, n=37): all HIGHER, so time-of-season is a small contributor.
+
+THREE FINDINGS FOR THE VAULT:
+  1. RAW SIGNAL IS ALREADY NOISY (16% best case). NEW CLAIM
+     `the-noise-floor-is-set-by-the-match-not-the-instrument`: Jones' 1.4% (lab-like maximal
+     capacity) vs Gregson's 16-31% (match play) is an order of magnitude, and the gap is the
+     MATCH not the instrument. Every value metric inherits the match-play floor. Completes the
+     progression: physical capacity (Jones, 1.4%) -> physical output (Gregson, 16-31%) ->
+     off-ball value metric (recovered Bischofberger, ICC 0.34-0.66).
+  2. VARIABILITY HIGHER FOR CENTRAL PLAYERS. Third independent appearance of a position effect
+     on consistency (after recovered-Bischofberger discrimination and Shaikh stability), and
+     this one acts on the RAW SIGNAL — a distinct mechanism from position-as-construct, and it
+     stacks with it.
+  3. VARIABILITY HIGHER IN POSSESSION (~30.6%) THAN OUT (~23.5%). Propagated to off-ball-value:
+     the attacking off-ball metrics (OBSO/C-OBSO/SOG) sit on the NOISIER half; Bischofberger's
+     defensive metrics on the QUIETER half. Cuts against the vault-wide intuition that defensive
+     valuation is the flimsier problem — defensive is harder to ANCHOR, attacking off-ball is
+     noisier at the INPUT.
+
+SAMPLE-SIZE POINT (the paper's actual purpose): at CV 20%, detecting a 10% effect needs ~80
+players; an individual's THSR must improve ~64% to be distinguishable from noise at 95%. Direct
+quantified warning to recruitment/player-development that single-match physical observations are
+close to uninformative.
+
+ABSTRACT CHECK (now standing practice after 4 mis-citation findings): headline figures verified
+against Tables 2-3 and MATCH. One tension: abstract says variability "lower for wide midfielders
+and attackers" as if uniform, but Table 3 shows attackers are the MOST variable for
+out-of-possession running (HSRWP 29.2%). Abstract flattens the possession split.
+
+PAGES CREATED (5):
+  wiki/summaries/match-to-match-variability-high-speed.md
+  wiki/concepts/match-to-match-variability.md — NEW CLAIM `one-property-four-vocabularies`:
+    psychometrics (reliability), meta-analytics (stability/discrimination), sports science
+    (match-to-match variability / CV), and performance rating (volatility) study one family of
+    questions in four registers with non-intersecting citation graphs. Now a STANDING SEARCH
+    HEURISTIC: query all four registers before concluding a gap. Has cost the vault twice.
+  wiki/concepts/coefficient-of-variation.md — NEW CLAIM `cv-is-within-unit-and-icc-is-between-unit`:
+    CV measures dispersion of one unit around its own mean and does NOT partition into signal vs
+    noise; a metric can have high CV and high ICC at once. So Gregson's CVs and Bischofberger's
+    ICCs CANNOT be placed on one axis. Also: CV inflates as the mean -> 0, so rare-event metrics
+    look catastrophic partly by arithmetic (caution for rare-event-proxy-targets).
+  wiki/entities/warren-gregson.md, wiki/entities/valter-di-salvo.md
+
+PAGES UPDATED (4): reliability-layers (noise-floor section + Layer-2 optical hole; also MERGED a
+  duplicate three-layer table I accidentally created mid-edit), off-ball-value (possession-regime
+  point), index, overview (counts 305; acquisition list; date caveat; hub table)
+
+*** NEW ACQUISITION PRIORITY SURFACED: OPTICAL-TRACKING VALIDATION ***
+  reliability-layers Layer 2 (instrument) is held for GPS wearables (Jones) and manual event
+  coding (Gong) but NOT for semi-automatic OPTICAL tracking — which is what C-OBSO, DRSO and the
+  Barcelona line actually run on. Lead: Di Salvo, Collins, McNeill & Cardinale (2006),
+  "Validation of Prozone", cited here. This is a genuine hole: the vault has many consumers of
+  optical tracking and zero validations of it. Added to overview priority 1a.
+  Companion paper Di Salvo et al. (2009) holds the activity LEVELS to this paper's VARIABILITY.
+
+TOOL/PROCESS NOTES:
+  - Two tag-as-wikilink errors caught (physical-performance, then volatility) — both are tags or
+    neither-tag-nor-page. Same recurring class. `physical-performance` is NOT in the taxonomy at
+    all; used `volatility` as the tag instead. check_links catches page targets; write-time lint
+    catches bad tags; I keep reaching for plausible nouns without checking first.
+  - Accidentally inserted a duplicate three-layer table on reliability-layers via str_replace,
+    caught it on re-read, merged. Re-viewing before the next edit is what caught it.
+  - vault_stats now shows 2 syntheses (was 1) — a page was reclassified synthesis at some earlier
+    point; not this ingest. Flagging for a later audit, not chasing now.
+

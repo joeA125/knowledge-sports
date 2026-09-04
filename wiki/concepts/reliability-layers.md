@@ -2,7 +2,7 @@
 title: "Layers of Reliability"
 type: concept
 tags: [reliability, evaluation, statistics, sports-analytics, player-evaluation, event-stream-data, optical-tracking-data, model-selection, construct-validity, off-ball]
-sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md, raw/papers/off-ball-defensive-performance-football.md]
+sources: [raw/papers/stats_reliability_football_champdas.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/on-ball-actions-football-xt-vs-vaep.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/metric-stability-elite-football.md, raw/papers/off-ball-defensive-performance-football.md, raw/papers/match-level-variability-high-speed-actions-football.md]
 confidence: 0.8
 provenance:
   extracted: 46%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 1%
 lifecycle: draft
 created: 2026-08-29
-updated: 2026-08-29
+updated: 2026-09-04
 ---
 
 # Layers of Reliability
@@ -20,6 +20,25 @@ updated: 2026-08-29
 **"Reliability" in football analytics names at least three different things**, measured with different statistics, failing for different reasons, and fixable by different means. The vault treated it as one quantity until 2026-08-29, when two sources arriving in succession forced the distinction.
 
 ## The Three Layers
+
+⚠️ **Layer 2 has a hole: optical tracking.** [[gps-deceleration-reliability|Jones et al.]] validated a *GPS wearable*. **No held source validates a semi-automatic optical tracking system** — the technology the vault's core football sources actually run on. The lead is Di Salvo et al. (2006), cited in [[match-to-match-variability-high-speed|Gregson et al.]]; see [[valter-di-salvo]].
+
+## The Noise Floor: How Variable Is the Raw Signal
+
+**Added 2026-09-04** on ingest of [[match-to-match-variability-high-speed|Gregson et al. (2010)]]. Before any of the three layers below, there is the question of how noisy the *tracked quantity itself* is, match to match, for one player.
+
+| Regime | Raw-quantity variability | Source |
+|---|---|---|
+| Physical capacity, lab-like control | Peak velocity **CV 1.4%** | [[gps-deceleration-reliability\|Jones et al.]] |
+| Physical output, competitive match play | **CV 16–31%** | [[match-to-match-variability-high-speed\|Gregson et al.]] |
+
+> ### `the-noise-floor-is-set-by-the-match-not-the-instrument`
+> **The same physical quantity varies 1.4% in a standardised maximal test and 16–31% in competitive play. The order-of-magnitude gap is not measurement error — it is the match itself: tactics, opposition, possession and self-pacing. Every value metric is computed on match-play quantities, so it inherits the match-play floor, not the laboratory one.**
+> ^[generated: drawn across Jones and Gregson; neither cites the other. rests-on: source:gregson-cv-table, source:jones-vmax-cv]
+
+This is why the [[off-ball-defensive-performance-blame|recovered off-ball ICCs]] of 0.34–0.66 should not have been surprising: the raw signal underneath them already carries 16%+ variability, and the metrics stack modelling on top. **A value metric more stable than ~16% would require its aggregation to cancel more noise than it adds** — possible, but not the default expectation. See [[match-to-match-variability]] and [[coefficient-of-variation]] for why CV and ICC are not directly comparable despite both appearing here.
+
+## The Three Layers, in Full
 
 | | **1. Coding** | **2. Instrument & protocol** | **3. Metric** |
 |---|---|---|---|

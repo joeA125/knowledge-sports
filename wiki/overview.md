@@ -12,7 +12,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-04-22
-updated: 2026-08-29
+updated: 2026-09-04
 ---
 
 # Knowledge Base Overview
@@ -27,19 +27,19 @@ A narrative map of what this vault holds and how it hangs together. The index is
 
 | | Count |
 |---|---|
-| Total pages | **300** |
-| Concepts | 165 |
-| Entities | 75 |
-| Source summaries | **47** |
+| Total pages | **305** |
+| Concepts | 167 |
+| Entities | 77 |
+| Source summaries | **48** |
 | Open questions | 8 |
-| Syntheses | 1 (plus this page) |
+| Syntheses | 2 (plus this page) |
 | Dashboards | 3 |
 
-**All 47 raw sources are ingested.** Mean page confidence 0.824; 163 pages `reviewed`, 134 `draft`, 3 `evergreen` (the dashboards).
+**All 48 raw sources are ingested.** Mean page confidence 0.823; 163 pages `reviewed`, 139 `draft`, 3 `evergreen` (the dashboards).
 
-> **Updated 2026-08-29**, seven times in one session — [[network-theory-football-strategies|López Peña & Touchette (2012)]], [[data-driven-team-sports-behaviors|Fujii (2021)]], [[champdas-validity-reliability|Gong et al. (2019)]], [[gps-deceleration-reliability|Jones et al. (2024)]], [[meta-analytics-sports-metrics|Franks et al. (2016)]], [[year-to-year-metric-stability-football|Shaikh (2026)]] and [[off-ball-defensive-performance-blame|Bischofberger et al. (2026)]]. Counts re-read from `vault_stats`, not recalled.
+> **Updated across an extended reliability-focused stretch, late Aug – 4 Sep 2026.** Eight sources ingested over this run, six of them on measurement reliability: [[network-theory-football-strategies|López Peña & Touchette]], [[data-driven-team-sports-behaviors|Fujii]], [[champdas-validity-reliability|Gong et al.]], [[gps-deceleration-reliability|Jones et al.]], [[meta-analytics-sports-metrics|Franks et al.]], [[year-to-year-metric-stability-football|Shaikh]], [[off-ball-defensive-performance-blame|Bischofberger et al.]] and [[match-to-match-variability-high-speed|Gregson et al.]].
 >
-> **Five of the seven were reliability sources.** Four arrived across three layers without closing the top priority; the fifth substantially closed it.
+> ⚠️ **Date-stamp caveat.** Many pages touched in this stretch carry `updated: 2026-08-29` because the run was mistakenly treated as a single day; it in fact spanned ~1 week. Frontmatter dates from that window are approximate to within that span. Corrected from 2026-09-04 onward. Counts re-read from `vault_stats`.
 >
 > ✅ **Cross-page propagation caught up** in a dedicated run, 2026-08-29. The derivation-depth argument reached [[off-ball-value]]; the coding-noise finding reached [[vdep]] and [[rare-event-proxy-targets]] as a **fourth proxy criterion**; the expert-assent mode reached [[construct-validity]]; the attribute-level provider caution reached [[spadl]]; and the shifted prior reached [[within-season-variation-noise-or-signal]]. Residual backlog is itemised in the final `log.md` entry.
 
@@ -79,14 +79,14 @@ By inbound wikilink count, not by memory:
 
 | Page | Inbound |
 |---|---|
-| [[vaep]] | 83 |
-| [[c-obso]] | 81 |
+| [[vaep]] | 84 |
+| [[c-obso]] | 82 |
 | [[action-valuation-frameworks-compared]] | 71 |
 | [[keisuke-fujii]] | 66 |
+| [[off-ball-value]] | 65 |
 | [[action-valuation]] | 65 |
-| [[expected-threat]] | 63 |
-| [[off-ball-value]] | 63 |
-| [[split-half-reliability]] | 62 |
+| [[expected-threat]] | 64 |
+| [[split-half-reliability]] | 64 |
 | [[nmstpp]] | 58 |
 | [[vdep]] | 55 |
 
@@ -153,8 +153,10 @@ This list originally said *"split-half or test–retest reliability"*, treating 
 ⚠️ **The "outside the field" reading remains wrong.** [[daniel-cervone|Cervone]] and [[luke-bornn|Bornn]] co-wrote the framework *and* two of the vault's football value surfaces, reporting none of these properties for either.
 
 ### 1a. What is still worth acquiring here
-- ⚠️ **Frauen-Bundesliga and 3. Liga data from the DFB** — the only route to $r_{Repeat}$ and to reproducing Bischofberger et al.'s published composite. **This is now the top item, and it is an acquisition rather than a computation.**
-- **Gregson, Drust, Atkinson & Di Salvo (2010)**, match-to-match variability of high-speed activities, 485 Premier League players over three seasons — **not a closer but the missing zero point**: how noisy is a tracking-derived quantity *before* transformation. Also finds variability higher for central players, and higher in possession (~30%) than out of it (~23%)
+- ⚠️ **Frauen-Bundesliga and 3. Liga data from the DFB** — the only route to $r_{Repeat}$ and to reproducing Bischofberger et al.'s published composite. An acquisition, not a computation.
+- ⚠️ **A validation study for a semi-automatic optical tracking system** — **newly surfaced 2026-09-04.** [[reliability-layers|The instrument layer]] is held for GPS wearables (Jones et al.) and for manual event coding (Gong et al.) but **not for optical tracking**, which is what C-OBSO, DRSO and the Barcelona line actually run on. Lead: **Di Salvo, Collins, McNeill & Cardinale (2006)**, *Validation of Prozone*, cited in [[match-to-match-variability-high-speed|Gregson et al.]]. See [[valter-di-salvo]].
+- **Di Salvo, Gregson, Atkinson, Tordoff & Drust (2009)**, *Analysis of high intensity activity in Premier League soccer* — the companion holding the activity *levels* to Gregson (2010)'s *variability*; together they give both halves of the physical-output picture
+- **Gregson et al. (2010)** is now held — **the raw-signal noise floor.** Not a closer for priority 1 but the baseline that makes the derivation-depth argument quantitative: high-speed running varies 16–31% match to match before any modelling
 - **Bush et al. (2015)**, extending that design to **technical** as well as physical variability
 - **Swartz et al.**, *Evaluation of Off-the-Ball Actions in Soccer* — even/odd week split on a tracking-derived defensive anticipation metric
 - **Franks, Miller, Bornn & Goldsberry (2015)**, *Counterpoints* — a tracking-derived defensive metric by the author who then wrote the framework

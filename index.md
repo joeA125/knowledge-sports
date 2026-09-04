@@ -40,6 +40,7 @@ A catalog of all wiki pages, organised by type.
 ### Network analysis of team structure
 - [[defensive-pressure-area]] · [[role-conditioned-baseline]] — geometric attribution of pass value to defenders, and the role-based expectation that corrects it
 - [[jonas-bischofberger]] · [[arnold-baca]] — the Vienna group; the first football source to report meta-metrics for tracking-derived off-ball metrics
+- [[warren-gregson]] · [[valter-di-salvo]] — the Liverpool JMU / Prozone sports-science line; the raw-signal noise floor, and the lead to an optical-tracking validation study
 - [[alexander-franks]] — first author of the metric-quality framework; the vault's only pure statistician, and a lead into the psychometrics literature
 - [[mohammad-arshan-shaikh]] — sole author of the vault's only football stability figures; evidence that the measurement is blocked by data access, not method
 - [[javier-lopez-pena]] · [[hugo-touchette]] — the 2010 World Cup pass-network paper; the vault's oldest football source, and its only primary source on this tradition
@@ -205,6 +206,8 @@ Eight open investigations, grouped by who could answer them.
 - [[off-ball-defensive-performance-blame]] — Bischofberger et al. (2026) — **the framework applied to tracking-derived off-ball metrics**; the closest thing to the vault's top priority
 - [[champdas-validity-reliability]] — Gong et al. (2019) — operator/coding reliability
 - [[gps-deceleration-reliability]] — Jones et al. (2024) — GPS device and protocol reliability; derivation depth predicts reliability
+- [[match-to-match-variability-high-speed]] — Gregson et al. (2010) — the raw-signal noise floor: high-speed running varies 16–31% match to match
+- [[match-to-match-variability]] · [[coefficient-of-variation]] — the sports-science register for metric consistency, and why CV is not an ICC
 
 ### Field surveys
 - [[data-driven-team-sports-behaviors]] — Fujii (2021), sole-authored survey — the group's own map of the field, written before eight of the nine Fujii-group sources held here

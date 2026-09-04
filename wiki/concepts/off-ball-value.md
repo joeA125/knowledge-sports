@@ -2,7 +2,7 @@
 title: "Off-Ball Value"
 type: concept
 tags: [off-ball, space-creation, sports-analytics, action-valuation, defensive-valuation, player-evaluation, optical-tracking-data, probability-surface, pitch-control, counterfactual, reinforcement-learning, multi-agent, construct-validity, evaluation, reliability]
-sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/off-ball-defensive-performance-football.md]
+sources: [raw/papers/wide_open_spaces_creation_football.md, raw/papers/expected_value_possession_framework.md, raw/papers/football_defence_evaluation.md, raw/papers/defensive_player_location_analysis.md, raw/papers/team_defense_positioning_statsbomb.md, raw/papers/evaluation_creating_scoring_opportunities_trajectory_prediction.md, raw/papers/beyond_expected_goals.md, raw/papers/action_valuation_football_agentic_reinforcement_learning.md, raw/papers/test_retest_reliability_soccer_positioning_and_movement.md, raw/papers/understanding-sports-metric-statistical-properties.md, raw/papers/off-ball-defensive-performance-football.md, raw/papers/match-level-variability-high-speed-actions-football.md]
 confidence: 0.85
 provenance:
   extracted: 60%
@@ -12,7 +12,7 @@ provenance:
   ambiguous: 5%
 lifecycle: reviewed
 created: 2026-07-27
-updated: 2026-08-29
+updated: 2026-09-04
 ---
 
 # Off-Ball Value
@@ -176,6 +176,19 @@ Computed in-vault from their committed World Cup data — **not figures they pub
 That does not settle the disagreement — [[c-obso|C-OBSO]] and the RL Q-values are different constructs from these, on different data — but it makes the **instability reading substantially more plausible than the vault has been treating it**, and it is the first evidence on that question rather than an inference.^[generated: the transfer from these metrics to C-OBSO is an inference across constructs and datasets, not a measurement of either]
 
 ⚠️ **Caveats apply**: World Cup only, median three matches per unit, and a blunter role correction than the authors use. See the source page.
+
+### ⚠️ The Attacking Metrics Sit on the Noisier Half of the Game
+
+> **Added 2026-09-04** on ingest of [[match-to-match-variability-high-speed|Gregson et al. (2010)]].
+
+High-speed running is **~30.6% match-to-match CV in possession** against **~23.5% out of possession** — the raw physical signal is noticeably noisier when a team has the ball.
+
+Every mechanism on this page except the defensive ones is computed during **possession phases**. [[obso|OBSO]], [[c-obso|C-OBSO]], [[space-occupation-gain|SOG]] and the off-ball attacking value they estimate all live in the ~30% regime; [[off-ball-defensive-performance-blame|Bischofberger's]] defensive metrics live in the ~23% regime.
+
+> **This cuts against an intuition visible across the vault — that defensive valuation is the flimsier, harder problem.** On the raw-signal evidence the *attacking* off-ball metrics are built on the more variable substrate. Defensive valuation is harder to *anchor* (no ground truth, role-dependence), but attacking off-ball value is noisier at the *input*.
+> ^[generated: drawn across Gregson's possession split and the off-ball corpus; no source makes this comparison. rests-on: source:gregson-possession-split]
+
+It does not overturn the [[reliability-layers|noise-floor]] point — both regimes are well above the ~1.4% of a controlled test — but it predicts that, all else equal, an in-possession off-ball metric should be *harder* to make reliable than an out-of-possession one, and the recovered ICCs are not yet fine-grained enough to test that.
 
 **It also supplies a candidate reading of the ρ = 0.182 disagreement above.** C-OBSO is the deepest mechanism here and the Q-values among the shallowest. The paper's explanation — different position groups — and an instability explanation are not exclusive, and **the reliability measurement would separate them.** One number, and it settles which.^[generated: neither reading is proposed by any source]
 
